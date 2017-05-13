@@ -54,11 +54,10 @@
 		</span>
 	</p>
 	
-	<form id="usernameForm" onsubmit="beIntroduced(); return false;" style="display: inline;">
+	<form id="usernameForm" onsubmit="beIntroduced();return false;">
 		<p>Let's get acquainted. What's 
-		<label for="username" style="display: inline;">your name?</label>
-		<input id="usernameInput" name="username" minlength="1" maxlength="100" type="text" style="display: inline;"/>
-		<button type="button" onclick="beIntroduced()">Introduce yourself</button></p>
+		<label for="username">your name?</label>
+		<input id="usernameInput" name="username" pattern=".{1,20}" required title="Please enter a name 1 to 20 characters long" type="text"/>
 	</form>
 	
 </body>
