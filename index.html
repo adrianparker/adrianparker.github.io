@@ -34,10 +34,8 @@
 		}
 	};
 	function setClassInnerHTML(className, html){
-		console.debug('setClassInnerHTML');
 		var elements = document.getElementsByClassName(className);
 		for(var i=0; i<elements.length; i++){
-			console.debug('setClassInnerHTML loop');
 			elements[i].innerHTML = html;
 		}
 	};
