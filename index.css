@@ -1,0 +1,10 @@
+/* links look the same all the time */
+a, a:visited, a:hover, a:active {
+  color: blue;
+}
+/* these classes are hidden by default */
+.auth,
+.repeatVisitor,
+.confirmedIdentity {
+    display: none;
+}

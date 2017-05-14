@@ -1,62 +1,41 @@
 <html>
 <head>
-<title>Adrian Parker</title>
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<script type="text/javascript">
-	function sayHi(){
-		console.log("If you're looking for me, give me a call on +6421914270");
-		if(localStorage.getItem('username')!=null && localStorage.getItem('username').length>0){
-			revealClass('repeatVisitor');
-			makeIntroductions();
-		}
-	};
-	function beIntroduced(){
-		localStorage.setItem('username', document.getElementById("usernameInput").value);
-		makeIntroductions();
-	};
-	function makeIntroductions(){
-		var username = localStorage.getItem('username') || 'Stranger';
-		console.log("Well hey there, "+username);
-		setClassInnerHTML('username',' '+username);
-		document.getElementById('usernameForm').style.display = 'none';	
-		revealClass('auth');
-	};
-	function reset() {
-		localStorage.clear();
-		window.location.reload();
-	}
-	//--- utility functions
-	function revealClass(className){
-		var elements = document.getElementsByClassName(className);
-		for(var i=0; i<elements.length; i++){
-			elements[i].style.display = 'inline';
-		}
-	};
-	function setClassInnerHTML(className, html){
-		var elements = document.getElementsByClassName(className);
-		for(var i=0; i<elements.length; i++){
-			elements[i].innerHTML = html;
-		}
-	};
-	
-</script>
+	<title>Adrian Parker's website</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="index.css">
+	<script type="text/javascript" src="js/index.js" ></script>
 </head>
 <body onload="sayHi()">
 	<h1>Hello, I'm Adrian</h1>
 	<p>
-		Welcome<span class="repeatVisitor" style="display: none;"> back</span>
-		to my website<span class="auth username" style="display: none;"></span>.
-		<span class="auth" style="display: none;">&nbsp;
-			<button type="button" onclick="reset()">I&apos;m not<span class="auth username" style="display: none;"/></button>
+		Welcome<span class="repeatVisitor"> back</span>
+		to my website<span class="auth username"></span>.
+		<span class="auth">&nbsp;
+			<button type="button" onclick="reset()">I&apos;m not<span class="auth username"/></button>
 		</span>
 	</p>
 	
 	<form id="usernameForm" onsubmit="beIntroduced();return false;">
 		<p>Let's get acquainted. What's 
 		<label for="username">your name?</label>
-		<input id="usernameInput" name="username" pattern=".{1,20}" required title="Please enter a name 1 to 20 characters long" type="text"/>
+		<input id="usernameInput" name="username" pattern=".{1,20}" required title="Please enter your name, up to 20 characters" type="text"/>
 	</form>
 	
+	<p id="identityQuestion" class="auth">
+		Have you got the right Adrian Parker?<br>
+		<br>
+		You might be looking for the <a href="http://psy.gu.se/english/staff/?languageId=100001&userId=xparad">Swedish parapsychologist Adrian Parker</a>, a researcher into altered states of conciousness?<br>
+		Or perhaps the <a href="https://en.wikipedia.org/wiki/Adrian_Parker">British Olympic gold pentathlete Adrian Parker</a>?<br>
+		Or the <a href="https://twitter.com/adriandparker?lang=en">internet marketing Adrian Parker</a>, currently selling <a href="https://en.wikipedia.org/wiki/Patrón">premium Tequila</a> to the masses? (still waiting for my free sample btw)<br> 
+		There's hundreds of us. LinkedIn has a <a href="https://www.linkedin.com/search/results/index/?keywords=adrian%20parker" >handy list of Adrian Parkers</a>, I'm the one in Wellington, near the top.<br>
+		<br>
+		Still, I wouldn't want to waste your time any further, so just to check - am I the Adrian Parker you seek? <button type="button" onclick="confirmIdentity()">Yes</button><button type="button" onclick="reset()">No</button>
+	</p>
+
+	<p class="confirmedIdentity">
+		Well, OK then. Hey that's cool you have some interest in me.<br>
+		I guess I should tell you something about myself, just in case you're not up to date.
+	</p>
 </body>
 </html>
