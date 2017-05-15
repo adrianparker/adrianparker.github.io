@@ -1,5 +1,6 @@
 {
     "devel": true,
     "browser": true,
-    "esversion": 6
+    "esversion": 6,
+    "-W097": false
 }
