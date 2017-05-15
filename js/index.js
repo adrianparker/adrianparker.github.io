@@ -2,7 +2,8 @@
 
 function sayHi() {
     noscript();
-    if (localStorage.getItem('username') != null && localStorage.getItem('username').length > 0) {
+    if (localStorage.getItem('username') !== null && localStorage.getItem('username').length > 0) {
+        concealID('usernameForm');
         revealClass('repeatVisitor');
         revealClass('username');
         confirmIdentity();
