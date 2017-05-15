@@ -1,22 +1,20 @@
 "use strict";
 
 function sayHi() {
-    console.log("If you're looking for me, give me a call on +6421914270");
     if (localStorage.getItem('username') != null && localStorage.getItem('username').length > 0) {
         revealClass('repeatVisitor');
-        makeIntroductions();
+        confirmIdentity();
     }
 };
 function beIntroduced() {
     localStorage.setItem('username', document.getElementById("usernameInput").value);
     makeIntroductions();
+    revealClass('auth');
 };
 function makeIntroductions() {
     var username = localStorage.getItem('username') || 'Stranger';
-    console.log("Well hey there, " + username);
     setClassInnerHTML('username', ' ' + username);
-    document.getElementById('usernameForm').style.display = 'none';
-    revealClass('auth');
+    concealID('usernameForm');
 };
 function confirmIdentity() {
     concealID('identityQuestion');
