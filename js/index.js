@@ -4,25 +4,23 @@ function sayHi() {
     noscript();
     var usernameFromLocalStorage = localStorage.getItem('username');
     if (usernameFromLocalStorage !== null && usernameFromLocalStorage.length > 0) {
-        concealID('usernameForm');
-        revealClass('repeatVisitor');
         setUsername(usernameFromLocalStorage);
+        revealClass('repeatVisitor');
         revealClass('username');
         confirmIdentity();
     }
 }
 function beIntroduced() {
-    setUsername(document.getElementById("usernameInput").value);
+    localStorage.setItem('username', document.getElementById("usernameInput").value);
     makeIntroductions();
     revealClass('auth');
 }
 function setUsername(username){
-    localStorage.setItem('username', username);
-}
-function makeIntroductions() {
-    var username = localStorage.getItem('username') || 'Stranger';
     setClassInnerHTML('username', ' ' + username);
     concealID('usernameForm');
+}
+function makeIntroductions() {
+    setUsername(localStorage.getItem('username') || 'Stranger');
 }
 function confirmIdentity() {
     concealID('identityQuestion');
