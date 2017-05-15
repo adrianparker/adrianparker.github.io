@@ -6,8 +6,9 @@ function sayHi() {
     if (usernameFromLocalStorage !== null && usernameFromLocalStorage.length > 0) {
         setUsername(usernameFromLocalStorage);
         revealClass('repeatVisitor');
-        revealClass('username');
         confirmIdentity();
+    } else {
+        concealClass('usernameSet');
     }
 }
 function beIntroduced() {
@@ -16,13 +17,15 @@ function beIntroduced() {
     revealClass('auth');
 }
 function setUsername(username){
-    setClassInnerHTML('username', ' ' + username);
+    setClassInnerHTML('usernameDisplay', ' ' + username);
     concealID('usernameForm');
+    revealClass('usernameSet');
 }
 function makeIntroductions() {
     setUsername(localStorage.getItem('username') || 'Stranger');
 }
 function confirmIdentity() {
+    concealClass('auth');
     concealID('identityQuestion');
     revealClass('confirmedIdentity');
 }
