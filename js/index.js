@@ -4,6 +4,7 @@ function sayHi() {
     noscript();
     if (localStorage.getItem('username') != null && localStorage.getItem('username').length > 0) {
         revealClass('repeatVisitor');
+        revealClass('username');
         confirmIdentity();
     }
 }
