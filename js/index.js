@@ -2,17 +2,22 @@
 
 function sayHi() {
     noscript();
-    if (localStorage.getItem('username') !== null && localStorage.getItem('username').length > 0) {
+    var usernameFromLocalStorage = localStorage.getItem('username');
+    if (usernameFromLocalStorage !== null && usernameFromLocalStorage.length > 0) {
         concealID('usernameForm');
         revealClass('repeatVisitor');
+        setUsername(usernameFromLocalStorage);
         revealClass('username');
         confirmIdentity();
     }
 }
 function beIntroduced() {
-    localStorage.setItem('username', document.getElementById("usernameInput").value);
+    setUsername(document.getElementById("usernameInput").value);
     makeIntroductions();
     revealClass('auth');
+}
+function setUsername(username){
+    localStorage.setItem('username', username);
 }
 function makeIntroductions() {
     var username = localStorage.getItem('username') || 'Stranger';
