@@ -2,10 +2,13 @@
 <html>
 <head>
 	<title>Adrian Parker's website</title>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="index.css">
-	<script type="text/javascript" src="js/index.js" ></script>
+
+	<script src="js/index.js" type="text/javascript"></script>
 </head>
 <body onload="sayHi()">
 	<h1>Hello, I'm Adrian</h1>
@@ -16,7 +19,7 @@
 			<button type="button" onclick="reset()">I&apos;m not<span class="auth username"/></button>
 		</span>
 	</p>
-	
+
 	<form id="usernameForm" onsubmit="beIntroduced();return false;">
 		<p>Let's get acquainted. What's 
 		<label for="username">your name?</label>
@@ -50,12 +53,15 @@
 				<li>I like to make <a href="#">videos</a>, most of which are terrible I should add,</li>
 				<li>I tinker with <a href="#">software</a>,</li>
 				<li>sometimes I <a href="#">write</a>,</li>
-				<li>sometimes I <a href="#">read</a>,</li>
 				<li>and I used to <a href="#">make music</a>, but not for a long while now.</li>
-				<li>I live in <a href="#">Pukerua Bay</a>, a blink-and-you-miss-it village north west of Wellington, New Zealand.</li>
-				<!--li>If you're not from New Zealand, you should totally come visit. Heck, <a href="#">stay</a> a night or two with us.</li-->
+				<li>I live in <a href="#">Pukerua Bay</a>, a seaside community north west of Wellington, New Zealand.</li>
 			</ul>
 		</nav>
 	</p>
+
+	<div id="noscript" class="robots-nocontent robots-noindex">
+		<!--noindex-->My apologies, your device doesn't have Javascript enabled but this website isn't much fun without it.<!--/noindex-->
+	</div>
+
 </body>
 </html>

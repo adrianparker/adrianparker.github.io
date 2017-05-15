@@ -2,9 +2,10 @@
 a, a:visited, a:hover, a:active {
   color: blue;
 }
-/* these classes are hidden by default */
+/* these are hidden by default */
 .auth,
 .repeatVisitor,
-.confirmedIdentity {
+.confirmedIdentity,
+#usernameForm {
     display: none;
 }
