@@ -16,7 +16,7 @@ function beIntroduced() {
     makeIntroductions();
     revealClass('auth');
 }
-function setUsername(username){
+function setUsername(username) {
     setClassInnerHTML('usernameDisplay', ' ' + username);
     concealID('usernameForm');
     revealClass('usernameSet');
@@ -29,12 +29,26 @@ function confirmIdentity() {
     concealID('identityQuestion');
     revealClass('confirmedIdentity');
 }
+function load(element) {
+    var focusArticle = document.getElementById('focusArticle');
+    while (focusArticle.firstChild) {
+        focusArticle.removeChild(focusArticle.firstChild);
+    }
+    switch (element.innerText) {
+        case 'travel':
+            var image = document.createElement("img");
+            image.id = "countriesVisited";
+            image.src = "img/countriesVisited2.png";
+            focusArticle.appendChild(image);
+            break;
+    }
+}
 function reset() {
     localStorage.clear();
     window.location.reload();
 }
-function noscript(){
-        if (document.removeChild) {
+function noscript() {
+    if (document.removeChild) {
         var div = document.getElementById('noscript');
         div.parentNode.removeChild(div);
         revealID('usernameForm');

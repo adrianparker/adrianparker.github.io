@@ -37,11 +37,13 @@
 		Still, I wouldn't want to waste your time any further, so just to check - am I the Adrian Parker you are interested in? <button type="button" onclick="confirmIdentity()">Yes</button><button type="button" onclick="reset()">No</button>
 	</p>
 
+	<article id="focusArticle"></article>
+	
 	<nav class="confirmedIdentity">
 		What can I tell you more about?<br>
 		<ul>
 			<li>I like to take <a href="#">photos</a>, generally of my family, or somehow related to one of my other interests...</li>
-			<li>like <a href="#">travel</a>,</li>
+			<li>like <a href="#" onclick="load(this);">travel</a>,</li>
 			<li>and <a href="#">music</a>,</li>
 			<li>and <a href="#">live entertainment</a>,</li>
 			<li>as well as collecting <a href="#">wine</a>.</li>
@@ -51,6 +53,7 @@
 			<li>and I used to <a href="#">make music</a>, but not for a long while now.</li>
 		</ul>
 	</nav>
+
 
 	<div id="noscript" class="robots-nocontent robots-noindex">
 		<!--noindex-->My apologies, your device doesn't have Javascript enabled but this website isn't much fun without it.<!--/noindex-->
