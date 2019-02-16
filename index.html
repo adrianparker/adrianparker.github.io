@@ -7,57 +7,9 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="index.css">
-
-	<script src="js/index.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>	
 </head>
-<body onload="sayHi()">
-	<h1>Hello, I'm Adrian</h1>
-	<p>
-		Welcome<span class="repeatVisitor"> back</span>
-		to my website<span class="usernameSet usernameDisplay"></span>.
-		<span class="usernameSet">&nbsp;
-			<button type="button" onclick="reset()">I&apos;m not<span class="usernameDisplay"></span></button>
-		</span>
-	</p>
-
-	<form id="usernameForm" onsubmit="beIntroduced();return false;">
-		<p>Let's get acquainted. What's 
-		<label for="username">your name?</label>
-		<input id="usernameInput" name="username" pattern=".{1,20}" required title="Please enter your name, up to 20 characters" type="text"/>
-	</form>
+<body>
 	
-	<p id="identityQuestion" class="auth">
-		Have you got the right Adrian Parker?<br>
-		<br>
-		You might be looking for the <a href="http://psy.gu.se/english/staff/?languageId=100001&userId=xparad">Swedish parapsychologist Adrian Parker</a>, a researcher into altered states of conciousness?<br>
-		Or perhaps the <a href="https://en.wikipedia.org/wiki/Adrian_Parker">British Olympic gold pentathlete Adrian Parker</a>?<br>
-		Or the <a href="https://twitter.com/adriandparker?lang=en">internet marketing Adrian Parker</a>, currently selling <a href="https://en.wikipedia.org/wiki/Patrón">premium Tequila</a> to the masses? (still waiting for my free sample btw)<br> 
-		There's hundreds of us. LinkedIn has a <a href="https://www.linkedin.com/search/results/index/?keywords=adrian%20parker" >handy list of Adrian Parkers</a>, I'm the one in Wellington, near the top.<br>
-		<br>
-		Still, I wouldn't want to waste your time any further, so just to check - am I the Adrian Parker you are interested in? <button type="button" onclick="confirmIdentity()">Yes</button><button type="button" onclick="reset()">No</button>
-	</p>
-
-	<article id="focusArticle"></article>
-	
-	<nav class="confirmedIdentity">
-		What can I tell you more about?<br>
-		<ul>
-			<li>I like to take <a href="#">photos</a>, generally of my family, or somehow related to one of my other interests...</li>
-			<li>like <a href="#" onclick="load(this);">travel</a>,</li>
-			<li>and <a href="#">music</a>,</li>
-			<li>and <a href="#">live entertainment</a>,</li>
-			<li>as well as collecting <a href="#">wine</a>.</li>
-			<li>I like to make <a href="#">videos</a>, most of which are terrible I should add,</li>
-			<li>I tinker with <a href="#">software</a>,</li>
-			<li>sometimes I <a href="#">write</a>,</li>
-			<li>and I used to <a href="#">make music</a>, but not for a long while now.</li>
-		</ul>
-	</nav>
-
-
-	<div id="noscript" class="robots-nocontent robots-noindex">
-		<!--noindex-->My apologies, your device doesn't have Javascript enabled but this website isn't much fun without it.<!--/noindex-->
-	</div>
-
 </body>
 </html>
