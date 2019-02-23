@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
 body {
-  background-color:dimgrey;
+  background-color: dimgrey;
+  font-family: 'Arvo', serif;
+  padding: 10px;
 }
 
 /* links look the same all the time */
-a, a:visited, a:hover, a:active {
-  color: blue;
+a ,
+a:visited {
+  color: white;
+  font-size: 1.2em;
+}
+a:active,
+a:hover{
+  color: skyblue;
 }
 
 .nav {
-  align-content: flex-start;
-  align-items: flex-start;
   background: linear-gradient(black,dimgrey);
-  background-color: black;
   display: flex;
-  flex-direction: row;
-  height: 250px;
-  justify-content: space-between;
-  padding: 16px;
+  flex-direction: column;
+  min-height: 318px;
+  width: 100%;
 }
 
 .avatar img {
@@ -27,46 +33,12 @@ a, a:visited, a:hover, a:active {
   filter: grayscale(100%);
 }
 
-/* > 800px wide */
-.navigation {
-  display: flex;
-  flex-flow: row;
-  list-style: none;
-  /* This aligns items to the end line on main-axis */
-  justify-content: flex-end;
-}
-.navigation li {
-  color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 2em;
-}
-.navigation li a {
-  color: white;
-}
-.navigation li a:active,
-.navigation li a:hover {
-  color: skyblue;
-}
-/* >500px, <=800px wide */
-@media all and (max-width: 800px) {
-  .nav {
-    flex-direction: row-reverse;
-  }
-  .navigation li {
-    font-size: 1.6em;
-  }
-}
-
 /* <=500px wide */
 @media all and (max-width: 500px) {
-  .navigation {
-    /* On small screens, we are no longer using row direction but column */
-    flex-direction: column;
-  }
-  .navigation li {
-    font-size: 1.2em;
+  a {
+    font-size: 1.6em;
   }
   .nav {
-    flex-direction: column;
+    align-items: center;
   }
 }
