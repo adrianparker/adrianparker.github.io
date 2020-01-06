@@ -1,11 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 body {
-  background-color: dimgrey;
-  font-family: 'Arvo', serif;
+  background-color:#CCCCCC;
   padding: 10px;
+  font-family: serif;
 }
 
+/* Frank Chimero blogged he likes this so who am I to argue? */
+p {
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  max-width: 33em;
+  color: black;
+}
+h1, h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-weight: normal;
+}
+h1 {
+  color: white;
+  font-size: 4em;
+}
+h2 {
+  font-size: 2em;
+}
+
+.site-name {
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.75em;
+}
+.blog-post {
+  margin-left: 15em;
+  margin-top: -135px;
+}
 /* links look the same all the time */
 a ,
 a:visited {
@@ -18,10 +46,10 @@ a:hover{
 }
 
 .nav {
-  background: linear-gradient(black,dimgrey);
+  background: linear-gradient(black,#CCCCCC);
   display: flex;
   flex-direction: column;
-  min-height: 318px;
+  min-height: 218px;
   width: 100%;
 }
 
