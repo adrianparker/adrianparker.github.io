@@ -3,13 +3,13 @@
 
 :root {
   /* 
-  https://www.colourlovers.com/palette/26354/stoaness
+  https://www.colourlovers.com/palette/32004/Gental_Giller
   */
-  --highlight-color: #FF6600;
-  --background-gradient-top-color: #003366;
+  --highlight-color: #C6E774;
+  --background-gradient-top-color: #616067;
   --background-gradient-bottom-color: #CCCCCC;
-  --subheading-color: #F6F6F6;
-  --text-color: #FFFFFF;
+  --subheading-color: #ffa296;
+  --text-color: #fcffe3;
 }
 
 /* PURE style overrides */
