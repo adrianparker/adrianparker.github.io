@@ -10,14 +10,49 @@
 .header {
   text-align: center;
   top: auto;
-  margin: 3em auto;
+  margin: 3em 0em 1em 0em;
+}
+
+.pure-menu {
+  padding-left: 3em;
+  padding-right: 3.5em;
+}
+
+.pure-menu-heading {
+  font-family: 'Bebas Neue', serif;
+  padding: 0.4em 0em 0.4em 0em;
+  color: #CCCCCC;
+}
+
+.pure-menu-link {
+  font-size: 0.85em;
+  padding: 0.1em 0em 0.1em 0em;
+  color: black;
+}
+
+.pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
+  background-color: transparent;
+  color: #CCCCCC;
+}
+
+.pure-menu-disabled .pure-menu-link:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
+.pure-menu-separator, .pure-menu-horizontal .pure-menu-children .pure-menu-separator {
+  background-color: transparent;
+}
+
+.pure-menu-children {
+  background-color: transparent;
 }
 
 /* MINE */
 
 body {
-  background: linear-gradient(black, white);
-  background-color: white;
+  background: linear-gradient(black, #CCCCCC);
+  background-color: #CCCCCC;
   background-repeat: no-repeat;
 }
 
@@ -30,6 +65,10 @@ h1, h2 {
 }
 
 h1 {
+  color: #CCCCCC;
+}
+
+h2 {
   color: #CCCCCC;
 }
 
@@ -50,6 +89,12 @@ a:active, a:hover {
   color: deepskyblue;
   font-family: 'Bebas Neue', serif;
   font-size: 1.4em;
+}
+
+.blog-post-summary {
+  font-size: 1.3em;
+  color: silver;
+  font-style: italic;
 }
 
 /* RESPONSIVE SPECIFIC */
