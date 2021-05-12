@@ -7,10 +7,6 @@
   box-sizing: border-box;
 }
 
-#layout {
-  padding: 0;
-}
-
 .header {
   text-align: center;
   top: auto;
@@ -20,15 +16,17 @@
 /* MINE */
 
 body {
-  background-color: #CCCCCC;
-  padding: 0px 10px 100px 10px;
-  font-family: serif;
   background: linear-gradient(black, white);
+  background-color: #CCCCCC;
   background-repeat: no-repeat;
 }
 
+#layout {
+  padding: 0px 10px 100px 10px;
+}
+
 h1, h2 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', serif;
 }
 
 h1 {
@@ -36,7 +34,6 @@ h1 {
 }
 
 p {
-  font-family: Georgia, serif;
   line-height: 1.5;
   color: black;
 }
@@ -53,16 +50,14 @@ a:active, a:hover {
   color: deepskyblue;
   font-family: 'Bebas Neue', serif;
   font-size: 1.4em;
-  width: 100%;
 }
 
 /* RESPONSIVE SPECIFIC */
 
 /* < 960px (pure: md) wide */
 
-@media all and (max-width: 1025px) {
+@media all and (max-width: 959px) {
   div .posts {
     margin-top: -2em;
-    background-color: blueviolet;
   }
 }
