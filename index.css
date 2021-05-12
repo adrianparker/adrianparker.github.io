@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+/* GLOBALS */
+
+:root {
+  --highlight-color: #ABDB25;
+  --background-gradient-top-color: #666666;
+  --background-gradient-bottom-color: #999999;
+  --subheading-color: #CCCCCC;
+  --text-color: #000000;
+}
+
 /* FROM PURE */
 
 * {
@@ -20,19 +30,24 @@
 
 .pure-menu-heading {
   font-family: 'Bebas Neue', serif;
-  padding: 0.4em 0em 0.4em 0em;
-  color: #CCCCCC;
+  font-size: 1.2em;
+  padding: 0.5em 0em 0.4em 0em;
+  color: var(--highlight-color);
 }
 
 .pure-menu-link {
-  font-size: 0.85em;
+  font-size: 0.9em;
   padding: 0.1em 0em 0.1em 0em;
-  color: black;
+  color: var(--text-color);
 }
 
 .pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
   background-color: transparent;
-  color: #CCCCCC;
+  color: var(--subheading-color);
+}
+
+.pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
+  color: var(--highlight-color);
 }
 
 .pure-menu-disabled .pure-menu-link:hover {
@@ -48,16 +63,16 @@
   background-color: transparent;
 }
 
+#layout {
+  padding: 0px 40px 100px 10px;
+}
+
 /* MINE */
 
 body {
-  background: linear-gradient(black, #CCCCCC);
-  background-color: #CCCCCC;
+  background: linear-gradient(var(--background-gradient-top-color), var(--background-gradient-bottom-color));
+  background-color: var(--background-gradient-bottom-color);
   background-repeat: no-repeat;
-}
-
-#layout {
-  padding: 0px 10px 100px 10px;
 }
 
 h1, h2 {
@@ -65,16 +80,17 @@ h1, h2 {
 }
 
 h1 {
-  color: #CCCCCC;
+  color: var(--highlight-color);
 }
 
 h2 {
-  color: #CCCCCC;
+  color: var(--subheading-color);
 }
 
 p {
   line-height: 1.5;
-  color: black;
+  font-size: 1.1em;
+  color: var(--text-color);
 }
 
 a:active, a:hover {
@@ -86,15 +102,17 @@ a:active, a:hover {
 }
 
 .site-name {
-  color: deepskyblue;
+  color: var(--highlight-color);
   font-family: 'Bebas Neue', serif;
   font-size: 1.4em;
 }
 
 .blog-post-summary {
-  font-size: 1.3em;
-  color: silver;
+  font-size: 1.2em;
+  color: var(--subheading-color);
   font-style: italic;
+  min-height: 2.7em;
+  max-height: 2.7em;
 }
 
 /* RESPONSIVE SPECIFIC */
