@@ -3,13 +3,13 @@
 
 :root {
   /* 
-https://www.colourlovers.com/palette/57/Digital_Fusion_01
+https://www.colourlovers.com/palette/703/Deep_impact_(Orange)
   */
-  --highlight-color: #80d8ff;
-  --background-gradient-top-color: #112233;
-  --background-gradient-bottom-color: #80d8ff;
-  --subheading-color: #cccccc;
-  --text-color: #ffffff;
+  --highlight-color: #ff9900;
+  --background-gradient-top-color: #262626;
+  --background-gradient-bottom-color: #333333;
+  --subheading-color: #666666;
+  --text-color: #cccccc;
 }
 
 /* PURE style overrides */
