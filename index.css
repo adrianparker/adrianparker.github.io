@@ -1,72 +1,112 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
-body {
-  background-color:#CCCCCC;
-  padding: 10px;
-  font-family: serif;
+/* FROM PURE */
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Frank Chimero blogged he likes this so who am I to argue? */
+#layout {
+  padding: 0;
+}
+.header {
+  text-align: center;
+  top: auto;
+  margin: 3em auto;
+}
+/* MINE */
+
+body {
+  background-color: #CCCCCC;
+  /* padding: 10px; */
+  font-family: serif;
+  background: linear-gradient(black,white);
+  background-repeat: no-repeat;
+}
+
 p {
   font-family: Georgia, serif;
   line-height: 1.5;
-  max-width: 33em;
+  /* max-width: 33em; */
   color: black;
 }
 h1, h2 {
   font-family: 'Bebas Neue', cursive;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 h1 {
   color: white;
-  font-size: 4em;
+  /* font-size: 0.5em; */
 }
 h2 {
-  font-size: 2em;
+  /* font-size: 2em; */
 }
-
+.posts{
+  margin-top: 60px;
+}
 .site-name {
+  color: deepskyblue;
   font-family: 'Bebas Neue', serif;
-  font-size: 1.75em;
+  font-size: 1.4em;
+  width: 100%;
 }
-.blog-post {
-  margin-left: 15em;
-  margin-top: -135px;
+/* <=48em (pure: md) wide */
+@media all and (max-width: 48em) {
+  div .posts {
+    margin-top: -2em;
+  }
 }
 /* links look the same all the time */
 a ,
 a:visited {
-  color: white;
-  font-size: 1.2em;
+  /* color: black; */
+  /* font-size: 1.2em; */
 }
 a:active,
 a:hover{
-  color: skyblue;
+  filter: grayscale(100%);
+}
+.avatar{
+  /* display: flex;
+  align-items: center;
+  text-align: center; */
+}
+.avatar img {
+  /* width: 170px;
+  height: 159px; */
 }
 
-.nav {
+/* OLD SITE Below here */
+
+/* .avatar :hover {
+  filter: grayscale(100%);
+} */
+/* .blog-post {
+  margin-left: 15em;
+  margin-top: -135px;
+} */
+/* .nav {
   background: linear-gradient(black,#CCCCCC);
   display: flex;
   flex-direction: column;
   min-height: 218px;
   width: 100%;
-}
-
-.avatar img {
-  width: 170px;
-  height: 159px;
-}
-.avatar :hover {
-  filter: grayscale(100%);
-}
+} */
 
 /* <=500px wide */
-@media all and (max-width: 500px) {
+/* @media all and (max-width: 500px) {
   a {
     font-size: 1.6em;
   }
   .nav {
     align-items: center;
   }
-}
+} */
