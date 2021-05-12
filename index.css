@@ -2,12 +2,12 @@
 /* GLOBALS */
 
 :root {
-  /* Original colour scheme with highlight on h1 */
+  /* Original colour scheme with highlight on h1, silver body text and gradient to CCCCCC */
   --highlight-color: #00bfff;
   --background-gradient-top-color: #000000;
-  --background-gradient-bottom-color: #ffffff;
+  --background-gradient-bottom-color: #CCCCCC;
   --subheading-color: #CCCCCC;
-  --text-color: #000000;
+  --text-color: silver;
 }
 
 /* PURE style overrides */
