@@ -2,12 +2,14 @@
 /* GLOBALS */
 
 :root {
-  /* https://www.colourlovers.com/palette/562/hmm */
-  --highlight-color: #FF0066;
-  --background-gradient-top-color: #000000;
-  --background-gradient-bottom-color: #333333;
-  --subheading-color: #FFFFFF;
-  --text-color: #CCCCCC;
+  /* 
+  https://www.colourlovers.com/palette/26354/stoaness
+  */
+  --highlight-color: #FF6600;
+  --background-gradient-top-color: #003366;
+  --background-gradient-bottom-color: #CCCCCC;
+  --subheading-color: #F6F6F6;
+  --text-color: #FFFFFF;
 }
 
 /* PURE style overrides */
