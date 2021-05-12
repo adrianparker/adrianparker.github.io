@@ -3,13 +3,13 @@
 
 :root {
   /* 
-  https://www.colourlovers.com/palette/32004/Gental_Giller
+  https://www.colourlovers.com/palette/614092/This_Charming_Man
   */
-  --highlight-color: #C6E774;
-  --background-gradient-top-color: #616067;
-  --background-gradient-bottom-color: #CCCCCC;
-  --subheading-color: #ffa296;
-  --text-color: #fcffe3;
+  --highlight-color: #8C3130;
+  --background-gradient-top-color: #000000;
+  --background-gradient-bottom-color: #333333;
+  --subheading-color: #ffffff;
+  --text-color: #cccccc;
 }
 
 /* PURE style overrides */
