@@ -2,6 +2,7 @@
 /* GLOBALS */
 
 :root {
+  /* https://www.colourlovers.com/palette/435467/Vertebrae */
   --highlight-color: #ABDB25;
   --background-gradient-top-color: #666666;
   --background-gradient-bottom-color: #999999;
@@ -9,12 +10,16 @@
   --text-color: #000000;
 }
 
-/* FROM PURE */
+/* PURE style overrides */
 
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+html, button, input, select, textarea, .pure-g [class *="pure-u"] {
+  font-family: Arial, Helvetica, Georgia, serif;
 }
 
 .header {
@@ -23,9 +28,12 @@
   margin: 3em 0em 1em 0em;
 }
 
+.sidebar {
+  width: 15em;
+}
+
 .pure-menu {
-  padding-left: 3em;
-  padding-right: 3.5em;
+  padding-left: 3.2em;
 }
 
 .pure-menu-heading {
@@ -37,7 +45,7 @@
 
 .pure-menu-link {
   font-size: 0.9em;
-  padding: 0.1em 0em 0.1em 0em;
+  padding: 0.1em 0em;
   color: var(--text-color);
 }
 
