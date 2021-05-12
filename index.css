@@ -60,7 +60,7 @@ a:active, a:hover {
 
 /* < 960px (pure: md) wide */
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 1500px) {
   div .posts {
     margin-top: -2em;
   }
