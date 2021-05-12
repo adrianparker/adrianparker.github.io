@@ -2,10 +2,10 @@
 /* GLOBALS */
 
 :root {
-  /* https://www.colourlovers.com/palette/435467/Vertebrae */
-  --highlight-color: #ABDB25;
-  --background-gradient-top-color: #666666;
-  --background-gradient-bottom-color: #999999;
+  /* Original colour scheme with highlight on h1 */
+  --highlight-color: #00bfff;
+  --background-gradient-top-color: #000000;
+  --background-gradient-bottom-color: #ffffff;
   --subheading-color: #CCCCCC;
   --text-color: #000000;
 }
