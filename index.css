@@ -12,9 +12,9 @@ https://www.colourlovers.com/palette/10/american_idiot
   --text-color: #cccccc;
 }
 
-/* PURE.css style overrides */
+/* Pure.css style overrides */
 
-/* LAYOUT */
+/* Layout */
 
 * {
   -webkit-box-sizing: border-box;
@@ -40,7 +40,7 @@ html, button, input, select, textarea, .pure-g [class *="pure-u"] {
   padding-right: 4%;
 }
 
-/* MENU */
+/* Menu */
 
 .custom-restricted-width {
   display: inline-block;
@@ -49,6 +49,7 @@ html, button, input, select, textarea, .pure-g [class *="pure-u"] {
 .pure-menu-list {
   padding-top: 5%;
   text-align: left;
+  /* to match mugshot width */
   width: 170px;
 }
 
@@ -135,10 +136,25 @@ a:active, a:hover {
   max-height: 2.7em;
 }
 
-/* RESPONSIVE SPECIFIC */
+/* Media queries */
+
+/* Smaller than a large tablet */
 
 @media only screen and (max-width: 768px) {
+  /* No menu */
   .custom-restricted-width {
     display: none;
+  }
+  .content {
+    margin-top: -1em;
+    padding-left: 4%;
+  }
+  .posts {
+    margin-top: 0px;
+  }
+  .blog-post-summary {
+    font-size: 1em;
+    min-height: 2em;
+    max-height: none;
   }
 }
