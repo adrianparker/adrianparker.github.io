@@ -3,12 +3,12 @@
 
 :root {
   /* 
-https://www.colourlovers.com/palette/703/Deep_impact_(Orange)
+https://www.colourlovers.com/palette/10/american_idiot
   */
-  --highlight-color: #ff9900;
-  --background-gradient-top-color: #262626;
-  --background-gradient-bottom-color: #333333;
-  --subheading-color: #666666;
+  --highlight-color: #b11623;
+  --background-gradient-top-color: #000000;
+  --background-gradient-bottom-color: #292C37;
+  --subheading-color: #9f111b;
   --text-color: #cccccc;
 }
 
