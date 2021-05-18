@@ -2,13 +2,11 @@
 /* GLOBALS */
 
 :root {
-  /* 
-https://www.colourlovers.com/palette/10/american_idiot
-  */
-  --highlight-color: #b11623;
-  --background-gradient-top-color: #000000;
-  --background-gradient-bottom-color: #292C37;
-  --subheading-color: #9f111b;
+  /* With thanks to https://www.colourlovers.com/palette/703/Deep_impact_(Orange) */
+  --highlight-color: #ff9900;
+  --background-gradient-top-color: #262626;
+  --background-gradient-bottom-color: #333333;
+  --subheading-color: #666666;
   --text-color: #cccccc;
 }
 
@@ -56,12 +54,12 @@ html, button, input, select, textarea, .pure-g [class *="pure-u"] {
 .pure-menu-heading {
   font-family: 'Bebas Neue', serif;
   font-size: 1.2em;
-  padding: 0.5em 0em 0.4em 0em;
+  padding: 1em 0em 0.5em 0em;
   color: var(--highlight-color);
 }
 
 .pure-menu-link {
-  font-size: 0.9em;
+  font-size: 1em;
   padding: 0.1em 0em;
   color: var(--text-color);
 }
@@ -72,20 +70,7 @@ html, button, input, select, textarea, .pure-g [class *="pure-u"] {
 }
 
 .pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
-  color: var(--highlight-color);
-}
-
-.pure-menu-disabled .pure-menu-link:hover {
-  background-color: transparent;
-  cursor: default;
-}
-
-.pure-menu-separator, .pure-menu-horizontal .pure-menu-children .pure-menu-separator {
-  background-color: transparent;
-}
-
-.pure-menu-children {
-  background-color: transparent;
+  color: var(--subheading-color);
 }
 
 /* AdrianParker.com styling */
@@ -98,24 +83,17 @@ body {
 
 h1, h2 {
   font-family: 'Bebas Neue', serif;
-}
-
-h1 {
   color: var(--highlight-color);
-}
-
-h2 {
-  color: var(--subheading-color);
 }
 
 p {
   line-height: 1.5;
-  font-size: 1.1em;
+  font-size: 1em;
   color: var(--text-color);
 }
 
 a:active, a:hover {
-  filter: grayscale(100%);
+  color: var(--subheading-color);
 }
 
 .posts {
@@ -130,10 +108,22 @@ a:active, a:hover {
 
 .blog-post-summary {
   font-size: 1.2em;
-  color: var(--subheading-color);
+  color: var(--text-color);
   font-style: italic;
   min-height: 2.7em;
   max-height: 2.7em;
+}
+
+.external-link {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.external-link-icon {
+  width: 0.6em;
+  height: 0.6em;
+  display: inline-block;
+  margin-left: 0.6em;
 }
 
 /* Media queries */
