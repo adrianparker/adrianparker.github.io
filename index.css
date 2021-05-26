@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-html, button, input, select, textarea, .pure-g [class *="pure-u"] {
+html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
   font-family: Arial, Helvetica, Georgia, serif;
 }
 
@@ -83,12 +83,18 @@ body {
 
 h1, h2 {
   font-family: 'Bebas Neue', serif;
+}
+
+p, label {
+  line-height: 1.5;
+  font-size: 1em;
+}
+
+h1, h2, label {
   color: var(--highlight-color);
 }
 
 p {
-  line-height: 1.5;
-  font-size: 1em;
   color: var(--text-color);
 }
 
