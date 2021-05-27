@@ -133,6 +133,25 @@ a:active, a:hover {
   margin-bottom: 2px;
 }
 
+.subscribe_button {
+  background-color: var(--subheading-color);
+  color: var(--text-color);
+}
+
+.subscribe_button:hover {
+  color: var(--highlight-color);
+}
+
+#mc_embed_signup_sidebar {
+  text-align: left;
+}
+
+#mce-EMAIL_sidebar {
+  display: block;
+  width: 170px;
+  margin-top: 0.1em;
+}
+
 /* Media queries */
 
 /* Smaller than a large tablet */
