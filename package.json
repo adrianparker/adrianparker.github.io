@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx eleventy --input=content",
-    "build-prod": "npx eleventy --input=content --output=docs --pathprefix 'docs'",
+    "build-prod": "npx eleventy --input=content --pathprefix '_site'",
     "serve": "npx eleventy --input=content --serve",
     "debug": "DEBUG=* npx eleventy --input=content"
   },
