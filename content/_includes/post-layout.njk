@@ -1,0 +1,14 @@
+---
+layout: base-layout.njk
+---
+<div class="post">
+    <section class="blog-post">
+		<h1>{{ title }}</h1>
+		<p class="blog-post-summary">
+        {{ summary | safe }}
+		</p>
+
+        {{ content | safe }}
+
+	</section>
+</div>

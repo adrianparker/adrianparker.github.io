@@ -1,0 +1,26 @@
+{
+  "name": "adrianparker.github.io",
+  "version": "1.0.0",
+  "description": "Personal website of Adrian Parker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx eleventy --input=content",
+    "build-prod": "npx eleventy --input=content --pathprefix '_site'",
+    "serve": "npx eleventy --input=content --serve",
+    "debug": "DEBUG=* npx eleventy --input=content"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianparker/adrianparker.github.io.git"
+  },
+  "author": "Adrian Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianparker/adrianparker.github.io/issues"
+  },
+  "homepage": "https://github.com/adrianparker/adrianparker.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
