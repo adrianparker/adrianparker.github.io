@@ -4,6 +4,7 @@ layout: base-layout.njk
 <div class="post">
     <section class="blog-post">
 		<h1>{{ title }}</h1>
+		<h3>{{ date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</h3>
 		<p class="blog-post-summary">
         {{ summary | safe }}
 		</p>

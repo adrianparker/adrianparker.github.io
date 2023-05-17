@@ -5,7 +5,7 @@ navtitle: 'Generosity is a CX superpower'
 summary: 'Moments of unexpected generosity lie at the core of exceptional customer experience'
 date: 2023-05-01
 readingtime: '10 minutes'
-tags: ['posts', 'popular']
+tags: ['post', 'popular']
 ---
 <h2>We cancelled your credit card</h2>
 <p>
@@ -17,6 +17,7 @@ tags: ['posts', 'popular']
 </p>
 <p>
 	Unwelcome news though, given it meant both living within our cash reserves for a spell, and remembering to change the card details for all those things that end up charging us once every whenever. Netflix, life insurance, all the various subscriptions you managed to forget, well at least until the late payment notice comes. 
+	<!-- excerpt -->
 </p>
 <p>
 	Working in product, I should be grateful for the opportunity to review lots of different versions of the Update your Card Details feature, but... there are only so many times one needs reminding how woefully common poor form UX is.<br>No, I don&apos;t live in Afghanistan.

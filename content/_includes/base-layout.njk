@@ -5,7 +5,7 @@
         <title>{{ title }}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+        <meta name="generator" content="{{ eleventy.generator }}">
         <link rel="shortcut icon" href="{{ '/favicon.ico' | url }}" type="image/x-icon">
         <link rel="icon" href="{{ '/favicon.ico' | url }}" type="image/x-icon">
         <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
@@ -23,35 +23,39 @@
                 <div class="header">
                     <img src="/img/Adrian-170x158.jpeg"/>
                     <br/>
-                    <a href="#" class="site-name">AdrianParker.com</a>
+                    <a href="/" class="site-name">AdrianParker.com</a>
                     <br/>
                     <div class="pure-menu custom-restricted-width">
                         <ul class="pure-menu-list">
+
                             <li class="pure-menu-heading">Recent</li>
+                            
+                            {% for post in collections.recentPosts %}
+                            {% if page.fileSlug == post.page.fileSlug %}
                             <li class="pure-menu-item pure-menu-selected">
-                                <a href="#" class="pure-menu-link">Generosity is a CX superpower</a>
-                            </li>
-<!--
+                                <div class="pure-menu-link">{{ post.data.navtitle }}</div>
+                            {% else %}
                             <li class="pure-menu-item">
-                                <a href="#" class="pure-menu-link">Lorem ipsum</a>
+                                 <a href="{{ post.page.url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                            {% endif %}
                             </li>
-                            <li class="pure-menu-item">
-                                <a href="#" class="pure-menu-link">Lorem ipsum</a>
-                            </li>
--->                            
+                            {% endfor %}
+                          
                             <li class="pure-menu-heading">Popular</li>
+                            
+                            {% for post in collections.popularPosts | reverse %}
+                            {% if page.fileSlug == post.page.fileSlug %}
                             <li class="pure-menu-item pure-menu-selected">
-                                 <a href="#" class="pure-menu-link">Generosity is a CX superpower</a>
-                            </li>
-<!--                            
+                                <div class="pure-menu-link">{{ post.data.navtitle }}</div>
+                            {% else %}
                             <li class="pure-menu-item">
-                                <a href="#" class="pure-menu-link">Lorem ipsum</a>
+                                 <a href="{{ post.page.url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                            {% endif %}
                             </li>
-                            <li class="pure-menu-item">
-                                <a href="#" class="pure-menu-link">Lorem ipsum</a>
-                            </li>
--->                            
+                            {% endfor %}
+
                             <li class="pure-menu-heading">Elsewhere</li>
+                            
                             <li class="pure-menu-item">
                                 <a href="https://www.flickr.com/photos/adrianparker/albums" target="_blank"
 								class="pure-menu-link external-link">Flickr</a>
