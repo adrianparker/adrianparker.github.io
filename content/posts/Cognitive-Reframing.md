@@ -12,8 +12,7 @@ tags: ['post', 'popular']
     We pulled up outside the flat. Mum had made parking the car look harder than usual, I could tell she was preoccupied with something. Maybe anxious even. Perhaps I was eight? In hindsight that seems about right. I remember feeling small and lost and confused. Something wasn't right with Mum, I wasn't in school, we were outside this strange place, struggling to park our tank of a car in what must have been a perfectly normally sized space, and all I really remember is feeling a long way out of place.
 </p>
 <p>
-    I don't think I knew then that Mum was visiting the hospital.<br>Later, I knew, but not then. You didn't give context to kids back then.
-<!-- excerpt -->
+    I don't think I knew then that Mum was visiting the hospital.<br>Later, I knew, but not then. You didn't give context to kids back then.<!-- excerpt -->
 </p>
 <p>
     We went inside the flat. It was small, as I remember, but welcoming, shafts of sunlight through the net curtains, piles of things everywhere, loved things, things of value. TV in the corner, maybe it was on during the day, it never would have been at our place. Fruit bowl on the table. A plate of home made biscuits. A pot of tea. It felt warm, friendly, homely; but it didn't feel like our home.
