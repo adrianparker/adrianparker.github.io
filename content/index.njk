@@ -13,9 +13,9 @@ title: AdrianParker.com
         <p class="blog-post-summary">
         {{ post.data.summary | safe }}
         </p>
-            {{ post.page.excerpt | safe }}
+            {{ post.page.excerpt | md | safe }}
         </p>
-            <a href="{{ post.page.url }}">Read the whole post...</a>
+            <a href="{{ post.page.url | url }}">Read the whole post...</a>
     </section>
     <hr>
     
