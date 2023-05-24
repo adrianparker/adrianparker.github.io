@@ -4,4 +4,3 @@ js/jsconfig.json
 node_modules
 content/posts/*.hmmm
 _site/mockup/index.html
-package-lock.json
