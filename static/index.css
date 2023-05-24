@@ -95,7 +95,7 @@ h2 {
   font-size: 1.5em;
 }
 
-p, label {
+p, label, section>a {
   line-height: 1.5em;
   font-size: 1.2em;
 }
