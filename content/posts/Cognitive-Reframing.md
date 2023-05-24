@@ -48,7 +48,9 @@ I didn't need to stay at Elsa's any more.
 
 Elsa wasn't the type to be discouraged though. Just like that hovering bird, she kept an eye on us fledglings that left the nest. She would call, on the old bakelite phone screwed to the kitchen wall, at random times out of the blue, and would chat, at length, with whoever answered. 
 
-Elsa'd update you on her family, who you didn't know, and the local goings on. She'd ask after the folks she hadn't met, peppering the conversation with blessings and heartfelt proclamations of love. We'd roll our eyes when we realised it was Elsa on the line, settling in for the long haul, but you'd enjoy chatting all the same. It felt normal. It stayed the same. Not a lot else did back then.  
+Elsa'd update you on her family, who you didn't know, and the local goings on. She'd ask after the folks she hadn't met, peppering the conversation with blessings and heartfelt proclamations of love. We'd roll our eyes when we realised it was Elsa on the line, settling in for the long haul, but you'd enjoy chatting all the same.  
+
+It felt normal. It stayed the same. Not a lot else did back then.  
 Sometimes she'd leave biscuits at the door.
 
 ## Biscuits at the funerals
@@ -70,7 +72,7 @@ One day I decided to go visit Elsa. I don't recall why. Perhaps I had realised o
 
 ## Biscuits from the packet
 
-Elsa was smaller than I remembered, frailer, a proper little old lady now. But the sparkle was still in her eyes! She buzzed around, fluttered her wings, dragged me straight inside. It was small, but welcoming, shafts of sunlight through the net curtains, piles everywhere, loved things, things of value. TV in the corner, on during the day. Just the same. 
+Elsa was smaller than I remembered, frailer, a proper little old lady now. But the sparkle was still in her eyes! She buzzed around, fluttered her wings, dragged me inside. It was small, but welcoming, shafts of sunlight through the net curtains, piles everywhere, loved things, things of value. TV in the corner, on during the day. Just the same. 
 
 Elsa made tea. We sat at the kitchen table, and talked. She served biscuits from a packet.
 
@@ -86,7 +88,7 @@ Not long after that, or so it felt, Murphy messaged, Elsa had a fall, was in hos
 
 I visited. Smaller, frailer, fewer stories to share. 
 
-Murphy messaged again. Dementia.
+Dementia.
 
 ## Biscuits my daughter made
 
@@ -102,7 +104,7 @@ Just after I toggled off airplane mode at Singapore, Murphy's message arrived.
 
 Elsa had died.
 
-We were out of the country for a few weeks. I missed the funeral, if there was one. Won't hear from Murphy. No where to send her Christmas card. Elsa is now just a memory. A pleasant one, and one that reminds me of the enduring power of showing up, and relentless positivity. That's another blog post though. This one is about what happened next.  
+We were out of the country for a few weeks. I missed the funeral, if there was one. No more Christmas cards. Elsa is now just a pleasant memory, one that reminds me of the power of showing up, and unbridled positivity. That's another blog post though. This one is about what happened next.  
 
 Before I get to that, though, I want to introduce just a little bit of psychology. 
 
@@ -114,9 +116,9 @@ I use cognitive reframing frequently. Here are a couple of examples.
 
 I just started a new job, attended an online meeting, got a chance to add to the discussion. I thought I made my point well, but noticed two colleagues start laughing as I finished (thankfully, on mute).
 
-Immediately I felt they must be laughing at me. Maybe it was what I had said? Maybe it was what I was wearing? I spent the rest of the meeting feeling foolish. An hour or so later, still feeling bad, I sat myself down and thought - I don't know why those colleagues started laughing, I never will. Maybe it was me, maybe not. I can choose to think it wasn't me, and that will be my reality, so I did, and I felt better. 
+Immediately I felt they must be laughing at me. Maybe it was what I had said? Maybe it was what I was wearing? I spent the rest of the meeting feeling foolish. An hour or so later, still feeling bad, I sat myself down and thought - I don't know why those colleagues started laughing, I never will. Maybe it was me, maybe not. I can choose to think it wasn't me, and that will be my reality, so I did, and then I felt better. 
 
-A more impactful example is how I felt after Elsa passed away. I don't mind admitting, once we were back frmo our travels, when I had time to sit and think, I felt really bad. What a terrible person I had been, I said to myself. I hadn't visited Elsa enough. I hadn't given her more of my time. I hadn't adopted her into our family. So many things I hadn't said or done. I hadn't reached amazing. I felt sad and regretful. 
+A more impactful example is how I felt after Elsa passed away. I don't mind admitting, once we were back from our travels, when I had time to sit and think, I felt really bad. What a terrible person I had been, I said to myself. I hadn't visited Elsa enough. I hadn't given her more of my time. I hadn't adopted her into our family. So many things I hadn't said or done. I hadn't reached amazing. I felt sad and regretful. 
 
 Those are just thoughts though. Not facts. 
 
@@ -137,10 +139,11 @@ Sometimes, when we're feeling upset about something, we can blow it out of propo
 
 We did what we could. There's no tragedy, no deficiency, no one has a score card that says I didn't pass the Elsa exam. I did what I did and it was better than if I hadn't done it. That's how I choose to frame.
 
-If I can offer some advice, dear reader, add cognitive reframing to your toolkit. 
+If I can offer some advice, dear reader, then I suggest you add cognitive reframing to your toolkit. 
 
 Cognitive reframing is a powerful tool that can help you feel better and more positive about yourself and your life. Remember to focus on the positive memories, challenge your negative thoughts, and put things into perspective. With practice, you'll find that cognitive reframing becomes easier and more natural.
 
-Also, send little old folks Christmas cards, and eat biscuits while you listen to their stories. 
+Also, send old folks Christmas cards, visit when you can, and eat biscuits while you listen to their stories. 
 
 It doesn't matter how many times you didn't do it. All that matters is how many times you did.
+
