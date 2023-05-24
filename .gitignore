@@ -3,4 +3,4 @@ js/jsconfig.json
 .DS_Store
 node_modules
 content/posts/*.hmmm
-_site/mockup/index.html
+_site/
