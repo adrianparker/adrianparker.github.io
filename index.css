@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+/* GLOBALS */
+
+:root {
+  /* With thanks to https://www.colourlovers.com/palette/703/Deep_impact_(Orange) */
+  --highlight-color: #ff9900;
+  --background-gradient-top-color: #262626;
+  --background-gradient-bottom-color: #333333;
+  --subheading-color: #666666;
+  --text-color: #cccccc;
+}
+
+/* Pure.css style overrides */
+
+/* Layout */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
+  font-family: Arial, Helvetica, Georgia, serif;
+}
+
+#layout {
+  padding: 0em 0em 5em 0em;
+}
+
+.header {
+  text-align: center;
+  top: auto;
+  margin: 3em 0em 1em 0em;
+}
+
+.content {
+  padding-right: 4%;
+}
+
+/* Menu */
+
+.custom-restricted-width {
+  display: inline-block;
+}
+
+.pure-menu-list {
+  padding-top: 5%;
+  text-align: left;
+  /* to match mugshot width */
+  width: 170px;
+}
+
+.pure-menu-heading {
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.2em;
+  padding: 1em 0em 0.5em 0em;
+  color: var(--highlight-color);
+}
+
+.pure-menu-link {
+  font-size: 1em;
+  padding: 0.1em 0em;
+  color: var(--text-color);
+}
+
+.pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
+  background-color: transparent;
+  color: var(--subheading-color);
+}
+
+.pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
+  color: var(--subheading-color);
+}
+
+/* AdrianParker.com styling */
+
+body {
+  background: linear-gradient(var(--background-gradient-top-color), var(--background-gradient-bottom-color));
+  background-color: var(--background-gradient-bottom-color);
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, .site-name {
+  font-family: 'Bebas Neue', serif;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+p, label, section>a {
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+h1, h2, label, a, a:visited {
+  color: var(--highlight-color);
+}
+
+li>a:visited {
+  color: var(--text-color);
+}
+
+h3, p {
+  color: var(--text-color);
+}
+
+a:active, a:hover {
+  color: var(--subheading-color);
+}
+
+.posts,
+.post {
+  margin-top: 60px;
+}
+
+.posts>hr {
+  margin-top: -10px; 
+  border-color: var(--subheading-color);
+}
+.posts>section {
+  margin-bottom: 50px;
+}
+
+.site-name {
+  color: var(--highlight-color);
+  font-size: 1.5em;
+}
+
+.blog-post>h1 {
+  margin-top: -0.3em;
+}
+
+.blog-post-summary {
+  font-size: 1.2em;
+  color: var(--text-color);
+  font-style: italic;
+  line-height: 1.5em;
+}
+
+.external-link {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.external-link-icon {
+  width: 0.6em;
+  height: 0.6em;
+  display: inline-block;
+  margin-left: 7px;
+  margin-bottom: 2px;
+}
+
+.subscribe_button {
+  background-color: var(--subheading-color);
+  color: var(--text-color);
+}
+
+.subscribe_button:hover {
+  color: var(--highlight-color);
+}
+
+#mc_embed_signup_sidebar {
+  text-align: left;
+}
+
+#mce-EMAIL_sidebar {
+  display: block;
+  width: 170px;
+  margin-top: 0.1em;
+}
+
+/* Media queries */
+
+/* Smaller than a large tablet */
+
+@media only screen and (max-width: 768px) {
+  /* No menu */
+  .custom-restricted-width {
+    display: none;
+  }
+  .content {
+    margin-top: -1em;
+    padding-left: 4%;
+  }
+  .posts,
+  .post {
+    margin-top: 0px;
+  }
+  .blog-post-summary {
+    font-size: 1em;
+    min-height: 2em;
+    max-height: none;
+  }
+}
