@@ -3,6 +3,7 @@ layout: post-layout.njk
 title: 'Cognitive Reframing'
 navtitle: 'Cognitive Reframing'
 summary: 'Choosing how you think is choosing how you feel'
+metadesc: 'We can use cognitive reframing psychological techniques to adjust the way we think about a situation, and by doing so, also change the way we feel.'
 date: 2023-05-24
 readingtime: '10 minutes'
 tags: ['post', 'popular']
