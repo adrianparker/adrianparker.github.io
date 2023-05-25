@@ -183,6 +183,22 @@ a:active, a:hover {
   width: 170px;
 }
 
+.twitter-follow-button, .twitter-follow-button:visited {
+  background-color: inherit;
+  background-image: url('/img/twitter.png');
+  background-position: 1px 10px;
+  background-repeat: no-repeat;
+  background-size: 16px 13px;
+  color: var(--text-color);
+  font-size: 1em;
+  padding: 8px 0px 8px 22px;
+  text-decoration: none;
+}
+.twitter-follow-button:hover {
+  background-color: inherit;
+  color: var(--subheading-color);
+}
+
 /* Media queries */
 
 /* Smaller than a large tablet */
