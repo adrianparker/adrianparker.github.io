@@ -3,9 +3,9 @@
 
 :root {
   /* With thanks to https://www.colourlovers.com/palette/703/Deep_impact_(Orange) */
-  --highlight-color: #ff9900;
-  --background-gradient-top-color: #262626;
   --background-gradient-bottom-color: #333333;
+  --background-gradient-top-color: #262626;
+  --highlight-color: #ff9900;
   --subheading-color: #666666;
   --text-color: #cccccc;
 }
@@ -29,9 +29,9 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 }
 
 .header {
+  margin: 3em 0em 1em 0em;
   text-align: center;
   top: auto;
-  margin: 3em 0em 1em 0em;
 }
 
 .content {
@@ -52,16 +52,17 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 }
 
 .pure-menu-heading {
+  color: var(--highlight-color);
   font-family: 'Bebas Neue', serif;
   font-size: 1.2em;
   padding: 1em 0em 0.5em 0em;
-  color: var(--highlight-color);
 }
 
 .pure-menu-link {
-  font-size: 1em;
-  padding: 0.1em 0em;
   color: var(--text-color);
+  font-size: 1em;
+  padding: 0.1em 0em 0.4em 0em;
+  white-space: normal;
 }
 
 .pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
@@ -87,8 +88,8 @@ h1, h2, h3, .site-name {
 
 h1 {
   font-size: 3em;
-  margin-top: 0.3em;
   margin-bottom: 0em;
+  margin-top: 0.3em;
 }
 
 h2 {
@@ -96,12 +97,16 @@ h2 {
 }
 
 p, label, section>a {
-  line-height: 1.5em;
   font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 h1, h2, label, a, a:visited {
   color: var(--highlight-color);
+}
+
+li>a {
+  white-space: pre-line;
 }
 
 li>a:visited {
@@ -122,8 +127,8 @@ a:active, a:hover {
 }
 
 .posts>hr {
-  margin-top: -10px; 
   border-color: var(--subheading-color);
+  margin-top: -10px; 
 }
 .posts>section {
   margin-bottom: 50px;
@@ -139,23 +144,24 @@ a:active, a:hover {
 }
 
 .blog-post-summary {
-  font-size: 1.2em;
   color: var(--text-color);
+  font-size: 1.2em;
   font-style: italic;
   line-height: 1.5em;
 }
 
 .external-link {
   display: inline-block;
+  padding-bottom: 0.1em;
   vertical-align: bottom;
 }
 
 .external-link-icon {
-  width: 0.6em;
-  height: 0.6em;
   display: inline-block;
-  margin-left: 7px;
+  height: 0.6em;
   margin-bottom: 2px;
+  margin-left: 7px;
+  width: 0.6em;
 }
 
 .subscribe_button {
@@ -173,8 +179,8 @@ a:active, a:hover {
 
 #mce-EMAIL_sidebar {
   display: block;
-  width: 170px;
   margin-top: 0.1em;
+  width: 170px;
 }
 
 /* Media queries */
@@ -196,7 +202,10 @@ a:active, a:hover {
   }
   .blog-post-summary {
     font-size: 1em;
-    min-height: 2em;
     max-height: none;
+    min-height: 2em;
+  }
+  .posts>hr {
+    margin-top: 20px; 
   }
 }
