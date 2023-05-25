@@ -1,7 +1,7 @@
 ---
 layout: post-layout.njk
-title: 'Generosity is a Customer Experience superpower'
-navtitle: 'Generosity is a CX superpower'
+title: 'Generosity is a Customer Experience Superpower'
+navtitle: 'Generosity is a CX Superpower'
 summary: 'Moments of unexpected generosity lie at the core of exceptional customer experience'
 date: 2023-05-01
 readingtime: '10 minutes'
