@@ -212,12 +212,7 @@ a:active, a:hover {
     margin-top: -1em;
     padding-left: 4%;
   }
-  .posts,
-  .post {
-    margin-top: 0px;
-  }
   .blog-post-summary {
-    font-size: 1em;
     max-height: none;
     min-height: 2em;
   }
