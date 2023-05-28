@@ -18,7 +18,6 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.subtitle }}</subtitle>
-  <link href="{{ metadata.url }}"/>
   <link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self"/>
   <updated>{{ collections.post | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ metadata.url }}</id>
