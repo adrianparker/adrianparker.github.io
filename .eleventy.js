@@ -1,4 +1,5 @@
 const markdownIt = require("markdown-it");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 
@@ -9,6 +10,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("md", function (content = "") {
       return markdownIt({ html: true }).render(content);
     });
+
+    // enable RSS
+    eleventyConfig.addPlugin(pluginRss);
 
     // makes the content before the <!-- excerpt --> of each post available
     eleventyConfig.setFrontMatterParsingOptions({
