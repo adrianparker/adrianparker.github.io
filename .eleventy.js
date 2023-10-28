@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
 
     // output everything from the static folder at root of output
     eleventyConfig.addPassthroughCopy({ static: "/" });
+    eleventyConfig.addPassthroughCopy({ "content/posts/img/": "/" });
 
     // can use the shortcode 'md' in a page to render markdown copy as HTML in place
     eleventyConfig.addFilter("md", function (content = "") {
