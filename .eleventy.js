@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
 
@@ -22,11 +23,29 @@ module.exports = function (eleventyConfig) {
 
     // add up to 3 most recent posts collection to global scope for base template to use on each page nav
     eleventyConfig.addCollection("recentPosts", function(collectionApi) {
-      var recentPosts= collectionApi.getFilteredByTag("popular").reverse();
+      var recentPosts= collectionApi.getFilteredByTag("post").reverse();
       if (recentPosts.length > 3){
         recentPosts.length = 3;
       }
       return recentPosts;
     });
 
+    // set up the image shortcode for use in nunjucks templates
+    eleventyConfig.addShortcode("image", async function(src, alt, sizes) {
+      let metadata = await Image(src, {
+        widths: [300, 600],
+        formats: ["jpeg"],
+        outputDir: "_site/img/"
+      });
+  
+      let imageAttributes = {
+        alt,
+        sizes,
+        loading: "lazy",
+        decoding: "async",
+      };
+  
+      // throws an error on missing alt (alt="" works okay) or missing sizes
+      return Image.generateHTML(metadata, imageAttributes);
+    });
   };
