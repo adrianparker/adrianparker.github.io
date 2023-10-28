@@ -27,7 +27,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
  - 380 wine corks, more or less - that's about 10 corks per cm<sup>2</sup> of frame
 
 <figure>
-{% image "content/posts/img/IMG_7118.jpg", "Components of the new wine cork notice board pre-assembly", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7118.jpg", "Components of the new wine cork notice board pre-assembly", "(min-width: 30em) 50vw, 100vw" %}
 <figcaption>Components of the new wine cork notice board pre-assembly</figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
  - Glue offcuts in the small gaps that inevitable appear until there are no gaps left
  
 <figure>
-{% image "content/posts/img/IMG_7120.jpg", "The finished wine cork notice board", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7120.jpg", "The finished wine cork notice board", "(min-width: 30em) 50vw, 100vw" %}
 <figcaption>The finished wine cork notice board</figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ Use a stud finder to find a suitably strong part of the wall, then measure caref
 Hang it, and enjoy the tranquility of being able to pin random bits of paper on the wall!
 
 <figure>
-{% image "content/posts/img/IMG_7121.jpg", "Installed wine cork notice board above a bench, where random bits of paper tend to collect", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7121.jpg", "Installed wine cork notice board above a bench, where random bits of paper tend to collect", "(min-width: 30em) 50vw, 100vw" %}
 <figcaption>Installed wine cork notice board above a bench, where random bits of paper tend to collect</figcaption>
 </figure>
 
