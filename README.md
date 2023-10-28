@@ -3,7 +3,7 @@
 ## Summary
 This project is the personal blog of Adrian Parker, [AdrianParker.com](https://www.adrianparker.com/).
 
-Contains writing on topics like product management, finance, software, investment, and travel; adorned with whimsical anecdotes about life.
+Contains writing on topics like product management, finance, software, investment, and travel; adorned with whimsical anecdotes about life and random other things that interest me.
 
 ## Tech
 
