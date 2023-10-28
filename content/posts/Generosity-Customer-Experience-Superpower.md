@@ -64,7 +64,7 @@ We were! Much to our delight, the charming young man was named Finn, and he was 
 Next we met Arabella, one of the winemakers, and their family dog met ours, and before we could pinch ourselves to make sure we weren&apos;t dreaming, we met Simon, the chief winemaker, and we were following him through the vines taking in a masterclass in viticulture. We spent a good half an hour soaking up decades of experience and wisdom, and Simon was very gracious in putting up with our simple questions without ever making us feel silly.
 
 <figure>
-{% image "img/IMG_1513.jpg", "Wandering The Farm vineyard being taught about chardonnay by a master winemaker", "(min-width: 30em) 50vw, 100vw" %}
+{% image "static/img/IMG_1513.jpg", "Wandering The Farm vineyard being taught about chardonnay by a master winemaker", "(min-width: 30em) 50vw, 100vw" %}
 <figcaption>Wandering The Farm vineyard being taught about chardonnay by a master winemaker</figcaption>
 </figure>
 
