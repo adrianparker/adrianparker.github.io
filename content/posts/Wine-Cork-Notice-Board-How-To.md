@@ -27,7 +27,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
  - 380 wine corks, more or less - that's about 10 corks per cm<sup>2</sup> of frame
 
 <figure>
-{% image "img/IMG_7118.JPG", "Components of the new wine cork notice board pre-assembly", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7118.JPG", "Components of the new wine cork notice board pre-assembly", "" %}
 <figcaption>Components of the new wine cork notice board pre-assembly</figcaption>
 </figure>
 
@@ -35,26 +35,25 @@ Like any good online tutorial, we begin with the ingredients. You will need:
 
  - Sit your small person down with the Stanley knife and the corks
  - Instruct small person to cut the corks length ways, preserving the most interesting details
-   - Cutting corks is easier if you cut multiple times
-     - cut the whole length each time but 
-     - only cut a little deeper each time
-     - three or four shallow full length cuts is easier that one full length, full depth cut
+ - Cutting corks is easier if you cut multiple times...
+   - cut the whole length each time 
+   - only cut a a third of the depth each time
+   - three shallow cuts is much easier that one full depth cut
    - Set to one side any offcuts
- - Place your frame in front of you
-   - If the frame had glass, take that out so you just have the backing board and the frame
- - Experiment with feature pieces, for example champagne corks in the corners, set those you like aside
-   - Check you have more than enough corks to cover the left over space in the frame
+ - If the frame has glass, take that out so you just have the backing board and the frame
+ - Test any features you plan to have, like champagne corks in the corners
+ - Glue in the feature pieces in the desired locations
+ - Spray an area on the backing board about as big as your hand, then fill it with the feature
+   - Be generous with your glue!
+ - Check you have enough corks to fill the left over space in the frame
    - You are aiming to fill horizontally edge to edge in the gaps between the feature pieces
    - Remember to fill all the gaps, using offcuts cut to shape
- - Glue in the feature pieces in the desired locations. 
-   - For example, mine were the champagne corks in the corners
-   - Spray an area about as big as your hand, then fill it. Be generous with your glue
  - Starting top left, glue in the remaining corks length ways with interesting text facing outwards
    - Aiming to fill the frame top to bottom left to right with straight corks when possible
  - Glue offcuts in the small gaps that inevitable appear until there are no gaps left
  
 <figure>
-{% image "img/IMG_7120.jpg", "The finished wine cork notice board", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7120.jpg", "The finished wine cork notice board", "" %}
 <figcaption>The finished wine cork notice board</figcaption>
 </figure>
 
@@ -66,7 +65,7 @@ Use a stud finder to find a suitably strong part of the wall, then measure caref
 Hang it, and enjoy the tranquility of being able to pin random bits of paper on the wall!
 
 <figure>
-{% image "img/IMG_7121.JPG", "Installed wine cork notice board above a bench, where random bits of paper tend to collect", "(min-width: 30em) 50vw, 100vw" %}
+{% image "img/IMG_7121.JPG", "Installed wine cork notice board above a bench, where random bits of paper tend to collect", "" %}
 <figcaption>Installed wine cork notice board above a bench, where random bits of paper tend to collect</figcaption>
 </figure>
 

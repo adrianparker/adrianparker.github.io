@@ -1,6 +1,6 @@
 {
   "name": "adrianparker.github.io",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Personal website of Adrian Parker.",
   "main": "index.js",
   "scripts": {
@@ -19,9 +19,10 @@
     "url": "https://github.com/adrianparker/adrianparker.github.io/issues"
   },
   "homepage": "https://github.com/adrianparker/adrianparker.github.io#readme",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.6",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-img": "^3.1.6"
+    "outdent": "^0.8.0"
   }
 }
