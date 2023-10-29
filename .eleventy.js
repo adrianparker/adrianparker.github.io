@@ -37,15 +37,16 @@ module.exports = function (eleventyConfig) {
   };
 
 /**
- * Implement the image shortcode. Technique borrowed from https://www.aleksandrhovhannisyan.com/blog/eleventy-image-plugin/
+ * Implement the image shortcode. Technique adapted from https://www.aleksandrhovhannisyan.com/blog/eleventy-image-plugin/ .
+ * Returns a figure tag containing a picture tag, which has webp and jpeg sources with an img tag fallback to jpeg, and a figcaption the same as the alt text.
  */
 const imageShortcode = async (
   src,
   alt,
   className = undefined,
   widths = [400, 800],
-  formats = ['webp', 'jpeg'],
-  sizes = '100vw'
+  formats = ['webp','jpeg'],
+  sizes = '(max-width: 768px) 400px, 800px'
 ) => {
   const imageMetadata = await Image(src, {
     widths: [...widths],
@@ -59,7 +60,7 @@ const imageShortcode = async (
       const sourceAttributes = stringifyAttributes({
         type: sourceType,
         srcset: images.map((image) => image.srcset).join(', '),
-        sizes,
+        sizes: sizes
       });
       // Return one <source> per format
       return `<source ${sourceAttributes}>`;
@@ -71,26 +72,23 @@ const imageShortcode = async (
     return images[images.length - 1];
   }
 
-  const largestUnoptimizedImg = getLargestImage(formats[0]);
+  const largestJpeg = getLargestImage('jpeg');
   const imgAttributes = stringifyAttributes({
-    src: largestUnoptimizedImg.url,
-    width: largestUnoptimizedImg.width,
-    height: largestUnoptimizedImg.height,
+    src: largestJpeg.url,
     alt,
     loading: 'lazy',
-    decoding: 'async',
+    decoding: 'async'
   });
   const imgHtmlString = `<img ${imgAttributes}>`;
-
   const pictureAttributes = stringifyAttributes({
     class: className,
   });
-  const picture = `<picture ${pictureAttributes}>
+  const figure = `<figure><picture ${pictureAttributes}>
     ${sourceHtmlString}
     ${imgHtmlString}
-  </picture>`;
+  </picture><figcaption>${alt}</figcaption></figure>`;
 
-  return outdent`${picture}`;
+  return figure;
 };
 
 /** 

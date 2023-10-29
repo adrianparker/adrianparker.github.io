@@ -121,6 +121,10 @@ a:active, a:hover {
   color: var(--subheading-color);
 }
 
+figure {
+  margin-left: 0px;
+}
+
 .posts,
 .post {
   margin-top: 60px;
