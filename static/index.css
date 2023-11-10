@@ -187,20 +187,30 @@ figure {
   width: 170px;
 }
 
-.twitter-follow-button, .twitter-follow-button:visited {
+.twitter-follow-button, .twitter-follow-button:visited, .rss-button, .rss-button:visited {  
   background-color: inherit;
-  background-image: url('/img/twitter.png');
-  background-position: 1px 10px;
   background-repeat: no-repeat;
-  background-size: 16px 13px;
   color: var(--text-color);
   font-size: 1em;
   padding: 8px 0px 8px 22px;
   text-decoration: none;
 }
-.twitter-follow-button:hover {
+
+.twitter-follow-button:hover, .rss-button:hover {
   background-color: inherit;
   color: var(--subheading-color);
+}
+
+.twitter-follow-button, .twitter-follow-button:visited {
+  background-image: url('/img/twitter.png');
+  background-position: 1px 10px;
+  background-size: 16px 13px;
+}
+
+.rss-button, .rss-button:visited {
+  background-image: url('/img/social_style_3_rss-512-1.png');
+  background-position: 0px 10px;
+  background-size: 16px 16px;
 }
 
 /* Media queries */
