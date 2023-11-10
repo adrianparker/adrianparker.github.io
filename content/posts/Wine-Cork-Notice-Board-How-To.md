@@ -20,12 +20,15 @@ I'm amazed it turned out so well, so the least I could do is share with you how 
 
 Like any good online tutorial, we begin with the ingredients. You will need:
 
- - A large, blank photo frame - mine was 3800 cm<sup>2</sup>
+ - A large, blank photo frame - mine has a frame internal area of 3500 cm<sup>2</sup>
  - A lot of glue - I used spray on but paste will work fine I guess
  - A Stanley knife (AKA box cutter, or utility knife)
  - A small person - but not so small they can't be trusted with a Stanley knife
- - 380 wine corks, more or less - that's about 10 corks per cm<sup>2</sup> of frame
-
+ - About 1 cork per 9 cm<sup>2</sup> of frame internal area
+   - you can use both halves of the corks if your corks are interesting on both sides
+   - if so, you can go with 1 cork per 18 cm<sup>2</sup> of frame internal area
+ - Have a handful of extra corks as well, to allow for bad cuts and breakages
+  
 {% image "img/IMG_7118.JPG", "Components of the new wine cork notice board pre-assembly" %}
 
 ## Method
