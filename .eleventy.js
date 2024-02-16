@@ -1,4 +1,5 @@
 const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const Image = require("@11ty/eleventy-img");
 const outdent = require('outdent');
@@ -6,12 +7,19 @@ const outdent = require('outdent');
 
 module.exports = function (eleventyConfig) {
 
+    let markdownLibrary = markdownIt({
+      html: true
+    })
+    .use(markdownItFootnote);
+  
+    eleventyConfig.setLibrary("md", markdownLibrary);
+
     // output everything from the static folder at root of output
     eleventyConfig.addPassthroughCopy({ static: "/" });
     
     // can use the shortcode 'md' in a page to render markdown copy as HTML in place
     eleventyConfig.addFilter("md", function (content = "") {
-      return markdownIt({ html: true }).render(content);
+      return markdownIt({ html: true }).use(markdownItFootnote).render(content);
     });
 
     // enable RSS
