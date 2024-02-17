@@ -101,7 +101,7 @@ p, label, section>a, .blog-post>ul {
   line-height: 1.5em;
 }
 
-h1, h2, label, a, a:visited, figcaption {
+h1, h2, label, a, a:visited, figcaption, .footnote-item {
   color: var(--highlight-color);
 }
 
