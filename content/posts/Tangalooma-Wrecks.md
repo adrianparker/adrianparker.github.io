@@ -22,7 +22,7 @@ Decades back, the resort sank a bunch of boats just off the beach, shallow enoug
 The four of us Octonauts spent a day out there, kayaking, relaxing, and diving. Visibility was OK, maybe 5 metres, the water was colder than I expected, around 23 degrees, but still it was a great day out in a lovely place.
 
 ## Diving Tangalooma Wrecks video
-I took the opportunity to test my new DHI Osmo Action 5 Pro action camera and it did not disappoint! 
+I took the opportunity to test my new DJI Osmo Action 5 Pro action camera and it did not disappoint! 
 
 Check out the highlights video below:
 
