@@ -65,7 +65,7 @@ Officially hooked or not, I was still 15.
 
 I also had high school to attend to, and a father with a less than permissive attitude. So it wasn't until AC/DC came to town in November 1991 that I finally got to see Shihad play live. 
 
-AC/DC in Novemembr 1991 was my first ever gig without a parent in tow. They were playing Athletic Park, an iconic rugby ground, on my 17th birthday, and Shihad were the support act. 
+AC/DC was my first ever gig without a parent in tow. They were playing Athletic Park, an iconic rugby ground, on my 17th birthday, and Shihad were the support act. 
 
 The show was delayed by a day for bad weather, which meant 40,000 AC/DC fans got an extra day to preload. It was a messy show. On the way out it felt like we were walking across a carpet of empty Jim Beam bottles in the mud. 
 
@@ -154,8 +154,7 @@ Then I checked my email.
 
 "Tonight, one *more* Shihad show, tickets on sale 9AM. Playing Churn and Killjoy back to back!" 
 
-If Homegrown was the first last ever show, then this... well, it must be the last ever, last ever show. At Meow Nui, a gorgeous 1000 capacity club, 
-newly opened. No support acts, just Shihad. Their two best records. In their entirity! I could not believe my luck. It was sold out by 11AM. 
+If Homegrown was the first last ever show, then this... well, it must be the last ever, last ever show. At Meow Nui, a gorgeous 1000 capacity club, newly opened. Shihad. Playing their two best records, in their entirity! I could not believe my luck. It was sold out by 11AM. 
 
 That night was one of the best live gigs I will ikely ever attend. 
 
@@ -168,7 +167,7 @@ Cracked straight into Factory, with that signature hi-hat intro.
 
 It was eerie quiet, the crowd transfixed, it felt like that moment at a wake before anyone from the audience goes up to the front to give a eulogy. 
 
-Then... the lighs went up, the riff crashed over us, and the party began. Stuck, stuck, stuck in the factory stuck. Nowhere else we'd rather be. 
+Then... the lights went up, the riff crashed over us, and the party began. Stuck, stuck, stuck in the factory stuck. Nowhere else we'd rather be. 
 
 They played every track from Churn, as advertised. We loved it.
 
@@ -188,9 +187,9 @@ They played homage to their road crew, their families, and their first manager, 
 
 They told stories. Many stories. Like you do, at a wake.
 
-My favourite was how Karl, the "new" bass player audtioned with Tom the drummer in the Pukerua Bay school hall. That was particularly special, because my kids went to that school. I can almost hear them jamming when I walk past today.
+My favourite was how Karl, the new bass player, auditioned with Tom the drummer in the Pukerua Bay school hall. That was particularly special for me, because my kids went to that school. I can almost hear them jamming when I walk past today.
 
-Realising this band that meant so much to me meant just as much to so many other people. 
+It dawned on me this band that meant so much to me, meant just as much to so many other people. 
 
 The sense of community that night was heartwarming. Everyone with smiles. Some tears. So many memories. 
 
@@ -200,7 +199,7 @@ Was it really Shihad's last ever show? I'm conflicted. I hope it was, because it
 
 But I hope not. Because I would like to party with the Shihad whanau at least one more time.
 
-Thank you Shihad. For all of it.
+Thank you Shihad. For all of it. Here's to the next last ever.
 
 ### Appendix
 
