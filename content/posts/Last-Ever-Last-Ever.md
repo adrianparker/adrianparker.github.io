@@ -11,7 +11,7 @@ tags: ['post']
 
 ## Bootleg Empire
 
-In the late 80s, my best friend and I ran a bootleg concert tape business from our bedrooms. Bootleg concert tapes are unoffical recordings of live concerts, traded without any revenue going to the band. 
+In the late 80s, my best friend and I ran a bootleg concert tape business from our bedrooms. Bootleg concert tapes are unofficial recordings of live concerts, traded without any revenue going to the band. 
 
 We told our parents it was a grey area of copyright law. (It really wasn't).<!-- excerpt -->
 
@@ -27,13 +27,13 @@ Andrei had a double cassette deck and a computer with a printer. I knew what a d
 
 Eventually we built the biggest bootleg concert business in New Zealand.
 
-If bootlegs were crack, that made Andrei and I cartel kingpins. 
+If bootlegs were crack, that made Andrei and me cartel kingpins. 
 
 {% image "img/IMG_9410.jpeg", "A snippet of our bootleg catalogue. Check out that dot matrix font!" %}
 
 ## Ripping It Up
 
-We ran our empire from my letter box. We'd buy blank cassettes by the dozen direct from the importer, packaging in bulk, the local post office greeted us by name when we walked in the door. 
+We ran our empire from my letterbox. We'd buy blank cassettes by the dozen direct from the importer, packaging in bulk, the local post office greeted us by name when we walked in the door. 
 
 Our only form of advertising was a free record store music magazine named "Rip It Up". 
 
@@ -41,11 +41,11 @@ Serious music fans would pore through Rip It Up cover to cover, and lurking in t
 
 So there I was, mid 1990, 15 years old, co-running a bootleg concert tape empire from my letterbox, spending a large portion of every spare minute dreaming about attending live gigs. 
 
-In that month's Rip It Up, Australian band The Angels advertised they were about to play Wellington, where I lived. But my father wouldn't let me go, seeing as I was barely 15, which I saw as a grave injustice. I registered my disappointment by buying their cassingle[^1] "Dogs Are Talking" and playing it on my bedroom stereo, at full volumne, repeatedly. 
+In that month's Rip It Up, Australian band The Angels advertised they were about to play Wellington, where I lived. But my father wouldn't let me go, seeing as I was barely 15, which I saw as a grave injustice. I registered my disappointment by buying their cassingle[^1] "Dogs Are Talking" and playing it on my bedroom stereo, at full volume, repeatedly. 
 
 The coolest thing about this cassingle, other than its revenge value, was The Angels had given their support acts a track each on the B-side. Both the acts were new to me. One of the bands, [Nine Livez](https://www.discogs.com/artist/4208104-Nine-Livez) contributed the track "Live It Up", which wasn't all that impressive. 
 
-The other track however was a *belter*. 
+The other track, however, was a *belter*. 
 
 Reminiscent of Metallica, or Anthrax, yet somehow fresh and new, it was called "Down Dance" and it was by a local band I had never heard of before, named Shihad.
 
@@ -53,7 +53,7 @@ I thrashed that cassingle.
 
 So you can imagine my reaction when I saw an ad, next to our own in the classified section of Rip It Up, sometime in late 1990. "Devolve - the debut EP by Shihad - send money to Gerald Dwyer at P.O. Box 12345, Wellington". 
 
-I raided my share of the bootleg profits, sent my cash away in the post, waited two weeks then one fateful morning I opened the letter box and saw it had arrived. 
+I raided my share of the bootleg profits, sent my cash away in the post, waited two weeks, then one fateful morning I opened the letter box and saw it had arrived. 
 
 I became the proud owner of "[Devolve](https://www.shihadwiki.com/wiki/Devolve_(ep))", the debut EP by Shihad. And I was officially hooked.
 
@@ -87,7 +87,7 @@ Those were the days.
 
 ## Wellington Royalty
 
-Those were the years when climbing out my bedroom window was the easiest way to skirt parental permission issues, and when the bands played so late, we had to sleep in cemeteries while waiting for the first morning train back honme.
+Those were the years when climbing out my bedroom window was the easiest way to skirt parental permission issues, and when the bands played so late, we had to sleep in cemeteries while waiting for the first morning train back home.
 
 Shihad became Wellington royalty. Every local metal fan was a loyal subject. But their kingdom wasn't just the music, it was the Wellington scene itself. 
 
@@ -148,15 +148,15 @@ Hearing people in the crowd calling out "Screwtop" took me all the way back to 1
 Then it was the morning after Homegrown. 
 
 I was tucked up in bed with my coffee and I thought, oh I'll check reviews, see how the last ever show went. 
-Social media was full of peple bragging they were at the last Shihad show. Lucky people. I had envy. 
+Social media was full of people bragging they were at the last Shihad show. Lucky people. I had envy. 
 
 Then I checked my email.
 
 "Tonight, one *more* Shihad show, tickets on sale 9AM. Playing Churn and Killjoy back to back!" 
 
-If Homegrown was the first last ever show, then this... well, it must be the last ever, last ever show. At Meow Nui, a gorgeous 1000 capacity club, newly opened. Shihad. Playing their two best records, in their entirity! I could not believe my luck. It was sold out by 11AM. 
+If Homegrown was the first last ever show, then this... well, it must be the last ever, last ever show. At Meow Nui, a gorgeous 1000 capacity club, newly opened. Shihad. Playing their two best records, in their entirety! I could not believe my luck. It was sold out by 11AM. 
 
-That night was one of the best live gigs I will ikely ever attend. 
+That night was one of the best live gigs I will likely ever attend. 
 
 The room was full of the Wellington metal fan family. Real Shihad fans, not festival goers who just happened to show up. 
 Lots of young folks, but the majority my generation - people who knew what Churn meant, who'd paid their dues like I had. 
@@ -175,7 +175,7 @@ They played every track from Killjoy, as advertised, including an *epic* long do
 
 We held our breaths. Surely that was it? 
 
-Hell no. They kept going. Ano we loved it more than anything. Check out the setlist.
+Hell no. They kept going. And we loved it more than anything. Check out the setlist:
 
 <img src="https://www.setlist.fm/widgets/setlist-image-v1?id=2358f4bb" alt="Shihad Setlist Meow Nui, Wellington, New Zealand 2025, LOUD FOREVER" style="border: 0;" />
 
@@ -205,7 +205,10 @@ Thank you Shihad. For all of it. Here's to the next last ever.
 
 Here's a video with some snips from the gig and some of the stories being told. Crank it up.
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/adrianparker/54402210103/in/album-72177720324574371" title="20250316 Last Ever Last Ever - Shihad"><img src="https://live.staticflickr.com/31337/54402210103_ffa3a4e485_c.jpg" width="800" height="450" alt="20250316 Last Ever Last Ever - Shihad"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<video controls preload="metadata" width="800">
+  <source src="https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
 There are [some photos from the show](https://www.flickr.com/photos/adrianparker/albums/72177720324574371) in this gallery too.
 
