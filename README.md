@@ -11,7 +11,7 @@ Website is static content, generated using [Eleventy](https://www.11ty.dev/) and
 
 **Styling**: Custom CSS (`static/index.css`) built on [Pure.css](https://purecss.io/) framework with a dark theme and responsive design.
 
-**Deployment**: Automated via [GitHub Actions](https://github.com/features/actions) workflow — changes pushed to `main` branch trigger build validation (smoke tests) and automatic deployment to GitHub Pages.
+**Deployment**: Automated via [GitHub Actions](https://github.com/features/actions) workflow — changes pushed to `master` branch trigger build validation (smoke tests) and automatic deployment to GitHub Pages.
 
 Highly recommended looking into Eleventy and GitHub Pages if you are wanting a website of your own.
 
