@@ -205,10 +205,7 @@ Thank you Shihad. For all of it. Here's to the next last ever.
 
 Here's a video with some snips from the gig and some of the stories being told. Crank it up.
 
-<video controls preload="metadata" width="800">
-  <source src="https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>
+{% video "https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4" %}
 
 There are [some photos from the show](https://www.flickr.com/photos/adrianparker/albums/72177720324574371) in this gallery too.
 

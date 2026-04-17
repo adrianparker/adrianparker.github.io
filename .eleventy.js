@@ -42,6 +42,9 @@ module.exports = function (eleventyConfig) {
 
     // set up the image shortcode for use in nunjucks templates
     eleventyConfig.addShortcode("image", imageShortcode);
+
+    // set up the video shortcode for use in nunjucks templates
+    eleventyConfig.addShortcode("video", videoShortcode);
   };
 
 /**
@@ -97,6 +100,27 @@ const imageShortcode = async (
   </picture><figcaption>${alt}</figcaption></figure>`;
 
   return figure;
+};
+
+/**
+ * Implement the video shortcode.
+ * Returns a responsive video wrapper div with proper aspect ratio, containing a video element.
+ */
+const videoShortcode = (src, type = 'video/mp4', poster = undefined) => {
+  const videoAttributes = stringifyAttributes({
+    controls: 'controls',
+    preload: 'metadata',
+    poster: poster
+  });
+  const sourceHtmlString = `<source src="${src}" type="${type}"/>`;
+  const fallbackText = 'Your browser does not support the video tag.';
+  
+  const video = `<video ${videoAttributes}>
+    ${sourceHtmlString}
+    ${fallbackText}
+  </video>`;
+
+  return `<div class="video-wrapper">${video}</div>`;
 };
 
 /** 

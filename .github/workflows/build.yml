@@ -24,7 +24,21 @@ jobs:
       - name: Install dependencies & build
         run: |
           npm ci
-          npm run build          
+          npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run tests
+        run: npm run test:headless
+
+      - name: Upload test artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-screenshots
+          path: tests/screenshots-actual/
+          retention-days: 7
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

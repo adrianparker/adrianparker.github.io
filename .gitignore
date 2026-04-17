@@ -4,3 +4,4 @@ js/jsconfig.json
 node_modules
 content/posts/*.hmmm
 _site/
+tests/screenshots-actual/
