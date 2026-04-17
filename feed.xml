@@ -226,10 +226,10 @@ Lots of young folks, but the majority my generation - people who knew what Churn
 &lt;p&gt;Thank you Shihad. For all of it. Here&#39;s to the next last ever.&lt;/p&gt;
 &lt;h3&gt;Appendix&lt;/h3&gt;
 &lt;p&gt;Here&#39;s a video with some snips from the gig and some of the stories being told. Crank it up.&lt;/p&gt;
-&lt;video controls=&quot;&quot; preload=&quot;metadata&quot; width=&quot;800&quot;&gt;
-  &lt;source src=&quot;https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  Your browser does not support the video tag.
-&lt;/video&gt;
+&lt;div class=&quot;video-wrapper&quot;&gt;&lt;video controls=&quot;controls&quot; preload=&quot;metadata&quot;&gt;
+    &lt;source src=&quot;https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;&lt;/div&gt;
 &lt;p&gt;There are &lt;a href=&quot;https://www.flickr.com/photos/adrianparker/albums/72177720324574371&quot;&gt;some photos from the show&lt;/a&gt; in this gallery too.&lt;/p&gt;
 &lt;hr class=&quot;footnotes-sep&quot; /&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
