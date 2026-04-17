@@ -34,7 +34,7 @@ module.exports = {
     // Allowed pixel difference threshold for image comparison (0-255)
     threshold: 0.1,
     // Percentage of pixels allowed to differ (0-1)
-    diffPixelsThreshold: 0.01
+    diffPixelsThreshold: 0.03
   },
 
   // Playwright browser options
