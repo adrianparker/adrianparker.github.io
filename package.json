@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run build && mocha 'tests/**/*.test.js'",
-    "test:headless": "npm run build && mocha 'tests/**/*.test.js' --reporter spec",
+    "test:headless": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
     "build": "npx eleventy --input=content",
     "serve": "npx eleventy --input=content --serve",
     "debug": "DEBUG=* npx eleventy --input=content"
