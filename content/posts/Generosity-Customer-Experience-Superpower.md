@@ -6,7 +6,7 @@ summary: 'Moments of unexpected generosity lie at the core of exceptional custom
 metadesc: 'Moments of unexpected generosity can have a lasting impact on customer perception of your brand, converting customers into lifelong promoters.'
 date: 2023-05-01
 readingtime: '10 minutes'
-tags: ['post', 'popular']
+tags: ['post']
 ---
 ## We cancelled your credit card
 

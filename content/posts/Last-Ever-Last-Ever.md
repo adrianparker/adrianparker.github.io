@@ -6,7 +6,7 @@ summary: 'My brief career as a bootleg kingpin, and Wellington''s finest rock ba
 metadesc: 'I came of age as Shihad did, and seeing their last ever concert in 2025 prompted reflection.'
 date: 2026-01-11
 readingtime: '11 minutes'
-tags: ['post']
+tags: ['post', 'popular']
 ---
 
 ## Bootleg Empire
