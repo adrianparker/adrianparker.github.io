@@ -213,6 +213,21 @@ figure {
   background-size: 16px 16px;
 }
 
+/* Privacy Notice Footer */
+
+.privacy-notice h5 {
+  color: var(--highlight-color);
+  font-family: 'Bebas Neue', serif;
+  font-size: 1em;
+  margin: 0.5em 0 0.3em 0;
+}
+
+.privacy-notice-text {
+  color: var(--subheading-color);
+  font-size: 0.8em;
+  margin: 0;
+}
+
 /* Video embedding - responsive container */
 
 .video-wrapper {
