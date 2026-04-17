@@ -7,9 +7,11 @@ This document explains how to run, maintain, and troubleshoot tests for the adri
 The project includes two types of automated tests:
 
 1. **Smoke Tests** - Validate that the Eleventy build completes successfully and produces expected output
-2. **Visual Regression Tests** - Compare screenshots of pages at different viewports (desktop and mobile) against baseline images
+2. **Visual Regression Tests** - Compare screenshots of pages at different viewports (desktop and mobile) against baseline images (local development only)
 
-Tests are written using **Mocha** test runner with **Chai** assertions, **Playwright** for browser automation, and **Pixelmatch** for image comparison.
+**GitHub Actions CI/CD** runs only smoke tests for fast feedback. Visual regression tests are run locally during development to catch unintended design changes before they are committed.
+
+Tests are written using **Mocha** test runner with **Chai** assertions, **Playwright** for browser automation (local visual regression only), and **Pixelmatch** for image comparison.
 
 ## Prerequisites
 
@@ -58,7 +60,7 @@ npx mocha tests/visual-regression.test.js --reporter spec --timeout 60000
 
 Visual regression tests are slower (~13s total) and take screenshots at:
 - **Desktop viewport**: 1200px width
-- **Mobile viewport**: 768px width (matches your media query breakpoint)
+- **Mobile viewport**: 768px width (matches the project media query breakpoint)
 
 Pages tested:
 - Video post: `_site/posts/Last-Ever-Last-Ever/index.html`
@@ -69,7 +71,7 @@ Pages tested:
 npm run test:headless
 ```
 
-This runs tests in headless mode without interactive output, suitable for GitHub Actions.
+This runs only smoke tests in headless mode without interactive output, suitable for GitHub Actions. GitHub Actions does not download Playwright or run visual regression tests for faster CI/CD feedback.
 
 ## Updating Baselines
 
@@ -152,15 +154,16 @@ Adjust these if you need different breakpoints or stricter image matching.
 
 ## CI/CD Integration
 
-Tests run automatically on GitHub Actions when you push to `master`:
+Smoke tests run automatically on GitHub Actions when you push to `master`:
 
 1. Node.js 22.x is set up
 2. Dependencies are installed
 3. Site is built with `npm run build`
-4. Playwright browser is downloaded and installed
-5. Tests run with `npm run test:headless`
-6. If tests fail, build is marked as failed and screenshots are uploaded as artifacts
-7. If tests pass, site is deployed to GitHub Pages
+4. Smoke tests run with `npm run test:headless` (~4ms, very fast)
+5. If tests fail, build is marked as failed
+6. If tests pass, site is deployed to GitHub Pages
+
+**Visual regression tests are not run in CI/CD** to keep the workflow fast and lightweight. Run them locally before committing design changes.
 
 View results in the "Actions" tab of your GitHub repository.
 
