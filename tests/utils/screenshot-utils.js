@@ -23,8 +23,12 @@ async function takeScreenshot(pageUrl, viewport, screenshotPath) {
     const page = await context.newPage();
     
     await page.goto(pageUrl, { waitUntil: 'networkidle' });
-    // Wait for any lazy-loaded content
-    await page.waitForTimeout(500);
+    
+    // Wait for stylesheets to be applied
+    await page.waitForLoadState('networkidle');
+    
+    // Additional wait to ensure CSS is parsed and applied
+    await page.waitForTimeout(1000);
     
     await page.screenshot({ path: screenshotPath, fullPage: true });
     await context.close();

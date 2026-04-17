@@ -3,24 +3,36 @@
  * Takes screenshots at different viewport sizes and compares against baselines.
  */
 
+// Set base URL to HTTP server BEFORE requiring any modules that depend on config
+process.env.TEST_BASE_URL = 'http://localhost:3000';
+
 const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
-const config = require('./config');
+const { startServer, stopServer } = require('./utils/http-server');
 const {
   takeScreenshot,
   compareScreenshots,
   getScreenshotFilename,
   ensureScreenshotDir
 } = require('./utils/screenshot-utils.js');
+const config = require('./config');
 
 describe('Visual Regression Tests - Responsive Design', function() {
   this.timeout(60000); // Screenshots can take time
 
-  before(function() {
+  before(async function() {
+    // Start HTTP server for proper asset loading (CSS, images, etc.)
+    await startServer(3000);
+    
     // Ensure directories exist
     ensureScreenshotDir(config.screenshots.baseDir);
     ensureScreenshotDir(config.screenshots.actualDir);
+  });
+
+  after(async function() {
+    // Stop HTTP server after tests complete
+    await stopServer();
   });
 
   describe('Video Post - Desktop View (1200px)', function() {
