@@ -58,13 +58,12 @@ Smoke tests are fast (~4ms) and validate:
 npx mocha tests/visual-regression.test.js --reporter spec --timeout 60000
 ```
 
-Visual regression tests are slower (~13s total) and take screenshots at:
-- **Desktop viewport**: 1200px width
-- **Mobile viewport**: 768px width (matches the project media query breakpoint)
-
-Pages tested:
-- Video post: `_site/posts/Last-Ever-Last-Ever/index.html`
-- Home page: `_site/index.html`
+Visual regression tests are slower (~15s total) and:
+- Start a local HTTP server on port 3000 to properly load CSS and assets
+- Take screenshots at **Desktop viewport** (1200px width) and **Mobile viewport** (768px width, matching the media query breakpoint)
+- Test the following pages:
+  - Video post: `_site/posts/Last-Ever-Last-Ever/index.html`
+  - Home page: `_site/index.html`
 
 ### Headless mode (for CI/CD)
 ```bash
@@ -128,7 +127,8 @@ tests/
 ├── smoke.test.js              # Build validation tests
 ├── visual-regression.test.js  # Screenshot comparison tests
 ├── utils/
-│   └── screenshot-utils.js    # Utilities for screenshot capture and comparison
+│   ├── screenshot-utils.js    # Utilities for screenshot capture and comparison
+│   └── http-server.js         # Local HTTP server for visual regression tests
 ├── screenshots/               # Baseline reference images (committed to git)
 │   ├── home-page-desktop.png
 │   ├── home-page-mobile.png
@@ -146,9 +146,10 @@ tests/
 Test behavior is defined in `tests/config.js`:
 
 - **Viewport sizes**: 1200px (desktop) and 768px (mobile)
-- **Base URL**: `file://` URLs pointing to local `_site/` directory
+- **Base URL**: `http://localhost:3000` (visual regression tests use a local HTTP server to properly load CSS and assets)
+- **HTTP Server**: Automatically started/stopped during visual regression tests on port 3000
 - **Diff threshold**: 0.1 (pixel color difference, 0-255 scale)
-- **Pixel threshold**: 0.01 (1% of pixels allowed to differ)
+- **Pixel threshold**: 0.05 (5% of pixels allowed to differ, accounting for minor rendering variations)
 
 Adjust these if you need different breakpoints or stricter image matching.
 
@@ -170,8 +171,9 @@ View results in the "Actions" tab of your GitHub repository.
 ## Troubleshooting
 
 ### "port already in use" errors
-- Eleventy dev server may be running: `killall eleventy` or kill the process manually
-- Or use a different port: `DEBUG=port npx eleventy --input=content --serve`
+- If running Eleventy dev server and tests simultaneously: `killall eleventy` or kill the process manually
+- Port 3000 used by visual regression tests: ensure no other service is using it
+- Port 8080 used by Eleventy serve: you can change it with `npx eleventy --input=content --serve --port=8081`
 
 ### Screenshots look different on CI than locally
 - CI runs on Ubuntu, your machine may be macOS/Windows
