@@ -98,7 +98,7 @@ describe('Smoke Tests - Gig Post Type', function() {
   it('should show gig post in home page listing', function() {
     const indexHtml = path.join(process.cwd(), '_site/index.html');
     const htmlContent = fs.readFileSync(indexHtml, 'utf8');
-    expect(htmlContent).to.include('The Datsuns at Underworld');
+    expect(htmlContent).to.include('The Datsuns @ Underworld');
   });
 
   it('should show Gigs section with All gigs link in sidebar', function() {
@@ -111,7 +111,7 @@ describe('Smoke Tests - Gig Post Type', function() {
   it('should include gig post in RSS feed', function() {
     const feedPath = path.join(process.cwd(), '_site/feed.xml');
     const feedContent = fs.readFileSync(feedPath, 'utf8');
-    expect(feedContent).to.include('The Datsuns at Underworld');
+    expect(feedContent).to.include('The Datsuns @ Underworld');
   });
 
   it('should include .gig-metadata CSS class in generated styles', function() {
