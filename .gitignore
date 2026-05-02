@@ -3,5 +3,6 @@ js/jsconfig.json
 .DS_Store
 node_modules
 content/posts/*.hmmm
+content/posts/gigs/*.hmmm
 _site/
 tests/screenshots-actual/
