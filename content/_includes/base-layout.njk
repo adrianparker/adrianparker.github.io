@@ -67,6 +67,23 @@
                             </li>
                             {% endfor %}
 
+                            <li class="pure-menu-heading">Gigs</li>
+
+                            {% for post in collections.recentGigs %}
+                            {% if page.fileSlug == post.page.fileSlug %}
+                            <li class="pure-menu-item pure-menu-selected">
+                                <div class="pure-menu-link">{{ post.data.navtitle }}</div>
+                            {% else %}
+                            <li class="pure-menu-item">
+                                 <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                            {% endif %}
+                            </li>
+                            {% endfor %}
+
+                            <li class="pure-menu-item">
+                                <a href="/gigs/" class="pure-menu-link">All gigs...</a>
+                            </li>
+
                             <li class="pure-menu-heading">Elsewhere</li>
                             
                             <li class="pure-menu-item">

@@ -62,3 +62,61 @@ describe('Smoke Tests - Build Validation', function() {
     expect(fs.existsSync(feedPath)).to.be.true;
   });
 });
+
+describe('Smoke Tests - Gig Post Type', function() {
+  this.timeout(30000);
+
+  it('should generate gigs index page', function() {
+    const gigsIndexPath = path.join(process.cwd(), '_site/gigs/index.html');
+    expect(fs.existsSync(gigsIndexPath)).to.be.true;
+  });
+
+  it('should generate test gig post HTML', function() {
+    const gigPostDir = path.join(process.cwd(), '_site/posts/gigs/20090218-Datsuns-Astoria-London');
+    expect(fs.existsSync(gigPostDir)).to.be.true;
+
+    const gigPostHtml = path.join(gigPostDir, 'index.html');
+    expect(fs.existsSync(gigPostHtml)).to.be.true;
+  });
+
+  it('should render gig metadata card in gig post', function() {
+    const gigPostHtml = path.join(process.cwd(), '_site/posts/gigs/20090218-Datsuns-Astoria-London/index.html');
+    const htmlContent = fs.readFileSync(gigPostHtml, 'utf8');
+    expect(htmlContent).to.include('class="gig-metadata"');
+    expect(htmlContent).to.include('The Datsuns');
+    expect(htmlContent).to.include('The Astoria');
+  });
+
+  it('should render Flickr embed in gig post', function() {
+    const gigPostHtml = path.join(process.cwd(), '_site/posts/gigs/20090218-Datsuns-Astoria-London/index.html');
+    const htmlContent = fs.readFileSync(gigPostHtml, 'utf8');
+    expect(htmlContent).to.include('data-flickr-embed="true"');
+    expect(htmlContent).to.include('embedr.flickr.com');
+    expect(htmlContent).to.include('live.staticflickr.com');
+  });
+
+  it('should show gig post in home page listing', function() {
+    const indexHtml = path.join(process.cwd(), '_site/index.html');
+    const htmlContent = fs.readFileSync(indexHtml, 'utf8');
+    expect(htmlContent).to.include('The Datsuns at The Astoria');
+  });
+
+  it('should show Gigs section with All gigs link in sidebar', function() {
+    const indexHtml = path.join(process.cwd(), '_site/index.html');
+    const htmlContent = fs.readFileSync(indexHtml, 'utf8');
+    expect(htmlContent).to.include('All gigs...');
+    expect(htmlContent).to.include('href="/gigs/"');
+  });
+
+  it('should include gig post in RSS feed', function() {
+    const feedPath = path.join(process.cwd(), '_site/feed.xml');
+    const feedContent = fs.readFileSync(feedPath, 'utf8');
+    expect(feedContent).to.include('The Datsuns at The Astoria');
+  });
+
+  it('should include .gig-metadata CSS class in generated styles', function() {
+    const cssPath = path.join(process.cwd(), '_site/index.css');
+    const cssContent = fs.readFileSync(cssPath, 'utf8');
+    expect(cssContent).to.include('.gig-metadata');
+  });
+});

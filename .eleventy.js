@@ -40,6 +40,24 @@ module.exports = function (eleventyConfig) {
       return recentPosts;
     });
 
+    // add up to 3 most recent gig posts collection to global scope for base template sidebar
+    eleventyConfig.addCollection("recentGigs", function(collectionApi) {
+      var recentGigs = collectionApi.getFilteredByTag("gig").reverse();
+      if (recentGigs.length > 3) {
+        recentGigs.length = 3;
+      }
+      return recentGigs;
+    });
+
+    // merged collection of posts and gigs sorted by date descending, for home page and RSS feed
+    eleventyConfig.addCollection("homePagePosts", function(collectionApi) {
+      var posts = collectionApi.getFilteredByTag("post");
+      var gigs = collectionApi.getFilteredByTag("gig");
+      return posts.concat(gigs).sort(function(a, b) {
+        return b.date - a.date;
+      });
+    });
+
     // set up the image shortcode for use in nunjucks templates
     eleventyConfig.addShortcode("image", imageShortcode);
 

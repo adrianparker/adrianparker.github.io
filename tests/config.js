@@ -27,7 +27,9 @@ module.exports = {
   // Paths to test pages
   testPages: {
     videoPost: '/posts/Last-Ever-Last-Ever/index.html',
-    index: '/index.html'
+    index: '/index.html',
+    gigPost: '/posts/gigs/20090218-Datsuns-Astoria-London/index.html',
+    gigIndex: '/gigs/index.html'
   },
 
   // Screenshot configuration

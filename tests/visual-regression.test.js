@@ -168,4 +168,120 @@ describe('Visual Regression Tests - Responsive Design', function() {
       expect(result.match).to.be.true;
     });
   });
+
+  describe('Gig Post - Desktop View (1200px)', function() {
+    const viewport = config.viewports.desktop;
+    const testName = 'gig-post';
+    const pageUrl = config.baseUrl + config.testPages.gigPost;
+    const baselineFilename = getScreenshotFilename(testName, viewport.name);
+    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
+    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
+
+    it('should render gig post with correct layout at desktop viewport', async function() {
+      await takeScreenshot(pageUrl, viewport, actualPath);
+      expect(fs.existsSync(actualPath)).to.be.true;
+    });
+
+    it('should match baseline screenshot for gig post desktop layout', async function() {
+      if (!fs.existsSync(baselinePath)) {
+        this.skip();
+        return;
+      }
+
+      const diffPath = path.join(
+        config.screenshots.actualDir,
+        `diff-${getScreenshotFilename(testName, viewport.name)}`
+      );
+
+      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
+      expect(result.match).to.be.true;
+    });
+  });
+
+  describe('Gig Post - Mobile View (768px)', function() {
+    const viewport = config.viewports.mobile;
+    const testName = 'gig-post';
+    const pageUrl = config.baseUrl + config.testPages.gigPost;
+    const baselineFilename = getScreenshotFilename(testName, viewport.name);
+    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
+    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
+
+    it('should render gig post with correct responsive layout at mobile viewport', async function() {
+      await takeScreenshot(pageUrl, viewport, actualPath);
+      expect(fs.existsSync(actualPath)).to.be.true;
+    });
+
+    it('should match baseline screenshot for gig post mobile layout', async function() {
+      if (!fs.existsSync(baselinePath)) {
+        this.skip();
+        return;
+      }
+
+      const diffPath = path.join(
+        config.screenshots.actualDir,
+        `diff-${getScreenshotFilename(testName, viewport.name)}`
+      );
+
+      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
+      expect(result.match).to.be.true;
+    });
+  });
+
+  describe('Gig Index - Desktop View (1200px)', function() {
+    const viewport = config.viewports.desktop;
+    const testName = 'gig-index';
+    const pageUrl = config.baseUrl + config.testPages.gigIndex;
+    const baselineFilename = getScreenshotFilename(testName, viewport.name);
+    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
+    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
+
+    it('should render gig index with correct layout at desktop viewport', async function() {
+      await takeScreenshot(pageUrl, viewport, actualPath);
+      expect(fs.existsSync(actualPath)).to.be.true;
+    });
+
+    it('should match baseline screenshot for gig index desktop layout', async function() {
+      if (!fs.existsSync(baselinePath)) {
+        this.skip();
+        return;
+      }
+
+      const diffPath = path.join(
+        config.screenshots.actualDir,
+        `diff-${getScreenshotFilename(testName, viewport.name)}`
+      );
+
+      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
+      expect(result.match).to.be.true;
+    });
+  });
+
+  describe('Gig Index - Mobile View (768px)', function() {
+    const viewport = config.viewports.mobile;
+    const testName = 'gig-index';
+    const pageUrl = config.baseUrl + config.testPages.gigIndex;
+    const baselineFilename = getScreenshotFilename(testName, viewport.name);
+    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
+    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
+
+    it('should render gig index with correct responsive layout at mobile viewport', async function() {
+      await takeScreenshot(pageUrl, viewport, actualPath);
+      expect(fs.existsSync(actualPath)).to.be.true;
+    });
+
+    it('should match baseline screenshot for gig index mobile layout', async function() {
+      if (!fs.existsSync(baselinePath)) {
+        this.skip();
+        return;
+      }
+
+      const diffPath = path.join(
+        config.screenshots.actualDir,
+        `diff-${getScreenshotFilename(testName, viewport.name)}`
+      );
+
+      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
+      expect(result.match).to.be.true;
+    });
+  });
 });

@@ -6,7 +6,7 @@ metadesc: Writing by Adrian Parker, on topics like product management, finance, 
 <div class="posts">
     <hr>
 
-    {% for post in collections.post | reverse %}
+    {% for post in collections.homePagePosts %}
     
     <section>
         <h3>{{ post.data.date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ post.data.readingtime }}</h3>
