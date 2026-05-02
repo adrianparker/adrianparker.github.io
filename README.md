@@ -3,8 +3,6 @@
 ## Summary
 This project is the personal blog of Adrian Parker, [AdrianParker.com](https://www.adrianparker.com/).
 
-I write seldom, but when I do, it's probably on topics like product management, finance, software, scuba diving, or travel; adorned with whimsical anecdotes about life and random other things that interest me.
-
 ## Tech
 
 Website is static content, generated using [Eleventy](https://www.11ty.dev/) and hosted on [GitHub Pages](https://pages.github.com/).
