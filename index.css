@@ -228,6 +228,62 @@ figure {
   margin: 0;
 }
 
+/* Gig post metadata card */
+
+.gig-metadata {
+  border: 1px solid var(--subheading-color);
+  border-radius: 4px;
+  margin: 1.2em 0;
+  padding: 0;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 520px;
+}
+
+.gig-metadata-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88em;
+}
+
+.gig-metadata-table th,
+.gig-metadata-table td {
+  padding: 0.3em 0.75em;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.gig-metadata-table th {
+  color: var(--highlight-color);
+  font-family: 'Bebas Neue', serif;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  width: 5.5em;
+}
+
+.gig-metadata-table td {
+  color: var(--text-color);
+}
+
+.gig-metadata-table tr + tr th,
+.gig-metadata-table tr + tr td {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Flickr embedded gallery container */
+
+.gig-flickr-embed {
+  margin: 1.5em 0;
+  max-width: 800px;
+}
+
+.gig-flickr-embed img {
+  width: 100%;
+  height: auto;
+}
+
 /* Video embedding - responsive container */
 
 .video-wrapper {
