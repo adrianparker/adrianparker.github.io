@@ -26,6 +26,14 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 
 #layout {
   padding: 0em 0em 5em 0em;
+  align-items: flex-start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .header {
@@ -309,6 +317,11 @@ figure {
 /* Smaller than a large tablet */
 
 @media only screen and (max-width: 768px) {
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
   /* No menu */
   .custom-restricted-width {
     display: none;
