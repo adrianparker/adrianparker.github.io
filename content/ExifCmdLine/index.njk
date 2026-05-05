@@ -1,0 +1,56 @@
+---
+layout: exifcmdline-layout.njk
+title: EXIF Viewer
+metadesc: Browser-only image metadata inspector. Your file never leaves your computer.
+---
+<main class="shell">
+  <section class="panel">
+    <h1>EXIF Viewer</h1>
+    <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
+
+    <form id="exif-form" class="controls">
+      <label class="control-group">
+        <span>Select image</span>
+        <input id="file-input" type="file" accept="image/*" required />
+      </label>
+
+      <div id="drop-zone" class="drop-zone" aria-label="Drop image here">
+        Or drag and drop an image here
+      </div>
+
+      <label class="control-group">
+        <span>Timezone adjustment (optional)</span>
+        <select id="zone-input"></select>
+      </label>
+
+      <label class="toggle">
+        <input id="all-input" type="checkbox" checked />
+        <span>Include all EXIF fields (or just dates)</span>
+      </label>
+
+    </form>
+
+    <p id="status" class="status" aria-live="polite"></p>
+    <div id="selected-image-preview" class="selected-image-preview" hidden></div>
+  </section>
+
+  <section class="panel results-panel">
+    <h2>Results</h2>
+    <label class="control-group search-group">
+      <span>Filter results</span>
+      <input id="search-input" type="search" placeholder="e.g. GPS" />
+    </label>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th id="zone-th" hidden>Zone</th>
+          </tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
