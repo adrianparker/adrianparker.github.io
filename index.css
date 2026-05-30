@@ -52,6 +52,37 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
   display: inline-block;
 }
 
+.mobile-menu {
+  display: none;
+  margin: 0 auto 1.5em auto;
+  padding: 0 1em;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mobile-menu-list li {
+  margin: 0;
+}
+
+.mobile-menu-list a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.15em 0.35em;
+}
+
+.mobile-menu-list a:hover,
+.mobile-menu-list a:focus {
+  color: var(--subheading-color);
+}
+
 .pure-menu-list {
   padding-top: 5%;
   text-align: left;
@@ -321,6 +352,9 @@ figure {
     position: static;
     max-height: none;
     overflow-y: visible;
+  }
+  .mobile-menu {
+    display: block;
   }
   /* No menu */
   .custom-restricted-width {
