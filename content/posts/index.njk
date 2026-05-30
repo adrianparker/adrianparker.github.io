@@ -1,0 +1,25 @@
+---
+layout: base-layout.njk
+title: Posts
+metadesc: All posts by Adrian Parker, including the most recent and popular blog posts.
+permalink: /posts/index.html
+---
+<div class="posts">
+    <hr>
+
+    {% for post in collections.post | reverse %}
+
+    <section>
+        <h3>{{ post.data.date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</h3>
+        <h1>{{ post.data.title }}</h1>
+        <p class="blog-post-summary">
+            {{ post.data.summary | safe }}
+        </p>
+        {{ post.page.excerpt | md | safe }}
+
+        <a href="{{ post.page.url | url }}">Read more...</a>
+    </section>
+    <hr>
+
+    {% endfor %}
+</div>

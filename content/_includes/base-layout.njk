@@ -41,35 +41,50 @@
                     <div class="pure-menu custom-restricted-width">
                         <ul class="pure-menu-list">
 
-                            <li class="pure-menu-item">
-                                <a href="/ExifCmdLine/" class="pure-menu-link">EXIF Viewer</a>
-                            </li>
+                            <li class="pure-menu-heading">Apps</li>
+                            {% if site.apps %}
+                                {% for app in site.apps %}
+                                    <li class="pure-menu-item">
+                                        <a href="{{ app.url }}" class="pure-menu-link">{{ app.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
 
-                            <li class="pure-menu-heading">Recent</li>
-                            
+                            <li class="pure-menu-heading">Posts</li>
+
+                            {% set seen = [] %}
+
                             {% for post in collections.recentPosts %}
-                            {% if page.fileSlug == post.page.fileSlug %}
-                            <li class="pure-menu-item pure-menu-selected">
-                                <div class="pure-menu-link">{{ post.data.navtitle }}</div>
-                            {% else %}
-                            <li class="pure-menu-item">
-                                 <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                            {% if post.page.fileSlug not in seen %}
+                                {% if page.fileSlug == post.page.fileSlug %}
+                                <li class="pure-menu-item pure-menu-selected">
+                                    <div class="pure-menu-link">{{ post.data.navtitle }}</div>
+                                {% else %}
+                                <li class="pure-menu-item">
+                                    <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                                {% endif %}
+                                </li>
+                                {% set seen = seen + [post.page.fileSlug] %}
                             {% endif %}
-                            </li>
                             {% endfor %}
-                          
-                            <li class="pure-menu-heading">Popular</li>
-                            
+
                             {% for post in collections.popular | reverse %}
-                            {% if page.fileSlug == post.page.fileSlug %}
-                            <li class="pure-menu-item pure-menu-selected">
-                                <div class="pure-menu-link">{{ post.data.navtitle }}</div>
-                            {% else %}
-                            <li class="pure-menu-item">
-                                 <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                            {% if post.page.fileSlug not in seen %}
+                                {% if page.fileSlug == post.page.fileSlug %}
+                                <li class="pure-menu-item pure-menu-selected">
+                                    <div class="pure-menu-link">{{ post.data.navtitle }}</div>
+                                {% else %}
+                                <li class="pure-menu-item">
+                                    <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+                                {% endif %}
+                                </li>
+                                {% set seen = seen + [post.page.fileSlug] %}
                             {% endif %}
-                            </li>
                             {% endfor %}
+
+                            <li class="pure-menu-item">
+                                <a href="/posts/" class="pure-menu-link">All posts...</a>
+                            </li>
 
                             <li class="pure-menu-heading">Gigs</li>
 

@@ -1,4 +1,10 @@
 {
     "name": "AdrianParker.com",
-    "url": "https://www.adrianparker.com"
+    "url": "https://www.adrianparker.com",
+    "apps": [
+        {
+            "title": "EXIF Viewer",
+            "url": "/ExifCmdLine/"
+        }
+    ]
 }
