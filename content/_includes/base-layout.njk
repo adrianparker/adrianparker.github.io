@@ -38,6 +38,17 @@
                     <br/>
                     <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
                     <br/>
+                    <div class="mobile-menu">
+                        <ul class="mobile-menu-list">
+                            <li><a href="/posts/" class="pure-menu-link">Posts</a></li>
+                            <li><a href="/gigs/" class="pure-menu-link">Gigs</a></li>
+                            {% if site.apps %}
+                                {% for app in site.apps %}
+                                    <li><a href="{{ app.url }}" class="pure-menu-link">{{ app.title }}</a></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
                     <div class="pure-menu custom-restricted-width">
                         <ul class="pure-menu-list">
 
