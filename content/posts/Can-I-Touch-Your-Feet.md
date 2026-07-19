@@ -11,9 +11,10 @@ tags: ['post', 'popular']
 
 ## That was when it got weird
 
-He looked up at me, crouching in the dirt, oddly calm, his hands continuing to pluck at my shoelaces, becoming more urgent, and as his eyes locked on mine he asked - "can I touch your feet?"
+He looked up at me, crouching in the dirt, oddly calm, his hands plucking at my shoelaces, becoming more urgent, and as his eyes locked on mine he asked - "can I touch your feet?"
+<!-- excerpt -->
 
-The world slowed down a beat. 
+The world slowed down a beat.
 
 I looked down at him, gazing up at me, hands all over my shoes, and like I was talking in a daydream, I replied "No... nope, you really can't".
 
@@ -90,15 +91,16 @@ He had this strange look on his face.
 
 It felt religious. Adoration? Rapture? 
 
-Whatever it was, he was super into it, but, as my brain began to register just how weird this was, I wasn't nearly as into it as he was.
+Whatever it was, he was super into it.
 
-Then he began plucking at my laces, as though he wanted to get my shoes open... and then... 
+Then he began pulling at my laces, as though he wanted to get my shoes open...
 
-he looked up at me, crouching in the dirt, and as his eyes locked on mine he asked - "can I touch your feet?"
+he looked up at me, crouching in the dirt, oddly calm, his hands plucking at my shoelaces, becoming more urgent, and as his eyes locked on mine he asked - "can I touch your feet?"
+
 
 {% image "img/IMG_1323.jpeg", "Sure, they are good shoes - but I never realised how good!" %}
 
-It will always be the pre-dive gear-up I will never, ever, forget. 
+It will always be the pre-dive gear-up I can never, ever, forget. 
 
 Hope you're doing OK, shoe guy. That was a moment.
 
