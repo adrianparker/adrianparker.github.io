@@ -16,13 +16,14 @@ Baselines live in `tests/screenshots/` and are committed. Actuals land in `tests
 
 Look at the diff image in `tests/screenshots-actual/diff-*.png` and confirm the change is what you intended, over the whole page — not just in the area you were working on.
 
-Known trap: `tests/screenshots/home-page-mobile.png` is captured at exactly 768px, where the site's `max-width: 768px` media query collides with Pure.css's `min-width: 48em` grid tier. The current baseline captures that broken layout, so fixing the breakpoint will legitimately change it.
+Known trap: the mobile baselines are captured at exactly 768px, where the site's `max-width: 768px` media query collides with Pure.css's `min-width: 48em` grid tier. Those baselines record that broken layout, so fixing the breakpoint (#18) will legitimately change them.
+
+**After any image-pipeline change, delete `_site` first.** `@11ty/eleventy-img` skips regenerating images that already exist, so a plain rebuild leaves stale files and the suite passes misleadingly. This bit during the Eleventy 3 upgrade: two runs passed before `rm -rf _site` revealed a deterministic 834,337-pixel difference.
 
 ## Regenerate
 
 ```bash
-npm run build
-npx mocha tests/visual-regression.test.js --timeout 60000
+rm -rf _site tests/screenshots-actual && npm run test:visual
 ```
 
 Then copy actuals over baselines — **excluding the diff images**:
@@ -34,7 +35,7 @@ for f in tests/screenshots-actual/*.png; do
 done
 ```
 
-Do **not** use `cp tests/screenshots-actual/*.png tests/screenshots/`. That is what `TESTING.md` currently says and it is wrong — it sweeps the `diff-*.png` files into the committed baseline directory. Several megabytes of them are already in there from previous refreshes.
+Do **not** use `cp tests/screenshots-actual/*.png tests/screenshots/`. It sweeps the `diff-*.png` files into the committed baseline directory; 8.5MB of them accumulated that way before it was caught.
 
 ## Confirm and commit
 
@@ -56,5 +57,16 @@ Two commits — the change, then the baselines — keeps the PR reviewable. A si
 ## Re-run to confirm green
 
 ```bash
-npx mocha tests/visual-regression.test.js --timeout 60000
+npm run test:visual
 ```
+
+If a page fails intermittently rather than consistently, do not reach for the
+threshold. The suite is deterministic by design — it waits for every image to
+report `complete` and blocks third-party scripts. Intermittent failure means
+something remote is affecting that page; find it.
+
+## Adding a page
+
+Add one line to `testPages` in `tests/config.js`. The suite crosses it with
+every viewport automatically. The first run fails with "No baseline" — that is
+correct, generate and commit them.

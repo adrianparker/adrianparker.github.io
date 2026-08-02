@@ -1,240 +1,191 @@
 # Testing Guide
 
-This document explains how to run, maintain, and troubleshoot tests for the adrianparker.github.io blog.
+How to run, maintain and troubleshoot the tests for adrianparker.github.io.
 
-## Overview
+## The three suites
 
-The project includes two types of automated tests:
+| Suite | What it covers | Speed | Runs in CI |
+|---|---|---|---|
+| **Unit** (`tests/unit/*.test.mjs`) | Everything in `lib/` — collections, filters, shortcodes | ~60ms | yes |
+| **Smoke** (`tests/smoke.test.js`) | The build produced the right pages, with the right structure | ~60ms | yes |
+| **Visual regression** (`tests/visual-regression.test.js`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
 
-1. **Smoke Tests** - Validate that the Eleventy build completes successfully and produces expected output
-2. **Visual Regression Tests** - Compare screenshots of pages at different viewports (desktop and mobile) against baseline images (local development only)
+Mocha for running, Chai for assertions, c8 for coverage, cheerio for DOM
+assertions, Playwright + pixelmatch for screenshots.
 
-**GitHub Actions CI/CD** runs only smoke tests for fast feedback. Visual regression tests are run locally during development to catch unintended design changes before they are committed.
-
-Tests are written using **Mocha** test runner with **Chai** assertions, **Playwright** for browser automation (local visual regression only), and **Pixelmatch** for image comparison.
-
-## Prerequisites
-
-- Node.js 22.x or later
-- ~200MB disk space for Playwright browser binaries
-- macOS, Linux, or Windows
-
-## Installation
-
-All dependencies are automatically installed when you run:
+## Commands
 
 ```bash
-npm install
-npm run build
+npm run test:unit      # unit tests + coverage gate. No build, no browser
+npm run test:smoke     # build + smoke tests
+npm run test:visual    # build + visual regression
+npm test               # all three
+npm run test:headless  # build + smoke only — what the deploy workflow runs
+```
+
+Run `npm run test:unit` constantly — it is effectively instant. Run the
+visual suite before anything touching CSS or templates.
+
+First-time setup for the visual suite:
+
+```bash
 npx playwright install chromium
 ```
 
-## Running Tests
+## Coverage
 
-### Run all tests (smoke + visual regression)
+Coverage applies to `lib/` only, and the floor in `.c8rc.json` is **100%** on
+statements, branches, functions and lines.
+
+That is a description of where the code actually is, not an aspiration.
+`lib/` is three modules of pure functions with tests written alongside them.
+A lower floor would permit a regression from the current state.
+
+**No PR may lower it.** If something in `lib/` becomes genuinely unreachable,
+mark it:
+
+```js
+/* c8 ignore next 3 -- unreachable: Eleventy guarantees a Date here */
+```
+
+Templates and CSS are not unit-testable. Smoke and visual regression cover
+those.
+
+## Visual regression
+
+### How it works
+
+Pages are listed once in `tests/config.js` under `testPages`, and the suite
+crosses them with every viewport in `viewports`. Adding a page means adding
+one line; you do not touch the test file.
+
+Baselines live in `tests/screenshots/` and are committed. Actual captures go
+to `tests/screenshots-actual/`, which is gitignored, along with `diff-*.png`
+images for anything that differed.
+
+### Thresholds
+
+`maxDiffRatio` in `tests/config.js` is **0.1%** of pixels, uniformly.
+
+Previously most pages allowed 5% while two video-post assertions demanded
+exactly 0. 5% is loose enough that an entire sidebar column could change
+without failing.
+
+### Determinism
+
+Two things make the capture repeatable, both in `tests/utils/screenshot-utils.js`:
+
+1. **Every image must report `complete`** before the screenshot. Without this
+   a gig post compared clean alone but differed by ~5,000 pixels inside a
+   full run, because its Flickr thumbnail had not arrived.
+2. **Third-party scripts are blocked.** Stylesheets, fonts and images still
+   load, so captures stay faithful. What is dropped is remote JavaScript that
+   rewrites the DOM after load — specifically the Flickr embed script, which
+   enhances gig markup client-side and had not reliably finished by capture
+   time.
+
+If you are chasing a flaky page, check whether it pulls in something remote
+before touching the threshold.
+
+### Known: the mobile viewport captures a bug
+
+The mobile viewport is 768px, which is exactly where Pure.css's `-md-` grid
+tier (`min-width: 48em`) collides with the site's own `max-width: 768px`
+query. Both apply, and the page renders in a state neither is designed for.
+
+The mobile baselines therefore record that broken layout. Issue #18 owns both
+the CSS fix and moving this viewport below the breakpoint.
+
+## Updating baselines
+
+There is an `update-baselines` skill that walks through this.
+
+**First, decide whether you should.** A failing visual test is not
+automatically a stale baseline:
+
+- You changed CSS or layout deliberately → regenerating is correct.
+- You changed a dependency, refactored, or touched config → this is a
+  **regression**. Investigate. Do not regenerate.
+
+Look at the diff image in `tests/screenshots-actual/diff-*.png` and confirm
+the change is what you intended across the whole page.
+
 ```bash
-npm test
+npm run test:visual
 ```
 
-This command will:
-1. Build the site using `npm run build`
-2. Run all tests in the `tests/` directory
-3. Report results
+Then copy actuals over baselines, **excluding the diff images**:
 
-### Run only smoke tests
 ```bash
-npx mocha tests/smoke.test.js --reporter spec
+for f in tests/screenshots-actual/*.png; do
+  case "$(basename "$f")" in diff-*) continue ;; esac
+  cp "$f" tests/screenshots/
+done
 ```
 
-Smoke tests are fast (~4ms) and validate:
-- `_site/` directory is created
-- All expected HTML files are generated
-- CSS includes responsive video styles
-- Video shortcode is properly rendered
-- No raw shortcode syntax remains in output
+> Do **not** use `cp tests/screenshots-actual/*.png tests/screenshots/`. That
+> is what this document used to say, and it swept `diff-*.png` into the
+> committed baseline directory — 8.5MB of them accumulated there before it was
+> caught.
 
-### Run only visual regression tests
+Check what changed, then commit baselines **separately** from the change that
+caused them, so the PR stays reviewable:
+
 ```bash
-npx mocha tests/visual-regression.test.js --reporter spec --timeout 60000
+git status --short tests/screenshots/
 ```
 
-Visual regression tests are slower (~15s total) and:
-- Start a local HTTP server on port 3000 to properly load CSS and assets
-- Take screenshots at **Desktop viewport** (1200px width) and **Mobile viewport** (768px width, matching the media query breakpoint)
-- Test the following pages:
-  - Video post: `_site/posts/Last-Ever-Last-Ever/index.html`
-  - Home page: `_site/index.html`
+### After an image-pipeline change, delete `_site` first
 
-### Headless mode (for CI/CD)
+`@11ty/eleventy-img` skips regenerating images that already exist in the
+output directory. After changing anything in the image pipeline, a plain
+rebuild leaves the old files in place and the visual suite passes
+misleadingly.
+
+This actually happened during the Eleventy 3 upgrade: two runs passed before
+`rm -rf _site` revealed a deterministic 834,337-pixel difference from sharp
+re-encoding.
+
 ```bash
-npm run test:headless
+rm -rf _site && npm run test:visual
 ```
 
-This runs only smoke tests in headless mode without interactive output, suitable for GitHub Actions. GitHub Actions does not download Playwright or run visual regression tests for faster CI/CD feedback.
+## Understanding failures
 
-## Updating Baselines
+**`No baseline for <page> @ <viewport>`** — the page is new, or its baseline
+was deleted. Generate and commit baselines. Note this *fails*; it used to
+skip, which meant a deleted baseline silently passed.
 
-When you intentionally change the design and want to update baseline screenshots:
+**`image dimensions differ — baseline WxH, actual WxH`** — the page changed
+height or width. Almost always real: added content, or a layout change.
 
-### Option 1: Remove old baselines and regenerate
-```bash
-rm tests/screenshots/*.png
-npm run test
-cp tests/screenshots-actual/*.png tests/screenshots/
-```
+**`N pixels differ (X%), over the 0.1000% threshold`** — appearance changed.
+Check the diff image.
 
-### Option 2: Copy new screenshots over baselines
-```bash
-npm run build
-npx mocha tests/visual-regression.test.js --timeout 60000
-cp tests/screenshots-actual/*.png tests/screenshots/
-git add tests/screenshots/
-git commit -m "Update baseline screenshots for design changes"
-```
+**Smoke failures** are structural — a missing element, a shortcode that did
+not render, a link pointing somewhere unexpected. They assert on parsed DOM,
+so they describe what is actually wrong rather than which substring vanished.
 
-## Understanding Test Failures
+## Adding tests
 
-### Smoke Test Failures
+**A new page under visual regression:** add one line to `testPages` in
+`tests/config.js`, run the suite (it will fail with "No baseline"), then
+generate and commit baselines.
 
-**"should produce _site directory"** - The build didn't run or failed
-- Check: Run `npm run build` manually and look for errors
-
-**"should render video shortcode in blog post HTML"** - The video shortcode isn't being processed
-- Check: Verify `{% video ... %}` syntax in markdown is correct
-- Check: Verify `.eleventy.js` has the video shortcode registered
-
-**"should include video-wrapper CSS"** - Missing responsive video styles
-- Check: Verify `.video-wrapper` class exists in `static/index.css`
-
-### Visual Regression Test Failures
-
-**"should match baseline screenshot"** - Current screenshot differs from baseline
-- This indicates a layout change (intentional or unintentional)
-- Check the diff image generated in `tests/screenshots-actual/diff-*.png`
-- If change is intentional, update baselines (see section above)
-- If unintentional, review recent CSS or HTML changes
-
-**"timeout waiting for browser"** - Playwright browser didn't launch
-- Check: `npx playwright install chromium` was run
-- Check: You have ~200MB free disk space
-- Try: Run tests in debug mode: `DEBUG=pw:api npx mocha ...`
-
-## Directory Structure
-
-```
-tests/
-├── config.js                  # Shared test configuration (viewports, paths, etc.)
-├── smoke.test.js              # Build validation tests
-├── visual-regression.test.js  # Screenshot comparison tests
-├── utils/
-│   ├── screenshot-utils.js    # Utilities for screenshot capture and comparison
-│   └── http-server.js         # Local HTTP server for visual regression tests
-├── screenshots/               # Baseline reference images (committed to git)
-│   ├── home-page-desktop.png
-│   ├── home-page-mobile.png
-│   ├── video-post-desktop.png
-│   └── video-post-mobile.png
-└── screenshots-actual/        # Generated test screenshots (git ignored)
-    ├── home-page-desktop.png
-    ├── home-page-mobile.png
-    ├── video-post-desktop.png
-    └── video-post-mobile.png
-```
-
-## Configuration
-
-Test behavior is defined in `tests/config.js`:
-
-- **Viewport sizes**: 1200px (desktop) and 768px (mobile)
-- **Base URL**: `http://localhost:3000` (visual regression tests use a local HTTP server to properly load CSS and assets)
-- **HTTP Server**: Automatically started/stopped during visual regression tests on port 3000
-- **Diff threshold**: 0.1 (pixel color difference, 0-255 scale)
-- **Pixel threshold**: 0.05 (5% of pixels allowed to differ, accounting for minor rendering variations)
-
-Adjust these if you need different breakpoints or stricter image matching.
-
-## CI/CD Integration
-
-Smoke tests run automatically on GitHub Actions when you push to `master`:
-
-1. Node.js 22.x is set up
-2. Dependencies are installed
-3. Site is built with `npm run build`
-4. Smoke tests run with `npm run test:headless` (~4ms, very fast)
-5. If tests fail, build is marked as failed
-6. If tests pass, site is deployed to GitHub Pages
-
-**Visual regression tests are not run in CI/CD** to keep the workflow fast and lightweight. Run them locally before committing design changes.
-
-View results in the "Actions" tab of your GitHub repository.
+**New code in `lib/`:** it needs unit tests in `tests/unit/`, and the coverage
+gate will fail the build if you skip them. That is the point.
 
 ## Troubleshooting
 
-### "port already in use" errors
-- If running Eleventy dev server and tests simultaneously: `killall eleventy` or kill the process manually
-- Port 3000 used by visual regression tests: ensure no other service is using it
-- Port 8080 used by Eleventy serve: you can change it with `npx eleventy --serve --port=8081`
+**Port already in use** — the visual suite serves on 3000, `npm run serve`
+uses 8080. Kill whatever is holding the port.
 
-### Screenshots look different on CI than locally
-- CI runs on Ubuntu, your machine may be macOS/Windows
-- Font rendering can differ slightly between systems
-- Adjust `diffPixelsThreshold` in `config.js` if needed
+**Playwright browser not found**
 
-### Tests hang/timeout
-- Check if the Eleventy build is still running in another terminal
-- Check available disk space (Playwright needs ~200MB)
-- Try increasing the timeout: `mocha --timeout 120000`
-
-### Playwright browser not found
 ```bash
-# Reinstall browser
-npx playwright install chromium --with-deps
-
-# Or clear cache and reinstall
-rm -rf ~/Library/Caches/ms-playwright
 npx playwright install chromium
 ```
 
-## Adding New Tests
-
-To test a new blog post or page:
-
-1. Add a new entry to `config.testPages` in `tests/config.js`
-2. Add a new test suite in `tests/visual-regression.test.js` following existing patterns
-3. Run tests to generate baselines: `npx mocha tests/visual-regression.test.js --timeout 60000`
-4. Copy generated screenshots to baselines: `cp tests/screenshots-actual/*.png tests/screenshots/`
-5. Commit baseline images to git
-
-## Tips for Debugging
-
-### View test page in browser manually
-```bash
-npm run build
-npx eleventy --serve
-# Open http://localhost:8080 in browser
-```
-
-### Inspect generated HTML
-```bash
-cat _site/posts/Last-Ever-Last-Ever/index.html | grep -A 10 'video-wrapper'
-```
-
-### Check responsive behavior
-Use browser DevTools:
-1. Open Dev Tools (F12)
-2. Click device toolbar icon
-3. Select "Responsive" and set width to 768px
-4. Verify video scales correctly
-
-### Debug Playwright script
-```bash
-DEBUG=pw:api npx mocha tests/visual-regression.test.js --timeout 60000
-```
-
-## Future Enhancements
-
-- Add visual regression for more pages (all blog posts)
-- Add accessibility tests with axe-core
-- Add performance tests (Lighthouse)
-- Add test coverage reporting
-- Generate visual regression reports with side-by-side comparisons
+**Screenshots differ on another machine** — font rendering differs across
+operating systems. Baselines are macOS-generated. This is why visual
+regression is not in CI; see #44.
