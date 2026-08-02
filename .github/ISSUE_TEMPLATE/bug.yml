@@ -1,0 +1,25 @@
+name: Bug
+description: Something on the site is broken or wrong
+labels: []
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong
+      description: What you see, and what you expected instead.
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Page URL, or the file if you already know it.
+      placeholder: https://www.adrianparker.com/gigs/ — or static/index.css
+
+  - type: input
+    id: context
+    attributes:
+      label: Browser / viewport
+      description: Only if it matters — e.g. Edge on Windows, or narrow mobile.
+      placeholder: Edge, desktop 1400px
