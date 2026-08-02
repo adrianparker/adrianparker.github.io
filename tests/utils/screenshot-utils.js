@@ -24,24 +24,45 @@ async function takeScreenshot(pageUrl, viewport, screenshotPath) {
     const context = await browser.newContext({ viewport });
     const page = await context.newPage();
 
-    // Block third-party scripts. Stylesheets, fonts and images still load, so
-    // the capture stays faithful to what a reader sees; what is dropped is
-    // remote JavaScript that rewrites the DOM after load.
+    // Block third-party scripts and media. Stylesheets, fonts and images still
+    // load, so the capture stays faithful to what a reader sees.
     //
-    // The Flickr embed script is the reason this exists: it enhances the
-    // markup client-side, so whether it had finished by screenshot time
-    // varied run to run. That showed up as gig-post intermittently differing
-    // by ~5,000 pixels while every other page was stable at zero. PostHog is
-    // blocked for the same reason plus speed; it renders nothing.
+    // Scripts: the Flickr embed enhances gig markup client-side, and whether
+    // it had finished by screenshot time varied run to run — gig-post
+    // intermittently differed by ~5,000 pixels while every other page sat at
+    // zero. PostHog is blocked for the same reason plus speed; it renders
+    // nothing.
+    //
+    // Media: the video post embeds a remote MP4 with preload="metadata".
+    // Chromium sometimes painted its first frame and sometimes an empty box,
+    // giving a bimodal 336,420-pixel (2.55%) difference that appeared in
+    // roughly half of runs. Neither images nor scripts, so the existing waits
+    // did not cover it. Blocking costs nothing in layout terms: .video-wrapper
+    // has a fixed 16/9 aspect-ratio box, so the element occupies identical
+    // space either way and only the pixels inside it change.
+    const BLOCKED_TYPES = new Set(['script', 'media']);
     await page.route('**/*', (route) => {
       const request = route.request();
-      const isScript = request.resourceType() === 'script';
       const isLocal = new URL(request.url()).hostname === 'localhost';
-      return isScript && !isLocal ? route.abort() : route.continue();
+      return BLOCKED_TYPES.has(request.resourceType()) && !isLocal
+        ? route.abort()
+        : route.continue();
     });
 
     await page.goto(pageUrl, { waitUntil: 'networkidle' });
     await page.waitForLoadState('networkidle');
+
+    // Force lazy images to load. The image shortcode emits loading="lazy",
+    // and these are fullPage captures, so whether a below-the-fold image had
+    // decoded by capture time was pure timing. That produced a bimodal
+    // 336,420-pixel difference on the video post in roughly half of runs —
+    // the diff falling in a single 600px band matching one generated 800x600
+    // photo, which is what identified it.
+    // Setting loading="eager" on an already-parsed lazy image starts its
+    // fetch immediately in Chromium.
+    await page.evaluate(() => {
+      for (const img of document.images) img.loading = 'eager';
+    });
 
     // Wait for every image to finish, including remote ones such as the
     // Flickr thumbnails on gig pages. Without this the suite is flaky under
@@ -57,6 +78,14 @@ async function takeScreenshot(pageUrl, viewport, screenshotPath) {
         // Fall through to the settle delay; a stuck image should not abort
         // the run, it should show up as a visual difference.
       });
+
+    // complete only means the bytes arrived. decode() resolves once the frame
+    // is actually rasterised and paintable, which is what the screenshot needs.
+    await page
+      .evaluate(() =>
+        Promise.all(Array.from(document.images).map((img) => img.decode().catch(() => {})))
+      )
+      .catch(() => {});
 
     // Wait for webfonts, so headings are not captured mid-swap.
     await page.evaluate(() => document.fonts.ready).catch(() => {});
