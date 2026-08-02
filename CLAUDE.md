@@ -56,7 +56,9 @@ npm run test:headless  # build + smoke tests only — this is what CI runs
 - **The stylesheet is `static/index.css`**, not `_site/index.css`. There is exactly one stylesheet for the whole blog.
 - `static/` is passthrough-copied to the site root, so `static/foo.css` is served at `/foo.css`.
 - `img/` is *not* passthrough-copied — those are source-resolution photos consumed by the `image` shortcode, which writes resized output to `_site/img/`.
-- The build input directory is `content/`.
+- The build input directory is `content/`, set via `dir.input` in the config.
+- **The Eleventy config is `eleventy.config.mjs` and is ESM** (`import`/`export`). The rest of the project — including the whole test suite — is CommonJS (`require`). `package.json` has no `"type": "module"`, which is what keeps those two coexisting. If you add a new `.js` file it will be CommonJS; use `.mjs` if you need ESM.
+- Node 22+ is required (`@11ty/eleventy-img` v7). See `.nvmrc`.
 
 ---
 
