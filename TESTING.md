@@ -73,19 +73,38 @@ without failing.
 
 ### Determinism
 
-Two things make the capture repeatable, both in `tests/utils/screenshot-utils.js`:
+Four things make the capture repeatable, all in
+`tests/utils/screenshot-utils.js`. Each was added in response to a specific
+observed flake, not speculatively:
 
-1. **Every image must report `complete`** before the screenshot. Without this
-   a gig post compared clean alone but differed by ~5,000 pixels inside a
-   full run, because its Flickr thumbnail had not arrived.
-2. **Third-party scripts are blocked.** Stylesheets, fonts and images still
-   load, so captures stay faithful. What is dropped is remote JavaScript that
+1. **Lazy images are forced eager, then awaited via `decode()`.** The image
+   shortcode emits `loading="lazy"`, and these are `fullPage` captures, so
+   whether a below-the-fold image had decoded when the capture fired was pure
+   timing. This produced a bimodal 336,420-pixel difference on the video post
+   in roughly half of all runs. `complete` did not catch it — a deferred lazy
+   image has not requested its fetch yet, and `complete` only means bytes
+   arrived, not that the frame is paintable.
+2. **Every image must report `complete`.** Without this a gig post compared
+   clean alone but differed by ~5,000 pixels inside a full run, because its
+   Flickr thumbnail had not arrived.
+3. **Third-party scripts are blocked.** Dropped is remote JavaScript that
    rewrites the DOM after load — specifically the Flickr embed script, which
    enhances gig markup client-side and had not reliably finished by capture
    time.
+4. **Third-party media is blocked.** The video post embeds a remote MP4 with
+   `preload="metadata"`, whose load state is not deterministic. Costs nothing
+   in layout terms: `.video-wrapper` has a fixed 16/9 aspect-ratio box, so the
+   element occupies identical space either way.
 
-If you are chasing a flaky page, check whether it pulls in something remote
-before touching the threshold.
+Stylesheets, fonts and images still load, so captures stay faithful to what a
+reader sees.
+
+If you are chasing a flaky page, **locate the diff band before theorising**.
+Reading the y-range out of the diff PNG identified the lazy-image bug in one
+step, after two plausible-but-wrong hypotheses (the remote video, then a
+third-party widget image) had already been chased and eliminated. A 600px-tall
+band matching a generated 800x600 photo is a much stronger signal than any
+amount of reasoning about what *might* be racing.
 
 ### Known: the mobile viewport captures a bug
 
@@ -139,8 +158,9 @@ git status --short tests/screenshots/
 
 Playwright pins a Chromium build. A new Playwright means a new Chromium,
 which rasterises text slightly differently — measured at 0.02–0.25% per page
-on the 1.59 → 1.62 bump, plus 2.6% on the video post where the video element
-itself renders differently. All of that is over the 0.1% threshold.
+on the 1.59 → 1.62 bump, scaling with how much text a page carries. Index
+pages shifted most; sparse pages least. Enough to cross the 0.1% threshold on
+six of the twelve baselines.
 
 So a Playwright upgrade is always a two-part change: the bump, then a full
 baseline refresh in a separate commit.
