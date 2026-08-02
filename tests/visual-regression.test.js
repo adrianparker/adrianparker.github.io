@@ -1,9 +1,17 @@
 /**
- * Visual regression tests for responsive design.
- * Takes screenshots at different viewport sizes and compares against baselines.
+ * Visual regression tests.
+ *
+ * Screenshots every page in config.testPages at every viewport and compares
+ * against the committed baseline in tests/screenshots/.
+ *
+ * Data-driven on purpose: adding a page means adding one line to
+ * config.testPages, not copying a 60-line describe block. The previous
+ * version repeated the same block four times, which is how the two
+ * video-post cases ended up asserting diffPixels === 0 while the other six
+ * allowed a 5% difference.
  */
 
-// Set base URL to HTTP server BEFORE requiring any modules that depend on config
+// Must be set before anything reads config.
 process.env.TEST_BASE_URL = 'http://localhost:3000';
 
 const { expect } = require('chai');
@@ -13,275 +21,53 @@ const { startServer, stopServer } = require('./utils/http-server');
 const {
   takeScreenshot,
   compareScreenshots,
+  describeFailure,
   getScreenshotFilename,
   ensureScreenshotDir
 } = require('./utils/screenshot-utils.js');
 const config = require('./config');
 
-describe('Visual Regression Tests - Responsive Design', function() {
-  this.timeout(60000); // Screenshots can take time
+describe('Visual Regression Tests - Responsive Design', function () {
+  this.timeout(60000);
 
-  before(async function() {
-    // Start HTTP server for proper asset loading (CSS, images, etc.)
+  before(async function () {
     await startServer(3000);
-    
-    // Ensure directories exist
     ensureScreenshotDir(config.screenshots.baseDir);
     ensureScreenshotDir(config.screenshots.actualDir);
   });
 
-  after(async function() {
-    // Stop HTTP server after tests complete
+  after(async function () {
     await stopServer();
   });
 
-  describe('Video Post - Desktop View (1200px)', function() {
-    const viewport = config.viewports.desktop;
-    const testName = 'video-post';
-    const pageUrl = config.baseUrl + config.testPages.videoPost;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
+  Object.entries(config.testPages).forEach(([pageName, pagePath]) => {
+    Object.values(config.viewports).forEach((viewport) => {
+      const label = `${pageName} @ ${viewport.name} (${viewport.width}px)`;
+      const filename = getScreenshotFilename(pageName, viewport.name);
+      const baselinePath = path.join(config.screenshots.baseDir, filename);
+      const actualPath = path.join(config.screenshots.actualDir, filename);
+      const diffPath = path.join(config.screenshots.actualDir, `diff-${filename}`);
 
-    it('should render video post with correct layout at desktop viewport', async function() {
-      // Take actual screenshot
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
+      describe(label, function () {
+        it('renders and captures a screenshot', async function () {
+          await takeScreenshot(config.baseUrl + pagePath, viewport, actualPath);
+          expect(fs.existsSync(actualPath), `screenshot written for ${label}`).to.be.true;
+        });
 
-    it('should match baseline screenshot for desktop layout', async function() {
-      // Skip if baseline doesn't exist yet (first run)
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
+        it('matches its baseline', function () {
+          // A missing baseline is a failure, not a skip. Previously this
+          // called this.skip(), so deleting a baseline made its test green.
+          expect(
+            fs.existsSync(baselinePath),
+            `No baseline for ${label}. Expected ${baselinePath}. If this page ` +
+              `is new, generate baselines (see the update-baselines skill) and ` +
+              `commit them.`
+          ).to.be.true;
 
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      
-      expect(result.match).to.be.true;
-      expect(result.diffPixels).to.equal(0);
-    });
-  });
-
-  describe('Video Post - Mobile View (768px)', function() {
-    const viewport = config.viewports.mobile;
-    const testName = 'video-post';
-    const pageUrl = config.baseUrl + config.testPages.videoPost;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render video post with correct responsive layout at mobile viewport', async function() {
-      // Take actual screenshot
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for mobile layout', async function() {
-      // Skip if baseline doesn't exist yet (first run)
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      
-      expect(result.match).to.be.true;
-      expect(result.diffPixels).to.equal(0);
-    });
-  });
-
-  describe('Home Page - Desktop View (1200px)', function() {
-    const viewport = config.viewports.desktop;
-    const testName = 'home-page';
-    const pageUrl = config.baseUrl + config.testPages.index;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render home page correctly at desktop viewport', async function() {
-      // Take actual screenshot
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for home page desktop layout', async function() {
-      // Skip if baseline doesn't exist yet (first run)
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      
-      expect(result.match).to.be.true;
-    });
-  });
-
-  describe('Home Page - Mobile View (768px)', function() {
-    const viewport = config.viewports.mobile;
-    const testName = 'home-page';
-    const pageUrl = config.baseUrl + config.testPages.index;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render home page correctly at mobile viewport', async function() {
-      // Take actual screenshot
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for home page mobile layout', async function() {
-      // Skip if baseline doesn't exist yet (first run)
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      
-      expect(result.match).to.be.true;
-    });
-  });
-
-  describe('Gig Post - Desktop View (1200px)', function() {
-    const viewport = config.viewports.desktop;
-    const testName = 'gig-post';
-    const pageUrl = config.baseUrl + config.testPages.gigPost;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render gig post with correct layout at desktop viewport', async function() {
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for gig post desktop layout', async function() {
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      expect(result.match).to.be.true;
-    });
-  });
-
-  describe('Gig Post - Mobile View (768px)', function() {
-    const viewport = config.viewports.mobile;
-    const testName = 'gig-post';
-    const pageUrl = config.baseUrl + config.testPages.gigPost;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render gig post with correct responsive layout at mobile viewport', async function() {
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for gig post mobile layout', async function() {
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      expect(result.match).to.be.true;
-    });
-  });
-
-  describe('Gig Index - Desktop View (1200px)', function() {
-    const viewport = config.viewports.desktop;
-    const testName = 'gig-index';
-    const pageUrl = config.baseUrl + config.testPages.gigIndex;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render gig index with correct layout at desktop viewport', async function() {
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for gig index desktop layout', async function() {
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      expect(result.match).to.be.true;
-    });
-  });
-
-  describe('Gig Index - Mobile View (768px)', function() {
-    const viewport = config.viewports.mobile;
-    const testName = 'gig-index';
-    const pageUrl = config.baseUrl + config.testPages.gigIndex;
-    const baselineFilename = getScreenshotFilename(testName, viewport.name);
-    const baselinePath = path.join(config.screenshots.baseDir, baselineFilename);
-    const actualPath = path.join(config.screenshots.actualDir, baselineFilename);
-
-    it('should render gig index with correct responsive layout at mobile viewport', async function() {
-      await takeScreenshot(pageUrl, viewport, actualPath);
-      expect(fs.existsSync(actualPath)).to.be.true;
-    });
-
-    it('should match baseline screenshot for gig index mobile layout', async function() {
-      if (!fs.existsSync(baselinePath)) {
-        this.skip();
-        return;
-      }
-
-      const diffPath = path.join(
-        config.screenshots.actualDir,
-        `diff-${getScreenshotFilename(testName, viewport.name)}`
-      );
-
-      const result = await compareScreenshots(baselinePath, actualPath, diffPath);
-      expect(result.match).to.be.true;
+          const result = compareScreenshots(baselinePath, actualPath, diffPath);
+          expect(result.match, describeFailure(label, result)).to.be.true;
+        });
+      });
     });
   });
 });

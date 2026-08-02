@@ -8,13 +8,14 @@ metadesc: Browser-only image metadata inspector. Your file never leaves your com
     <h1>EXIF Viewer</h1>
     <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
 
+    <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The prebuilt bundle looks up #exif-form and the app source is not in this repo, see #36] -->
     <form id="exif-form" class="controls">
       <label class="control-group">
         <span>Select image</span>
         <input id="file-input" type="file" accept="image/*" required />
       </label>
 
-      <div id="drop-zone" class="drop-zone" aria-label="Drop image here">
+      <div id="drop-zone" class="drop-zone">
         Or drag and drop an image here
       </div>
 

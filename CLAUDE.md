@@ -19,7 +19,9 @@ This rule is provisional and up for review around **February 2027** (tracked as 
 
 - Every PR must have passing tests.
 - New JS needs new unit tests.
-- **No PR may lower the coverage percentage.** The floor lives in `.c8rc.json`; raise it as coverage grows, never lower it.
+- **No PR may lower the coverage percentage.** The floor lives in `.c8rc.json` and is currently **100%** on all four metrics, because `lib/` is small and fully covered. Never lower it to make a build pass.
+
+Coverage is scoped to `lib/` only. Templates and CSS are not unit-testable — smoke and visual regression cover those. If something in `lib/` is genuinely unreachable, use a `/* c8 ignore next */` comment with a reason rather than dropping the threshold.
 
 ---
 
@@ -44,9 +46,15 @@ Gigs are a specialised post: a concert, usually with a setlist.fm link, sometime
 ```bash
 npm run build          # eleventy build into _site/
 npm run serve          # local dev server, live reload, usually :8080
-npm test               # build + all mocha tests (includes visual regression, slow)
-npm run test:headless  # build + smoke tests only — this is what CI runs
+npm run test:unit      # unit tests + coverage gate. No build, no browser — fast
+npm run test:smoke     # build + smoke tests
+npm run test:visual    # build + visual regression (slow, needs Playwright)
+npm test               # unit + smoke + visual, everything
+npm run test:headless  # build + smoke only — what the deploy workflow runs
 ```
+
+Run `npm run test:unit` constantly; it takes well under a second. Run the
+visual suite before anything touching CSS or templates.
 
 ---
 

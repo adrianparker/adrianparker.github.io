@@ -10,7 +10,7 @@ permalink: /posts/index.html
     {% for post in collections.post | reverse %}
 
     <section>
-        <h3>{{ post.data.date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</h3>
+        <h3>{{ post.data.date | readableDate }}</h3>
         <h1>{{ post.data.title }}</h1>
         <p class="blog-post-summary">
             {{ post.data.summary | safe }}

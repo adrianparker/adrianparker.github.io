@@ -7,3 +7,4 @@ content/posts/gigs/*.hmmm
 _site/
 tests/screenshots-actual/
 .claude/settings.local.json
+coverage/

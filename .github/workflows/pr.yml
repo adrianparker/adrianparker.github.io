@@ -1,17 +1,23 @@
-name: Build and deploy
+name: PR checks
+
+# Verifies a change before it reaches master. There is no staging
+# environment and merging deploys to production within about two minutes,
+# so this is the only gate in front of the live site.
+#
+# Deliberately has no deploy step.
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
-# Never let two deploys race; the later push should win.
+# A new push to the same PR supersedes the run in flight.
 concurrency:
-  group: pages-deploy
-  cancel-in-progress: false
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,12 +44,5 @@ jobs:
       - name: Validate HTML
         run: npm run lint:html
 
-      # Visual regression deliberately does not run here — baselines are
-      # macOS-generated and Ubuntu rasterises text differently. See #44.
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          publish_dir: ./_site
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          cname: www.adrianparker.com
+      # Visual regression is local-only; see #44 and TESTING.md.
+      # Internal link checking runs as part of the smoke tests.
