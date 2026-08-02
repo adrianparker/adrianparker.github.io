@@ -4,7 +4,10 @@
   "description": "Personal website of Adrian Parker.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && mocha 'tests/**/*.test.js'",
+    "test": "npm run test:unit && npm run build && mocha 'tests/*.test.js' --timeout 60000",
+    "test:unit": "c8 mocha 'tests/unit/**/*.test.mjs'",
+    "test:smoke": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
+    "test:visual": "npm run build && mocha 'tests/visual-regression.test.js' --timeout 60000",
     "test:headless": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
     "build": "npx eleventy",
     "serve": "npx eleventy --serve",
@@ -36,6 +39,7 @@
     "diff": "^9.0.0"
   },
   "devDependencies": {
+    "c8": "^12.0.0",
     "chai": "^4.3.10",
     "mocha": "^11.7.6",
     "pixelmatch": "^5.3.0",
