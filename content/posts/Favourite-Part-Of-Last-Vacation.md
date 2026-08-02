@@ -1,12 +1,11 @@
 ---
-layout: post-layout.njk
 title: 'My Favourite Part of My Last Vacation'
 navtitle: 'My Favourite Part of My Last Vacation'
 summary: 'Reflecting on my favourite day from my last holiday, and why that is'
 metadesc: 'It is not so much the things you do, but moreso the people you do it with'
 date: 2024-02-17
 readingtime: '1 minute'
-tags: ['post', 'rands_writing_prompt']
+tags: ['rands_writing_prompt']
 ---
 ## What was your favorite part of your last vacation?
 

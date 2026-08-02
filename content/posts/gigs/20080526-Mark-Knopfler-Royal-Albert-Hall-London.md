@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Mark Knopfler @ Royal Albert Hall, London'
 navtitle: '2008 Mark Knopfler'
 summary: 'Dire Straits king delivers a royal performance'
 metadesc: 'Concert review of Mark Knopfler at Royal Albert Hall, London, 26 May 2008.'
 date: 2008-05-26
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Mark Knopfler'
 venue: 'Royal Albert Hall'
 city: 'London'

@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Jose Gonzalez @ Shepherd''s Bush Empire, London'
 navtitle: '2008 Jose Gonzalez'
 summary: 'Stripped back Swedish strummer special'
 metadesc: 'Concert review of Jose Gonzalez at Shepherd''s Bush Empire, London, 11 April 2008.'
 date: 2008-04-11
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Jose Gonzalez'
 venue: 'Shepherd''s Bush Empire'
 city: 'London'

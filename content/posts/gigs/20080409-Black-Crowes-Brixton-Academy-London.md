@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'The Black Crowes @ Brixton Academy, London'
 navtitle: '2008 Black Crowes'
 summary: 'Blues rock jam night at Brixton'
 metadesc: 'Concert review of The Black Crowes at Brixton Academy, London, 9 April 2008.'
 date: 2008-04-09
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'The Black Crowes'
 venue: 'Brixton Academy'
 city: 'London'

@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'The Breeders @ Koko, London'
 navtitle: '2008 The Breeders'
 summary: 'The Breeders fertilise Koko'
 metadesc: 'Concert review of The Breeders at Koko, London, 16 April 2008.'
 date: 2008-04-16
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'The Breeders'
 venue: 'Koko'
 city: 'London'
