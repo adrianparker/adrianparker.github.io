@@ -4,7 +4,7 @@ layout: base-layout.njk
 <div class="post">
     <article class="blog-post">
         <h1>{{ title }}</h1>
-        <h3>{{ date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</h3>
+        <h3>{{ date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</h3>
         <p class="blog-post-summary">
         {{ summary | safe }}
         </p>
@@ -14,7 +14,7 @@ layout: base-layout.njk
                 <tbody>
                     <tr>
                         <th>Date</th>
-                        <td>{{ date.toLocaleDateString('en-GB',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
+                        <td>{{ date | readableDate }}</td>
                     </tr>
                     <tr>
                         <th>Headline</th>
