@@ -135,6 +135,27 @@ caused them, so the PR stays reviewable:
 git status --short tests/screenshots/
 ```
 
+### A Playwright bump invalidates every baseline
+
+Playwright pins a Chromium build. A new Playwright means a new Chromium,
+which rasterises text slightly differently — measured at 0.02–0.25% per page
+on the 1.59 → 1.62 bump, plus 2.6% on the video post where the video element
+itself renders differently. All of that is over the 0.1% threshold.
+
+So a Playwright upgrade is always a two-part change: the bump, then a full
+baseline refresh in a separate commit.
+
+**This will not be caught by CI**, because visual regression only runs
+locally (#44). A Dependabot Playwright bump goes green through the PR check
+and then breaks every local visual run. Treat those PRs as needing a manual
+baseline pass before merge.
+
+Also note `npx playwright install` **prunes browser builds the installed
+version does not use**. Installing browsers for a newer Playwright and then
+reverting the package leaves you with no usable browser and a confusing
+"Executable doesn't exist" error. Re-run `npx playwright install chromium`
+after any Playwright version change in either direction.
+
 ### After an image-pipeline change, delete `_site` first
 
 `@11ty/eleventy-img` skips regenerating images that already exist in the
