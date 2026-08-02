@@ -90,6 +90,12 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
   width: 170px;
 }
 
+/* Replaces two <br> elements that were direct children of the sidebar <ul>,
+   which is invalid: only <li> may appear there. */
+.menu-item-spaced {
+  margin-top: 1.1em;
+}
+
 .pure-menu-heading {
   color: var(--highlight-color);
   font-family: 'Bebas Neue', serif;
