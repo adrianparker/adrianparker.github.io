@@ -1,5 +1,31 @@
 import { expect } from "chai";
-import { renderMarkdown, readableDate, markdownLibrary } from "../../lib/filters.mjs";
+import { renderMarkdown, readableDate, isoDate, markdownLibrary } from "../../lib/filters.mjs";
+
+describe("filters — isoDate", () => {
+  it("formats as YYYY-MM-DD for sitemap lastmod", () => {
+    expect(isoDate(new Date("2026-07-19T00:00:00Z"))).to.equal("2026-07-19");
+  });
+
+  it("zero-pads month and day", () => {
+    expect(isoDate(new Date("2026-02-03T00:00:00Z"))).to.equal("2026-02-03");
+  });
+
+  it("drops the time, so a rebuild does not churn the sitemap", () => {
+    const morning = isoDate(new Date("2026-07-19T01:30:00Z"));
+    const evening = isoDate(new Date("2026-07-19T23:45:00Z"));
+    expect(morning).to.equal(evening);
+    expect(morning).to.not.contain("T");
+  });
+
+  it("throws on a non-Date", () => {
+    expect(() => isoDate("2026-07-19")).to.throw(TypeError);
+    expect(() => isoDate(undefined)).to.throw(TypeError);
+  });
+
+  it("throws on an unparseable Date", () => {
+    expect(() => isoDate(new Date("nope"))).to.throw(TypeError);
+  });
+});
 
 describe("filters — readableDate", () => {
   it("formats a date the way the site displays it", () => {

@@ -38,7 +38,8 @@ module.exports = {
     'video-post': '/posts/Last-Ever-Last-Ever/index.html',
     'gig-post': '/posts/gigs/20090218-Datsuns-Astoria-London/index.html',
     'gig-index': '/gigs/index.html',
-    'exif-app': '/ExifCmdLine/index.html'
+    'exif-app': '/ExifCmdLine/index.html',
+    'not-found': '/404.html'
   },
 
   screenshots: {
