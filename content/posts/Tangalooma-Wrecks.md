@@ -26,4 +26,4 @@ I took the opportunity to test my new DJI Osmo Action 5 Pro action camera and it
 
 Check out the highlights video below:
 
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/adrianparker/54832523886/in/dateposted/" title="Cloud Dive Club - Tangalooma Wrecks 8:9:2025"><img src="https://live.staticflickr.com/31337/54832523886_0b88d174b4_c.jpg" width="800" height="450" alt="Cloud Dive Club - Tangalooma Wrecks 8:9:2025"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/adrianparker/54832523886/in/dateposted/" title="Cloud Dive Club - Tangalooma Wrecks 8:9:2025"><img src="https://live.staticflickr.com/31337/54832523886_0b88d174b4_c.jpg" width="800" height="450" alt="Cloud Dive Club - Tangalooma Wrecks 8:9:2025"/></a><script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>

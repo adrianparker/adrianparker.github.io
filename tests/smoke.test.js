@@ -167,6 +167,85 @@ describe('Smoke Tests - Gig Post Type', function () {
   });
 });
 
+describe('Smoke Tests - Discoverability', function () {
+  this.timeout(30000);
+
+  it('should generate a 404 page with working navigation', function () {
+    expect(fs.existsSync(sitePath('404.html')), '404.html at site root').to.be.true;
+
+    const $ = load('404.html');
+    // GitHub Pages serves this for any unmatched path, so it needs the full
+    // site chrome, not a bare message.
+    expect($('h1').first().text()).to.contain('not found');
+    expect($('a[href="/"]').length, 'link home').to.be.greaterThan(0);
+    expect($('a[href="/posts/"]').length, 'link to posts').to.be.greaterThan(0);
+    expect($('a[href="/gigs/"]').length, 'link to gigs').to.be.greaterThan(0);
+  });
+
+  it('should generate robots.txt pointing at the sitemap', function () {
+    const robots = read('robots.txt');
+    expect(robots).to.contain('User-agent: *');
+    expect(robots).to.contain('Sitemap: https://www.adrianparker.com/sitemap.xml');
+  });
+
+  it('should generate a sitemap listing every page', function () {
+    const $ = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+    const locs = $('url > loc').map((_, l) => $(l).text()).get();
+
+    expect(locs.length, 'sitemap entries').to.be.greaterThan(15);
+
+    // Every URL absolute and on the canonical host
+    locs.forEach((loc) => {
+      expect(loc).to.match(/^https:\/\/www\.adrianparker\.com\//);
+    });
+
+    // The pages a reader would expect to find
+    expect(locs).to.include('https://www.adrianparker.com/');
+    expect(locs).to.include('https://www.adrianparker.com/posts/');
+    expect(locs).to.include('https://www.adrianparker.com/gigs/');
+
+    // Every lastmod is a bare date, not a timestamp — otherwise the file
+    // churns on every rebuild
+    $('url > lastmod').each((_, m) => {
+      expect($(m).text()).to.match(/^\d{4}-\d{2}-\d{2}$/);
+    });
+  });
+
+  it('should not list the feed, sitemap or 404 in the sitemap', function () {
+    const $ = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+    const locs = $('url > loc').map((_, l) => $(l).text()).get().join(' ');
+    expect(locs).to.not.contain('feed.xml');
+    expect(locs).to.not.contain('sitemap.xml');
+    expect(locs).to.not.contain('404');
+  });
+
+  it('should list every built page in the sitemap', function () {
+    const $ = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+    const listed = new Set(
+      $('url > loc').map((_, l) => $(l).text().replace('https://www.adrianparker.com', '')).get()
+    );
+
+    // Walk the built output and confirm nothing publishable is missing.
+    const missing = [];
+    const walk = (dir) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name === 'dist') continue; // vendored artifact, see #45
+          walk(full);
+        } else if (entry.name === 'index.html') {
+          const url = '/' + path.relative(SITE, path.dirname(full)).replace(/\\/g, '/');
+          const normalised = url === '/.' ? '/' : url + '/';
+          if (!listed.has(normalised === '//' ? '/' : normalised)) missing.push(normalised);
+        }
+      }
+    };
+    walk(SITE);
+
+    expect(missing, `pages built but absent from sitemap:\n  ${missing.join('\n  ')}`).to.be.empty;
+  });
+});
+
 describe('Smoke Tests - Internal links', function () {
   this.timeout(30000);
 

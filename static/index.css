@@ -39,7 +39,6 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 .header {
   margin: 3em 0em 1em 0em;
   text-align: center;
-  top: auto;
 }
 
 .content {

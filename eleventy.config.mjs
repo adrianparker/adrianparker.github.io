@@ -1,6 +1,6 @@
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
-import { markdownLibrary, renderMarkdown, readableDate } from "./lib/filters.mjs";
+import { markdownLibrary, renderMarkdown, readableDate, isoDate } from "./lib/filters.mjs";
 import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
 import { imageShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 
@@ -16,6 +16,9 @@ export default function (eleventyConfig) {
 
   // the site's one date format, used wherever a date is displayed
   eleventyConfig.addFilter("readableDate", readableDate);
+
+  // YYYY-MM-DD, for the sitemap
+  eleventyConfig.addFilter("isoDate", isoDate);
 
   // enable RSS
   eleventyConfig.addPlugin(pluginRss);

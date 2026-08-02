@@ -4,7 +4,13 @@
 
 const fs = require('fs');
 const { chromium } = require('playwright');
-const pixelmatch = require('pixelmatch');
+// pixelmatch 5 sets module.exports to the function directly; 6+ is ESM, so
+// require() hands back a namespace object with the function on .default.
+// Node 22 can require() either, but the shapes differ — accept both so the
+// suite does not break on whichever version is installed.
+const pixelmatchModule = require('pixelmatch');
+const pixelmatch =
+  typeof pixelmatchModule === 'function' ? pixelmatchModule : pixelmatchModule.default;
 const PNG = require('pngjs').PNG;
 const config = require('../config');
 
