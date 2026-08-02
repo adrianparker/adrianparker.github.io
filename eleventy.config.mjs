@@ -1,22 +1,20 @@
-const markdownIt = require("markdown-it");
-const markdownItFootnote = require("markdown-it-footnote");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const Image = require("@11ty/eleventy-img");
-const outdent = require('outdent');
+import markdownIt from "markdown-it";
+import markdownItFootnote from "markdown-it-footnote";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import Image from "@11ty/eleventy-img";
 
-
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
 
     let markdownLibrary = markdownIt({
       html: true
     })
     .use(markdownItFootnote);
-  
+
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     // output everything from the static folder at root of output
     eleventyConfig.addPassthroughCopy({ static: "/" });
-    
+
     // can use the shortcode 'md' in a page to render markdown copy as HTML in place
     eleventyConfig.addFilter("md", function (content = "") {
       return markdownIt({ html: true }).use(markdownItFootnote).render(content);
@@ -63,6 +61,12 @@ module.exports = function (eleventyConfig) {
 
     // set up the video shortcode for use in nunjucks templates
     eleventyConfig.addShortcode("video", videoShortcode);
+
+    return {
+      dir: {
+        input: "content"
+      }
+    };
   };
 
 /**
@@ -132,7 +136,7 @@ const videoShortcode = (src, type = 'video/mp4', poster = undefined) => {
   });
   const sourceHtmlString = `<source src="${src}" type="${type}"/>`;
   const fallbackText = 'Your browser does not support the video tag.';
-  
+
   const video = `<video ${videoAttributes}>
     ${sourceHtmlString}
     ${fallbackText}
@@ -141,7 +145,7 @@ const videoShortcode = (src, type = 'video/mp4', poster = undefined) => {
   return `<div class="video-wrapper">${video}</div>`;
 };
 
-/** 
+/**
  * Maps a config of attribute-value pairs to an HTML string representing those same attribute-value pairs.
  */
 const stringifyAttributes = (attributeMap) => {

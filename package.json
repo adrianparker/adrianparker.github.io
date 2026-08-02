@@ -6,9 +6,9 @@
   "scripts": {
     "test": "npm run build && mocha 'tests/**/*.test.js'",
     "test:headless": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
-    "build": "npx eleventy --input=content",
-    "serve": "npx eleventy --input=content --serve",
-    "debug": "DEBUG=* npx eleventy --input=content"
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
     "type": "git",
@@ -21,17 +21,18 @@
   },
   "homepage": "https://github.com/adrianparker/adrianparker.github.io#readme",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-img": "^3.1.6",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^7.0.0",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "markdown-it": "^15.0.0",
     "markdown-it-footnote": "^4.0.0",
     "outdent": "^0.8.0"
   },
   "devDependencies": {
-    "mocha": "^10.2.0",
-    "playwright": "^1.40.1",
-    "pixelmatch": "^5.3.0",
     "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "pixelmatch": "^5.3.0",
+    "playwright": "^1.40.1",
     "pngjs": "^7.0.0"
   }
 }
