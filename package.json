@@ -9,6 +9,7 @@
     "test:smoke": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
     "test:visual": "npm run build && mocha 'tests/visual-regression.test.js' --timeout 60000",
     "test:headless": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
+    "lint:html": "html-validate $(find _site -name '*.html' -not -path '*/dist/*')",
     "build": "npx eleventy",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy"
@@ -42,6 +43,7 @@
     "c8": "^12.0.0",
     "chai": "^4.3.10",
     "cheerio": "^1.2.0",
+    "html-validate": "^10.9.0",
     "mocha": "^11.7.6",
     "pixelmatch": "^5.3.0",
     "playwright": "^1.40.1",

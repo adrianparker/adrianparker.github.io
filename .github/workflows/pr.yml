@@ -41,4 +41,8 @@ jobs:
       - name: Smoke tests
         run: npm run test:headless
 
+      - name: Validate HTML
+        run: npm run lint:html
+
       # Visual regression is local-only; see #44 and TESTING.md.
+      # Internal link checking runs as part of the smoke tests.

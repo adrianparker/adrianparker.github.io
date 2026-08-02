@@ -166,3 +166,85 @@ describe('Smoke Tests - Gig Post Type', function () {
     });
   });
 });
+
+describe('Smoke Tests - Internal links', function () {
+  this.timeout(30000);
+
+  /**
+   * Every .html file the site authors, excluding _site/dist/ — that is a
+   * vendored Vite build artifact passthrough-copied from static/, not
+   * something this repo writes. Its own links are broken (it points at
+   * /assets/... rather than /dist/assets/...), which is tracked in #45.
+   */
+  function allPages(dir = SITE, found = []) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === 'dist') continue;
+        allPages(full, found);
+      } else if (entry.name.endsWith('.html')) {
+        found.push(full);
+      }
+    }
+    return found;
+  }
+
+  /**
+   * Resolves a site-absolute href to the file that should serve it.
+   * Directory-style URLs (/posts/Foo/) map to their index.html.
+   */
+  function resolveTarget(href) {
+    const clean = href.split('#')[0].split('?')[0];
+    if (clean === '' || clean === '/') return path.join(SITE, 'index.html');
+    const asFile = path.join(SITE, clean);
+    if (fs.existsSync(asFile) && fs.statSync(asFile).isFile()) return asFile;
+    return path.join(asFile, 'index.html');
+  }
+
+  it('should not link to anything it did not build', function () {
+    const pages = allPages();
+    expect(pages.length, 'built pages').to.be.greaterThan(10);
+
+    const broken = [];
+
+    for (const page of pages) {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'));
+      const from = path.relative(SITE, page);
+
+      $('a[href], link[href], img[src], script[src], source[src]').each((_, el) => {
+        const raw = $(el).attr('href') ?? $(el).attr('src');
+        if (!raw) return;
+
+        // Only site-absolute internal references. External, protocol-relative,
+        // fragment-only, mailto: and data: are all out of scope here — external
+        // link liveness is tracked separately in #45.
+        if (!raw.startsWith('/') || raw.startsWith('//')) return;
+
+        const target = resolveTarget(raw);
+        if (!fs.existsSync(target)) {
+          broken.push(`${from} -> ${raw}`);
+        }
+      });
+    }
+
+    expect(broken, `broken internal links:\n  ${broken.join('\n  ')}`).to.be.empty;
+  });
+
+  it('should have no internal link pointing outside _site', function () {
+    const pages = allPages();
+    const escaping = [];
+
+    for (const page of pages) {
+      const $ = cheerio.load(fs.readFileSync(page, 'utf8'));
+      $('a[href]').each((_, el) => {
+        const href = $(el).attr('href');
+        if (href && href.startsWith('/') && !href.startsWith('//')) {
+          const resolved = path.resolve(SITE, '.' + href);
+          if (!resolved.startsWith(SITE)) escaping.push(`${path.relative(SITE, page)} -> ${href}`);
+        }
+      });
+    }
+
+    expect(escaping, `links escaping the site root:\n  ${escaping.join('\n  ')}`).to.be.empty;
+  });
+});

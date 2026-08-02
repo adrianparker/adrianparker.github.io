@@ -35,6 +35,9 @@ jobs:
       - name: Smoke tests
         run: npm run test:headless
 
+      - name: Validate HTML
+        run: npm run lint:html
+
       # Visual regression deliberately does not run here — baselines are
       # macOS-generated and Ubuntu rasterises text differently. See #44.
 
