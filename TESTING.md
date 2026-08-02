@@ -173,7 +173,7 @@ View results in the "Actions" tab of your GitHub repository.
 ### "port already in use" errors
 - If running Eleventy dev server and tests simultaneously: `killall eleventy` or kill the process manually
 - Port 3000 used by visual regression tests: ensure no other service is using it
-- Port 8080 used by Eleventy serve: you can change it with `npx eleventy --input=content --serve --port=8081`
+- Port 8080 used by Eleventy serve: you can change it with `npx eleventy --serve --port=8081`
 
 ### Screenshots look different on CI than locally
 - CI runs on Ubuntu, your machine may be macOS/Windows
@@ -210,7 +210,7 @@ To test a new blog post or page:
 ### View test page in browser manually
 ```bash
 npm run build
-npx eleventy --input=content --serve
+npx eleventy --serve
 # Open http://localhost:8080 in browser
 ```
 
