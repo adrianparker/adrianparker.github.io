@@ -62,3 +62,33 @@ tags: ['app']
     </div>
   </section>
 </div>
+
+{#
+  The app itself was completely unmeasured. This hooks the page's own inputs
+  rather than the bundle, whose source is not in this repo (#36).
+
+  Only that a file was chosen and its rough size — never the filename, which
+  people do put personal information in.
+#}
+<script>
+    (function () {
+        var input = document.getElementById('file-input');
+        if (!input || !window.siteAnalytics) { return; }
+
+        input.addEventListener('change', function () {
+            var file = input.files && input.files[0];
+            if (!file) { return; }
+            window.siteAnalytics.capture('exif_file_loaded', {
+                type: file.type || 'unknown',
+                size_kb: Math.round(file.size / 1024)
+            });
+        });
+
+        var dropZone = document.getElementById('drop-zone');
+        if (dropZone) {
+            dropZone.addEventListener('drop', function () {
+                window.siteAnalytics.capture('exif_file_dropped');
+            });
+        }
+    })();
+</script>

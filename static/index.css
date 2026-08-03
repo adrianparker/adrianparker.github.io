@@ -1,5 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 /* GLOBALS */
+
+/*
+  Self-hosted, replacing an @import of Google Fonts.
+
+  That @import sat inside this stylesheet, which is the worst place for it:
+  an @import in a linked stylesheet is a *serial* fetch, so the browser could
+  not even discover the font until index.css had downloaded. It was also a
+  third-party request on every pageview, which has drawn GDPR rulings in the
+  EU.
+
+  The file is copied from the pinned @fontsource/bebas-neue dependency at
+  build time and preloaded in <head>.
+*/
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/bebas-neue-latin-400-normal.woff2') format('woff2');
+}
 
 /*
   Colour tokens.

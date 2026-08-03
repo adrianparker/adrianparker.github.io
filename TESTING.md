@@ -9,6 +9,7 @@ How to run, maintain and troubleshoot the tests for adrianparker.github.io.
 | **Unit** (`tests/unit/*.test.mjs`) | Everything in `lib/` — collections, filters, shortcodes | ~60ms | yes |
 | **Smoke** (`tests/smoke.test.js`) | The build produced the right pages, with the right structure | ~60ms | yes |
 | **Theme** (`tests/theme.test.js`) | Light/dark toggle behaviour, persistence, no-JS fallback | ~35s | no, local only |
+| **Analytics** (`tests/analytics.test.js`) | PostHog config, custom events, no third-party requests | ~18s | no, local only |
 | **Visual regression** (`tests/visual-regression.test.js`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
 
 Mocha for running, Chai for assertions, c8 for coverage, cheerio for DOM
@@ -20,13 +21,21 @@ assertions, Playwright + pixelmatch for screenshots.
 npm run test:unit      # unit tests + coverage gate. No build, no browser
 npm run test:smoke     # build + smoke tests
 npm run test:theme     # build + light/dark theme behaviour
+npm run test:analytics # build + PostHog config and custom events
 npm run test:visual    # build + visual regression
 npm test               # everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 ```
 
-The theme suite serves on port 3001 and visual regression on 3000, so both
-can run in the same mocha process under `npm test`.
+Each browser suite serves on its own port so they can share one mocha
+process under `npm test`: visual regression on 3000, theme on 3001,
+analytics on 3002.
+
+**Testing analytics:** the remote PostHog script is blocked throughout that
+suite. That is deliberate — once the real script loads it replaces
+`window.posthog` wholesale and captures become unobservable. Blocked, the
+snippet's queueing stub stays in place and every call is appended to
+`window.posthog` as an array entry, which the tests read directly.
 
 Run `npm run test:unit` constantly — it is effectively instant. Run the
 visual suite before anything touching CSS or templates.

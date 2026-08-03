@@ -1,5 +1,74 @@
-{# PostHog. Previously duplicated verbatim in base-layout and the app layout. #}
+{#
+  PostHog. Previously duplicated verbatim in base-layout and the app layout.
+
+  Configuration notes:
+
+  persistence: 'localStorage'
+    The default is cookies. This site is deliberately cookie-free, and the
+    privacy notice implies as much, so cookies were the one thing actually
+    contradicting that. localStorage keeps sessions stitched together without
+    setting any. ('memory' would be stricter still, but then every pageview
+    looks like a brand new visitor.)
+
+  person_profiles: 'identified_only'
+    Nobody ever logs in here, so there is nothing to identify. This records
+    anonymous events and creates no person profile for ordinary readers.
+
+  respect_dnt: true
+    Honour Do Not Track.
+#}
 <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_Wr9RzCL2JbbyOk5VzYaihbLoatWwH1j50OhxmNKQL8R',{api_host:'https://eu.posthog.com'})
+    posthog.init('phc_Wr9RzCL2JbbyOk5VzYaihbLoatWwH1j50OhxmNKQL8R', {
+        api_host: 'https://eu.posthog.com',
+        persistence: 'localStorage',
+        person_profiles: 'identified_only',
+        respect_dnt: true
+    });
+</script>
+
+{#
+  Custom events. Before this there were none at all — the entire Elsewhere
+  block exists to send people to other profiles and none of it was measured.
+
+  Delegated from `document`, which already exists at this point in <head>, so
+  this does not need to wait for DOMContentLoaded. Calls made before the
+  PostHog script finishes loading are queued by its stub.
+#}
+<script>
+    (function () {
+        function capture(name, props) {
+            if (window.posthog && typeof posthog.capture === 'function') {
+                posthog.capture(name, props);
+            }
+        }
+
+        // Exposed so other partials can report without repeating the guard.
+        window.siteAnalytics = { capture: capture };
+
+        document.addEventListener('click', function (event) {
+            var link = event.target && event.target.closest && event.target.closest('a[href]');
+            if (!link) { return; }
+
+            var href = link.getAttribute('href') || '';
+
+            if (href.indexOf('/feed.xml') === 0 || href.indexOf('/feed.xml') > -1) {
+                capture('rss_clicked');
+                return;
+            }
+
+            // Anything leaving this origin. No PII: the destination is a
+            // public URL and the label is the link's own visible text.
+            if (/^https?:\/\//.test(href)) {
+                var host;
+                try { host = new URL(href).hostname; } catch (e) { return; }
+                if (host === window.location.hostname) { return; }
+                capture('outbound_link_clicked', {
+                    host: host,
+                    url: href,
+                    label: (link.textContent || '').trim().slice(0, 80)
+                });
+            }
+        });
+    })();
 </script>

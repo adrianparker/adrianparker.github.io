@@ -46,6 +46,8 @@
             root.dataset.theme = next;
             try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
             render();
+            // Worth knowing whether anyone actually uses light mode.
+            if (window.siteAnalytics) { window.siteAnalytics.capture('theme_toggled', { to: next }); }
         });
 
         // Follow the OS while the reader has not expressed a preference.
