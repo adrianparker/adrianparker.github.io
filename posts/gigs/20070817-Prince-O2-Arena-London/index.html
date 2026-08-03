@@ -3,6 +3,18 @@
 
     <head>
         
+<script>
+    (function () {
+        var root = document.documentElement;
+        root.classList.add('js');
+        try {
+            var stored = localStorage.getItem('theme');
+            if (stored === 'light' || stored === 'dark') { root.dataset.theme = stored; }
+        } catch (e) { /* private mode: fall back to the OS preference */ }
+    })();
+</script>
+
+
 
 
 
@@ -13,6 +25,7 @@
 <link rel="alternate" type="application/atom+xml" title="AdrianParker.com" href="/feed.xml">
 <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+
 <link rel="stylesheet" href="/index.css">
 <meta property="og:site_name" content="AdrianParker.com">
 <meta property="og:title" content="Prince @ O2 Arena, London - AdrianParker.com">
@@ -41,6 +54,52 @@
                     <br/>
                     <a href="/" class="site-name" aria-label="AdrianParker.com - home">AdrianParker.com</a>
                     <br/>
+                    
+
+<div class="theme-toggle-wrap">
+    <button type="button" class="theme-toggle" id="theme-toggle">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+        <span class="theme-toggle-label">Theme</span>
+    </button>
+</div>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) { return; }
+        var label = btn.querySelector('.theme-toggle-label');
+        var lightQuery = window.matchMedia('(prefers-color-scheme: light)');
+
+        // The theme actually in effect: an explicit choice if there is one,
+        // otherwise whatever the operating system asked for.
+        function current() {
+            return root.dataset.theme || (lightQuery.matches ? 'light' : 'dark');
+        }
+
+        function render() {
+            var next = current() === 'dark' ? 'light' : 'dark';
+            label.textContent = next === 'dark' ? 'Dark' : 'Light';
+            btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+            btn.dataset.next = next;
+        }
+
+        btn.addEventListener('click', function () {
+            var next = current() === 'dark' ? 'light' : 'dark';
+            root.dataset.theme = next;
+            try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+            render();
+        });
+
+        // Follow the OS while the reader has not expressed a preference.
+        lightQuery.addEventListener('change', function () {
+            if (!root.dataset.theme) { render(); }
+        });
+
+        render();
+    })();
+</script>
+
                     
 <nav class="mobile-menu" aria-label="Sections">
     <ul class="mobile-menu-list">
@@ -160,32 +219,25 @@
         <li class="pure-menu-heading">Elsewhere</li>
         
 <li class="pure-menu-item">
-    <a href="https://www.flickr.com/photos/adrianparker/albums" target="_blank" rel="nofollow" class="pure-menu-link external-link">Flickr</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://www.flickr.com/photos/adrianparker/albums" target="_blank" rel="nofollow" class="pure-menu-link external-link">Flickr<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item">
-    <a href="https://github.com/adrianparker" target="_blank" rel="nofollow" class="pure-menu-link external-link">GitHub</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://github.com/adrianparker" target="_blank" rel="nofollow" class="pure-menu-link external-link">GitHub<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item">
-    <a href="https://www.linkedin.com/in/adrianparker" target="_blank" rel="nofollow" class="pure-menu-link external-link">LinkedIn</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://www.linkedin.com/in/adrianparker" target="_blank" rel="nofollow" class="pure-menu-link external-link">LinkedIn<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item">
-    <a href="https://open.spotify.com/user/phuego?si=403b197dee3a499f" target="_blank" rel="nofollow" class="pure-menu-link external-link">Spotify</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://open.spotify.com/user/phuego?si=403b197dee3a499f" target="_blank" rel="nofollow" class="pure-menu-link external-link">Spotify<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item">
-    <a href="https://www.youtube.com/@AdrianParkerNZ" target="_blank" rel="nofollow" class="pure-menu-link external-link">YouTube</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://www.youtube.com/@AdrianParkerNZ" target="_blank" rel="nofollow" class="pure-menu-link external-link">YouTube<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item menu-item-spaced">
-    <a href="/feed.xml" target="_blank" rel="nofollow" class="rss-button">RSS Feed</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="/feed.xml" target="_blank" rel="nofollow" class="rss-button">RSS Feed<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 <li class="pure-menu-item menu-item-spaced">
-    <a href="https://twitter.com/intent/follow?screen_name=adriangparker" target="_blank" rel="nofollow" class="twitter-follow-button">Follow on X</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="https://twitter.com/intent/follow?screen_name=adriangparker" target="_blank" rel="nofollow" class="twitter-follow-button">Follow on X<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 
     </ul>
@@ -229,8 +281,7 @@
                         <th></th>
                         <td>
                             
-                            <a href="https://www.setlist.fm/setlist/prince/2007/the-o2-arena-london-england-5bd70bdc.html" target="_blank" rel="nofollow" class="external-link">setlist.fm</a>
-                            <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+                            <a href="https://www.setlist.fm/setlist/prince/2007/the-o2-arena-london-england-5bd70bdc.html" target="_blank" rel="nofollow" class="external-link">setlist.fm<span class="external-link-icon" aria-hidden="true"></span></a>
                             
                             
                             
