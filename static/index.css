@@ -8,6 +8,13 @@
   --highlight-color: #ff9900;
   --subheading-color: #666666;
   --text-color: #cccccc;
+
+  /* Vertical offset of the sidebar, chosen so the top of the mugshot lines up
+     with the first rule in the content column.
+
+     That rule sits at `.posts` margin-top (60px) minus `.posts > hr`
+     margin-top (10px). Keep this in step if either changes. */
+  --content-top-offset: 50px;
 }
 
 /* Pure.css style overrides */
@@ -31,11 +38,20 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 
 .sidebar {
   position: sticky;
-  /* Breathing room lives here rather than on .header, which sits inside the
-     scroll box and used to burn ~4em of the available 100vh, forcing the
-     sidebar to overflow earlier than it needed to. */
-  top: 3em;
-  max-height: calc(100vh - 3em);
+
+  /* The initial offset is a margin, NOT the sticky `top`.
+
+     A sticky element can only be shifted within its containing block, so on a
+     short page (/apps/, /404.html) there is no room to apply `top` and the
+     offset silently does not happen — the mugshot sits flush at 0 while the
+     content column still starts at 50px. A margin positions it in flow and
+     therefore behaves identically whatever the page height.
+
+     The margin also sits outside the scroll box, so unlike the old
+     `.header` margin it does not eat into max-height. */
+  margin-top: var(--content-top-offset);
+  top: 0;
+  max-height: 100vh;
   overflow-y: auto;
 
   /* Hide the scrollbar. macOS uses overlay scrollbars so this looks fine
@@ -61,7 +77,9 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
      straight against the sidebar. */
   padding-right: 4%;
   padding-left: 4%;
-  padding-top: 3em;
+  /* No padding-top. The sidebar's sticky offset and `.posts` margin-top
+     already position both columns; adding it here double-counted the offset
+     and pushed the first rule 48px below the mugshot. */
 }
 
 /* Accessibility */
@@ -577,9 +595,9 @@ figure {
     overflow-y: visible;
   }
 
-  .header {
-    margin-top: 2em;
-  }
+  /* No .header margin here — .sidebar's margin-top already provides the top
+     gap, and it applies at every width. Setting one here stacked the two and
+     pushed every mobile page down by an extra 50px. */
 
   .mobile-menu {
     display: block;
@@ -596,10 +614,6 @@ figure {
      hidden sidebar. */
   .site-footer-externals {
     display: block;
-  }
-
-  .content {
-    padding-top: 0;
   }
 
   .blog-post-summary {
