@@ -8,10 +8,17 @@
   the icon alone would be ambiguous, which is why there is visible text
   alongside it.
 #}
-<button type="button" class="theme-toggle" id="theme-toggle">
-    <span class="theme-toggle-icon" aria-hidden="true"></span>
-    <span class="theme-toggle-label">Theme</span>
-</button>
+{#
+  The wrapper exists to align the button's left edge with the nav headings
+  below it. Both are the same width and both are centred, so their left edges
+  land in the same place.
+#}
+<div class="theme-toggle-wrap">
+    <button type="button" class="theme-toggle" id="theme-toggle">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+        <span class="theme-toggle-label">Theme</span>
+    </button>
+</div>
 
 <script>
     (function () {

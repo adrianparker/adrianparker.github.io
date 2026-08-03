@@ -70,6 +70,11 @@
   --background-gradient-top-color: var(--color-bg-top);
   --background-gradient-bottom-color: var(--color-bg-bottom);
 
+  /* Width of the sidebar nav list, matching the mugshot. The theme toggle
+     uses the same value so its left edge lines up with the nav headings —
+     keep them in step by keeping them one variable. */
+  --sidebar-nav-width: 170px;
+
   /* Vertical offset of the sidebar, chosen so the top of the mugshot lines up
      with the first rule in the content column.
 
@@ -214,21 +219,40 @@ input:focus-visible,
   display: none;
 }
 
-html.js .theme-toggle {
-  /*
-    Block-level, NOT inline-flex. The sidebar nav next to it is inline-block,
-    so an inline-level button shares a line box with it — and since that nav
-    is ~760px tall, the button ended up sitting on its baseline, rendering
-    near the bottom of the nav instead of under the site name.
+/*
+  The wrapper is what positions the button, and it has to be block-level.
 
-    `width: fit-content` keeps it shrink-to-fit; `margin: auto` centres it
-    within the text-align: center header.
-  */
-  display: flex;
-  width: fit-content;
+  The sidebar nav beside it is inline-block, so an inline-level toggle shared
+  a line box with it — and since that nav is ~760px tall, the button sat on
+  its baseline and rendered near the bottom of the nav rather than under the
+  site name.
+
+  Giving the wrapper the same width as the nav list means both are centred
+  blocks of equal width, so their left edges line up: the button starts
+  exactly where the Apps / Posts / Gigs headings start.
+
+  The top margin deliberately groups it with the nav below rather than the
+  site title above.
+*/
+/*
+  Scoped to the sidebar. The app bar renders the same partial but is a flex
+  row, where a fixed-width, auto-margined wrapper just inflates the bar.
+*/
+html.js .sidebar .theme-toggle-wrap {
+  width: var(--sidebar-nav-width);
+  margin: 2.1em auto 0.4em auto;
+  text-align: left;
+}
+
+/* In the full-width app bar it sits at the far end, away from the nav. */
+html.js .app-bar .theme-toggle-wrap {
+  margin-left: auto;
+}
+
+html.js .theme-toggle {
+  display: inline-flex;
   align-items: center;
   gap: 0.45em;
-  margin: 0.25em auto 0.75em auto;
   padding: 0.4em 0.8em;
   min-height: 44px;
   background: transparent;
@@ -317,7 +341,7 @@ html.js .theme-toggle {
   padding-top: 5%;
   text-align: left;
   /* to match mugshot width */
-  width: 170px;
+  width: var(--sidebar-nav-width);
 }
 
 /* Replaces two <br> elements that were direct children of the sidebar <ul>,
@@ -769,6 +793,14 @@ figure {
      block cover navigation instead. */
   .custom-restricted-width {
     display: none;
+  }
+
+  /* With the nav hidden there is nothing to align to, so the toggle goes back
+     to being centred like the rest of the mobile header. */
+  html.js .sidebar .theme-toggle-wrap {
+    width: auto;
+    text-align: center;
+    margin-top: 0.75em;
   }
 
   /* Without this the Flickr / GitHub / LinkedIn / Spotify / YouTube / RSS / X
