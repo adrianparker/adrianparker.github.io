@@ -42,6 +42,26 @@ module.exports = {
     'not-found': '/404.html'
   },
 
+  /**
+   * Themes to capture.
+   *
+   * Every page is captured in dark. Light is captured only for the pages
+   * listed in `lightThemePages`, deliberately rather than doubling everything:
+   *
+   *  - layout regressions show up identically in either theme, so a second
+   *    full set would mostly duplicate the first
+   *  - colour bugs that survive a theme switch (a hardcoded value, an
+   *    unmaskable icon) are asserted directly in tests/theme.test.js
+   *  - 16 baselines are already 11MB, and every refresh adds that again to
+   *    git history
+   *
+   * The two chosen pages between them exercise nearly every component: entry
+   * listings, the metadata card and its hairlines, external links, images and
+   * the footer.
+   */
+  themes: ['dark', 'light'],
+  lightThemePages: ['home-page', 'gig-post'],
+
   screenshots: {
     baseDir: `${process.cwd()}/tests/screenshots`,
     actualDir: `${process.cwd()}/tests/screenshots-actual`,

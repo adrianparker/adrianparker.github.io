@@ -41,16 +41,21 @@ describe('Visual Regression Tests - Responsive Design', function () {
   });
 
   Object.entries(config.testPages).forEach(([pageName, pagePath]) => {
-    Object.values(config.viewports).forEach((viewport) => {
-      const label = `${pageName} @ ${viewport.name} (${viewport.width}px)`;
-      const filename = getScreenshotFilename(pageName, viewport.name);
+    config.themes.forEach((theme) => {
+      // Dark covers every page; light covers a representative subset. See the
+      // reasoning on `lightThemePages` in tests/config.js.
+      if (theme === 'light' && !config.lightThemePages.includes(pageName)) return;
+
+      Object.values(config.viewports).forEach((viewport) => {
+      const label = `${pageName} @ ${viewport.name} (${viewport.width}px) ${theme}`;
+      const filename = getScreenshotFilename(pageName, viewport.name, theme);
       const baselinePath = path.join(config.screenshots.baseDir, filename);
       const actualPath = path.join(config.screenshots.actualDir, filename);
       const diffPath = path.join(config.screenshots.actualDir, `diff-${filename}`);
 
       describe(label, function () {
         it('renders and captures a screenshot', async function () {
-          await takeScreenshot(config.baseUrl + pagePath, viewport, actualPath);
+          await takeScreenshot(config.baseUrl + pagePath, viewport, actualPath, theme);
           expect(fs.existsSync(actualPath), `screenshot written for ${label}`).to.be.true;
         });
 
@@ -67,6 +72,7 @@ describe('Visual Regression Tests - Responsive Design', function () {
           const result = compareScreenshots(baselinePath, actualPath, diffPath);
           expect(result.match, describeFailure(label, result)).to.be.true;
         });
+      });
       });
     });
   });

@@ -17,11 +17,11 @@ const config = require('../config');
 /**
  * Screenshots a page at a given viewport.
  */
-async function takeScreenshot(pageUrl, viewport, screenshotPath) {
+async function takeScreenshot(pageUrl, viewport, screenshotPath, colorScheme = 'dark') {
   let browser;
   try {
     browser = await chromium.launch(config.browserOptions);
-    const context = await browser.newContext({ viewport });
+    const context = await browser.newContext({ viewport, colorScheme });
     const page = await context.newPage();
 
     // Block third-party scripts and media. Stylesheets, fonts and images still
@@ -172,8 +172,8 @@ function describeFailure(name, result) {
   );
 }
 
-function getScreenshotFilename(testName, viewportName) {
-  return `${testName}-${viewportName}.png`;
+function getScreenshotFilename(testName, viewportName, theme = 'dark') {
+  return `${testName}-${viewportName}-${theme}.png`;
 }
 
 function ensureScreenshotDir(dirPath) {

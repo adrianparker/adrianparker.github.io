@@ -48,8 +48,9 @@ npm run build          # eleventy build into _site/
 npm run serve          # local dev server, live reload, usually :8080
 npm run test:unit      # unit tests + coverage gate. No build, no browser — fast
 npm run test:smoke     # build + smoke tests
+npm run test:theme     # build + light/dark theme behaviour
 npm run test:visual    # build + visual regression (slow, needs Playwright)
-npm test               # unit + smoke + visual, everything
+npm test               # unit + smoke + theme + visual, everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 ```
 
@@ -145,7 +146,10 @@ flickrThumbnail: 'https://live.staticflickr.com/...'
 Mocha + Chai, with Playwright + pixelmatch for visual regression.
 
 - `tests/smoke.test.js` — build validation, runs in CI.
-- `tests/visual-regression.test.js` — screenshots at 1200px (desktop) and mobile, compared against baselines in `tests/screenshots/`. Local only today.
+- `tests/theme.test.js` — light/dark toggle behaviour. Local only; serves on port 3001.
+- `tests/visual-regression.test.js` — screenshots at 1200px (desktop) and 390px (mobile), compared against baselines in `tests/screenshots/`. Local only; serves on port 3000.
+
+**Theming:** colours come from tokens in `:root` declared twice — a plain dark value first, then a `light-dark()` override. Browsers without `light-dark()` keep the dark theme. The toggle sets `data-theme` on `<html>`; an inline script in `partials/head.njk` must stay ahead of the stylesheet or the page flashes the wrong theme on load.
 
 See `TESTING.md` for detail, and the `update-baselines` skill for the baseline refresh procedure.
 
