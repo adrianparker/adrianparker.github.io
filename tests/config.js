@@ -34,6 +34,7 @@ module.exports = {
    */
   testPages: {
     'home-page': '/index.html',
+    'apps-index': '/apps/index.html',
     'posts-index': '/posts/index.html',
     'video-post': '/posts/Last-Ever-Last-Ever/index.html',
     'gig-post': '/posts/gigs/20090218-Datsuns-Astoria-London/index.html',

@@ -1,12 +1,11 @@
 ---
-layout: post-layout.njk
 title: 'Tangalooma Wrecks'
 navtitle: 'Tangalooma Wrecks'
 summary: 'Diving Tangalooma Wrecks, off Moreton Island, Brisbane Australia'
 metadesc: 'Some colleagues from Octopus Deploy and I took a day ahead of an on-site in Brisbane to go diving'
 date: 2025-09-08  
 readingtime: '5 minutes'
-tags: ['post', 'diving']
+tags: ['diving']
 ---
 ## The upside of fully remote
 

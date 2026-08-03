@@ -6,7 +6,10 @@
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for entry in collections.all %}
+{#- Sorted by URL so the file is stable. collections.all ordering shifts with
+    unrelated data-cascade changes, which would otherwise churn this file in
+    git without a single URL actually changing. -#}
+{%- for entry in collections.all | sort(false, false, "url") %}
   <url>
     <loc>{{ site.url }}{{ entry.url }}</loc>
     <lastmod>{{ entry.date | isoDate }}</lastmod>

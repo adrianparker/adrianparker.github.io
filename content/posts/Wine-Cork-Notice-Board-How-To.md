@@ -1,12 +1,10 @@
 ---
-layout: post-layout.njk
 title: 'How to make a Wine Cork Notice Board'
 navtitle: 'Wine Cork Notice Board'
 summary: 'Tidy up those bits of paper and feel good about wine consumption with this easy DIY craft project'
 metadesc: 'A step by step guide to making a wine cork notice board made from recycled wine corks.'
 date: 2023-10-28
 readingtime: '3 minutes'
-tags: ['post']
 ---
 ## How to make a Wine Cork Notice Board
 

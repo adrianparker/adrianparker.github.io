@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Prince @ O2 Arena, London'
 navtitle: '2007 Prince'
 summary: 'The legend in his prime'
 metadesc: 'Concert review of Prince at O2 Arena, London, 17 August 2007.'
 date: 2007-08-17
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Prince'
 venue: 'O2 Arena'
 city: 'London'

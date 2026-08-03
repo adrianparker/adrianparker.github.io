@@ -1,0 +1,5 @@
+{
+  "layout": "gig-layout.njk",
+  "_comment": "override:tags is required, not plain tags. Gigs sit inside content/posts/, so they inherit posts.11tydata.json, and Eleventy's data cascade MERGES arrays — plain tags would give ['post','gig'] and leak every gig into collections.post and the /posts/ index.",
+  "override:tags": ["gig"]
+}

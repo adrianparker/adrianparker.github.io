@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Portishead @ Hammersmith Apollo, London'
 navtitle: '2008 Portishead'
 summary: 'A rare chance to see a favourite act, who did not disappoint'
 metadesc: 'Concert review of Portishead at Hammersmith Apollo, London, 10 April 2008.'
 date: 2008-04-10
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Portishead'
 venue: 'Hammersmith Apollo'
 city: 'London'

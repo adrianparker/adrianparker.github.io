@@ -3,6 +3,13 @@ layout: base-layout.njk
 title: Posts
 metadesc: All posts by Adrian Parker, including the most recent and popular blog posts.
 permalink: /posts/index.html
+# posts.11tydata.json applies to every file in this directory, including this
+# one. Without this the index page joins collections.post and lists itself —
+# and having no front-matter date, breaks the home page's date filter.
+#
+# The override: prefix is required. Eleventy's data cascade MERGES arrays, so
+# a plain `tags: []` here would still inherit ['post'].
+override:tags: []
 ---
 <div class="posts">
     <hr>

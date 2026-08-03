@@ -167,6 +167,55 @@ describe('Smoke Tests - Gig Post Type', function () {
   });
 });
 
+describe('Smoke Tests - Apps', function () {
+  this.timeout(30000);
+
+  it('should generate an apps index listing each app', function () {
+    expect(fs.existsSync(sitePath('apps', 'index.html')), '/apps/ page').to.be.true;
+
+    const $ = load('apps', 'index.html');
+    const sections = $('.posts section');
+    expect(sections.length, 'app entries').to.be.greaterThan(0);
+
+    sections.each((_, s) => {
+      const $s = $(s);
+      expect($s.find('h1').text().trim(), 'app title').to.not.be.empty;
+      expect($s.find('.blog-post-summary').text().trim(), 'app summary').to.not.be.empty;
+      expect($s.find('a').attr('href'), 'link to the app').to.match(/^\//);
+    });
+  });
+
+  it('should list the EXIF Viewer at its original URL', function () {
+    const $ = load('apps', 'index.html');
+    const link = $('.posts section a').filter((_, a) => $(a).attr('href') === '/ExifCmdLine/');
+    expect(link, 'EXIF Viewer link').to.have.lengthOf(1);
+    // The URL predates the collection; moving it would break inbound links.
+    expect(fs.existsSync(sitePath('ExifCmdLine', 'index.html'))).to.be.true;
+  });
+
+  it('should drive the sidebar Apps section from the collection', function () {
+    const $ = load('index.html');
+    const appLinks = $('.pure-menu-list a[href="/ExifCmdLine/"]');
+    expect(appLinks, 'app in sidebar').to.have.lengthOf(1);
+
+    const allApps = $('.pure-menu-list a[href="/apps/"]').filter((_, a) =>
+      /all apps/i.test($(a).text())
+    );
+    expect(allApps, 'All apps... link').to.have.lengthOf(1);
+  });
+
+  it('should include apps in the sitemap and the mobile menu', function () {
+    const $sitemap = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+    const locs = $sitemap('url > loc').map((_, l) => $sitemap(l).text()).get();
+    expect(locs).to.include('https://www.adrianparker.com/apps/');
+    expect(locs).to.include('https://www.adrianparker.com/ExifCmdLine/');
+
+    const $ = load('index.html');
+    const mobile = $('.mobile-menu-list a').map((_, a) => $(a).attr('href')).get();
+    expect(mobile, 'mobile menu links').to.include('/apps/');
+  });
+});
+
 describe('Smoke Tests - Discoverability', function () {
   this.timeout(30000);
 

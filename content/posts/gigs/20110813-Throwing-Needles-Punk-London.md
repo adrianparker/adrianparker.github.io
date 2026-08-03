@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Throwing Needles @ Punk, London'
 navtitle: '2011 Throwing Needles'
 summary: 'A friend''s band let me play gig photographer for a night'
 metadesc: 'Concert review of Throwing Needles at Punk, London, 13 August 2011.'
 date: 2011-08-13
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Throwing Needles'
 venue: 'Punk'
 city: 'London'

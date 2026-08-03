@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Hollie Smith @ 12 Acklam Rd, London'
 navtitle: '2008 Hollie Smith'
 summary: 'Small venue, sultry soul, truly special show'
 metadesc: 'Concert review of Hollie Smith at 12 Acklam Road (formerly Neighbourhood), London.'
 date: 2008-04-14
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Hollie Smith'
 venue: '12 Acklam Rd (Neighbourhood)'
 city: 'London'

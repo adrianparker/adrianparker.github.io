@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Teen Jesus & the Jean Teasers @ San Fran, Wellington'
 navtitle: '2026 Teen Jesus'
 summary: 'Teen Jesus glorify San Fran in first Wellington show'
 metadesc: 'Concert review of Teen Jesus & the Jean Teasers at San Fran, Wellington, 23 May 2026.'
 date: 2026-05-23
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Teen Jesus & the Jean Teasers'
 supportArtists: ['Ivy']
 venue: 'San Fran'

@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'The Datsuns @ Underworld, London'
 navtitle: '2009 The Datsuns'
 summary: 'New Zealand''s finest garage rockers tear apart a London basement'
 metadesc: 'Concert review of The Datsuns at Underworld, Camden, London, 18 February 2009.'
 date: 2009-02-18
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'The Datsuns'
 venue: 'Underworld'
 city: 'London'

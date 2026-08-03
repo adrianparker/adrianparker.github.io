@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Scorpions @ Hammersmith Apollo, London'
 navtitle: '2007 Scorpions'
 summary: 'Teutonic metallers rocked us like a hurricane'
 metadesc: 'Concert review of Scorpions at Hammersmith Apollo, London, 30 July 2007.'
 date: 2007-07-30
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Scorpions'
 supportArtists: ['Michael Schenker Group (MSG)']
 venue: 'Hammersmith Apollo'

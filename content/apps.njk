@@ -1,0 +1,24 @@
+---
+layout: base-layout.njk
+title: Apps
+metadesc: Interactive tools and web apps built by Adrian Parker, all running entirely in your browser.
+permalink: /apps/index.html
+---
+<div class="posts">
+    <hr>
+
+    {% for app in collections.app | reverse %}
+
+    <section>
+        <h3>{{ app.data.date | readableDate }}</h3>
+        <h1>{{ app.data.title }}</h1>
+        <p class="blog-post-summary">
+            {{ app.data.summary | safe }}
+        </p>
+
+        <a href="{{ app.page.url | url }}">Open {{ app.data.title }}...</a>
+    </section>
+    <hr>
+
+    {% endfor %}
+</div>

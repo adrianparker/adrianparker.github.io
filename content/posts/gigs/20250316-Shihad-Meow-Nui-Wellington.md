@@ -1,12 +1,10 @@
 ---
-layout: gig-layout.njk
 title: 'Shihad @ Meow Nui, Wellington'
 navtitle: '2025 Shihad'
 summary: 'Shihad''s last ever show'
 metadesc: 'Concert review of Shihad at Meow Nui, Wellingto, 16 March 2025.'
 date: 2025-03-16
 readingtime: '1 minute'
-tags: ['gig']
 headlineArtist: 'Shihad'
 supportArtists: ['Shepherds Reign']
 venue: 'Meow Nui'
