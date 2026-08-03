@@ -132,16 +132,34 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect(embed.find('img').attr('src')).to.contain('live.staticflickr.com');
   });
 
-  it('should list the gig post on the home page, linked to its own URL', function () {
-    const $ = load('index.html');
+  it('should list the gig post on the gigs index, linked to its own URL', function () {
+    const $ = load('gigs', 'index.html');
 
     const section = $('.posts section').filter((_, s) =>
       $(s).find('h1').text().includes('The Datsuns @ Underworld')
     );
-    expect(section, 'home page section for the gig').to.have.lengthOf(1);
+    expect(section, 'gigs index section for the gig').to.have.lengthOf(1);
 
     expect(section.find('a').attr('href'))
       .to.equal('/posts/gigs/20090218-Datsuns-Astoria-London/');
+  });
+
+  it('should interleave gigs with posts on the home page', function () {
+    // Deliberately not asserting a specific entry: the home page is capped at
+    // 10, so naming one pins the test to publishing order. What matters is
+    // that both content types reach the front page at all.
+    const $ = load('index.html');
+
+    const hrefs = $('.posts section')
+      .map((_, s) => $(s).find('a').attr('href'))
+      .get()
+      .filter(Boolean);
+
+    expect(hrefs.some((h) => h.startsWith('/posts/gigs/')), 'a gig on the home page').to.be.true;
+    expect(
+      hrefs.some((h) => h.startsWith('/posts/') && !h.startsWith('/posts/gigs/')),
+      'a post on the home page'
+    ).to.be.true;
   });
 
   it('should show a Gigs section with an All gigs link in the sidebar', function () {
@@ -163,6 +181,70 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect($('entry').length, 'feed entries').to.be.greaterThan(5);
     $('entry').each((_, e) => {
       expect($(e).find('id').text()).to.match(/^https:\/\//);
+    });
+  });
+});
+
+describe('Smoke Tests - Bounded home page and feed', function () {
+  this.timeout(30000);
+
+  const HOME_LIMIT = 10;
+  const FEED_LIMIT = 20;
+
+  it(`should show at most ${HOME_LIMIT} entries on the home page`, function () {
+    const $ = load('index.html');
+    // Entries are the sections carrying a title; the archive-links section has none.
+    const entries = $('.posts section').filter((_, s) => $(s).find('h1').length > 0);
+    expect(entries.length).to.be.at.most(HOME_LIMIT);
+  });
+
+  it('should link to the full archives from the home page', function () {
+    const $ = load('index.html');
+    const archive = $('.posts-archive-links');
+
+    expect(archive, 'archive links section').to.have.lengthOf(1);
+    expect(archive.find('a[href="/posts/"]').length, 'link to all posts').to.equal(1);
+    expect(archive.find('a[href="/gigs/"]').length, 'link to all gigs').to.equal(1);
+  });
+
+  it('should state accurate totals in the archive links', function () {
+    const $ = load('index.html');
+    const $posts = load('posts', 'index.html');
+    const $gigs = load('gigs', 'index.html');
+
+    const text = $('.posts-archive-links').text();
+    const postCount = $posts('.posts section h1').length;
+    const gigCount = $gigs('.posts section h1').length;
+
+    // Guards against the counts drifting from what the indexes actually list.
+    expect(text).to.contain(`${postCount} posts`);
+    expect(text).to.contain(`${gigCount} gigs`);
+  });
+
+  it(`should cap the feed at ${FEED_LIMIT} entries`, function () {
+    const $ = cheerio.load(read('feed.xml'), { xmlMode: true });
+    expect($('entry').length).to.be.at.most(FEED_LIMIT);
+  });
+
+  it('should keep everything reachable despite the caps', function () {
+    // Nothing may fall off the site just because it fell off the front page.
+    const $posts = load('posts', 'index.html');
+    const $gigs = load('gigs', 'index.html');
+    const $sitemap = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+
+    // Direct children only — anchors nested inside an excerpt belong to the
+    // post's prose and can point anywhere, including off-site.
+    const listed = $posts('.posts section > a').map((_, a) => $posts(a).attr('href')).get()
+      .concat($gigs('.posts section > a').map((_, a) => $gigs(a).attr('href')).get());
+
+    expect(listed.length, 'entries found across both indexes').to.be.greaterThan(15);
+
+    const inSitemap = $sitemap('url > loc')
+      .map((_, l) => $sitemap(l).text().replace('https://www.adrianparker.com', ''))
+      .get();
+
+    listed.forEach((href) => {
+      expect(inSitemap, `${href} present in sitemap`).to.include(href);
     });
   });
 });
