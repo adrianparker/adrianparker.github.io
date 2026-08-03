@@ -13,7 +13,8 @@
     "build": "npx eleventy",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
-    "test:theme": "npm run build && mocha tests/theme.test.js --timeout 60000"
+    "test:theme": "npm run build && mocha tests/theme.test.js --timeout 60000",
+    "test:analytics": "npm run build && mocha tests/analytics.test.js --timeout 60000"
   },
   "repository": {
     "type": "git",
@@ -32,8 +33,10 @@
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@fontsource/bebas-neue": "^5.3.0",
     "markdown-it": "^15.0.0",
-    "markdown-it-footnote": "^4.0.0"
+    "markdown-it-footnote": "^4.0.0",
+    "purecss": "^2.0.6"
   },
   "overrides": {
     "serialize-javascript": "^7.0.7",

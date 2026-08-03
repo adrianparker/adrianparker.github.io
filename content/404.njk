@@ -19,3 +19,13 @@
         </p>
     </article>
 </div>
+
+{# Which dead URLs people actually hit, and where from. #}
+<script>
+    if (window.siteAnalytics) {
+        window.siteAnalytics.capture('not_found', {
+            path: window.location.pathname,
+            referrer: document.referrer || null
+        });
+    }
+</script>

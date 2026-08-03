@@ -11,6 +11,24 @@ export default function (eleventyConfig) {
   // output everything from the static folder at root of output
   eleventyConfig.addPassthroughCopy({ static: "/" });
 
+  /*
+    Third-party assets copied out of node_modules rather than fetched from a
+    CDN at page load. Copying from a pinned npm dependency means the version
+    is in package-lock, Dependabot can see it, and there is no ad-hoc download
+    step anyone has to remember.
+
+    Pure.css was two unpkg requests on every pageview, and one of the two
+    carried no SRI hash. Bebas Neue was an @import inside the stylesheet —
+    a serial render-blocking fetch, since the browser could not discover the
+    font until index.css had arrived.
+  */
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/purecss/build/pure-min.css": "vendor/pure-min.css",
+    "node_modules/purecss/build/grids-responsive-min.css": "vendor/grids-responsive-min.css",
+    "node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2":
+      "fonts/bebas-neue-latin-400-normal.woff2"
+  });
+
   // render a markdown string as HTML in place
   eleventyConfig.addFilter("md", renderMarkdown);
 
