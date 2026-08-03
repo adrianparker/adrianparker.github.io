@@ -4,7 +4,7 @@ layout: base-layout.njk
 <div class="post">
     <article class="blog-post">
         <h1>{{ title }}</h1>
-        <h3>{{ date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</h3>
+        <p class="entry-meta">{{ date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</p>
         <p class="blog-post-summary">
         {{ summary | safe }}
         </p>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% include "partials/head.njk" %}
+        {%- if appStylesheet %}
+        <link rel="stylesheet" crossorigin href="{{ appStylesheet }}">
+        {%- endif %}
+        {%- if appScript %}
+        <script type="module" crossorigin src="{{ appScript }}"></script>
+        {%- endif %}
+        {% include "partials/analytics.njk" %}
+    </head>
+
+    <body class="app-page">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        {#
+          Apps get a slim bar rather than the full sidebar — they want the
+          width. Before this existed the only way off an app page was a bare
+          link at the very bottom, below however much the app itself rendered.
+        #}
+        <header class="app-bar">
+            <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
+            <nav class="app-bar-nav" aria-label="Sections">
+                <a href="/apps/">All apps</a>
+                <a href="/posts/">Posts</a>
+                <a href="/gigs/">Gigs</a>
+            </nav>
+        </header>
+
+        <main id="main">
+            {{ content | safe }}
+        </main>
+
+        {% include "partials/site-footer.njk" %}
+    </body>
+
+</html>

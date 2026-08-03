@@ -136,7 +136,7 @@ describe('Smoke Tests - Gig Post Type', function () {
     const $ = load('gigs', 'index.html');
 
     const section = $('.posts section').filter((_, s) =>
-      $(s).find('h1').text().includes('The Datsuns @ Underworld')
+      $(s).find('.entry-title').text().includes('The Datsuns @ Underworld')
     );
     expect(section, 'gigs index section for the gig').to.have.lengthOf(1);
 
@@ -185,6 +185,117 @@ describe('Smoke Tests - Gig Post Type', function () {
   });
 });
 
+describe('Smoke Tests - Structure and accessibility', function () {
+  this.timeout(30000);
+
+  const PAGES = [
+    ['index.html'],
+    ['posts', 'index.html'],
+    ['gigs', 'index.html'],
+    ['apps', 'index.html'],
+    ['404.html'],
+    ['posts', 'Last-Ever-Last-Ever', 'index.html'],
+    ['posts', 'gigs', '20090218-Datsuns-Astoria-London', 'index.html']
+  ];
+
+  it('should provide landmarks on every page', function () {
+    PAGES.forEach((p) => {
+      const $ = load(...p);
+      const where = p.join('/');
+      expect($('main').length, `${where}: exactly one <main>`).to.equal(1);
+      expect($('nav').length, `${where}: at least one <nav>`).to.be.greaterThan(0);
+      expect($('footer').length, `${where}: a <footer>`).to.equal(1);
+    });
+  });
+
+  it('should provide a skip link targeting main', function () {
+    PAGES.forEach((p) => {
+      const $ = load(...p);
+      const skip = $('.skip-link');
+      expect(skip.length, `${p.join('/')}: skip link`).to.equal(1);
+      const target = skip.attr('href').replace('#', '');
+      expect($(`#${target}`).length, `${p.join('/')}: skip target exists`).to.equal(1);
+    });
+  });
+
+  it('should have exactly one h1 per page and never skip a heading level', function () {
+    PAGES.forEach((p) => {
+      const $ = load(...p);
+      const where = p.join('/');
+
+      expect($('h1').length, `${where}: exactly one <h1>`).to.equal(1);
+
+      const levels = $('h1,h2,h3,h4,h5,h6')
+        .map((_, h) => Number(h.tagName.slice(1)))
+        .get();
+
+      expect(levels[0], `${where}: first heading is the h1`).to.equal(1);
+      levels.slice(1).forEach((lvl, i) => {
+        expect(lvl - levels[i], `${where}: no level skipped at heading ${i + 2}`).to.be.at.most(1);
+      });
+    });
+  });
+
+  it('should label every nav landmark', function () {
+    // Multiple navs on a page are ambiguous to a screen reader without names.
+    PAGES.forEach((p) => {
+      const $ = load(...p);
+      $('nav').each((_, n) => {
+        expect($(n).attr('aria-label'), `${p.join('/')}: nav has an accessible name`).to.be.a('string');
+      });
+    });
+  });
+
+  it('should allow pinch zoom', function () {
+    // maximum-scale=1 blocks it, a WCAG 1.4.4 failure.
+    const viewport = load('index.html')('meta[name="viewport"]').attr('content');
+    expect(viewport).to.not.contain('maximum-scale');
+    expect(viewport).to.contain('width=device-width');
+  });
+
+  it('should make the feed discoverable from the document head', function () {
+    const link = load('index.html')('link[rel="alternate"][type="application/atom+xml"]');
+    expect(link.length, 'feed autodiscovery link').to.equal(1);
+    expect(link.attr('href')).to.contain('/feed.xml');
+  });
+
+  it('should expose the externals in both the sidebar and the footer', function () {
+    const $ = load('index.html');
+
+    // Sidebar copy — desktop. Footer copy — mobile, where the sidebar is hidden.
+    const sidebar = $('.pure-menu-list a[href*="github.com"]');
+    const footer = $('.site-footer-list a[href*="github.com"]');
+
+    expect(sidebar.length, 'external in sidebar').to.equal(1);
+    expect(footer.length, 'external in footer').to.equal(1);
+
+    // Both render from site.externals, so the sets must match.
+    const sidebarSet = $('.pure-menu-list a').map((_, a) => $(a).attr('href')).get()
+      .filter((h) => /^https?:|feed\.xml/.test(h)).sort();
+    const footerSet = $('.site-footer-list a').map((_, a) => $(a).attr('href')).get().sort();
+    expect(footerSet).to.deep.equal(sidebarSet);
+  });
+
+  it('should give app pages a way back into the site', function () {
+    const $ = load('ExifCmdLine', 'index.html');
+    const barLinks = $('.app-bar a').map((_, a) => $(a).attr('href')).get();
+
+    expect(barLinks, 'link home').to.include('/');
+    expect(barLinks, 'link to apps index').to.include('/apps/');
+    expect($('main').length, 'exactly one main').to.equal(1);
+    expect($('footer').length, 'footer present').to.equal(1);
+  });
+
+  it('should load analytics exactly once per page', function () {
+    // It used to be duplicated verbatim in the app layout.
+    [['index.html'], ['ExifCmdLine', 'index.html']].forEach((p) => {
+      const $ = load(...p);
+      const snippets = $('script').filter((_, s) => /posthog\.init/.test($(s).html() || ''));
+      expect(snippets.length, `${p.join('/')}: one analytics snippet`).to.equal(1);
+    });
+  });
+});
+
 describe('Smoke Tests - Bounded home page and feed', function () {
   this.timeout(30000);
 
@@ -194,7 +305,7 @@ describe('Smoke Tests - Bounded home page and feed', function () {
   it(`should show at most ${HOME_LIMIT} entries on the home page`, function () {
     const $ = load('index.html');
     // Entries are the sections carrying a title; the archive-links section has none.
-    const entries = $('.posts section').filter((_, s) => $(s).find('h1').length > 0);
+    const entries = $('.posts section').filter((_, s) => $(s).find('.entry-title').length > 0);
     expect(entries.length).to.be.at.most(HOME_LIMIT);
   });
 
@@ -213,8 +324,8 @@ describe('Smoke Tests - Bounded home page and feed', function () {
     const $gigs = load('gigs', 'index.html');
 
     const text = $('.posts-archive-links').text();
-    const postCount = $posts('.posts section h1').length;
-    const gigCount = $gigs('.posts section h1').length;
+    const postCount = $posts('.posts section .entry-title').length;
+    const gigCount = $gigs('.posts section .entry-title').length;
 
     // Guards against the counts drifting from what the indexes actually list.
     expect(text).to.contain(`${postCount} posts`);
@@ -261,7 +372,7 @@ describe('Smoke Tests - Apps', function () {
 
     sections.each((_, s) => {
       const $s = $(s);
-      expect($s.find('h1').text().trim(), 'app title').to.not.be.empty;
+      expect($s.find('.entry-title').text().trim(), 'app title').to.not.be.empty;
       expect($s.find('.blog-post-summary').text().trim(), 'app summary').to.not.be.empty;
       expect($s.find('a').attr('href'), 'link to the app').to.match(/^\//);
     });

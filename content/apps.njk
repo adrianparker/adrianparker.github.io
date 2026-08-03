@@ -4,14 +4,15 @@ title: Apps
 metadesc: Interactive tools and web apps built by Adrian Parker, all running entirely in your browser.
 permalink: /apps/index.html
 ---
+<h1 class="visually-hidden">Apps</h1>
 <div class="posts">
     <hr>
 
     {% for app in collections.app | reverse %}
 
     <section>
-        <h3>{{ app.data.date | readableDate }}</h3>
-        <h1>{{ app.data.title }}</h1>
+        <p class="entry-meta">{{ app.data.date | readableDate }}</p>
+        <h2 class="entry-title">{{ app.data.title }}</h2>
         <p class="blog-post-summary">
             {{ app.data.summary | safe }}
         </p>

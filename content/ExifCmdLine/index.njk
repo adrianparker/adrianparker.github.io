@@ -1,5 +1,7 @@
 ---
-layout: exifcmdline-layout.njk
+layout: app-layout.njk
+appStylesheet: /dist/assets/index-TrqLX7I5.css
+appScript: /dist/assets/index-Cgy3l1ma.js
 title: EXIF Viewer
 navtitle: EXIF Viewer
 summary: 'Inspect the metadata inside a photo — camera, lens, exposure, timestamps and location. Everything happens in your browser; the file never leaves your computer.'
@@ -7,7 +9,8 @@ metadesc: Browser-only image metadata inspector. Your file never leaves your com
 date: 2026-05-06
 tags: ['app']
 ---
-<main class="shell">
+{# app-layout provides the <main> landmark; this is just the app's grid wrapper #}
+<div class="shell">
   <section class="panel">
     <h1>EXIF Viewer</h1>
     <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
@@ -58,4 +61,4 @@ tags: ['app']
       </table>
     </div>
   </section>
-</main>
+</div>

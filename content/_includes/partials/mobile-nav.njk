@@ -1,0 +1,13 @@
+{#
+  Section navigation, shown only below the breakpoint. The desktop sidebar
+  nav is hidden there, so this is the only navigation a phone reader gets —
+  which is why it carries every section rather than a subset.
+#}
+<nav class="mobile-menu" aria-label="Sections">
+    <ul class="mobile-menu-list">
+        <li><a href="/" class="mobile-menu-link{% if page.url == '/' %} is-current{% endif %}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="/apps/" class="mobile-menu-link{% if page.url == '/apps/' %} is-current{% endif %}"{% if page.url == '/apps/' %} aria-current="page"{% endif %}>Apps</a></li>
+        <li><a href="/posts/" class="mobile-menu-link{% if page.url == '/posts/' %} is-current{% endif %}"{% if page.url == '/posts/' %} aria-current="page"{% endif %}>Posts</a></li>
+        <li><a href="/gigs/" class="mobile-menu-link{% if page.url == '/gigs/' %} is-current{% endif %}"{% if page.url == '/gigs/' %} aria-current="page"{% endif %}>Gigs</a></li>
+    </ul>
+</nav>
