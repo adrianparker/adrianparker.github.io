@@ -25,7 +25,10 @@
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for post in collections.homePagePosts %}
+  {#- Capped at 20, the usual convention. Entries carry full article content,
+      so an uncapped feed grows about 5KB per post with no ceiling. Anything
+      older stays on the site. -#}
+  {%- for post in collections.homePagePosts | limit(20) %}
   {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
   <entry>
     <title>{{ post.data.title }}</title>

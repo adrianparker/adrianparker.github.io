@@ -1,6 +1,6 @@
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
-import { markdownLibrary, renderMarkdown, readableDate, isoDate } from "./lib/filters.mjs";
+import { markdownLibrary, renderMarkdown, readableDate, isoDate, limit } from "./lib/filters.mjs";
 import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
 import { imageShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 
@@ -19,6 +19,9 @@ export default function (eleventyConfig) {
 
   // YYYY-MM-DD, for the sitemap
   eleventyConfig.addFilter("isoDate", isoDate);
+
+  // truncate a collection — the home page and feed are both capped
+  eleventyConfig.addFilter("limit", limit);
 
   // enable RSS
   eleventyConfig.addPlugin(pluginRss);

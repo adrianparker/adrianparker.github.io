@@ -1,5 +1,40 @@
 import { expect } from "chai";
-import { renderMarkdown, readableDate, isoDate, markdownLibrary } from "../../lib/filters.mjs";
+import { renderMarkdown, readableDate, isoDate, limit, markdownLibrary } from "../../lib/filters.mjs";
+
+describe("filters — limit", () => {
+  it("returns the first n items", () => {
+    expect(limit([1, 2, 3, 4, 5], 3)).to.deep.equal([1, 2, 3]);
+  });
+
+  it("returns everything when n exceeds the length", () => {
+    expect(limit([1, 2], 10)).to.deep.equal([1, 2]);
+  });
+
+  it("returns an empty array for a count of zero", () => {
+    expect(limit([1, 2, 3], 0)).to.deep.equal([]);
+  });
+
+  it("handles an empty array", () => {
+    expect(limit([], 5)).to.deep.equal([]);
+  });
+
+  it("does not mutate the input", () => {
+    const source = [1, 2, 3, 4];
+    limit(source, 2);
+    expect(source).to.deep.equal([1, 2, 3, 4]);
+  });
+
+  it("throws on a non-array", () => {
+    expect(() => limit("not an array", 2)).to.throw(TypeError);
+    expect(() => limit(undefined, 2)).to.throw(TypeError);
+  });
+
+  it("throws on a negative or non-integer count", () => {
+    expect(() => limit([1, 2], -1)).to.throw(TypeError);
+    expect(() => limit([1, 2], 1.5)).to.throw(TypeError);
+    expect(() => limit([1, 2], "3")).to.throw(TypeError);
+  });
+});
 
 describe("filters — isoDate", () => {
   it("formats as YYYY-MM-DD for sitemap lastmod", () => {

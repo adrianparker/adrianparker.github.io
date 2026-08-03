@@ -3,11 +3,14 @@ layout: base-layout.njk
 title: AdrianParker.com
 metadesc: Writing by Adrian Parker, on topics like product management, finance, software, investment, and travel; adorned with whimsical anecdotes about life.
 ---
+{#- The home page is a front page, not an archive. Everything older stays
+    reachable through /posts/ and /gigs/, which are unbounded and linked
+    both here and in the nav. -#}
 <div class="posts">
     <hr>
 
-    {% for post in collections.homePagePosts %}
-    
+    {% for post in collections.homePagePosts | limit(10) %}
+
     <section>
         <h3>{{ post.data.date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ post.data.readingtime }}</h3>
         <h1>{{ post.data.title }}</h1>
@@ -15,10 +18,18 @@ metadesc: Writing by Adrian Parker, on topics like product management, finance, 
         {{ post.data.summary | safe }}
         </p>
             {{ post.page.excerpt | md | safe }}
-        
+
             <a href="{{ post.page.url | url }}">Read more...</a>
     </section>
     <hr>
-    
+
     {% endfor %}
+
+    <section class="posts-archive-links">
+        <p>
+            That's the ten most recent. There are
+            <a href="/posts/">{{ collections.post | length }} posts</a> and
+            <a href="/gigs/">{{ collections.gig | length }} gigs</a> in all.
+        </p>
+    </section>
 </div>
