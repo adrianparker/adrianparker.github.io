@@ -8,6 +8,7 @@ How to run, maintain and troubleshoot the tests for adrianparker.github.io.
 |---|---|---|---|
 | **Unit** (`tests/unit/*.test.mjs`) | Everything in `lib/` — collections, filters, shortcodes | ~60ms | yes |
 | **Smoke** (`tests/smoke.test.js`) | The build produced the right pages, with the right structure | ~60ms | yes |
+| **Theme** (`tests/theme.test.js`) | Light/dark toggle behaviour, persistence, no-JS fallback | ~35s | no, local only |
 | **Visual regression** (`tests/visual-regression.test.js`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
 
 Mocha for running, Chai for assertions, c8 for coverage, cheerio for DOM
@@ -18,10 +19,14 @@ assertions, Playwright + pixelmatch for screenshots.
 ```bash
 npm run test:unit      # unit tests + coverage gate. No build, no browser
 npm run test:smoke     # build + smoke tests
+npm run test:theme     # build + light/dark theme behaviour
 npm run test:visual    # build + visual regression
-npm test               # all three
+npm test               # everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 ```
+
+The theme suite serves on port 3001 and visual regression on 3000, so both
+can run in the same mocha process under `npm test`.
 
 Run `npm run test:unit` constantly — it is effectively instant. Run the
 visual suite before anything touching CSS or templates.
@@ -62,6 +67,22 @@ one line; you do not touch the test file.
 Baselines live in `tests/screenshots/` and are committed. Actual captures go
 to `tests/screenshots-actual/`, which is gitignored, along with `diff-*.png`
 images for anything that differed.
+
+### Themes
+
+Every page is captured in **dark**. Only the pages in `lightThemePages`
+(currently the home page and a gig post) are also captured in **light**.
+
+That is deliberate rather than lazy. Layout regressions look identical in
+either theme, so a second full set would mostly duplicate the first; colour
+bugs that survive a theme switch — a hardcoded value, an icon that cannot be
+recoloured — are asserted directly in `tests/theme.test.js`. And 16 baselines
+were already 11MB, with every refresh adding that again to git history.
+
+The two chosen pages between them cover entry listings, the gig metadata card
+and its hairlines, external links, images and the footer.
+
+Baseline filenames carry the theme: `home-page-desktop-dark.png`.
 
 ### Thresholds
 

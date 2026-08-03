@@ -43,13 +43,11 @@ layout: base-layout.njk
                         <th></th>
                         <td>
                             {% if setlistfm %}
-                            <a href="{{ setlistfm }}" target="_blank" rel="nofollow" class="external-link">setlist.fm</a>
-                            <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+                            <a href="{{ setlistfm }}" target="_blank" rel="nofollow" class="external-link">setlist.fm<span class="external-link-icon" aria-hidden="true"></span></a>
                             {% endif %}
                             {% if setlistfm and spotify %}&nbsp;&nbsp;{% endif %}
                             {% if spotify %}
-                            <a href="{{ spotify }}" target="_blank" rel="nofollow" class="external-link">Spotify</a>
-                            <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+                            <a href="{{ spotify }}" target="_blank" rel="nofollow" class="external-link">Spotify<span class="external-link-icon" aria-hidden="true"></span></a>
                             {% endif %}
                         </td>
                     </tr>

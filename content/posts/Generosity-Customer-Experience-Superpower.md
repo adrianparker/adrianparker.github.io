@@ -25,7 +25,7 @@ It won&apos;t surprise regular readers of this blog (ha! who am I kidding? this 
 
 Every so often, a winery you like so much that you trust them to not just dump  stock on you, sends you some bottles, they just arrive on your doorstep a day or two after your card is charged. When you find a winery whose style you really enjoy, it&apos;s a great way to stay connected without having to remember to shop, or make decisions about which wines to buy. Commerce that comes to you. It&apos;s a beautiful thing.
 
-The subscriptions come infrequently though, every 3 or 4 months, sometimes annually, and sure enough I didn&apos;t manage to update all of ours. One such forgotten update was our subscription at <a href="https://astrolabewines.co.nz/" target="_blank">Astrolabe</a><img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>.
+The subscriptions come infrequently though, every 3 or 4 months, sometimes annually, and sure enough I didn&apos;t manage to update all of ours. One such forgotten update was our subscription at <a href="https://astrolabewines.co.nz/" target="_blank" class="external-link">Astrolabe<span class="external-link-icon" aria-hidden="true"></span></a>.
 
 Some time had passed after the card cancellation, so much so I was beginning to think the annoyance was behind us for good, when another email arrived... <q>Your subscription payment has failed...</q>.
 

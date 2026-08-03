@@ -1,3 +1,21 @@
+{#
+  Must stay first in <head>, ahead of the stylesheet link.
+
+  It is deliberately blocking and inline: if it ran async, or after the CSS,
+  the page would paint in the OS theme and then snap to the stored one. Five
+  lines of render-blocking script is the accepted cost of not flashing.
+#}
+<script>
+    (function () {
+        var root = document.documentElement;
+        root.classList.add('js');
+        try {
+            var stored = localStorage.getItem('theme');
+            if (stored === 'light' || stored === 'dark') { root.dataset.theme = stored; }
+        } catch (e) { /* private mode: fall back to the OS preference */ }
+    })();
+</script>
+
 {% set pageTitle = title + ' - ' + site.name %}
 {% if site.name === title %}
     {% set pageTitle = title %}
@@ -11,6 +29,17 @@
 <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ '/feed.xml' | url }}">
 <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+{#
+  An app's own stylesheet loads BEFORE index.css on purpose.
+
+  The EXIF Viewer bundle carries its own `body` background rule and its own
+  :root block using the site's pre-theming variable names. Loaded afterwards
+  it won out, pinning the page dark while the text tokens followed the theme —
+  dark text on a dark background in light mode.
+#}
+{%- if appStylesheet %}
+<link rel="stylesheet" crossorigin href="{{ appStylesheet }}">
+{%- endif %}
 <link rel="stylesheet" href="{{ '/index.css' | url }}">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ pageTitle }}">

@@ -10,11 +10,19 @@
 
 {% macro externalClass(kind) %}{% if kind == "rss" %}rss-button{% elif kind == "x" %}twitter-follow-button{% else %}pure-menu-link external-link{% endif %}{% endmacro %}
 
+{#
+  The "opens in new tab" marker is a decorative span inside the anchor, not a
+  sibling <img>. Previously it sat outside the link — so it was not part of the
+  click target — and carried alt="Opens in new tab", which a screen reader
+  announced as a separate item after every one of the seven links.
+
+  As a span it is also maskable, so it takes its colour from a token instead
+  of the #666666 that used to be baked into the SVG.
+#}
 {% macro sidebarExternals(externals) %}
 {%- for item in externals %}
 <li class="pure-menu-item{% if item.kind != 'link' %} menu-item-spaced{% endif %}">
-    <a href="{{ item.url }}" target="_blank" rel="nofollow" class="{{ externalClass(item.kind) | trim }}">{{ item.title }}</a>
-    <img class="external-link-icon" src="/img/external-link.svg" alt="Opens in new tab"/>
+    <a href="{{ item.url }}" target="_blank" rel="nofollow" class="{{ externalClass(item.kind) | trim }}">{{ item.title }}<span class="external-link-icon" aria-hidden="true"></span></a>
 </li>
 {%- endfor %}
 {% endmacro %}

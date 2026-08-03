@@ -3,9 +3,6 @@
 
     <head>
         {% include "partials/head.njk" %}
-        {%- if appStylesheet %}
-        <link rel="stylesheet" crossorigin href="{{ appStylesheet }}">
-        {%- endif %}
         {%- if appScript %}
         <script type="module" crossorigin src="{{ appScript }}"></script>
         {%- endif %}
@@ -27,6 +24,7 @@
                 <a href="/posts/">Posts</a>
                 <a href="/gigs/">Gigs</a>
             </nav>
+            {% include "partials/theme-toggle.njk" %}
         </header>
 
         <main id="main">

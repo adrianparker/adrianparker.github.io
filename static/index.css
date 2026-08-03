@@ -1,13 +1,79 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 /* GLOBALS */
 
+/*
+  Colour tokens.
+
+  Dark is the original palette, with thanks to
+  https://www.colourlovers.com/palette/703/Deep_impact_(Orange)
+
+  Each token is declared twice on purpose. The first declaration is a plain
+  colour and is what a browser without light-dark() support will use — it is
+  always the dark value, so those browsers keep exactly today's site. The
+  second declaration overrides it wherever light-dark() is understood.
+
+  The light accent is #8f4700, not the brand #ff9900. That is not a stylistic
+  preference: #ff9900 has a relative luminance of 0.44, so against pure white
+  — the lightest background that exists — it can only reach 2.14:1. There is
+  no light background on which it passes WCAG AA, or even the 3:1 required for
+  large text.
+
+  Contrast on the light background: text 15.4:1, accent 6.5:1, muted 6.9:1.
+*/
 :root {
-  /* With thanks to https://www.colourlovers.com/palette/703/Deep_impact_(Orange) */
-  --background-gradient-bottom-color: #333333;
-  --background-gradient-top-color: #262626;
-  --highlight-color: #ff9900;
-  --subheading-color: #666666;
-  --text-color: #cccccc;
+  color-scheme: light dark;
+
+  --color-bg-top: #262626;
+  --color-bg-top: light-dark(#ffffff, #262626);
+
+  --color-bg-bottom: #333333;
+  --color-bg-bottom: light-dark(#f3efe9, #333333);
+
+  --color-accent: #ff9900;
+  --color-accent: light-dark(#8f4700, #ff9900);
+
+  --color-text: #cccccc;
+  --color-text: light-dark(#24211e, #cccccc);
+
+  /* Muted text and hover states. */
+  --color-muted: #666666;
+  --color-muted: light-dark(#5a5a5a, #666666);
+
+  /*
+    These three were all --subheading-color, which was doing four jobs at
+    once. They cannot share a value across themes: a mid-grey that reads as a
+    subtle rule on black is a heavy line on white.
+  */
+  --color-rule: #666666;
+  --color-rule: light-dark(rgba(0, 0, 0, 0.18), #666666);
+
+  --color-hairline: rgba(255, 255, 255, 0.06);
+  --color-hairline: light-dark(rgba(0, 0, 0, 0.10), rgba(255, 255, 255, 0.06));
+
+  --color-button-bg: #666666;
+  --color-button-bg: light-dark(#8f4700, #666666);
+
+  --color-button-text: #cccccc;
+  --color-button-text: light-dark(#ffffff, #cccccc);
+
+  /*
+    Aliases for the vendored EXIF Viewer stylesheet, which was built against
+    the site's pre-theming variable names and still consumes them for its own
+    panels and inputs. Pointing them at the new tokens means the app themes
+    along with the rest of the site instead of staying permanently dark.
+
+    Removable once the app's source lives in this repo (#36).
+  */
+  --text-color: var(--color-text);
+  --highlight-color: var(--color-accent);
+  --subheading-color: var(--color-muted);
+  --background-gradient-top-color: var(--color-bg-top);
+  --background-gradient-bottom-color: var(--color-bg-bottom);
+
+  /* Width of the sidebar nav list, matching the mugshot. The theme toggle
+     uses the same value so its left edge lines up with the nav headings —
+     keep them in step by keeping them one variable. */
+  --sidebar-nav-width: 170px;
 
   /* Vertical offset of the sidebar, chosen so the top of the mugshot lines up
      with the first rule in the content column.
@@ -15,6 +81,19 @@
      That rule sits at `.posts` margin-top (60px) minus `.posts > hr`
      margin-top (10px). Keep this in step if either changes. */
   --content-top-offset: 50px;
+}
+
+/*
+  The toggle sets data-theme on <html>; these pin color-scheme so light-dark()
+  resolves to the chosen side regardless of the OS preference. With no
+  attribute set, the OS preference wins via `color-scheme: light dark` above.
+*/
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 /* Pure.css style overrides */
@@ -108,8 +187,8 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
   top: 0;
   z-index: 100;
   padding: 0.75em 1.25em;
-  background: var(--background-gradient-top-color);
-  color: var(--highlight-color);
+  background: var(--color-bg-top);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -125,8 +204,85 @@ button:focus-visible,
 input:focus-visible,
 .pure-menu-link:focus-visible,
 .mobile-menu-link:focus-visible {
-  outline: 2px solid var(--highlight-color);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Theme toggle */
+
+/*
+  Hidden by default and revealed only once the inline head script has added
+  `js` to <html>. Without JavaScript the control cannot do anything, so it
+  should not be offered.
+*/
+.theme-toggle {
+  display: none;
+}
+
+/*
+  The wrapper is what positions the button, and it has to be block-level.
+
+  The sidebar nav beside it is inline-block, so an inline-level toggle shared
+  a line box with it — and since that nav is ~760px tall, the button sat on
+  its baseline and rendered near the bottom of the nav rather than under the
+  site name.
+
+  Giving the wrapper the same width as the nav list means both are centred
+  blocks of equal width, so their left edges line up: the button starts
+  exactly where the Apps / Posts / Gigs headings start.
+
+  The top margin deliberately groups it with the nav below rather than the
+  site title above.
+*/
+/*
+  Scoped to the sidebar. The app bar renders the same partial but is a flex
+  row, where a fixed-width, auto-margined wrapper just inflates the bar.
+*/
+html.js .sidebar .theme-toggle-wrap {
+  width: var(--sidebar-nav-width);
+  margin: 2.1em auto 0.4em auto;
+  text-align: left;
+}
+
+/* In the full-width app bar it sits at the far end, away from the nav. */
+html.js .app-bar .theme-toggle-wrap {
+  margin-left: auto;
+}
+
+html.js .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.4em 0.8em;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.theme-toggle-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  /* Default to the moon; the sun is swapped in below when clicking would
+     take you to the light theme. */
+  -webkit-mask: url('/img/moon.svg') no-repeat center / contain;
+  mask: url('/img/moon.svg') no-repeat center / contain;
+}
+
+.theme-toggle[data-next="light"] .theme-toggle-icon {
+  -webkit-mask-image: url('/img/sun.svg');
+  mask-image: url('/img/sun.svg');
 }
 
 /* Menu */
@@ -164,28 +320,28 @@ input:focus-visible,
   min-height: 44px;
   min-width: 44px;
   padding: 0 0.9em;
-  color: var(--text-color);
+  color: var(--color-text);
   text-decoration: none;
   border-radius: 4px;
 }
 
 .mobile-menu-link:hover,
 .mobile-menu-link:focus {
-  color: var(--highlight-color);
+  color: var(--color-accent);
 }
 
 /* The desktop nav marks the current page; mobile previously had no
    indication at all. */
 .mobile-menu-link.is-current {
-  color: var(--highlight-color);
-  border-bottom: 2px solid var(--highlight-color);
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .pure-menu-list {
   padding-top: 5%;
   text-align: left;
   /* to match mugshot width */
-  width: 170px;
+  width: var(--sidebar-nav-width);
 }
 
 /* Replaces two <br> elements that were direct children of the sidebar <ul>,
@@ -195,14 +351,14 @@ input:focus-visible,
 }
 
 .pure-menu-heading {
-  color: var(--highlight-color);
+  color: var(--color-accent);
   font-family: 'Bebas Neue', serif;
   font-size: 1.2em;
   padding: 1em 0em 0.5em 0em;
 }
 
 .pure-menu-link {
-  color: var(--text-color);
+  color: var(--color-text);
   font-size: 1em;
   padding: 0.1em 0em 0.4em 0em;
   white-space: normal;
@@ -210,18 +366,18 @@ input:focus-visible,
 
 .pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
   background-color: transparent;
-  color: var(--subheading-color);
+  color: var(--color-muted);
 }
 
 .pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
-  color: var(--subheading-color);
+  color: var(--color-muted);
 }
 
 /* AdrianParker.com styling */
 
 body {
-  background: linear-gradient(var(--background-gradient-top-color), var(--background-gradient-bottom-color));
-  background-color: var(--background-gradient-bottom-color);
+  background: linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
+  background-color: var(--color-bg-bottom);
   background-repeat: no-repeat;
 }
 
@@ -258,7 +414,7 @@ h2 {
   font-family: 'Bebas Neue', serif;
   font-size: 1.17em;
   line-height: 1.5em;
-  color: var(--text-color);
+  color: var(--color-text);
   margin-bottom: 0;
 }
 
@@ -268,7 +424,7 @@ p, label, th, td, section>a, .blog-post>ul {
 }
 
 h1, h2, label, a, a:visited, figcaption, .footnote-item, th {
-  color: var(--highlight-color);
+  color: var(--color-accent);
 }
 
 li>a {
@@ -276,15 +432,15 @@ li>a {
 }
 
 li>a:visited {
-  color: var(--text-color);
+  color: var(--color-text);
 }
 
 h3, p, td, .blog-post>ul {
-  color: var(--text-color);
+  color: var(--color-text);
 }
 
 a:active, a:hover {
-  color: var(--subheading-color);
+  color: var(--color-muted);
 }
 
 /* Content images must not exceed their column. The image shortcode emits a
@@ -308,7 +464,7 @@ figure {
 }
 
 .posts>hr {
-  border-color: var(--subheading-color);
+  border-color: var(--color-rule);
   margin-top: -10px; 
 }
 .posts>section {
@@ -316,7 +472,7 @@ figure {
 }
 
 .site-name {
-  color: var(--highlight-color);
+  color: var(--color-accent);
   font-size: 1.5em;
 }
 
@@ -325,7 +481,7 @@ figure {
 }
 
 .blog-post-summary {
-  color: var(--text-color);
+  color: var(--color-text);
   font-size: 1.2em;
   font-style: italic;
   line-height: 1.5em;
@@ -337,21 +493,29 @@ figure {
   vertical-align: bottom;
 }
 
+/*
+  The "opens in new tab" marker. A masked span rather than an <img>, so its
+  colour comes from a token instead of the #666666 that was baked into the
+  SVG — which would not have followed a theme switch.
+*/
 .external-link-icon {
   display: inline-block;
   height: 0.6em;
+  width: 0.6em;
   margin-bottom: 2px;
   margin-left: 7px;
-  width: 0.6em;
+  background-color: currentColor;
+  -webkit-mask: url('/img/external-link.svg') no-repeat center / contain;
+  mask: url('/img/external-link.svg') no-repeat center / contain;
 }
 
 .subscribe_button {
-  background-color: var(--subheading-color);
-  color: var(--text-color);
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
 }
 
 .subscribe_button:hover {
-  color: var(--highlight-color);
+  color: var(--color-accent);
 }
 
 #mc_embed_signup_sidebar {
@@ -364,30 +528,52 @@ figure {
   width: 170px;
 }
 
-.twitter-follow-button, .twitter-follow-button:visited, .rss-button, .rss-button:visited {  
+/*
+  RSS and X links.
+
+  These were raster PNGs set as background-image — white-on-transparent
+  artwork that simply vanished against a light background. The X icon was
+  invisible in the light-theme preview; the RSS one survived only because it
+  happened to be orange.
+
+  Now masked SVG on a ::before, so both take their colour from the same token
+  as the link text and follow the theme automatically.
+*/
+.twitter-follow-button, .twitter-follow-button:visited,
+.rss-button, .rss-button:visited {
   background-color: inherit;
-  background-repeat: no-repeat;
-  color: var(--text-color);
+  color: var(--color-text);
   font-size: 1em;
-  padding: 8px 0px 8px 22px;
+  padding: 8px 0px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.twitter-follow-button::before,
+.rss-button::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  background-color: currentColor;
+}
+
+.rss-button::before {
+  -webkit-mask: url('/img/rss.svg') no-repeat center / contain;
+  mask: url('/img/rss.svg') no-repeat center / contain;
+}
+
+.twitter-follow-button::before {
+  -webkit-mask: url('/img/x.svg') no-repeat center / contain;
+  mask: url('/img/x.svg') no-repeat center / contain;
 }
 
 .twitter-follow-button:hover, .rss-button:hover {
   background-color: inherit;
-  color: var(--subheading-color);
-}
-
-.twitter-follow-button, .twitter-follow-button:visited {
-  background-image: url('/img/twitter.png');
-  background-position: 1px 10px;
-  background-size: 16px 13px;
-}
-
-.rss-button, .rss-button:visited {
-  background-image: url('/img/social_style_3_rss-512-1.png');
-  background-position: 0px 10px;
-  background-size: 16px 16px;
+  color: var(--color-accent);
 }
 
 /* Site footer */
@@ -403,7 +589,7 @@ figure {
 }
 
 .site-footer-heading {
-  color: var(--highlight-color);
+  color: var(--color-accent);
   font-family: 'Bebas Neue', serif;
   font-size: 1.2em;
   margin: 0 0 0.4em 0;
@@ -422,25 +608,25 @@ figure {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--text-color);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .site-footer-list a:hover,
 .site-footer-list a:focus {
-  color: var(--highlight-color);
+  color: var(--color-accent);
 }
 
 /* Was an <h5>, which skipped from <h1>/<h2> straight to level five. */
 .privacy-notice-heading {
-  color: var(--highlight-color);
+  color: var(--color-accent);
   font-family: 'Bebas Neue', serif;
   font-size: 1em;
   margin: 0.5em 0 0.3em 0;
 }
 
 .privacy-notice-text {
-  color: var(--subheading-color);
+  color: var(--color-muted);
   font-size: 0.8em;
   margin: 0;
 }
@@ -453,7 +639,7 @@ figure {
   align-items: baseline;
   gap: 0.5em 1.5em;
   padding: 1.5em 4% 1em 4%;
-  border-bottom: 1px solid var(--subheading-color);
+  border-bottom: 1px solid var(--color-rule);
 }
 
 .app-bar-nav {
@@ -466,13 +652,13 @@ figure {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--text-color);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .app-bar-nav a:hover,
 .app-bar-nav a:focus {
-  color: var(--highlight-color);
+  color: var(--color-accent);
 }
 
 /* Grid and flex items default to min-width:auto, so a child with a wide
@@ -504,7 +690,7 @@ figure {
 /* Gig post metadata card */
 
 .gig-metadata {
-  border: 1px solid var(--subheading-color);
+  border: 1px solid var(--color-rule);
   border-radius: 4px;
   margin: 1.2em 0;
   padding: 0;
@@ -528,7 +714,7 @@ figure {
 }
 
 .gig-metadata-table th {
-  color: var(--highlight-color);
+  color: var(--color-accent);
   font-family: 'Bebas Neue', serif;
   font-size: 1em;
   letter-spacing: 0.05em;
@@ -537,12 +723,12 @@ figure {
 }
 
 .gig-metadata-table td {
-  color: var(--text-color);
+  color: var(--color-text);
 }
 
 .gig-metadata-table tr + tr th,
 .gig-metadata-table tr + tr td {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--color-hairline);
 }
 
 /* Flickr embedded gallery container */
@@ -607,6 +793,14 @@ figure {
      block cover navigation instead. */
   .custom-restricted-width {
     display: none;
+  }
+
+  /* With the nav hidden there is nothing to align to, so the toggle goes back
+     to being centred like the rest of the mobile header. */
+  html.js .sidebar .theme-toggle-wrap {
+    width: auto;
+    text-align: center;
+    margin-top: 0.75em;
   }
 
   /* Without this the Flickr / GitHub / LinkedIn / Spotify / YouTube / RSS / X
