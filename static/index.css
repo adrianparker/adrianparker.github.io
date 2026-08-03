@@ -31,18 +31,84 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 
 .sidebar {
   position: sticky;
-  top: 0;
-  max-height: 100vh;
+  /* Breathing room lives here rather than on .header, which sits inside the
+     scroll box and used to burn ~4em of the available 100vh, forcing the
+     sidebar to overflow earlier than it needed to. */
+  top: 3em;
+  max-height: calc(100vh - 3em);
   overflow-y: auto;
+
+  /* Hide the scrollbar. macOS uses overlay scrollbars so this looks fine
+     already there, but Windows renders a permanent grey gutter — the reason
+     the sidebar looked wrong in Edge. Wheel and keyboard scrolling are
+     unaffected; only the visual track goes. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .header {
-  margin: 3em 0em 1em 0em;
+  margin: 0em 0em 1em 0em;
   text-align: center;
 }
 
 .content {
+  /* Symmetric. There was previously no left padding, so content butted
+     straight against the sidebar. */
   padding-right: 4%;
+  padding-left: 4%;
+  padding-top: 3em;
+}
+
+/* Accessibility */
+
+/* Visible only to assistive technology. Used for page-level headings that
+   would otherwise duplicate what is already on screen. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The sidebar is ~20 links deep and precedes the content in DOM order on
+   every page, so without this a keyboard user traverses the whole nav on
+   every navigation. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75em 1.25em;
+  background: var(--background-gradient-top-color);
+  color: var(--highlight-color);
+  text-decoration: underline;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* The previous focus styling only changed colour to #666, which is LOWER
+   contrast than the unfocused state — a focus indicator harder to see than
+   no focus indicator. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.pure-menu-link:focus-visible,
+.mobile-menu-link:focus-visible {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
 }
 
 /* Menu */
@@ -71,15 +137,30 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
   margin: 0;
 }
 
-.mobile-menu-list a {
+/* Tap targets. Previously 0.15em/0.35em padding on ~1em text, which is well
+   under the 44px minimum and fiddly to hit on a phone. */
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.9em;
   color: var(--text-color);
   text-decoration: none;
-  padding: 0.15em 0.35em;
+  border-radius: 4px;
 }
 
-.mobile-menu-list a:hover,
-.mobile-menu-list a:focus {
-  color: var(--subheading-color);
+.mobile-menu-link:hover,
+.mobile-menu-link:focus {
+  color: var(--highlight-color);
+}
+
+/* The desktop nav marks the current page; mobile previously had no
+   indication at all. */
+.mobile-menu-link.is-current {
+  color: var(--highlight-color);
+  border-bottom: 2px solid var(--highlight-color);
 }
 
 .pure-menu-list {
@@ -140,6 +221,29 @@ h2 {
   font-size: 1.5em;
 }
 
+/* Index-page entry titles.
+
+   These used to be <h1>, one per entry — roughly 10 per page — with an <h3>
+   of metadata above them, so every index emitted a heading order of h3, h1,
+   h3, h1... They are now <h2> under a single page-level <h1>, styled to keep
+   the original appearance. */
+.entry-title {
+  font-size: 3em;
+  margin-bottom: 0em;
+  margin-top: 0.3em;
+}
+
+/* Date and reading time. Previously an <h3>, which made page metadata look
+   like a section heading to a screen reader. Styled to match how that <h3>
+   rendered. */
+.entry-meta {
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.17em;
+  line-height: 1.5em;
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+
 p, label, th, td, section>a, .blog-post>ul {
   font-size: 1.2em;
   line-height: 1.5em;
@@ -163,6 +267,17 @@ h3, p, td, .blog-post>ul {
 
 a:active, a:hover {
   color: var(--subheading-color);
+}
+
+/* Content images must not exceed their column. The image shortcode emits a
+   400px variant, which overflowed the content column on a phone — invisible
+   until the mobile test viewport moved off 768px, where the column was still
+   wide enough to hide it. */
+.blog-post img,
+figure img,
+.gig-flickr-embed img {
+  max-width: 100%;
+  height: auto;
 }
 
 figure {
@@ -257,9 +372,49 @@ figure {
   background-size: 16px 16px;
 }
 
-/* Privacy Notice Footer */
+/* Site footer */
 
-.privacy-notice h5 {
+.site-footer {
+  margin-top: 2.5em;
+}
+
+/* The externals block duplicates the sidebar's Elsewhere section, so it is
+   only wanted where the sidebar is hidden. Shown by the mobile media query. */
+.site-footer-externals {
+  display: none;
+}
+
+.site-footer-heading {
+  color: var(--highlight-color);
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.2em;
+  margin: 0 0 0.4em 0;
+}
+
+.site-footer-list {
+  list-style: none;
+  margin: 0 0 1.5em 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.25em;
+}
+
+.site-footer-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.site-footer-list a:hover,
+.site-footer-list a:focus {
+  color: var(--highlight-color);
+}
+
+/* Was an <h5>, which skipped from <h1>/<h2> straight to level five. */
+.privacy-notice-heading {
   color: var(--highlight-color);
   font-family: 'Bebas Neue', serif;
   font-size: 1em;
@@ -270,6 +425,62 @@ figure {
   color: var(--subheading-color);
   font-size: 0.8em;
   margin: 0;
+}
+
+/* App pages — a slim bar instead of the sidebar, since apps want the width */
+
+.app-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em 1.5em;
+  padding: 1.5em 4% 1em 4%;
+  border-bottom: 1px solid var(--subheading-color);
+}
+
+.app-bar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 1.25em;
+}
+
+.app-bar-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.app-bar-nav a:hover,
+.app-bar-nav a:focus {
+  color: var(--highlight-color);
+}
+
+/* Grid and flex items default to min-width:auto, so a child with a wide
+   intrinsic size (the file input) forces its track wider than the container.
+   That made the EXIF Viewer overflow ~21px horizontally on a phone — a
+   pre-existing bug, confirmed present on master, invisible until the mobile
+   test viewport moved off 768px. The app's own CSS lives in an unbuildable
+   bundle (#36), so this corrects it from our stylesheet instead. */
+.app-page .shell,
+.app-page .panel,
+.app-page .control-group {
+  min-width: 0;
+}
+
+/* A native file input carries an intrinsic width that max-width alone does
+   not tame, so it needs an explicit width. */
+.app-page .control-group input,
+.app-page .control-group select {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* No horizontal padding on main here — the app's own .shell already provides
+   it, and doubling up pushed its controls past the viewport. */
+.app-page .site-footer {
+  padding: 0 4% 3em 4%;
 }
 
 /* Gig post metadata card */
@@ -350,30 +561,53 @@ figure {
 
 /* Media queries */
 
-/* Smaller than a large tablet */
+/*
+  Below the desktop breakpoint.
 
-@media only screen and (max-width: 768px) {
+  47.999em, NOT 768px. Pure.css's -md- grid tier is `min-width: 48em`, which
+  is also 768px, so a `max-width: 768px` query co-fired with it at exactly
+  that width: the desktop sidebar nav was hidden while the 25%/75% column
+  split stayed, cramming the mobile menu into a 192px rail. Anything strictly
+  below 48em avoids the overlap.
+*/
+@media only screen and (max-width: 47.999em) {
   .sidebar {
     position: static;
     max-height: none;
     overflow-y: visible;
   }
+
+  .header {
+    margin-top: 2em;
+  }
+
   .mobile-menu {
     display: block;
   }
-  /* No menu */
+
+  /* Desktop sidebar nav is hidden here; mobile-nav and the footer externals
+     block cover navigation instead. */
   .custom-restricted-width {
     display: none;
   }
-  .content {
-    margin-top: -1em;
-    padding-left: 4%;
+
+  /* Without this the Flickr / GitHub / LinkedIn / Spotify / YouTube / RSS / X
+     links are unreachable on a phone entirely, since they live only in the
+     hidden sidebar. */
+  .site-footer-externals {
+    display: block;
   }
+
+  .content {
+    padding-top: 0;
+  }
+
   .blog-post-summary {
     max-height: none;
     min-height: 2em;
   }
+
   .posts>hr {
-    margin-top: 20px; 
+    margin-top: 20px;
   }
 }

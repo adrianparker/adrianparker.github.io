@@ -1,4 +1,15 @@
 {
     "name": "AdrianParker.com",
-    "url": "https://www.adrianparker.com"
+    "url": "https://www.adrianparker.com",
+
+    "_externals": "Rendered by partials/externals.njk in two places: the desktop sidebar and the mobile footer. 'kind' selects the presentation — plain external links, or the RSS and X buttons which carry their own icon styling.",
+    "externals": [
+        { "title": "Flickr", "url": "https://www.flickr.com/photos/adrianparker/albums", "kind": "link" },
+        { "title": "GitHub", "url": "https://github.com/adrianparker", "kind": "link" },
+        { "title": "LinkedIn", "url": "https://www.linkedin.com/in/adrianparker", "kind": "link" },
+        { "title": "Spotify", "url": "https://open.spotify.com/user/phuego?si=403b197dee3a499f", "kind": "link" },
+        { "title": "YouTube", "url": "https://www.youtube.com/@AdrianParkerNZ", "kind": "link" },
+        { "title": "RSS Feed", "url": "/feed.xml", "kind": "rss" },
+        { "title": "Follow on X", "url": "https://twitter.com/intent/follow?screen_name=adriangparker", "kind": "x" }
+    ]
 }

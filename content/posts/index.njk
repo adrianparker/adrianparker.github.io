@@ -11,14 +11,15 @@ permalink: /posts/index.html
 # a plain `tags: []` here would still inherit ['post'].
 override:tags: []
 ---
+<h1 class="visually-hidden">Posts</h1>
 <div class="posts">
     <hr>
 
     {% for post in collections.post | reverse %}
 
     <section>
-        <h3>{{ post.data.date | readableDate }}</h3>
-        <h1>{{ post.data.title }}</h1>
+        <p class="entry-meta">{{ post.data.date | readableDate }}</p>
+        <h2 class="entry-title">{{ post.data.title }}</h2>
         <p class="blog-post-summary">
             {{ post.data.summary | safe }}
         </p>

@@ -6,14 +6,15 @@ metadesc: Writing by Adrian Parker, on topics like product management, finance, 
 {#- The home page is a front page, not an archive. Everything older stays
     reachable through /posts/ and /gigs/, which are unbounded and linked
     both here and in the nav. -#}
+<h1 class="visually-hidden">{{ site.name }}</h1>
 <div class="posts">
     <hr>
 
     {% for post in collections.homePagePosts | limit(10) %}
 
     <section>
-        <h3>{{ post.data.date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ post.data.readingtime }}</h3>
-        <h1>{{ post.data.title }}</h1>
+        <p class="entry-meta">{{ post.data.date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ post.data.readingtime }}</p>
+        <h2 class="entry-title">{{ post.data.title }}</h2>
         <p class="blog-post-summary">
         {{ post.data.summary | safe }}
         </p>

@@ -16,15 +16,14 @@ module.exports = {
       height: 800
     },
     mobile: {
-      // NOTE: 768 is exactly the breakpoint collision described in #18 —
-      // Pure.css's -md- grid tier is min-width 48em (768px) while the site's
-      // own query is max-width 768px, so both apply and the page renders in
-      // a state neither is designed for. The mobile baselines therefore
-      // capture that broken layout. Left as-is deliberately: #18 owns both
-      // the CSS fix and moving this viewport below the breakpoint.
+      // Was 768, which is exactly where Pure.css's -md- grid tier
+      // (min-width: 48em) collided with the site's own max-width query — the
+      // baselines captured a layout neither was designed for. #18 moved the
+      // site query to 47.999em; this now sits at a realistic phone width,
+      // comfortably inside the mobile layout rather than on its boundary.
       name: 'mobile',
-      width: 768,
-      height: 1024
+      width: 390,
+      height: 844
     }
   },
 

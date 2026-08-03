@@ -1,0 +1,26 @@
+{% from "partials/externals.njk" import footerExternals %}
+{#
+  Page footer. The externals block is mobile-only: below the breakpoint the
+  desktop sidebar is hidden, and without this the Flickr / GitHub / LinkedIn /
+  Spotify / YouTube / RSS / X links would be unreachable on a phone entirely.
+
+  Same site.externals data as the sidebar, different presentation.
+
+  The privacy notice wording is deliberately untouched — proposed changes are
+  captured in #30 for approval rather than edited here.
+#}
+<footer class="site-footer">
+
+    <div class="site-footer-externals">
+        <h2 class="site-footer-heading">Elsewhere</h2>
+        {{ footerExternals(site.externals) }}
+    </div>
+
+    <div class="privacy-notice">
+        <h2 class="privacy-notice-heading">Privacy Notice</h2>
+        <p class="privacy-notice-text">
+            This site uses PostHog for analytics. No personally identifiable information is collected.
+        </p>
+    </div>
+
+</footer>

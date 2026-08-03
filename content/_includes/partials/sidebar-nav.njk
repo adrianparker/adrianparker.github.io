@@ -1,0 +1,85 @@
+{% from "partials/externals.njk" import sidebarExternals %}
+{#
+  Desktop sidebar navigation. Hidden below the breakpoint, where
+  partials/mobile-nav.njk and partials/site-footer.njk take over.
+
+  Posts are deduplicated across the "recent" and "popular" lists via `seen`,
+  so a post that is both does not appear twice.
+#}
+<nav class="pure-menu custom-restricted-width" aria-label="Sections and recent entries">
+    <ul class="pure-menu-list">
+
+        <li class="pure-menu-heading">Apps</li>
+
+        {% for app in collections.app | reverse %}
+        {% if page.url == app.page.url %}
+        <li class="pure-menu-item pure-menu-selected">
+            <div class="pure-menu-link" aria-current="page">{{ app.data.navtitle or app.data.title }}</div>
+        {% else %}
+        <li class="pure-menu-item">
+            <a href="{{ app.page.url | url }}" class="pure-menu-link">{{ app.data.navtitle or app.data.title }}</a>
+        {% endif %}
+        </li>
+        {% endfor %}
+
+        <li class="pure-menu-item">
+            <a href="/apps/" class="pure-menu-link">All apps...</a>
+        </li>
+
+        <li class="pure-menu-heading">Posts</li>
+
+        {% set seen = [] %}
+
+        {% for post in collections.recentPosts %}
+        {% if post.page.fileSlug not in seen %}
+            {% if page.fileSlug == post.page.fileSlug %}
+            <li class="pure-menu-item pure-menu-selected">
+                <div class="pure-menu-link" aria-current="page">{{ post.data.navtitle }}</div>
+            {% else %}
+            <li class="pure-menu-item">
+                <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+            {% endif %}
+            </li>
+            {% set seen = seen + [post.page.fileSlug] %}
+        {% endif %}
+        {% endfor %}
+
+        {% for post in collections.popular | reverse %}
+        {% if post.page.fileSlug not in seen %}
+            {% if page.fileSlug == post.page.fileSlug %}
+            <li class="pure-menu-item pure-menu-selected">
+                <div class="pure-menu-link" aria-current="page">{{ post.data.navtitle }}</div>
+            {% else %}
+            <li class="pure-menu-item">
+                <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+            {% endif %}
+            </li>
+            {% set seen = seen + [post.page.fileSlug] %}
+        {% endif %}
+        {% endfor %}
+
+        <li class="pure-menu-item">
+            <a href="/posts/" class="pure-menu-link">All posts...</a>
+        </li>
+
+        <li class="pure-menu-heading">Gigs</li>
+
+        {% for post in collections.recentGigs %}
+        {% if page.fileSlug == post.page.fileSlug %}
+        <li class="pure-menu-item pure-menu-selected">
+            <div class="pure-menu-link" aria-current="page">{{ post.data.navtitle }}</div>
+        {% else %}
+        <li class="pure-menu-item">
+            <a href="{{ post.page.url | url }}" class="pure-menu-link">{{ post.data.navtitle }}</a>
+        {% endif %}
+        </li>
+        {% endfor %}
+
+        <li class="pure-menu-item">
+            <a href="/gigs/" class="pure-menu-link">All gigs...</a>
+        </li>
+
+        <li class="pure-menu-heading">Elsewhere</li>
+        {{ sidebarExternals(site.externals) }}
+    </ul>
+</nav>
