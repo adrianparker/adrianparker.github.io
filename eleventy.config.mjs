@@ -27,10 +27,6 @@ export default function (eleventyConfig) {
     "node_modules/purecss/build/grids-responsive-min.css": "vendor/grids-responsive-min.css",
     "node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2":
       "fonts/bebas-neue-latin-400-normal.woff2",
-    "node_modules/@fontsource/schoolbell/files/schoolbell-latin-400-normal.woff2":
-      "fonts/schoolbell-latin-400-normal.woff2",
-    "node_modules/@fontsource/architects-daughter/files/architects-daughter-latin-400-normal.woff2":
-      "fonts/architects-daughter-latin-400-normal.woff2",
     "node_modules/@fontsource/kalam/files/kalam-latin-700-normal.woff2":
       "fonts/kalam-latin-700-normal.woff2"
   });

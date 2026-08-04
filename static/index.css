@@ -21,35 +21,10 @@
 }
 
 /*
-  Light-theme heading face candidates, all still self-hosted and copied by
-  eleventy.config.mjs even though only one is wired to --heading-font below
-  at a time — keeping the losing candidates' @font-face (and their
-  passthrough copies, and their npm dependencies) costs nothing at runtime
-  since nothing references an unused font-family, and it's what makes
-  swapping back a two-line diff instead of redoing the font pipeline. Not
-  currently active.
-*/
-@font-face {
-  font-family: 'Schoolbell';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/schoolbell-latin-400-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Architects Daughter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/architects-daughter-latin-400-normal.woff2') format('woff2');
-}
-
-/*
-  The active light-theme heading face. Sized via --heading-scale below, not
-  at its own em value, so it lands at the same rendered cap-height as Bebas
-  Neue — otherwise every heading grows or shrinks the moment the theme
-  toggle fires.
+  The light theme's heading face. Same self-hosting reasoning as Bebas Neue
+  above. Sized via --heading-scale below, not at its own em value, so it
+  lands at the same rendered cap-height as Bebas Neue — otherwise every
+  heading grows or shrinks the moment the theme toggle fires.
 */
 @font-face {
   font-family: 'Kalam';
