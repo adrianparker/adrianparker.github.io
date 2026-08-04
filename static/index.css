@@ -21,6 +21,20 @@
 }
 
 /*
+  The light theme's heading face. Same self-hosting reasoning as Bebas Neue
+  above. Sized via --heading-scale below, not at its own em value, so it
+  lands at the same rendered cap-height as Bebas Neue — otherwise every
+  heading grows or shrinks the moment the theme toggle fires.
+*/
+@font-face {
+  font-family: 'Schoolbell';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/schoolbell-latin-400-normal.woff2') format('woff2');
+}
+
+/*
   Colour tokens.
 
   Dark is the original palette, with thanks to
@@ -31,32 +45,35 @@
   always the dark value, so those browsers keep exactly today's site. The
   second declaration overrides it wherever light-dark() is understood.
 
-  The light accent is #8f4700, not the brand #ff9900. That is not a stylistic
-  preference: #ff9900 has a relative luminance of 0.44, so against pure white
-  — the lightest background that exists — it can only reach 2.14:1. There is
-  no light background on which it passes WCAG AA, or even the 3:1 required for
-  large text.
+  The light theme is ivory paper with a fine blue grid underneath (see
+  --grid-major/--grid-minor and the body rule below) and ink-navy text —
+  a graph-paper page, not a brighter version of the dark palette. #ff9900
+  never appears in it: at 0.44 relative luminance it can only reach 2.14:1
+  against pure white, so there is no light background it passes WCAG AA on.
+  The accent below, #1c4f8c, is drawn from the same blue family as the grid
+  lines instead.
 
-  Contrast on the light background: text 15.4:1, accent 6.5:1, muted 6.9:1.
+  Contrast on the light background (worst case, against --color-bg-bottom):
+  text 11.9:1, accent 6.7:1, muted 5.3:1.
 */
 :root {
   color-scheme: light dark;
 
   --color-bg-top: #262626;
-  --color-bg-top: light-dark(#ffffff, #262626);
+  --color-bg-top: light-dark(#f7f4ec, #262626);
 
   --color-bg-bottom: #333333;
-  --color-bg-bottom: light-dark(#f3efe9, #333333);
+  --color-bg-bottom: light-dark(#eee8d8, #333333);
 
   --color-accent: #ff9900;
-  --color-accent: light-dark(#8f4700, #ff9900);
+  --color-accent: light-dark(#1c4f8c, #ff9900);
 
   --color-text: #cccccc;
-  --color-text: light-dark(#24211e, #cccccc);
+  --color-text: light-dark(#1e2a3a, #cccccc);
 
   /* Muted text and hover states. */
   --color-muted: #666666;
-  --color-muted: light-dark(#5a5a5a, #666666);
+  --color-muted: light-dark(#55606b, #666666);
 
   /*
     These three were all --subheading-color, which was doing four jobs at
@@ -64,16 +81,22 @@
     subtle rule on black is a heavy line on white.
   */
   --color-rule: #666666;
-  --color-rule: light-dark(rgba(0, 0, 0, 0.18), #666666);
+  --color-rule: light-dark(rgba(28, 79, 140, 0.28), #666666);
 
   --color-hairline: rgba(255, 255, 255, 0.06);
-  --color-hairline: light-dark(rgba(0, 0, 0, 0.10), rgba(255, 255, 255, 0.06));
+  --color-hairline: light-dark(rgba(28, 79, 140, 0.14), rgba(255, 255, 255, 0.06));
 
   --color-button-bg: #666666;
-  --color-button-bg: light-dark(#8f4700, #666666);
+  --color-button-bg: light-dark(#1c4f8c, #666666);
 
   --color-button-text: #cccccc;
   --color-button-text: light-dark(#ffffff, #cccccc);
+
+  /* The grid line colours for the light theme's graph-paper background
+     (see the body rule below). Referenced only from light-scoped rules,
+     so — unlike the tokens above — these don't need a dark counterpart. */
+  --grid-major: rgba(28, 79, 140, 0.20);
+  --grid-minor: rgba(28, 79, 140, 0.10);
 
   /*
     Aliases for the vendored EXIF Viewer stylesheet, which was built against
@@ -100,19 +123,88 @@
      That rule sits at `.posts` margin-top (60px) minus `.posts > hr`
      margin-top (10px). Keep this in step if either changes. */
   --content-top-offset: 50px;
+
+  /*
+    Heading typeface and size. light-dark() only accepts colours, so these —
+    like --body-bg-* below — need the full media-query-plus-attribute
+    treatment instead of a one-line light-dark() call.
+
+    --heading-scale exists so Schoolbell renders at the same cap-height as
+    Bebas Neue: their em-to-cap-height ratios differ (0.700 vs 0.739,
+    measured from each font's own glyph metrics), so matching cap-height
+    means NOT matching font-size directly. Every heading rule multiplies its
+    font-size by this instead of hard-coding one, so the toggle swaps the
+    letterforms without changing the height of a single line of text.
+  */
+  --heading-font: 'Bebas Neue', serif;
+  --heading-scale: 1;
+
+  /* The body background: a plain top-to-bottom gradient by default. The
+     light theme layers a graph-paper grid underneath it (see below) — that
+     needs several stacked gradients where this needs one, so it's easiest
+     to keep the whole background-image list in a variable rather than
+     fighting the `background` shorthand per theme. */
+  --body-bg-image: linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
+  --body-bg-size: auto;
+  --body-bg-position: 0 0;
+  --body-bg-repeat: no-repeat;
 }
 
 /*
   The toggle sets data-theme on <html>; these pin color-scheme so light-dark()
   resolves to the chosen side regardless of the OS preference. With no
   attribute set, the OS preference wins via `color-scheme: light dark` above.
+
+  --heading-font/--heading-scale/--body-bg-* aren't light-dark()-eligible
+  (not plain colours), so they need the same four-way treatment spelled out
+  explicitly: dark default above, a light override here AND under the
+  prefers-color-scheme media query below (OS default vs. explicit toggle),
+  and a dark override here too — without it, an explicit dark toggle on a
+  light-OS browser would still pick up the media query's light values, since
+  a media condition doesn't know about the data-theme attribute.
 */
 :root[data-theme="light"] {
   color-scheme: light;
+  --heading-font: 'Schoolbell', cursive;
+  --heading-scale: 0.947;
+  --body-bg-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
+  --body-bg-size: 96px 96px, 96px 96px, 19.2px 19.2px, 19.2px 19.2px, auto;
+  --body-bg-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
+  /* The 4 grid layers tile; the base gradient (last) doesn't. A single
+     `no-repeat` here would apply to every layer, painting the grid once in
+     the top-left corner instead of across the page. */
+  --body-bg-repeat: repeat, repeat, repeat, repeat, no-repeat;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+  --heading-font: 'Bebas Neue', serif;
+  --heading-scale: 1;
+  --body-bg-image: linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
+  --body-bg-size: auto;
+  --body-bg-position: 0 0;
+  --body-bg-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --heading-font: 'Schoolbell', cursive;
+    --heading-scale: 0.947;
+    --body-bg-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid-minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px),
+      linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
+    --body-bg-size: 96px 96px, 96px 96px, 19.2px 19.2px, 19.2px 19.2px, auto;
+    --body-bg-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
+    --body-bg-repeat: repeat, repeat, repeat, repeat, no-repeat;
+  }
 }
 
 /* Pure.css style overrides */
@@ -371,8 +463,8 @@ html.js .theme-toggle {
 
 .pure-menu-heading {
   color: var(--color-accent);
-  font-family: 'Bebas Neue', serif;
-  font-size: 1.2em;
+  font-family: var(--heading-font);
+  font-size: calc(1.2em * var(--heading-scale));
   padding: 1em 0em 0.5em 0em;
 }
 
@@ -394,24 +486,33 @@ html.js .theme-toggle {
 
 /* AdrianParker.com styling */
 
+/*
+  --body-bg-image carries the grid in the light theme and just the gradient
+  in dark (see the --heading-font comment above for why this isn't
+  light-dark()). The sidebar sets no background of its own, so this is the
+  only surface either column ever paints — nav and content are always the
+  same background, with or without the grid.
+*/
 body {
-  background: linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
   background-color: var(--color-bg-bottom);
-  background-repeat: no-repeat;
+  background-repeat: var(--body-bg-repeat);
+  background-image: var(--body-bg-image);
+  background-size: var(--body-bg-size);
+  background-position: var(--body-bg-position);
 }
 
 h1, h2, h3, .site-name {
-  font-family: 'Bebas Neue', serif;
+  font-family: var(--heading-font);
 }
 
 h1 {
-  font-size: 3em;
+  font-size: calc(3em * var(--heading-scale));
   margin-bottom: 0em;
   margin-top: 0.3em;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: calc(1.5em * var(--heading-scale));
 }
 
 /* Index-page entry titles.
@@ -421,7 +522,7 @@ h2 {
    h3, h1... They are now <h2> under a single page-level <h1>, styled to keep
    the original appearance. */
 .entry-title {
-  font-size: 3em;
+  font-size: calc(3em * var(--heading-scale));
   margin-bottom: 0em;
   margin-top: 0.3em;
 }
@@ -430,8 +531,8 @@ h2 {
    like a section heading to a screen reader. Styled to match how that <h3>
    rendered. */
 .entry-meta {
-  font-family: 'Bebas Neue', serif;
-  font-size: 1.17em;
+  font-family: var(--heading-font);
+  font-size: calc(1.17em * var(--heading-scale));
   line-height: 1.5em;
   color: var(--color-text);
   margin-bottom: 0;
@@ -609,8 +710,8 @@ figure {
 
 .site-footer-heading {
   color: var(--color-accent);
-  font-family: 'Bebas Neue', serif;
-  font-size: 1.2em;
+  font-family: var(--heading-font);
+  font-size: calc(1.2em * var(--heading-scale));
   margin: 0 0 0.4em 0;
 }
 
@@ -639,8 +740,8 @@ figure {
 /* Was an <h5>, which skipped from <h1>/<h2> straight to level five. */
 .privacy-notice-heading {
   color: var(--color-accent);
-  font-family: 'Bebas Neue', serif;
-  font-size: 1em;
+  font-family: var(--heading-font);
+  font-size: calc(1em * var(--heading-scale));
   margin: 0.5em 0 0.3em 0;
 }
 
@@ -734,8 +835,8 @@ figure {
 
 .gig-metadata-table th {
   color: var(--color-accent);
-  font-family: 'Bebas Neue', serif;
-  font-size: 1em;
+  font-family: var(--heading-font);
+  font-size: calc(1em * var(--heading-scale));
   letter-spacing: 0.05em;
   white-space: nowrap;
   width: 5.5em;
