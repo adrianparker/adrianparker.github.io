@@ -21,10 +21,12 @@
 }
 
 /*
-  The light theme's heading face. Same self-hosting reasoning as Bebas Neue
-  above. Sized via --heading-scale below, not at its own em value, so it
-  lands at the same rendered cap-height as Bebas Neue — otherwise every
-  heading grows or shrinks the moment the theme toggle fires.
+  Light-theme heading face candidates, both still self-hosted and copied by
+  eleventy.config.mjs even though only one is wired to --heading-font below
+  at a time — keeping the losing candidate's @font-face (and its passthrough
+  copy, and its npm dependency) costs nothing at runtime since nothing
+  references its font-family, and it's what makes swapping back a two-line
+  diff instead of redoing the font pipeline. Not currently active.
 */
 @font-face {
   font-family: 'Schoolbell';
@@ -32,6 +34,20 @@
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/schoolbell-latin-400-normal.woff2') format('woff2');
+}
+
+/*
+  The active light-theme heading face. Sized via --heading-scale below, not
+  at its own em value, so it lands at the same rendered cap-height as Bebas
+  Neue — otherwise every heading grows or shrinks the moment the theme
+  toggle fires.
+*/
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/architects-daughter-latin-400-normal.woff2') format('woff2');
 }
 
 /*
@@ -129,12 +145,13 @@
     like --body-bg-* below — need the full media-query-plus-attribute
     treatment instead of a one-line light-dark() call.
 
-    --heading-scale exists so Schoolbell renders at the same cap-height as
-    Bebas Neue: their em-to-cap-height ratios differ (0.700 vs 0.739,
-    measured from each font's own glyph metrics), so matching cap-height
-    means NOT matching font-size directly. Every heading rule multiplies its
-    font-size by this instead of hard-coding one, so the toggle swaps the
-    letterforms without changing the height of a single line of text.
+    --heading-scale exists so the light-theme face renders at the same
+    cap-height as Bebas Neue: their em-to-cap-height ratios differ (0.700 for
+    Bebas Neue vs 0.714 for Architects Daughter, measured from each font's
+    own glyph metrics), so matching cap-height means NOT matching font-size
+    directly. Every heading rule multiplies its font-size by this instead of
+    hard-coding one, so the toggle swaps the letterforms without changing
+    the height of a single line of text.
   */
   --heading-font: 'Bebas Neue', serif;
   --heading-scale: 1;
@@ -165,8 +182,8 @@
 */
 :root[data-theme="light"] {
   color-scheme: light;
-  --heading-font: 'Schoolbell', cursive;
-  --heading-scale: 0.947;
+  --heading-font: 'Architects Daughter', cursive;
+  --heading-scale: 0.981;
   --body-bg-image:
     linear-gradient(var(--grid-major) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
@@ -193,8 +210,8 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --heading-font: 'Schoolbell', cursive;
-    --heading-scale: 0.947;
+    --heading-font: 'Architects Daughter', cursive;
+    --heading-scale: 0.981;
     --body-bg-image:
       linear-gradient(var(--grid-major) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),

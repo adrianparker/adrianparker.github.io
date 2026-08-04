@@ -28,7 +28,9 @@ export default function (eleventyConfig) {
     "node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2":
       "fonts/bebas-neue-latin-400-normal.woff2",
     "node_modules/@fontsource/schoolbell/files/schoolbell-latin-400-normal.woff2":
-      "fonts/schoolbell-latin-400-normal.woff2"
+      "fonts/schoolbell-latin-400-normal.woff2",
+    "node_modules/@fontsource/architects-daughter/files/architects-daughter-latin-400-normal.woff2":
+      "fonts/architects-daughter-latin-400-normal.woff2"
   });
 
   // render a markdown string as HTML in place
