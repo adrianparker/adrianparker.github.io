@@ -215,10 +215,10 @@ describe('Analytics', function () {
     });
 
     it('serves Pure.css and each theme\'s heading webfont from this origin', async function () {
-      // Dark renders headings in Bebas Neue, light in Architects Daughter —
-      // neither loads unless it's the one actually applied, so each needs
-      // its own colour scheme rather than one shared assertion.
-      for (const [colorScheme, font] of [['dark', 'Bebas Neue'], ['light', 'Architects Daughter']]) {
+      // Dark renders headings in Bebas Neue, light in Kalam — neither loads
+      // unless it's the one actually applied, so each needs its own colour
+      // scheme rather than one shared assertion.
+      for (const [colorScheme, font] of [['dark', 'Bebas Neue'], ['light', 'Kalam']]) {
         const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, colorScheme });
         const page = await context.newPage();
         await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });

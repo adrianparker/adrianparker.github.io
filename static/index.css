@@ -21,12 +21,13 @@
 }
 
 /*
-  Light-theme heading face candidates, both still self-hosted and copied by
+  Light-theme heading face candidates, all still self-hosted and copied by
   eleventy.config.mjs even though only one is wired to --heading-font below
-  at a time — keeping the losing candidate's @font-face (and its passthrough
-  copy, and its npm dependency) costs nothing at runtime since nothing
-  references its font-family, and it's what makes swapping back a two-line
-  diff instead of redoing the font pipeline. Not currently active.
+  at a time — keeping the losing candidates' @font-face (and their
+  passthrough copies, and their npm dependencies) costs nothing at runtime
+  since nothing references an unused font-family, and it's what makes
+  swapping back a two-line diff instead of redoing the font pipeline. Not
+  currently active.
 */
 @font-face {
   font-family: 'Schoolbell';
@@ -36,6 +37,14 @@
   src: url('/fonts/schoolbell-latin-400-normal.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/architects-daughter-latin-400-normal.woff2') format('woff2');
+}
+
 /*
   The active light-theme heading face. Sized via --heading-scale below, not
   at its own em value, so it lands at the same rendered cap-height as Bebas
@@ -43,11 +52,11 @@
   toggle fires.
 */
 @font-face {
-  font-family: 'Architects Daughter';
+  font-family: 'Kalam';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-display: swap;
-  src: url('/fonts/architects-daughter-latin-400-normal.woff2') format('woff2');
+  src: url('/fonts/kalam-latin-700-normal.woff2') format('woff2');
 }
 
 /*
@@ -147,9 +156,9 @@
 
     --heading-scale exists so the light-theme face renders at the same
     cap-height as Bebas Neue: their em-to-cap-height ratios differ (0.700 for
-    Bebas Neue vs 0.714 for Architects Daughter, measured from each font's
-    own glyph metrics), so matching cap-height means NOT matching font-size
-    directly. Every heading rule multiplies its font-size by this instead of
+    Bebas Neue vs 0.745 for Kalam Bold, measured from each font's own glyph
+    metrics), so matching cap-height means NOT matching font-size directly.
+    Every heading rule multiplies its font-size by this instead of
     hard-coding one, so the toggle swaps the letterforms without changing
     the height of a single line of text.
   */
@@ -182,8 +191,8 @@
 */
 :root[data-theme="light"] {
   color-scheme: light;
-  --heading-font: 'Architects Daughter', cursive;
-  --heading-scale: 0.981;
+  --heading-font: 'Kalam', cursive;
+  --heading-scale: 0.940;
   --body-bg-image:
     linear-gradient(var(--grid-major) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
@@ -210,8 +219,8 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --heading-font: 'Architects Daughter', cursive;
-    --heading-scale: 0.981;
+    --heading-font: 'Kalam', cursive;
+    --heading-scale: 0.940;
     --body-bg-image:
       linear-gradient(var(--grid-major) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
