@@ -17,7 +17,7 @@ const PORT = 3001;
 const BASE = `http://localhost:${PORT}`;
 
 const DARK_BG = 'rgb(51, 51, 51)';
-const LIGHT_BG = 'rgb(243, 239, 233)';
+const LIGHT_BG = 'rgb(238, 232, 216)';
 
 describe('Theme', function () {
   this.timeout(60000);
@@ -177,7 +177,7 @@ describe('Theme', function () {
 
   describe('icons follow the theme', function () {
     it('colours the masked icons from the text token in both themes', async function () {
-      for (const [scheme, expected] of [['dark', 'rgb(204, 204, 204)'], ['light', 'rgb(36, 33, 30)']]) {
+      for (const [scheme, expected] of [['dark', 'rgb(204, 204, 204)'], ['light', 'rgb(30, 42, 58)']]) {
         const { context, page } = await open({ colorScheme: scheme });
         const colours = await page.evaluate(() => {
           const before = (sel) => getComputedStyle(document.querySelector(sel), '::before');
