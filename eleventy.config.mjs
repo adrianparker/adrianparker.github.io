@@ -31,6 +31,19 @@ export default function (eleventyConfig) {
       "fonts/kalam-latin-700-normal.woff2"
   });
 
+  /*
+    The EXIF Viewer (/ExifCmdLine/) is a separate project — see
+    github.com/adrianparker/ExifCmdLine. Its web bundle is a pinned npm
+    dependency (see package.json); installing it builds web/dist via that
+    repo's own `prepare` script, so this just copies the result out.
+    Copying the assets directory only (not web/dist/index.html, which is
+    that repo's own standalone HTML shell) avoids publishing an orphaned,
+    unlinked duplicate of content/ExifCmdLine/index.njk — see #45.
+  */
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/exifcmdline/web/dist/assets": "dist/assets"
+  });
+
   // render a markdown string as HTML in place
   eleventyConfig.addFilter("md", renderMarkdown);
 
