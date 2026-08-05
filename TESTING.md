@@ -258,5 +258,8 @@ npx playwright install chromium
 ```
 
 **Screenshots differ on another machine** — font rendering differs across
-operating systems. Baselines are macOS-generated. This is why visual
-regression is not in CI; see #44.
+operating systems. Baselines are macOS-generated. Visual regression is
+deliberately local-only for this reason (decided in #44): a threshold loose
+enough to absorb cross-platform text rendering would be too loose to catch
+real layout regressions. Rely on running `npm run test:visual` locally
+before pushing anything visual.
