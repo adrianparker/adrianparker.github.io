@@ -2,12 +2,22 @@
   Section navigation, shown only below the breakpoint. The desktop sidebar
   nav is hidden there, so this is the only navigation a phone reader gets —
   which is why it carries every section rather than a subset.
+
+  A section is "current" both on its own index page and on any entry inside
+  it, so an individual post/gig/app page underlines its section too — not
+  just the /posts/, /gigs/ and /apps/ index pages themselves. Individual
+  entries are identified by their `tags` front matter (['post'], ['gig'] or
+  ['app']) rather than page.url, since app pages live at the site root
+  (/<AppName>/) with no shared URL prefix to match against.
 #}
+{% set isApps = page.url == '/apps/' or (tags and 'app' in tags) %}
+{% set isPosts = page.url == '/posts/' or (tags and 'post' in tags) %}
+{% set isGigs = page.url == '/gigs/' or (tags and 'gig' in tags) %}
 <nav class="mobile-menu" aria-label="Sections">
     <ul class="mobile-menu-list">
         <li><a href="/" class="mobile-menu-link{% if page.url == '/' %} is-current{% endif %}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
-        <li><a href="/apps/" class="mobile-menu-link{% if page.url == '/apps/' %} is-current{% endif %}"{% if page.url == '/apps/' %} aria-current="page"{% endif %}>Apps</a></li>
-        <li><a href="/posts/" class="mobile-menu-link{% if page.url == '/posts/' %} is-current{% endif %}"{% if page.url == '/posts/' %} aria-current="page"{% endif %}>Posts</a></li>
-        <li><a href="/gigs/" class="mobile-menu-link{% if page.url == '/gigs/' %} is-current{% endif %}"{% if page.url == '/gigs/' %} aria-current="page"{% endif %}>Gigs</a></li>
+        <li><a href="/apps/" class="mobile-menu-link{% if isApps %} is-current{% endif %}"{% if isApps %} aria-current="page"{% endif %}>Apps</a></li>
+        <li><a href="/posts/" class="mobile-menu-link{% if isPosts %} is-current{% endif %}"{% if isPosts %} aria-current="page"{% endif %}>Posts</a></li>
+        <li><a href="/gigs/" class="mobile-menu-link{% if isGigs %} is-current{% endif %}"{% if isGigs %} aria-current="page"{% endif %}>Gigs</a></li>
     </ul>
 </nav>
