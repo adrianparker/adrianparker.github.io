@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/vendor/pure-min.css">
 <link rel="stylesheet" href="/vendor/grids-responsive-min.css">
 
-<link rel="stylesheet" crossorigin href="/dist/assets/index-TrqLX7I5.css">
+<link rel="stylesheet" crossorigin href="/dist/assets/index-DfwJ3tVc.css">
 <link rel="stylesheet" href="/index.css">
 <meta property="og:site_name" content="AdrianParker.com">
 <meta property="og:title" content="EXIF Viewer - AdrianParker.com">
@@ -41,7 +41,7 @@
 <meta name="generator" content="Eleventy v3.1.6">
 <meta name="description" content="Browser-only image metadata inspector. Your file never leaves your computer.">
 
-        <script type="module" crossorigin src="/dist/assets/index-Cgy3l1ma.js"></script>
+        <script type="module" crossorigin src="/dist/assets/index-CogpPbDa.js"></script>
         
 <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -162,7 +162,7 @@
     <h1>EXIF Viewer</h1>
     <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
 
-    <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The prebuilt bundle looks up #exif-form and the app source is not in this repo, see #36] -->
+    <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The bundle looks up #exif-form. This markup is still a hand-synced copy of exifcmdline's web/index.html — the built CSS/JS are pulled in automatically as an npm dependency (see #36), but the HTML shell itself is not templated from that package.] -->
     <form id="exif-form" class="controls">
       <label class="control-group">
         <span>Select image</span>
