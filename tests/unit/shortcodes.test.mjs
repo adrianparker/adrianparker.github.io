@@ -9,7 +9,8 @@ import {
   videoShortcode,
   imageShortcode,
   IMAGE_WIDTHS,
-  IMAGE_FORMATS
+  IMAGE_FORMATS,
+  IMAGE_SIZES
 } from "../../lib/shortcodes.mjs";
 
 describe("shortcodes — stringifyAttributes", () => {
@@ -131,6 +132,22 @@ describe("shortcodes — imageShortcode", () => {
 
   it("passes the sizes attribute through to each source", () => {
     expect(html).to.contain('sizes="(max-width: 768px) 400px, 800px"');
+  });
+
+  it("defaults to IMAGE_SIZES, matching static/index.css's own breakpoint", async () => {
+    expect(IMAGE_SIZES).to.equal("(max-width: 47.999em) 100vw, 68vw");
+
+    const defaultSizesHtml = await imageShortcode(
+      sourceImage,
+      "A test caption",
+      undefined,
+      IMAGE_WIDTHS,
+      IMAGE_FORMATS,
+      undefined,
+      path.join(tmpDir, "out-default-sizes") + path.sep
+    );
+
+    expect(defaultSizesHtml).to.contain(`sizes="${IMAGE_SIZES}"`);
   });
 
   it("actually writes the resized files", () => {
