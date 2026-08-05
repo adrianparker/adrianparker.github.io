@@ -1,7 +1,8 @@
 ---
 layout: app-layout.njk
-appStylesheet: /dist/assets/index-TrqLX7I5.css
-appScript: /dist/assets/index-Cgy3l1ma.js
+eleventyComputed:
+  appStylesheet: "{{ exifAssets.stylesheet }}"
+  appScript: "{{ exifAssets.script }}"
 title: EXIF Viewer
 navtitle: EXIF Viewer
 summary: 'Inspect the metadata inside a photo — camera, lens, exposure, timestamps and location. Everything happens in your browser; the file never leaves your computer.'
@@ -15,7 +16,7 @@ tags: ['app']
     <h1>EXIF Viewer</h1>
     <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
 
-    <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The prebuilt bundle looks up #exif-form and the app source is not in this repo, see #36] -->
+    <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The bundle looks up #exif-form. This markup is still a hand-synced copy of exifcmdline's web/index.html — the built CSS/JS are pulled in automatically as an npm dependency (see #36), but the HTML shell itself is not templated from that package.] -->
     <form id="exif-form" class="controls">
       <label class="control-group">
         <span>Select image</span>
@@ -65,7 +66,8 @@ tags: ['app']
 
 {#
   The app itself was completely unmeasured. This hooks the page's own inputs
-  rather than the bundle, whose source is not in this repo (#36).
+  rather than the bundle, since exifcmdline's own source doesn't include
+  analytics (see #36).
 
   Only that a file was chosen and its rough size — never the filename, which
   people do put personal information in.
