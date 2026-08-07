@@ -7,8 +7,13 @@ on:
 
 # Never let two deploys race; the later push should win.
 concurrency:
-  group: pages-deploy
+  group: pages
   cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -41,9 +46,26 @@ jobs:
       # Visual regression deliberately does not run here — baselines are
       # macOS-generated and Ubuntu rasterises text differently. See #44.
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      # actions/deploy-pages needs the custom domain baked into the
+      # artifact itself — unlike peaceiris/actions-gh-pages there is no
+      # `cname` input to do this for us.
+      - name: Add custom domain
+        run: cp CNAME _site/CNAME
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          publish_dir: ./_site
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          cname: www.adrianparker.com
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
