@@ -67,6 +67,6 @@ something remote is affecting that page; find it.
 
 ## Adding a page
 
-Add one line to `testPages` in `tests/config.js`. The suite crosses it with
+Add one line to `testPages` in `tests/config.mjs`. The suite crosses it with
 every viewport automatically. The first run fails with "No baseline" — that is
 correct, generate and commit them.

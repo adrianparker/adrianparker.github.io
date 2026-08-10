@@ -6,7 +6,7 @@
 // straight off disk.
 const baseUrl = process.env.TEST_BASE_URL || `file://${process.cwd()}/_site`;
 
-module.exports = {
+export default {
   baseUrl,
 
   viewports: {
@@ -51,7 +51,7 @@ module.exports = {
    *  - layout regressions show up identically in either theme, so a second
    *    full set would mostly duplicate the first
    *  - colour bugs that survive a theme switch (a hardcoded value, an
-   *    unmaskable icon) are asserted directly in tests/theme.test.js
+   *    unmaskable icon) are asserted directly in tests/theme.test.mjs
    *  - 16 baselines are already 11MB, and every refresh adds that again to
    *    git history
    *

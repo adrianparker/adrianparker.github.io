@@ -3,9 +3,9 @@
  * This ensures CSS and other assets load correctly in visual regression tests.
  */
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
 
 let server = null;
 
@@ -14,7 +14,7 @@ let server = null;
  * @param {number} port - Port to listen on (default 3000)
  * @returns {Promise<number>} The port the server is listening on
  */
-function startServer(port = 3000) {
+export function startServer(port = 3000) {
   return new Promise((resolve, reject) => {
     const siteDir = path.join(process.cwd(), '_site');
 
@@ -82,7 +82,7 @@ function startServer(port = 3000) {
  * Stop the HTTP server
  * @returns {Promise<void>}
  */
-function stopServer() {
+export function stopServer() {
   return new Promise((resolve, reject) => {
     if (!server) {
       resolve();
@@ -99,8 +99,3 @@ function stopServer() {
     });
   });
 }
-
-module.exports = {
-  startServer,
-  stopServer
-};

@@ -67,7 +67,6 @@ visual suite before anything touching CSS or templates.
 - `static/` is passthrough-copied to the site root, so `static/foo.css` is served at `/foo.css`.
 - `img/` is *not* passthrough-copied — those are source-resolution photos consumed by the `image` shortcode, which writes resized output to `_site/img/`.
 - The build input directory is `content/`, set via `dir.input` in the config.
-- **The Eleventy config is `eleventy.config.mjs` and is ESM** (`import`/`export`). The rest of the project — including the whole test suite — is CommonJS (`require`). `package.json` has no `"type": "module"`, which is what keeps those two coexisting. If you add a new `.js` file it will be CommonJS; use `.mjs` if you need ESM.
 - Node 22+ is required (`@11ty/eleventy-img` v7). See `.nvmrc`.
 
 ---
@@ -146,10 +145,10 @@ flickrThumbnail: 'https://live.staticflickr.com/...'
 
 Mocha + Chai, with Playwright + pixelmatch for visual regression.
 
-- `tests/smoke.test.js` — build validation, runs in CI.
-- `tests/theme.test.js` — light/dark toggle behaviour. Local only; serves on port 3001.
-- `tests/analytics.test.js` — PostHog config and custom events. Local only; serves on port 3002.
-- `tests/visual-regression.test.js` — screenshots at 1200px (desktop) and 390px (mobile), compared against baselines in `tests/screenshots/`. Local only; serves on port 3000.
+- `tests/smoke.test.mjs` — build validation, runs in CI.
+- `tests/theme.test.mjs` — light/dark toggle behaviour. Local only; serves on port 3001.
+- `tests/analytics.test.mjs` — PostHog config and custom events. Local only; serves on port 3002.
+- `tests/visual-regression.test.mjs` — screenshots at 1200px (desktop) and 390px (mobile), compared against baselines in `tests/screenshots/`. Local only; serves on port 3000.
 
 **Theming:** colours come from tokens in `:root` declared twice — a plain dark value first, then a `light-dark()` override. Browsers without `light-dark()` keep the dark theme. The toggle sets `data-theme` on `<html>`; an inline script in `partials/head.njk` must stay ahead of the stylesheet or the page flashes the wrong theme on load.
 

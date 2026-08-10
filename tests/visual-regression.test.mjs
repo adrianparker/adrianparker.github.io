@@ -11,21 +11,25 @@
  * allowed a 5% difference.
  */
 
-// Must be set before anything reads config.
+// Must be set before anything reads config. Static imports are hoisted and
+// evaluated before any other top-level code in an ES module, regardless of
+// where they're written, so anything reaching config.mjs is imported
+// dynamically below, after this line actually runs.
 process.env.TEST_BASE_URL = 'http://localhost:3000';
 
-const { expect } = require('chai');
-const fs = require('fs');
-const path = require('path');
-const { startServer, stopServer } = require('./utils/http-server');
+import { expect } from 'chai';
+import fs from 'fs';
+import path from 'path';
+import { startServer, stopServer } from './utils/http-server.mjs';
+
 const {
   takeScreenshot,
   compareScreenshots,
   describeFailure,
   getScreenshotFilename,
   ensureScreenshotDir
-} = require('./utils/screenshot-utils.js');
-const config = require('./config');
+} = await import('./utils/screenshot-utils.mjs');
+const { default: config } = await import('./config.mjs');
 
 describe('Visual Regression Tests - Responsive Design', function () {
   this.timeout(60000);
@@ -43,7 +47,7 @@ describe('Visual Regression Tests - Responsive Design', function () {
   Object.entries(config.testPages).forEach(([pageName, pagePath]) => {
     config.themes.forEach((theme) => {
       // Dark covers every page; light covers a representative subset. See the
-      // reasoning on `lightThemePages` in tests/config.js.
+      // reasoning on `lightThemePages` in tests/config.mjs.
       if (theme === 'light' && !config.lightThemePages.includes(pageName)) return;
 
       Object.values(config.viewports).forEach((viewport) => {

@@ -7,10 +7,10 @@ How to run, maintain and troubleshoot the tests for adrianparker.github.io.
 | Suite | What it covers | Speed | Runs in CI |
 |---|---|---|---|
 | **Unit** (`tests/unit/*.test.mjs`) | Everything in `lib/` — collections, filters, shortcodes | ~60ms | yes |
-| **Smoke** (`tests/smoke.test.js`) | The build produced the right pages, with the right structure | ~60ms | yes |
-| **Theme** (`tests/theme.test.js`) | Light/dark toggle behaviour, persistence, no-JS fallback | ~35s | no, local only |
-| **Analytics** (`tests/analytics.test.js`) | PostHog config, custom events, no third-party requests | ~18s | no, local only |
-| **Visual regression** (`tests/visual-regression.test.js`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
+| **Smoke** (`tests/smoke.test.mjs`) | The build produced the right pages, with the right structure | ~60ms | yes |
+| **Theme** (`tests/theme.test.mjs`) | Light/dark toggle behaviour, persistence, no-JS fallback | ~35s | no, local only |
+| **Analytics** (`tests/analytics.test.mjs`) | PostHog config, custom events, no third-party requests | ~18s | no, local only |
+| **Visual regression** (`tests/visual-regression.test.mjs`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
 
 Mocha for running, Chai for assertions, c8 for coverage, cheerio for DOM
 assertions, Playwright + pixelmatch for screenshots.
@@ -69,7 +69,7 @@ those.
 
 ### How it works
 
-Pages are listed once in `tests/config.js` under `testPages`, and the suite
+Pages are listed once in `tests/config.mjs` under `testPages`, and the suite
 crosses them with every viewport in `viewports`. Adding a page means adding
 one line; you do not touch the test file.
 
@@ -85,7 +85,7 @@ Every page is captured in **dark**. Only the pages in `lightThemePages`
 That is deliberate rather than lazy. Layout regressions look identical in
 either theme, so a second full set would mostly duplicate the first; colour
 bugs that survive a theme switch — a hardcoded value, an icon that cannot be
-recoloured — are asserted directly in `tests/theme.test.js`. And 16 baselines
+recoloured — are asserted directly in `tests/theme.test.mjs`. And 16 baselines
 were already 11MB, with every refresh adding that again to git history.
 
 The two chosen pages between them cover entry listings, the gig metadata card
@@ -95,7 +95,7 @@ Baseline filenames carry the theme: `home-page-desktop-dark.png`.
 
 ### Thresholds
 
-`maxDiffRatio` in `tests/config.js` is **0.1%** of pixels, uniformly.
+`maxDiffRatio` in `tests/config.mjs` is **0.1%** of pixels, uniformly.
 
 Previously most pages allowed 5% while two video-post assertions demanded
 exactly 0. 5% is loose enough that an entire sidebar column could change
@@ -104,7 +104,7 @@ without failing.
 ### Determinism
 
 Four things make the capture repeatable, all in
-`tests/utils/screenshot-utils.js`. Each was added in response to a specific
+`tests/utils/screenshot-utils.mjs`. Each was added in response to a specific
 observed flake, not speculatively:
 
 1. **Lazy images are forced eager, then awaited via `decode()`.** The image
@@ -240,7 +240,7 @@ so they describe what is actually wrong rather than which substring vanished.
 ## Adding tests
 
 **A new page under visual regression:** add one line to `testPages` in
-`tests/config.js`, run the suite (it will fail with "No baseline"), then
+`tests/config.mjs`, run the suite (it will fail with "No baseline"), then
 generate and commit baselines.
 
 **New code in `lib/`:** it needs unit tests in `tests/unit/`, and the coverage
