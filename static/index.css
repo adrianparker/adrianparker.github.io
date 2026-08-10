@@ -54,7 +54,7 @@
   lines instead.
 
   Contrast on the light background (worst case, against --color-bg-bottom):
-  text 11.9:1, accent 6.7:1, muted 5.3:1.
+  text 11.9:1, accent 6.7:1, muted 5.3:1, nav-current 5.2:1.
 */
 :root {
   color-scheme: light dark;
@@ -74,6 +74,16 @@
   /* Muted text and hover states. */
   --color-muted: #666666;
   --color-muted: light-dark(#55606b, #666666);
+
+  /* Marks the currently-viewed post/gig/app in the sidebar nav. Same value
+     as --color-muted in dark mode, which already reads as a clear third
+     tone next to --color-text and --color-accent. In light mode
+     --color-muted sits too close in hue and lightness to --color-text to
+     register as a different colour at all, so this uses a distinct green
+     instead — cool like the rest of the light palette, but a clean hue
+     break from the navy/blue everything else uses. See #65. */
+  --color-nav-current: #666666;
+  --color-nav-current: light-dark(#2f6b4f, #666666);
 
   /*
     These three were all --subheading-color, which was doing four jobs at
@@ -482,7 +492,7 @@ html.js .theme-toggle {
 }
 
 .pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
-  color: var(--color-muted);
+  color: var(--color-nav-current);
 }
 
 /* AdrianParker.com styling */
