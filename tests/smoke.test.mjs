@@ -8,10 +8,10 @@
  * if the class was in the stylesheet but missing from the page.
  */
 
-const { expect } = require('chai');
-const fs = require('fs');
-const path = require('path');
-const cheerio = require('cheerio');
+import { expect } from 'chai';
+import fs from 'fs';
+import path from 'path';
+import * as cheerio from 'cheerio';
 
 const SITE = path.join(process.cwd(), '_site');
 

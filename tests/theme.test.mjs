@@ -6,11 +6,11 @@
  * tested. These cover it instead.
  */
 
-const { expect } = require('chai');
-const fs = require('fs');
-const path = require('path');
-const { chromium } = require('playwright');
-const { startServer, stopServer } = require('./utils/http-server');
+import { expect } from 'chai';
+import fs from 'fs';
+import path from 'path';
+import { chromium } from 'playwright';
+import { startServer, stopServer } from './utils/http-server.mjs';
 
 // Its own port: the visual suite holds 3000 and both run under `npm test`.
 const PORT = 3001;

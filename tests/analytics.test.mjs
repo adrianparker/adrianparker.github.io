@@ -7,9 +7,9 @@
  * window.posthog stays an array and every call is appended to it.
  */
 
-const { expect } = require('chai');
-const { chromium } = require('playwright');
-const { startServer, stopServer } = require('./utils/http-server');
+import { expect } from 'chai';
+import { chromium } from 'playwright';
+import { startServer, stopServer } from './utils/http-server.mjs';
 
 const PORT = 3002;
 const BASE = `http://localhost:${PORT}`;

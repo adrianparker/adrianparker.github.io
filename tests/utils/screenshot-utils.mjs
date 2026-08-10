@@ -2,22 +2,16 @@
  * Utility functions for screenshot-based visual regression testing.
  */
 
-const fs = require('fs');
-const { chromium } = require('playwright');
-// pixelmatch 5 sets module.exports to the function directly; 6+ is ESM, so
-// require() hands back a namespace object with the function on .default.
-// Node 22 can require() either, but the shapes differ — accept both so the
-// suite does not break on whichever version is installed.
-const pixelmatchModule = require('pixelmatch');
-const pixelmatch =
-  typeof pixelmatchModule === 'function' ? pixelmatchModule : pixelmatchModule.default;
-const PNG = require('pngjs').PNG;
-const config = require('../config');
+import fs from 'fs';
+import { chromium } from 'playwright';
+import pixelmatch from 'pixelmatch';
+import { PNG } from 'pngjs';
+import config from '../config.mjs';
 
 /**
  * Screenshots a page at a given viewport.
  */
-async function takeScreenshot(pageUrl, viewport, screenshotPath, colorScheme = 'dark') {
+export async function takeScreenshot(pageUrl, viewport, screenshotPath, colorScheme = 'dark') {
   let browser;
   try {
     browser = await chromium.launch(config.browserOptions);
@@ -114,7 +108,7 @@ function readPng(filePath) {
  * normal (failing) result; previously pixelmatch threw "Image sizes do not
  * match" as an uncaught error, which surfaced as an unreadable stack trace.
  */
-function compareScreenshots(baselinePath, actualPath, diffPath) {
+export function compareScreenshots(baselinePath, actualPath, diffPath) {
   const baseline = readPng(baselinePath);
   const actual = readPng(actualPath);
 
@@ -156,7 +150,7 @@ function compareScreenshots(baselinePath, actualPath, diffPath) {
  * Builds the assertion message for a failed comparison. Kept next to the
  * comparison so the two stay consistent.
  */
-function describeFailure(name, result) {
+export function describeFailure(name, result) {
   if (result.sizeMismatch) {
     return (
       `${name}: image dimensions differ — baseline ${result.baselineSize}, ` +
@@ -172,20 +166,12 @@ function describeFailure(name, result) {
   );
 }
 
-function getScreenshotFilename(testName, viewportName, theme = 'dark') {
+export function getScreenshotFilename(testName, viewportName, theme = 'dark') {
   return `${testName}-${viewportName}-${theme}.png`;
 }
 
-function ensureScreenshotDir(dirPath) {
+export function ensureScreenshotDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
   }
 }
-
-module.exports = {
-  takeScreenshot,
-  compareScreenshots,
-  describeFailure,
-  getScreenshotFilename,
-  ensureScreenshotDir
-};

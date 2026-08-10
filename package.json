@@ -4,17 +4,17 @@
   "description": "Personal website of Adrian Parker.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:unit && npm run build && mocha tests/*.test.js --timeout 60000",
+    "test": "npm run test:unit && npm run build && mocha tests/*.test.mjs --timeout 60000",
     "test:unit": "c8 mocha 'tests/unit/**/*.test.mjs'",
-    "test:smoke": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
-    "test:visual": "npm run build && mocha 'tests/visual-regression.test.js' --timeout 60000",
-    "test:headless": "npm run build && mocha 'tests/smoke.test.js' --reporter spec",
+    "test:smoke": "npm run build && mocha 'tests/smoke.test.mjs' --reporter spec",
+    "test:visual": "npm run build && mocha 'tests/visual-regression.test.mjs' --timeout 60000",
+    "test:headless": "npm run build && mocha 'tests/smoke.test.mjs' --reporter spec",
     "lint:html": "html-validate $(find _site -name '*.html' -not -path '*/dist/*')",
     "build": "npx eleventy",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
-    "test:theme": "npm run build && mocha tests/theme.test.js --timeout 60000",
-    "test:analytics": "npm run build && mocha tests/analytics.test.js --timeout 60000"
+    "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",
+    "test:analytics": "npm run build && mocha tests/analytics.test.mjs --timeout 60000"
   },
   "repository": {
     "type": "git",
