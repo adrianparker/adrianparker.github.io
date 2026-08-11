@@ -538,6 +538,23 @@ h2 {
   margin-top: 0.3em;
 }
 
+/* The title links to the entry itself. Default colour falls out of the
+   generic h1/h2/a rule below — this just strips the underline so the link
+   looks identical to the plain heading it replaced. Hover/focus colour is
+   set explicitly here, matching the sidebar nav links (.pure-menu-link),
+   rather than relying on the generic a:hover rule further down happening to
+   agree — that would silently drift apart if either rule changed. */
+.entry-title a,
+.entry-title a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-title a:hover,
+.entry-title a:focus {
+  color: var(--color-muted);
+}
+
 /* Date and reading time. Previously an <h3>, which made page metadata look
    like a section heading to a screen reader. Styled to match how that <h3>
    rendered. */
