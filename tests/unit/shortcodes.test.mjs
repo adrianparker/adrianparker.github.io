@@ -34,10 +34,10 @@ describe("shortcodes — stringifyAttributes", () => {
 });
 
 describe("shortcodes — videoShortcode", () => {
-  it("wraps the video in the element the stylesheet targets", () => {
+  it("wraps the video in the frame the stylesheet targets", () => {
     const out = videoShortcode("/video/clip.mp4");
-    expect(out).to.match(/^<div class="video-wrapper">/);
-    expect(out.trim()).to.match(/<\/div>$/);
+    expect(out).to.match(/^<div class="video-wrapper-frame"><div class="video-wrapper">/);
+    expect(out.trim()).to.match(/<\/div><\/div>$/);
   });
 
   it("defaults to mp4", () => {
@@ -52,6 +52,11 @@ describe("shortcodes — videoShortcode", () => {
     expect(videoShortcode("/video/clip.mp4")).to.not.contain("poster");
   });
 
+  it("also omits poster when given as an empty string", () => {
+    // lets a call skip poster while still reaching the label argument
+    expect(videoShortcode("/video/clip.mp4", "video/mp4", "")).to.not.contain("poster");
+  });
+
   it("includes poster when given", () => {
     expect(videoShortcode("/v.mp4", "video/mp4", "/p.jpg")).to.contain('poster="/p.jpg"');
   });
@@ -64,6 +69,17 @@ describe("shortcodes — videoShortcode", () => {
 
   it("includes fallback text for browsers without video support", () => {
     expect(videoShortcode("/video/clip.mp4")).to.contain("does not support the video tag");
+  });
+
+  it("omits the label badge entirely when no label is given", () => {
+    expect(videoShortcode("/video/clip.mp4")).to.not.contain("video-label");
+  });
+
+  it("renders an icon and the label text when a label is given", () => {
+    const out = videoShortcode("/video/clip.mp4", "video/mp4", "", "Full show highlights");
+    expect(out).to.contain('<p class="video-label">');
+    expect(out).to.contain('<span class="video-label-icon" aria-hidden="true"></span>');
+    expect(out).to.contain("Full show highlights");
   });
 });
 

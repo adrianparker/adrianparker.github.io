@@ -893,13 +893,53 @@ figure {
 
 /* Video embedding - responsive container */
 
+/* The frame owns sizing/centring and the border that makes the embed read
+   as a player rather than bare page content; .video-wrapper underneath just
+   holds the 16:9 box the video is positioned into. */
+.video-wrapper-frame {
+  max-width: 800px;
+  margin: 1.5em auto;
+  border: 1px solid var(--color-rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   aspect-ratio: 16 / 9;
+}
+
+/* Icon+text badge over the video, naming what it is before playback. Fixed
+   dark/white rather than theme tokens on purpose: the video canvas itself
+   is always dark regardless of site theme, so the badge should read the
+   same against it either way. */
+.video-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0.75em;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.35em 0.7em;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  font-family: var(--heading-font);
+  font-size: 0.95em;
+  letter-spacing: 0.03em;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.video-label-icon {
+  width: 0.9em;
+  height: 0.9em;
+  flex: 0 0 auto;
+  background-color: currentColor;
+  -webkit-mask: url('/img/play.svg') no-repeat center / contain;
+  mask: url('/img/play.svg') no-repeat center / contain;
 }
 
 .video-wrapper video {
