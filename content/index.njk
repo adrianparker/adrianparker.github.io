@@ -14,7 +14,7 @@ metadesc: Writing by Adrian Parker, on topics like product management, finance, 
 
     <section>
         <p class="entry-meta">{{ post.data.date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ post.data.readingtime }}</p>
-        <h2 class="entry-title">{{ post.data.title }}</h2>
+        <h2 class="entry-title"><a href="{{ post.page.url | url }}">{{ post.data.title }}</a></h2>
         <p class="blog-post-summary">
         {{ post.data.summary | safe }}
         </p>

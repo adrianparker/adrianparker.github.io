@@ -12,7 +12,7 @@ permalink: /gigs/index.html
 
     <section>
         <p class="entry-meta">{{ post.data.date | readableDate }}</p>
-        <h2 class="entry-title">{{ post.data.title }}</h2>
+        <h2 class="entry-title"><a href="{{ post.page.url | url }}">{{ post.data.title }}</a></h2>
         <p class="blog-post-summary">
         {{ post.data.summary | safe }}
         </p>
