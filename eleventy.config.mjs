@@ -44,6 +44,23 @@ export default function (eleventyConfig) {
     "node_modules/exifcmdline/web/dist/assets": "dist/assets"
   });
 
+  /*
+    The Gig Tracker's source files and their contract doc. gig-history.html is
+    a standalone document written by a separate agent, and Eleventy would
+    otherwise treat it — and the README — as templates, publishing orphaned,
+    unlinked pages at /GigTracker/gig-history/ and /GigTracker/README/. Same
+    trap as the EXIF Viewer's own shell above (#45).
+
+    The sources are not passthrough-copied either: content/_data/gigTrackerApp.mjs
+    reads them at build time and embeds the result into the page, so nothing
+    here needs to be served. Watched explicitly so `npm run serve` picks up the
+    agent's edits, which it cannot infer from an ignored file.
+  */
+  eleventyConfig.ignores.add("content/GigTracker/gig-history.html");
+  eleventyConfig.ignores.add("content/GigTracker/README.md");
+  eleventyConfig.addWatchTarget("content/GigTracker/gig-history.html");
+  eleventyConfig.addWatchTarget("content/GigTracker/gig-history.css");
+
   // render a markdown string as HTML in place
   eleventyConfig.addFilter("md", renderMarkdown);
 
