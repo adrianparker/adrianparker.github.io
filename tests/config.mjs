@@ -41,7 +41,7 @@ export default {
     'exif-app': '/ExifCmdLine/index.html',
     // The bundle-less app page. Its .app-shell/.app-panel styling lives only
     // in static/index.css, so this is the only test that exercises it.
-    'gigtracker-app': '/GigTracker/index.html',
+    'gigtracker-app': '/Gig-History/index.html',
     'not-found': '/404.html'
   },
 

@@ -387,7 +387,7 @@ describe('Smoke Tests - Apps', function () {
   });
 
   it('should embed the Gig Tracker from its source files', function () {
-    const $ = load('GigTracker', 'index.html');
+    const $ = load('Gig-History', 'index.html');
     const app = $('.gig-tracker');
 
     expect(app.length, 'app embedded once').to.equal(1);
@@ -407,7 +407,7 @@ describe('Smoke Tests - Apps', function () {
   it('should make the Gig Tracker reload controls unreachable', function () {
     // They re-read a markdown file off disk that the site does not publish;
     // left live, a visitor clicking Reload lands in a file picker.
-    const $ = load('GigTracker', 'index.html');
+    const $ = load('Gig-History', 'index.html');
     ['#reload', '#file-input', '#reload-status'].forEach((selector) => {
       const control = $(selector);
       // Still in the DOM — the app's own script looks each one up on load,
@@ -418,7 +418,7 @@ describe('Smoke Tests - Apps', function () {
   });
 
   it('should confine the embedded app stylesheet to the app', function () {
-    const $ = load('GigTracker', 'index.html');
+    const $ = load('Gig-History', 'index.html');
     const styles = $('head style').map((_, s) => $(s).html()).get().join('\n');
     expect(styles, 'inline app styles').to.not.be.empty;
 
@@ -441,7 +441,7 @@ describe('Smoke Tests - Apps', function () {
   it('should leave no unthemed colour in the embedded app stylesheet', function () {
     // A literal colour cannot follow the light/dark toggle. Everything has to
     // come through a token, either the app's own custom properties or ours.
-    const $ = load('GigTracker', 'index.html');
+    const $ = load('Gig-History', 'index.html');
     const styles = $('head style').map((_, s) => $(s).html()).get().join('\n');
     const literals = styles.match(/#[0-9a-fA-F]{3,8}\b|\brgba?\(|\bhsla?\(/g) || [];
     expect([...new Set(literals)], 'literal colours').to.deep.equal([]);

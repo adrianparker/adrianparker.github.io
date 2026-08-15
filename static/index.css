@@ -835,14 +835,14 @@ figure {
    would override the EXIF Viewer's own layout. */
 .app-page .app-shell {
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.5rem;
+  margin: 0;
+  /* Left inset matches the app bar's own 4% padding above, so the app's
+     H1 lines up with the site-name link rather than sitting centred under it. */
+  padding: 1.5rem 4%;
 }
 
 .app-page .app-panel {
-  border-top: 2px solid var(--color-accent);
   min-width: 0;
-  padding-top: 0.75rem;
 }
 
 .app-page .app-panel .tagline {
@@ -852,7 +852,7 @@ figure {
 
 @media (width >= 850px) {
   .app-page .app-shell {
-    padding: 2rem;
+    padding: 2rem 4%;
   }
 }
 
