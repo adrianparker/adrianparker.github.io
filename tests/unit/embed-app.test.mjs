@@ -254,7 +254,9 @@ describe("embed-app — buildAppEmbed", () => {
   });
 
   it("quarantines the named controls", () => {
-    expect(embed.html).to.contain('<div hidden class="app-embed-inert"><button id="reload">Reload</button></div>');
+    expect(embed.html).to.contain(
+      '<div hidden class="app-embed-inert"><button type="button" id="reload">Reload</button></div>'
+    );
   });
 
   it("leads with the generated palette, mapping the app's properties to site tokens", () => {
