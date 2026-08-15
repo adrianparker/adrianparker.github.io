@@ -1,0 +1,23 @@
+---
+layout: app-layout.njk
+title: Gig Tracker
+navtitle: Gig Tracker
+summary: 'Keep track of the concerts you have been to — who played, where, and when. Coming soon.'
+metadesc: A browser-based tracker for the concerts you have been to. Coming soon.
+date: 2026-08-16
+tags: ['app']
+---
+{#
+  app-layout provides the <main> landmark; this is just the page wrapper.
+
+  Shell only for now — there is no bundle yet, so no appStylesheet/appScript
+  in the front matter unlike ExifCmdLine, and the classes are .app-shell /
+  .app-panel from static/index.css rather than the .shell / .panel the EXIF
+  Viewer gets out of its own stylesheet.
+#}
+<div class="app-shell">
+  <section class="app-panel">
+    <h1>Gig Tracker</h1>
+    <p class="tagline">Keep track of the concerts you have been to.<br />Nothing to see here yet.</p>
+  </section>
+</div>
