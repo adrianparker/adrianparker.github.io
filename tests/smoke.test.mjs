@@ -386,6 +386,67 @@ describe('Smoke Tests - Apps', function () {
     expect(fs.existsSync(sitePath('ExifCmdLine', 'index.html'))).to.be.true;
   });
 
+  it('should embed the Gig Tracker from its source files', function () {
+    const $ = load('Gig-History', 'index.html');
+    const app = $('.gig-tracker');
+
+    expect(app.length, 'app embedded once').to.equal(1);
+    expect(app.find('table thead th').length, 'table headings').to.be.greaterThan(0);
+    // The gig data is baked in at build time, not fetched at runtime.
+    const script = app.find('script').html() || '';
+    expect(script, 'gig data inlined').to.match(/GIGS\s*=\s*\[\s*\{/);
+  });
+
+  it('should not publish the Gig Tracker sources as pages of their own', function () {
+    // Eleventy treats a stray .html or .md file as a template, which would put
+    // orphaned, unstyled pages at their own URLs — see #45.
+    expect(fs.existsSync(sitePath('GigTracker', 'gig-history')), 'orphaned app copy').to.be.false;
+    expect(fs.existsSync(sitePath('GigTracker', 'README')), 'orphaned contract doc').to.be.false;
+  });
+
+  it('should make the Gig Tracker reload controls unreachable', function () {
+    // They re-read a markdown file off disk that the site does not publish;
+    // left live, a visitor clicking Reload lands in a file picker.
+    const $ = load('Gig-History', 'index.html');
+    ['#reload', '#file-input', '#reload-status'].forEach((selector) => {
+      const control = $(selector);
+      // Still in the DOM — the app's own script looks each one up on load,
+      // and a missing element would throw and stop the table rendering.
+      expect(control.length, `${selector} present`).to.equal(1);
+      expect(control.closest('[hidden]').length, `${selector} hidden`).to.equal(1);
+    });
+  });
+
+  it('should confine the embedded app stylesheet to the app', function () {
+    const $ = load('Gig-History', 'index.html');
+    const styles = $('head style').map((_, s) => $(s).html()).get().join('\n');
+    expect(styles, 'inline app styles').to.not.be.empty;
+
+    // Every selector must be scoped. An app shipping :root or body would
+    // redefine the site's theme tokens or repaint the whole page.
+    const selectors = styles
+      .replace(/@[^{]+\{/g, '')
+      .split('}')
+      .map((rule) => rule.split('{')[0].trim())
+      .filter(Boolean)
+      .flatMap((list) => list.split(',').map((s) => s.trim()))
+      .filter(Boolean);
+
+    expect(selectors.length, 'rules found').to.be.greaterThan(0);
+    selectors.forEach((selector) => {
+      expect(selector, 'scoped to the app').to.match(/^\.gig-tracker\b/);
+    });
+  });
+
+  it('should leave no unthemed colour in the embedded app stylesheet', function () {
+    // A literal colour cannot follow the light/dark toggle. Everything has to
+    // come through a token, either the app's own custom properties or ours.
+    const $ = load('Gig-History', 'index.html');
+    const styles = $('head style').map((_, s) => $(s).html()).get().join('\n');
+    const literals = styles.match(/#[0-9a-fA-F]{3,8}\b|\brgba?\(|\bhsla?\(/g) || [];
+    expect([...new Set(literals)], 'literal colours').to.deep.equal([]);
+  });
+
   it('should drive the sidebar Apps section from the collection', function () {
     const $ = load('index.html');
     const appLinks = $('.pure-menu-list a[href="/ExifCmdLine/"]');

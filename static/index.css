@@ -829,6 +829,33 @@ figure {
   max-width: 100%;
 }
 
+/* An app page with no bundle of its own still needs the shell the EXIF
+   Viewer gets from its bundle stylesheet. Deliberately NOT named .shell /
+   .panel: index.css loads after an app's stylesheet, so reusing those names
+   would override the EXIF Viewer's own layout. */
+.app-page .app-shell {
+  max-width: 1100px;
+  margin: 0;
+  /* Left inset matches the app bar's own 4% padding above, so the app's
+     H1 lines up with the site-name link rather than sitting centred under it. */
+  padding: 1.5rem 4%;
+}
+
+.app-page .app-panel {
+  min-width: 0;
+}
+
+.app-page .app-panel .tagline {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+@media (width >= 850px) {
+  .app-page .app-shell {
+    padding: 2rem 4%;
+  }
+}
+
 /* No horizontal padding on main here — the app's own .shell already provides
    it, and doubling up pushed its controls past the viewport. */
 .app-page .site-footer {

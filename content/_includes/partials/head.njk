@@ -55,6 +55,16 @@
 <link rel="stylesheet" crossorigin href="{{ appStylesheet }}">
 {%- endif %}
 <link rel="stylesheet" href="{{ '/index.css' | url }}">
+{#
+  An app embedded from source files rather than a built bundle has its CSS
+  scoped, themed and inlined here at build time — see lib/embed-app.mjs. It
+  goes AFTER index.css, not before: it is generated to be confined to the
+  app's own scope, so it is not at risk of leaking the way a bundle's is, and
+  it needs to win over the site's own element styling inside that scope.
+#}
+{%- if appInlineStyles %}
+<style>{{ appInlineStyles | safe }}</style>
+{%- endif %}
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ pageTitle }}">
 <meta property="og:type" content="website">

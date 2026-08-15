@@ -1,0 +1,25 @@
+---
+layout: app-layout.njk
+eleventyComputed:
+  appInlineStyles: "{{ gigTrackerApp.css | safe }}"
+permalink: /Gig-History/index.html
+title: Gig History
+navtitle: Gig History
+summary: 'Every gig, play and comedy show I have been to — filter it by performer, venue, city or year.'
+metadesc: A filterable, sortable table of every concert, play and comedy show Adrian Parker has been to.
+date: 2026-08-16
+tags: ['app']
+---
+{#
+  Everything inside .gig-tracker comes from content/GigTracker/gig-history.html,
+  re-embedded on every build by content/_data/gigTrackerApp.mjs. Do not edit the
+  app's markup here — it is regenerated and any change would be overwritten. See
+  README.md in this directory.
+
+  The app supplies the page's only <h1>, so this shell deliberately has none.
+#}
+<div class="app-shell">
+  <section class="app-panel gig-tracker">
+    {{ gigTrackerApp.html | safe }}
+  </section>
+</div>

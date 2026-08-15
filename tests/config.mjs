@@ -39,6 +39,9 @@ export default {
     'gig-post': '/posts/gigs/20090218-Datsuns-Astoria-London/index.html',
     'gig-index': '/gigs/index.html',
     'exif-app': '/ExifCmdLine/index.html',
+    // The bundle-less app page. Its .app-shell/.app-panel styling lives only
+    // in static/index.css, so this is the only test that exercises it.
+    'gigtracker-app': '/Gig-History/index.html',
     'not-found': '/404.html'
   },
 
