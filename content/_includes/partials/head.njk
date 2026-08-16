@@ -12,6 +12,9 @@
         try {
             var stored = localStorage.getItem('theme');
             if (stored === 'light' || stored === 'dark') { root.dataset.theme = stored; }
+            var nav = localStorage.getItem('appNav');
+            if (nav === 'collapsed' || nav === 'expanded') { root.dataset.appNav = nav; }
+
         } catch (e) { /* private mode: fall back to the OS preference */ }
     })();
 </script>

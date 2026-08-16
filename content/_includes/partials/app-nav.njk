@@ -1,0 +1,103 @@
+{#
+  App-page navigation: the site's left sidebar, reduced to the four sections
+  and able to collapse to an icon rail.
+
+  Collapsed state is written to <html data-app-nav="collapsed"> by the inline
+  script in head.njk — same reasoning as the theme: applying it after paint
+  would show the sidebar expanded and then snap it shut on every load.
+
+  The rail letters are placeholders. Swap each <span class="app-nav-icon"> for
+  a masked SVG in the style of theme-toggle's sun/moon once the four section
+  icons exist.
+#}
+{% set isApps = page.url == '/apps/' or (tags and 'app' in tags) %}
+{% set isPosts = page.url == '/posts/' or (tags and 'post' in tags) %}
+{% set isGigs = page.url == '/gigs/' or (tags and 'gig' in tags) %}
+
+<header class="app-nav-bar">
+    <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
+    <button type="button" class="app-nav-menu" id="app-nav-menu" aria-expanded="false" aria-controls="app-nav">
+        <span class="app-nav-menu-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+    </button>
+</header>
+
+<nav class="app-nav" id="app-nav" aria-label="Sections">
+    <a href="/" class="app-nav-home" aria-label="{{ site.name }} - home">
+        <img src="{{ '/img/Adrian-170x158.jpeg' | url }}" alt="" width="170" height="158" class="app-nav-mugshot">
+        <span class="site-name">{{ site.name }}</span>
+    </a>
+
+    <ul class="app-nav-list">
+        <li>
+            <a href="/" class="app-nav-link{% if page.url == '/' %} is-current{% endif %}"{% if page.url == '/' %} aria-current="page"{% endif %}>
+                <span class="app-nav-icon" aria-hidden="true">H</span><span class="app-nav-text">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/apps/" class="app-nav-link{% if isApps %} is-current{% endif %}"{% if isApps %} aria-current="page"{% endif %}>
+                <span class="app-nav-icon" aria-hidden="true">A</span><span class="app-nav-text">Apps</span>
+            </a>
+        </li>
+        <li>
+            <a href="/posts/" class="app-nav-link{% if isPosts %} is-current{% endif %}"{% if isPosts %} aria-current="page"{% endif %}>
+                <span class="app-nav-icon" aria-hidden="true">P</span><span class="app-nav-text">Posts</span>
+            </a>
+        </li>
+        <li>
+            <a href="/gigs/" class="app-nav-link{% if isGigs %} is-current{% endif %}"{% if isGigs %} aria-current="page"{% endif %}>
+                <span class="app-nav-icon" aria-hidden="true">G</span><span class="app-nav-text">Gigs</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="app-nav-foot">
+        {% include "partials/theme-toggle.njk" %}
+
+        {#
+          Hidden without JavaScript for the same reason as the theme toggle:
+          the collapse cannot be persisted or applied, so it is not offered.
+        #}
+        <button type="button" class="app-nav-collapse" id="app-nav-collapse" aria-expanded="true" aria-controls="app-nav">
+            <span class="app-nav-icon app-nav-chevron" aria-hidden="true"></span>
+            <span class="app-nav-text">Collapse</span>
+        </button>
+    </div>
+</nav>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var collapse = document.getElementById('app-nav-collapse');
+        var menu = document.getElementById('app-nav-menu');
+
+        if (collapse) {
+            var render = function () {
+                var isCollapsed = root.dataset.appNav === 'collapsed';
+                collapse.setAttribute('aria-expanded', String(!isCollapsed));
+                collapse.setAttribute('aria-label', (isCollapsed ? 'Expand' : 'Collapse') + ' navigation');
+            };
+
+            collapse.addEventListener('click', function () {
+                var next = root.dataset.appNav === 'collapsed' ? 'expanded' : 'collapsed';
+                root.dataset.appNav = next;
+                try { localStorage.setItem('appNav', next); } catch (e) { /* private mode */ }
+                render();
+                if (window.siteAnalytics) { window.siteAnalytics.capture('app_nav_toggled', { to: next }); }
+            });
+
+            render();
+        }
+
+        // Below the breakpoint the same nav is a sheet that pushes down from
+        // the bar. Kept separate from the collapse state so a phone reader
+        // never inherits a desktop choice.
+        if (menu) {
+            menu.addEventListener('click', function () {
+                var open = root.dataset.appNavSheet === 'open';
+                root.dataset.appNavSheet = open ? 'closed' : 'open';
+                menu.setAttribute('aria-expanded', String(!open));
+            });
+        }
+    })();
+</script>

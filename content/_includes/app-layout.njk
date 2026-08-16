@@ -13,25 +13,28 @@
         <a class="skip-link" href="#main">Skip to content</a>
 
         {#
-          Apps get a slim bar rather than the full sidebar — they want the
-          width. Before this existed the only way off an app page was a bare
-          link at the very bottom, below however much the app itself rendered.
+          App pages get the same left-hand navigation as the rest of the site,
+          collapsed to a 60px rail on request — apps want the width, but the
+          horizontal .app-bar this replaced put the nav somewhere it appeared
+          nowhere else, so every app page navigated differently from every
+          other page.
+
+          The nav is the four sections only. The sidebar's sub-lists (recent
+          posts, gigs, Elsewhere) stay off app pages; Elsewhere is in the
+          footer, which app pages already render.
+
+          Nothing sits between the nav and the app: the app supplies its own
+          <h1>, and the way back out is the Apps link in the nav.
         #}
-        <header class="app-bar">
-            <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
-            <nav class="app-bar-nav" aria-label="Sections">
-                <a href="/apps/">All apps</a>
-                <a href="/posts/">Posts</a>
-                <a href="/gigs/">Gigs</a>
-            </nav>
-            {% include "partials/theme-toggle.njk" %}
-        </header>
+        {% include "partials/app-nav.njk" %}
 
-        <main id="main">
-            {{ content | safe }}
-        </main>
+        <div class="app-column">
+            <main id="main">
+                {{ content | safe }}
+            </main>
 
-        {% include "partials/site-footer.njk" %}
+            {% include "partials/site-footer.njk" %}
+        </div>
     </body>
 
 </html>
