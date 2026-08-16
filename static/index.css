@@ -844,6 +844,16 @@ figure {
   white-space: nowrap;
 }
 
+.app-nav-home:hover,
+.app-nav-home:focus {
+  text-decoration: underline;
+}
+
+.app-nav-home:hover .site-name,
+.app-nav-home:focus .site-name {
+  color: var(--color-muted);
+}
+
 .app-nav-mugshot {
   flex: 0 0 auto;
   width: 34px;
@@ -946,9 +956,13 @@ html.js .app-nav-collapse {
   color: var(--color-accent);
 }
 
+.app-nav-collapse:hover .app-nav-chevron {
+  color: var(--color-accent);
+}
+
 .app-nav-chevron::before {
   content: "\2039";
-  font-size: 1.4em;
+  font-size: 2.8em;
   line-height: 1;
 }
 
