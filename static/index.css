@@ -366,11 +366,6 @@ html.js .sidebar .theme-toggle-wrap {
   text-align: left;
 }
 
-/* In the full-width app bar it sits at the far end, away from the nav. */
-html.js .app-bar .theme-toggle-wrap {
-  margin-left: auto;
-}
-
 html.js .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -779,34 +774,377 @@ figure {
   margin: 0;
 }
 
-/* App pages — a slim bar instead of the sidebar, since apps want the width */
+/* ============================================================================
+   App pages — the site sidebar, collapsible to a rail.
 
-.app-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5em 1.5em;
-  padding: 1.5em 4% 1em 4%;
-  border-bottom: 1px solid var(--color-rule);
+   REPLACES the ".app-bar" / ".app-bar-nav" rules in the "App pages" section
+   of index.css (and the "html.js .app-bar .theme-toggle-wrap" rule further
+   up). Everything below ".app-page .shell" in that section — the min-width
+   and app-shell rules — stays exactly as it is.
+   ============================================================================ */
+
+:root {
+  /* Narrower than the content sidebar's 170px + mugshot, because an app page
+     carries four links rather than twenty. */
+  --app-nav-width: 208px;
+  --app-rail-width: 60px;
 }
 
-.app-bar-nav {
+.app-page {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25em 1.25em;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-.app-bar-nav a {
-  display: inline-flex;
+/* The nav paints no background of its own — same as .sidebar, so the body
+   gradient (and the light theme's grid) runs unbroken underneath it, and
+   only the rule separates nav from app. */
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  width: var(--app-nav-width);
+  height: 100vh;
+  padding: 1.1em 0.75em;
+  overflow: hidden auto;
+  transition: width 180ms ease;
+
+  /* Same reasoning as .sidebar: Windows renders a permanent grey gutter. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.app-nav::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+:root[data-app-nav="collapsed"] .app-nav {
+  width: var(--app-rail-width);
+}
+
+/* The label text is what goes; the icon column and its 26px width stay put,
+   so nothing shifts horizontally as the rail closes. */
+:root[data-app-nav="collapsed"] .app-nav-text,
+:root[data-app-nav="collapsed"] .app-nav-home .site-name,
+:root[data-app-nav="collapsed"] .app-nav .theme-toggle-label {
+  display: none;
+}
+
+.app-nav-home {
+  display: flex;
   align-items: center;
+  gap: 0.6em;
+  padding: 0 0.3em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-nav-mugshot {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.app-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
   min-height: 44px;
+  padding: 0 0.3em;
   color: var(--color-text);
   text-decoration: none;
+  white-space: nowrap;
 }
 
-.app-bar-nav a:hover,
-.app-bar-nav a:focus {
+.app-nav-link:hover,
+.app-nav-link:focus {
   color: var(--color-accent);
+}
+
+/* A filled block of #ff9900 is far too loud on the dark background, so the
+   current section is marked with a rule on the leading edge instead — the
+   negative margin keeps the label aligned with the others. */
+.app-nav-link.is-current {
+  color: var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+  margin-left: -2px;
+}
+
+.app-nav-icon {
+  flex: 0 0 auto;
+  width: 26px;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: calc(1.05em * var(--heading-scale));
+  color: var(--color-muted);
+}
+
+.app-nav-link.is-current .app-nav-icon {
+  color: var(--color-accent);
+}
+
+.app-nav-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+/* The sidebar's fixed-width, auto-margined toggle wrapper would inflate the
+   rail; in here it is just a block. */
+html.js .app-nav .theme-toggle-wrap {
+  width: auto;
+  margin: 0;
+}
+
+/* Borderless in the nav column — the button sits in a list of links, and a
+   boxed control among them reads as a different kind of thing. */
+html.js .app-nav .theme-toggle {
+  gap: 0.75em;
+  padding: 0 0.3em;
+  border: none;
+}
+
+html.js .app-nav .theme-toggle-icon {
+  width: 26px;
+  background-color: transparent;
+  color: inherit;
+}
+
+.app-nav-collapse {
+  display: none;
+  align-items: center;
+  gap: 0.75em;
+  min-height: 44px;
+  padding: 0 0.3em;
+  background: transparent;
+  border: none;
+  color: var(--color-muted);
+  font-family: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+html.js .app-nav-collapse {
+  display: flex;
+}
+
+.app-nav-collapse:hover {
+  color: var(--color-accent);
+}
+
+.app-nav-chevron::before {
+  content: "\2039";
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+:root[data-app-nav="collapsed"] .app-nav-chevron::before {
+  content: "\203A";
+}
+
+/* The mobile bar. Hidden on desktop, where .app-nav is the navigation. */
+.app-nav-bar {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Below the desktop breakpoint. Same 47.999em as the rest of the stylesheet.
+   The sidebar becomes a 48px bar and the nav a sheet that pushes down from it.
+   --------------------------------------------------------------------------- */
+@media only screen and (max-width: 47.999em) {
+  .app-page {
+    display: block;
+  }
+
+  .app-nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    min-height: 48px;
+    padding: 0 0.9em;
+    border-bottom: 1px solid var(--color-rule);
+    background-color: var(--color-bg-top);
+  }
+
+  .app-nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .app-nav-menu-bars,
+  .app-nav-menu-bars::before,
+  .app-nav-menu-bars::after {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background-color: currentColor;
+  }
+
+  .app-nav-menu-bars::before,
+  .app-nav-menu-bars::after {
+    content: "";
+    position: relative;
+  }
+
+  .app-nav-menu-bars::before { top: -5.5px; }
+  .app-nav-menu-bars::after { top: 4px; }
+
+  .app-nav {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 48px);
+    padding: 0.4em 0.9em 1em;
+    border-right: none;
+    border-bottom: 1px solid var(--color-rule);
+    background-color: var(--color-bg-top);
+    transform: translateY(-110%);
+    transition: transform 200ms ease;
+  }
+
+  :root[data-app-nav-sheet="open"] .app-nav {
+    transform: translateY(0);
+  }
+
+  /* A desktop collapse must not follow the reader onto a phone. */
+  :root[data-app-nav="collapsed"] .app-nav {
+    width: auto;
+  }
+
+  :root[data-app-nav="collapsed"] .app-nav-text,
+  :root[data-app-nav="collapsed"] .app-nav .theme-toggle-label {
+    display: inline;
+  }
+
+  /* The bar already carries the site name and the mugshot; repeating both at
+     the top of the sheet just pushes the links out of thumb reach. */
+  .app-nav-home,
+  .app-nav-collapse {
+    display: none;
+  }
+
+  html.js .app-nav-collapse {
+    display: none;
+  }
+
+  .app-nav-link {
+    min-height: 48px;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+}
+
+/* ============================================================================
+   Patch 2 — six fixes on top of the first patch.
+
+   Follow patch2/APPLY.md: three deletions from static/index.css, then paste
+   this block in the same place.
+   ============================================================================ */
+
+:root {
+  /*
+    Nudges the app's first line onto the same baseline as the site name in the
+    nav beside it. Derived, not guessed: the nav's 1.1em padding-top puts the
+    top of its 34px name row at 17.6px, and the name is centred in that row.
+    Zeroing the app <h1>'s own 0.3em top margin (below) overshoots by a few
+    pixels, and this puts them back.
+
+    If your render is a pixel or two out, this is the one number to nudge.
+  */
+  --app-content-top: 20px;
+
+  /* Breathing room between the nav's rule and the app. The app's own left
+     padding sits inside this. */
+  --app-gutter: 14px;
+}
+
+.app-column {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: var(--app-content-top);
+  padding-left: var(--app-gutter);
+}
+.app-page .app-shell,
+    .app-page .shell,
+    .app-page .gig-tracker {
+      padding-top: 0px;
+    }
+/*
+  The app's <h1> is the page's title again — there is no title bar above it, so
+  its own top margin is measuring from nothing. Removing it is what lets
+  --app-content-top do the aligning.
+*/
+.app-page .app-shell h1:first-child,
+.app-page .app-shell .gig-tracker h1:first-child,
+.app-page .shell > .panel > h1:first-child {
+  margin-top: 0;
+}
+
+/*
+  Gig Tracker column headings.
+
+  gig-history.css sets thead th to --muted, which content/_data/gigTrackerApp.mjs
+  maps to --color-muted — so the headings came out grey while every other
+  heading on the site is the accent. The app's stylesheet is scoped to
+  .gig-tracker and inlined after index.css, so this needs the extra class to
+  win. Both themes are handled for free: --color-accent is #ff9900 in dark and
+  #1c4f8c in light.
+
+  Fixing it here rather than in gig-history.css on purpose — that file is
+  regenerated on every build (see content/GigTracker/README.md).
+*/
+.app-page .gig-tracker thead th {
+  color: var(--color-accent);
+}
+
+/* The headings are sort controls, so they still need a hover state. Underline
+   rather than a colour change: dimming an accent heading on hover reads as
+   disabling it. */
+.app-page .gig-tracker thead th:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/*
+  Elsewhere in the footer.
+
+  .site-footer-externals is display:none above the breakpoint because the
+  desktop sidebar carries the same links — but the app nav deliberately does
+  not, so on an app page those links exist nowhere at all. Same reasoning that
+  already shows them on mobile.
+*/
+.app-page .site-footer-externals {
+  display: block;
 }
 
 /* Grid and flex items default to min-width:auto, so a child with a wide
@@ -852,7 +1190,7 @@ figure {
 
 @media (width >= 850px) {
   .app-page .app-shell {
-    padding: 2rem 4%;
+    padding: 2px 0%;
   }
 }
 
