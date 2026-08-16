@@ -278,10 +278,10 @@ describe('Smoke Tests - Structure and accessibility', function () {
 
   it('should give app pages a way back into the site', function () {
     const $ = load('ExifCmdLine', 'index.html');
-    const barLinks = $('.app-bar a').map((_, a) => $(a).attr('href')).get();
+    const navLinks = $('.app-nav-bar a, .app-nav a').map((_, a) => $(a).attr('href')).get();
 
-    expect(barLinks, 'link home').to.include('/');
-    expect(barLinks, 'link to apps index').to.include('/apps/');
+    expect(navLinks, 'link home').to.include('/');
+    expect(navLinks, 'link to apps index').to.include('/apps/');
     expect($('main').length, 'exactly one main').to.equal(1);
     expect($('footer').length, 'footer present').to.equal(1);
   });
