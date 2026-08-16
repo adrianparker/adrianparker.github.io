@@ -95,6 +95,9 @@ tbody td {
   font-size: 0.85rem;
   vertical-align: top;
 }
+tbody td:first-child {
+  white-space: nowrap;
+}
 tbody tr:nth-child(even) {
   background: var(--row-alt);
 }
