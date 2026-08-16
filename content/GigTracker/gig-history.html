@@ -64,12 +64,23 @@ function splitPerformers(str) {
   return str.split(",").map(s => s.trim()).filter(Boolean);
 }
 
+// City options narrow to the selected Country; Venue options narrow to the
+// selected Country and/or City. Every other dropdown always lists every
+// value seen across all of GIGS.
 function uniqueSorted(key) {
+  let rows = GIGS;
+  if (key === "city" && filters.country) {
+    rows = rows.filter(g => g.country === filters.country);
+  }
+  if (key === "venue") {
+    if (filters.country) rows = rows.filter(g => g.country === filters.country);
+    if (filters.city) rows = rows.filter(g => g.city === filters.city);
+  }
   const vals = new Set();
   if (key === "performer") {
-    GIGS.forEach(g => splitPerformers(g.performer).forEach(p => vals.add(p)));
+    rows.forEach(g => splitPerformers(g.performer).forEach(p => vals.add(p)));
   } else {
-    GIGS.forEach(g => { if (g[key]) vals.add(g[key]); });
+    rows.forEach(g => { if (g[key]) vals.add(g[key]); });
   }
   return Array.from(vals).sort((a,b) => a.localeCompare(b));
 }
@@ -79,6 +90,12 @@ function attachFilterListeners() {
     const sel = document.getElementById(filterIds[key]);
     sel.addEventListener("change", () => {
       filters[key] = sel.value;
+      // Changing Country or City can invalidate the current City/Venue
+      // selection, so rebuild every dropdown's option list (populateFilters
+      // also clears any selection that's no longer valid).
+      if (key === "country" || key === "city") {
+        populateFilters();
+      }
       render();
     });
   });
@@ -213,6 +230,9 @@ function selectFilter(key, value) {
   });
   searchTerm = "";
   document.getElementById("search").value = "";
+  // Rebuild dropdown options so City/Venue reflect whichever filter was
+  // just set (e.g. clicking a Country link should narrow City/Venue).
+  populateFilters();
   render();
 }
 
@@ -250,6 +270,9 @@ function resetDropdownFilters() {
 
 document.getElementById("reset").addEventListener("click", () => {
   resetDropdownFilters();
+  // Country/City are back to "", so this also restores the full,
+  // un-narrowed City/Venue option lists.
+  populateFilters();
   searchTerm = "";
   document.getElementById("search").value = "";
   render();
@@ -261,6 +284,7 @@ const searchInput = document.getElementById("search");
 // starts from the full unfiltered table.
 searchInput.addEventListener("focus", () => {
   resetDropdownFilters();
+  populateFilters();
   render();
 });
 
