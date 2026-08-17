@@ -28,7 +28,14 @@ export default function (eleventyConfig) {
     "node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2":
       "fonts/bebas-neue-latin-400-normal.woff2",
     "node_modules/@fontsource/kalam/files/kalam-latin-700-normal.woff2":
-      "fonts/kalam-latin-700-normal.woff2"
+      "fonts/kalam-latin-700-normal.woff2",
+    // Exploration candidates for #87, not yet wired into the default theme.
+    "node_modules/@fontsource/oswald/files/oswald-latin-700-normal.woff2":
+      "fonts/oswald-latin-700-normal.woff2",
+    "node_modules/@fontsource/fjalla-one/files/fjalla-one-latin-400-normal.woff2":
+      "fonts/fjalla-one-latin-400-normal.woff2",
+    "node_modules/@fontsource/staatliches/files/staatliches-latin-400-normal.woff2":
+      "fonts/staatliches-latin-400-normal.woff2"
   });
 
   /*

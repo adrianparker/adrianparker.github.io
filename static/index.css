@@ -35,6 +35,36 @@
 }
 
 /*
+  Exploration candidates for #87 (light-mode heading font is too wide).
+  Not referenced by --heading-font yet — swapped in at runtime for
+  screenshot comparison. Remove whichever don't get picked once Adrian
+  decides.
+*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/oswald-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fjalla One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/fjalla-one-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Staatliches';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/staatliches-latin-400-normal.woff2') format('woff2');
+}
+
+/*
   Colour tokens.
 
   Dark is the original palette, with thanks to
