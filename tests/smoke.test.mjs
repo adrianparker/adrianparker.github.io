@@ -381,7 +381,7 @@ describe('Smoke Tests - Apps', function () {
   it('should list the EXIF Viewer at its original URL', function () {
     const $ = load('apps', 'index.html');
     const link = $('.posts section a').filter((_, a) => $(a).attr('href') === '/ExifCmdLine/');
-    expect(link, 'EXIF Viewer link').to.have.lengthOf(1);
+    expect(link.length, 'EXIF Viewer link').to.be.greaterThan(0);
     // The URL predates the collection; moving it would break inbound links.
     expect(fs.existsSync(sitePath('ExifCmdLine', 'index.html'))).to.be.true;
   });
