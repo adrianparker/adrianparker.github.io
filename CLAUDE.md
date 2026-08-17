@@ -73,7 +73,7 @@ visual suite before anything touching CSS or templates.
 
 ## Deploy
 
-Merging to `master` triggers `.github/workflows/build.yml`, which builds, runs smoke tests, and publishes `_site/` to GitHub Pages via `peaceiris/actions-gh-pages`. Live within about two minutes.
+Merging to `master` triggers `.github/workflows/build.yml`, which builds, runs smoke tests, and publishes `_site/` to GitHub Pages via `actions/upload-pages-artifact` + `actions/deploy-pages`. Live within about two minutes.
 
 **There is no staging environment.** Whatever merges is what the public sees.
 
