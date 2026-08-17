@@ -36,14 +36,7 @@
   pure-min.css carried an integrity hash — so the grid stylesheet was
   unverified. Local files need neither.
 #}
-{#
-  Both heading faces are preloaded, not just the one the OS default would
-  pick: the toggle can switch to either at any time, and which one is
-  "default" depends on a localStorage read that hasn't happened yet when
-  these tags are parsed.
-#}
 <link rel="preload" href="{{ '/fonts/bebas-neue-latin-400-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ '/fonts/kalam-latin-700-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/vendor/pure-min.css' | url }}">
 <link rel="stylesheet" href="{{ '/vendor/grids-responsive-min.css' | url }}">
 {#

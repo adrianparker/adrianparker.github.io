@@ -214,27 +214,26 @@ describe('Analytics', function () {
       await context.close();
     });
 
-    it('serves Pure.css and each theme\'s heading webfont from this origin', async function () {
-      // Dark renders headings in Bebas Neue, light in Kalam — neither loads
-      // unless it's the one actually applied, so each needs its own colour
-      // scheme rather than one shared assertion.
-      for (const [colorScheme, font] of [['dark', 'Bebas Neue'], ['light', 'Kalam']]) {
+    it('serves Pure.css and the heading webfont from this origin', async function () {
+      // Both themes render headings in Bebas Neue, so one assertion covers
+      // both colour schemes rather than needing a per-theme font.
+      for (const colorScheme of ['dark', 'light']) {
         const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, colorScheme });
         const page = await context.newPage();
         await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
 
-        const local = await page.evaluate(async (fontName) => {
+        const local = await page.evaluate(async () => {
           await document.fonts.ready;
           return {
             sheets: [...document.querySelectorAll('link[rel="stylesheet"]')].map((l) => l.getAttribute('href')),
-            fontLoaded: document.fonts.check(`1em "${fontName}"`)
+            fontLoaded: document.fonts.check('1em "Bebas Neue"')
           };
-        }, font);
+        });
 
         local.sheets.forEach((href) => {
           expect(href, `${href} is same-origin`).to.match(/^\//);
         });
-        expect(local.fontLoaded, `${font} available in ${colorScheme} theme`).to.be.true;
+        expect(local.fontLoaded, `Bebas Neue available in ${colorScheme} theme`).to.be.true;
         await context.close();
       }
     });
