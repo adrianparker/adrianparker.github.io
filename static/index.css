@@ -1150,6 +1150,21 @@ html.js .app-nav-collapse {
 }
 
 /*
+  The table's intrinsic content width can exceed the viewport on mobile.
+  With no scroll container of its own, the whole page becomes horizontally
+  pannable (#89) — not just the table — which exposes raw page background
+  to the right of the filters/heading, in the table's own --panel colour
+  rather than the page's. Making the table its own scroll region keeps the
+  rest of the page pinned to the viewport width.
+*/
+.app-page .gig-tracker table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*
   Elsewhere in the footer.
 
   .site-footer-externals is display:none above the breakpoint because the
