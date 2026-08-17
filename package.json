@@ -34,7 +34,6 @@
     "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-plugin-rss": "^3.0.0",
     "@fontsource/bebas-neue": "^5.3.0",
-    "@fontsource/kalam": "^5.3.0",
     "exifcmdline": "github:adrianparker/ExifCmdLine#v1.0.5",
     "markdown-it": "^15.0.0",
     "markdown-it-footnote": "^4.0.0",
@@ -46,9 +45,6 @@
     "nanoid": "^3.3.18"
   },
   "devDependencies": {
-    "@fontsource/fjalla-one": "^5.3.0",
-    "@fontsource/oswald": "^5.3.0",
-    "@fontsource/staatliches": "^5.3.0",
     "c8": "^12.0.0",
     "chai": "^6.2.2",
     "cheerio": "^1.2.0",
