@@ -840,13 +840,8 @@ figure {
   align-items: center;
   gap: 0.6em;
   padding: 0 0.3em;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.app-nav-home:hover,
-.app-nav-home:focus {
   text-decoration: underline;
+  white-space: nowrap;
 }
 
 .app-nav-home:hover .site-name,
@@ -920,18 +915,12 @@ html.js .app-nav .theme-toggle-wrap {
   margin: 0;
 }
 
-/* Borderless in the nav column — the button sits in a list of links, and a
-   boxed control among them reads as a different kind of thing. */
 html.js .app-nav .theme-toggle {
   gap: 0.75em;
-  padding: 0 0.3em;
-  border: none;
 }
 
 html.js .app-nav .theme-toggle-icon {
   width: 26px;
-  background-color: transparent;
-  color: inherit;
 }
 
 .app-nav-collapse {
@@ -1164,18 +1153,6 @@ html.js .app-nav-collapse {
   -webkit-overflow-scrolling: touch;
 }
 
-/*
-  Elsewhere in the footer.
-
-  .site-footer-externals is display:none above the breakpoint because the
-  desktop sidebar carries the same links — but the app nav deliberately does
-  not, so on an app page those links exist nowhere at all. Same reasoning that
-  already shows them on mobile.
-*/
-.app-page .site-footer-externals {
-  display: block;
-}
-
 /* Grid and flex items default to min-width:auto, so a child with a wide
    intrinsic size (the file input) forces its track wider than the container.
    That made the EXIF Viewer overflow ~21px horizontally on a phone — a
@@ -1387,9 +1364,14 @@ html.js .app-nav-collapse {
 
   /* Without this the Flickr / GitHub / LinkedIn / Spotify / YouTube / RSS / X
      links are unreachable on a phone entirely, since they live only in the
-     hidden sidebar. */
+     hidden sidebar. App pages are excluded — the app nav has no Elsewhere
+     links elsewhere on the page, so it should not appear there at all. */
   .site-footer-externals {
     display: block;
+  }
+
+  .app-page .site-footer-externals {
+    display: none;
   }
 
   .blog-post-summary {

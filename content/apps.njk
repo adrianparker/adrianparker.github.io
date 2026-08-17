@@ -12,7 +12,7 @@ permalink: /apps/index.html
 
     <section>
         <p class="entry-meta">{{ app.data.date | readableDate }}</p>
-        <h2 class="entry-title">{{ app.data.title }}</h2>
+        <h2 class="entry-title"><a href="{{ app.page.url | url }}">{{ app.data.title }}</a></h2>
         <p class="blog-post-summary">
             {{ app.data.summary | safe }}
         </p>
