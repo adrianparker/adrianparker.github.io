@@ -77,7 +77,7 @@
   theme-toggle.njk, and the appInlineStyles block above) — tracked as a
   follow-up issue to drop 'unsafe-inline' once those are nonced/hashed.
 #}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.posthog.com https://*.i.posthog.com https://*.flickr.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.staticflickr.com https://www.setlist.fm; font-src 'self'; connect-src 'self' https://*.posthog.com https://*.i.posthog.com; frame-src https://*.flickr.com; form-action 'self' https://adrianparker.us6.list-manage.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.posthog.com https://*.i.posthog.com https://*.flickr.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.staticflickr.com https://www.setlist.fm; font-src 'self'; connect-src 'self' https://*.posthog.com https://*.i.posthog.com; media-src 'self' https://*.cloudfront.net; frame-src https://*.flickr.com; form-action 'self' https://adrianparker.us6.list-manage.com; object-src 'none'; base-uri 'self';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="{{ eleventy.generator }}">
