@@ -126,8 +126,11 @@ function applyFilters(rows) {
     });
     if (!matchesDropdowns) return false;
     if (!searchTerm) return true;
-    return ["date", "performer", "category", "city", "country", "venue", "show", "association"]
+    const matchesOtherFields = ["date", "performer", "category", "city", "country", "venue", "show"]
       .some(key => (g[key] || "").toLowerCase().includes(searchTerm));
+    const matchesAssociation = splitPerformers(g.association)
+      .some(a => a.toLowerCase() === searchTerm);
+    return matchesOtherFields || matchesAssociation;
   });
 }
 

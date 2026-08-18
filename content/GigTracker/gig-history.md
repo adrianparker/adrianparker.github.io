@@ -109,13 +109,13 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2015-10-02 | Devilskin, Sumo Cyco, Curly's Jewels | Music | Wellington | New Zealand | San Fran |  |  |
 | 2015-09-19 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Classical Hits |  |
 | 2015-08-31 | Dylan Moran | Comedy | Wellington | New Zealand | St James Theatre |  |  |
-| 2015-08-13 | Ahoribuzz | Music | Wellington | New Zealand | Meow |  |  |
+| 2015-08-13 | Ahoribuzz | Music | Wellington | New Zealand | Meow |  | Aaron Tokona |
 | 2015-06-12 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Wagner Gala |  |
 | 2015-06-04 | Dee Dee Bridgewater, Irvin Mayfield & The New Orleans Jazz Orchestra | Music | Wellington | New Zealand | The Opera House |  |  |
 | 2015-05-09 | Motley Crue, Alice Cooper | Music | Auckland | New Zealand | Vector Arena | The Final Tour |  |
 | 2015-05-03 | Everclear | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 2015-04-02 | Billy Idol, Cheap Trick, The Angels | Music | Wellington | New Zealand | TSB Arena |  |  |
-| 2015-03-29 | Gary Clark Jr, Aaron Tokona | Music | Wellington | New Zealand | Shed 6 |  | Weta |
+| 2015-03-29 | Gary Clark Jr, Aaron Tokona | Music | Wellington | New Zealand | Shed 6 |  | |
 | 2015-03-01 | Slipknot, Marilyn Manson, Slash, Fall Out Boy, Judas Priest, The Smashing Pumpkins | Music | Sydney | Australia | Olympic Park | Soundwave Festival |  |
 | 2015-02-18 | Slash, Devilskin | Music | Wellington | New Zealand | TSB Arena |  |  |
 | 2015-02-14 | Supergroove, Dave Dobbyn, Don McGlashan, Anika Moa | Music | Martinborough | New Zealand | Luna Estate | The Winery Tour 2015 |  |
@@ -380,7 +380,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1998-10-09 | The Living End, Brubeck | Music | Wellington | New Zealand | James Cabaret |  |  |
 | 1998-10-01 | Whores Next Door, Tau, Empty Quarter | Music | Wellington | New Zealand | Indigo |  |  |
 | 1998-09-25 | Whores, Empty Quarter, Wretched Skinny, Trawler, Big Blue Blanket | Music | Wellington | New Zealand | Black Kat Cafe |  |  |
-| 1998-09-18 | Fur Patrol, Weta | Music | Wellington | New Zealand | Indigo |  |  |
+| 1998-09-18 | Fur Patrol, Weta | Music | Wellington | New Zealand | Indigo |  | Aaron Tokona |
 | 1998-09-14 | Death In June | Music | Wellington | New Zealand | Indigo |  |  |
 | 1998-09-03 | The Whores Next Door, Lamps, Pushkats | Music | Wellington | New Zealand | Indigo |  |  |
 | 1998-08-21 | The Whores Next Door, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe |  |  |
@@ -390,7 +390,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1998-04-09 | Breathe, The Stereo Bus, Tim Finn, DLT & Che Fu, Head Like A Hole | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1998-04-08 | Portishead | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1998-03-10 | Cassandra Wilson | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
-| 1998-02-19 | Foo Fighters, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
+| 1998-02-19 | Foo Fighters, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  | Aaron Tokona |
 | 1998-01-29 | Radiohead | Music | Wellington | New Zealand | Queens Wharf Events Centre |  |  |
 | 1997-10-03 | Bike, Breakfast of Champions | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1997-07-05 | Faith No More, Better Than Ezra, The Nixons, Orbit, Muse | Music | Fort Lauderdale | United States of America | Markham Park | Zetafest |  |
@@ -402,8 +402,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1997-02-22 | ENZSO (Split Enz / NZ Symphony Orchestra) | Music | Upper Hutt | New Zealand | Trentham Memorial Park |  |  |
 | 1997-02-21 | Letterbox Lambs, Superette | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1997-01-22 | The Exponents, Pash | Music | Wellington | New Zealand | James Cabaret |  |  |
-| 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
-| 1997-01-05 | Weta, Breathe, Short | Music | Wellington | New Zealand | Civic Square |  |  |
+| 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  | Aaron Tokona |
+| 1997-01-05 | Weta, Breathe, Short | Music | Wellington | New Zealand | Civic Square |  | Aaron Tokona |
 | 1996-12-18 | The Warners | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1996-05-10 | Shihad | Music | Wellington | New Zealand | James Cabaret |  |  |
 | 1996-05-04 | Red Hot Chilli Peppers, Thorazine Shuffle | Music | Wellington | New Zealand | Events Centre |  |  |
