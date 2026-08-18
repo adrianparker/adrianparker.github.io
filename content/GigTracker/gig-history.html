@@ -73,7 +73,10 @@ function uniqueSorted(key) {
   }
   const vals = new Set();
   if (key === "performer") {
-    rows.forEach(g => splitPerformers(g.performer).forEach(p => vals.add(p)));
+    rows.forEach(g => {
+      splitPerformers(g.performer).forEach(p => vals.add(p));
+      if (g.association) vals.add(g.association);
+    });
   } else {
     rows.forEach(g => { if (g[key]) vals.add(g[key]); });
   }
@@ -116,12 +119,14 @@ function applyFilters(rows) {
   return rows.filter(g => {
     const matchesDropdowns = Object.keys(filters).every(key => {
       if (!filters[key]) return true;
-      if (key === "performer") return splitPerformers(g.performer).includes(filters[key]);
+      if (key === "performer") {
+        return splitPerformers(g.performer).includes(filters[key]) || g.association === filters[key];
+      }
       return g[key] === filters[key];
     });
     if (!matchesDropdowns) return false;
     if (!searchTerm) return true;
-    return ["date", "performer", "category", "city", "country", "venue", "show"]
+    return ["date", "performer", "category", "city", "country", "venue", "show", "association"]
       .some(key => (g[key] || "").toLowerCase().includes(searchTerm));
   });
 }
