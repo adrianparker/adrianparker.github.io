@@ -141,6 +141,14 @@ describe("shortcodes — imageShortcode", () => {
     expect(html).to.contain('alt="A test caption"');
   });
 
+  it("sets width and height on the img fallback to prevent layout shift", () => {
+    const img = html.match(/<img [^>]*>/)[0];
+    const maxWidth = Math.max(...IMAGE_WIDTHS);
+    // fixture is a 4:3 image (1000x750), so height should scale proportionally
+    expect(img).to.contain(`width="${maxWidth}"`);
+    expect(img).to.contain(`height="${Math.round((maxWidth * 750) / 1000)}"`);
+  });
+
   it("sets lazy loading and async decoding", () => {
     expect(html).to.contain('loading="lazy"');
     expect(html).to.contain('decoding="async"');

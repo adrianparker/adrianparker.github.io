@@ -138,7 +138,7 @@ acoustic jam tours... it felt like a natural end when I heard the news. The end 
 Their advertised last ever gig on the tour was Homegrown, a festival in Wellington. 
 Tickets to Homegrown were too expensive for me though given Shihad were the only band I wanted to see. 
 
-Luckily, they were also playing an outdoor ampitheatre in New Plymouth, on a day I was going to be there on holiday. 
+Luckily, they were also playing an outdoor amphitheatre in New Plymouth, on a day I was going to be there on holiday. 
 My mate Paul who played bass in a band I was in,  Phuego, lives in New Plymouth and was keen to go too. 
 Great chance to catch up with an old friend *and* rock out to Shihad one last time. 
 

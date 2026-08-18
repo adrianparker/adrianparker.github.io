@@ -8,7 +8,7 @@ readingtime: '3 minutes'
 ---
 ## How to make a Wine Cork Notice Board
 
-I'm not generally regarded as an arts and crafts type of person. Arts, perhaps, especially the musical kind; and crafty, sure, I can identify with that; but put the two words together and generally thats's enough to make me run for the hills.
+I'm not generally regarded as an arts and crafts type of person. Arts, perhaps, especially the musical kind; and crafty, sure, I can identify with that; but put the two words together and generally that's enough to make me run for the hills.
 
 However I've been collecting wine corks for seemingly forever, and the last couple of years I've been assiduously putting off this project, until last weekend when I said to myself, you know what, get it done. And so I did. 
 
@@ -35,7 +35,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
  - Instruct small person to cut the corks length ways, preserving the most interesting details
  - Cutting corks is easier if you cut multiple times...
    - cut the whole length each time 
-   - only cut a a third of the depth each time
+   - only cut a third of the depth each time
    - three shallow cuts is much easier that one full depth cut
    - Set to one side any offcuts
  - If the frame has glass, take that out so you just have the backing board and the frame
@@ -48,7 +48,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
    - Remember to fill all the gaps, using offcuts cut to shape
  - Starting top left, glue in the remaining corks length ways with interesting text facing outwards
    - Aiming to fill the frame top to bottom left to right with straight corks when possible
- - Glue offcuts in the small gaps that inevitable appear until there are no gaps left
+ - Glue offcuts in the small gaps that inevitably appear until there are no gaps left
  
 {% image "img/IMG_7120.jpg", "The finished wine cork notice board" %}
 
