@@ -11,13 +11,12 @@
 <div class="subtitle" id="subtitle"></div>
 
 <div class="filters">
-  <select id="f-performer"><option value="">All Performers</option></select>
+  <select id="f-performer"><option value="">All Shows</option></select>
   <input type="text" id="search" placeholder="Search all columns...">
   <select id="f-category"><option value="">All Categories</option></select>
   <select id="f-city"><option value="">All Cities</option></select>
   <select id="f-country"><option value="">All Countries</option></select>
   <select id="f-venue"><option value="">All Venues</option></select>
-  <select id="f-show"><option value="">All Shows / Festivals</option></select>
   <button id="reset">Clear filters</button>
   <button id="reload">Reload</button>
   <input type="file" id="file-input" accept=".md" style="display:none">
@@ -30,12 +29,12 @@
   <thead>
     <tr>
       <th data-key="date">Date<span class="arrow"></span></th>
-      <th data-key="performer">Performer<span class="arrow"></span></th>
+      <th data-key="performer">Show<span class="arrow"></span></th>
       <th data-key="category">Category<span class="arrow"></span></th>
       <th data-key="city">City<span class="arrow"></span></th>
       <th data-key="country">Country<span class="arrow"></span></th>
       <th data-key="venue">Venue<span class="arrow"></span></th>
-      <th data-key="show">Show / Festival<span class="arrow"></span></th>
+      <th data-key="show">Notes<span class="arrow"></span></th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -47,7 +46,7 @@ let GIGS = [{"date": "2026-06-27", "performer": "Hadestown: Teen Edition", "cate
 let sortKey = "date";
 let sortDir = "desc"; // desc = newest first by default
 
-const filters = { performer: "", category: "", city: "", country: "", venue: "", show: "" };
+const filters = { performer: "", category: "", city: "", country: "", venue: "" };
 let searchTerm = "";
 
 const filterIds = {
@@ -55,8 +54,7 @@ const filterIds = {
   category: "f-category",
   city: "f-city",
   country: "f-country",
-  venue: "f-venue",
-  show: "f-show"
+  venue: "f-venue"
 };
 
 function splitPerformers(str) {

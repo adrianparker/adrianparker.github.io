@@ -25,13 +25,13 @@ to it.
 followed by one data row per gig, most recent first:
 
 ```
-| Date | Performer | Category | City | Country | Venue | Show / Festival |
+| Date | Show | Category | City | Country | Venue | Notes |
 |---|---|---|---|---|---|---|
-| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition |
+| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |
 ```
 
 All seven columns are required on every row (leave a column blank rather than
-omitting it — see the `Show / Festival` column above). Free text before the
+omitting it — see the `Notes` column above). Free text before the
 header (a title, a description paragraph) and after the table (notes) is
 ignored by the parser in `lib/gig-history.mjs`; only lines starting with `|`
 after the header count as rows, and a row with the wrong number of columns is

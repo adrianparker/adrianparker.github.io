@@ -7,27 +7,27 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 
 **Most recent GIG in this file: 2026-06-27 — Hadestown: Teen Edition** — when updating this log, only fetch calendar events after this date.
 
-| Date | Performer | Category | City | Country | Venue | Show / Festival |
+| Date | Show | Category | City | Country | Venue | Notes |
 |---|---|---|---|---|---|---|
-| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition |
-| 2026-06-23 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition |
+| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |
+| 2026-06-23 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |
 | 2026-05-23 | Teen Jesus and the Jean Teasers, Ivy | Music | Wellington | New Zealand | San Fran |  |
 | 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre |  |
 | 2026-03-20 | The Datsuns, Warm Leather | Music | Wellington | New Zealand | San Fran |  |
-| 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa Theatre | Werewolf |
+| 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa Theatre |  |
 | 2026-02-27 | Transvision Vamp, Dropper | Music | Wellington | New Zealand | Meow Nui |  |
 | 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre |  |
 | 2025-11-26 | Pixies, Elliot & Vincent | Music | Wellington | New Zealand | St James Theatre |  |
 | 2025-11-22 | Beastwars, Soft Bait, Pull Down The Sun | Music | Wellington | New Zealand | Meow Nui |  |
 | 2025-10-21 | Commodores | Music | Wellington | New Zealand | St James Theatre |  |
-| 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa Theatre | 2:22 A Ghost Story |
-| 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre | Mamma Mia |
-| 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | The Addams Family: A New Musical |
+| 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa Theatre |  |
+| 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre |  |
+| 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's |  |
 | 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui |  |
 | 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House |  |
 | 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 |
-| 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre | Sense and Sensibility |
+| 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre |  |
 | 2024-02-25 | The National, The Beths | Music | Wellington | New Zealand | TSB Arena |  |
 | 2024-01-27 | Simple Minds, Texas, Collective Soul, Pseudo Echo | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2024 |
 | 2023-12-07 | Come Together | Music | Wellington | New Zealand | St James Theatre | The Best of Come Together - Big End of Year Bash 2023 |
@@ -49,7 +49,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-06-12 | The Nathan Haines Octet | Music | Wellington | New Zealand | The Opera House |  |
 | 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge |  |
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre |  |
-| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | The Artist |
+| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre |  |
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena |  |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Come Together - Dire Straits' Brothers In Arms |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena |  |
@@ -73,7 +73,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House |  |
 | 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's |  |
-| 2018-09-13 | Chicago | Theatre | Wellington | New Zealand | The Opera House | Chicago |
+| 2018-09-13 | Chicago | Theatre | Wellington | New Zealand | The Opera House |  |
 | 2018-07-13 | Beastwars, Earth Tongue, Slumbug | Music | Wellington | New Zealand | San Fran |  |
 | 2017-12-14 | Alt-J, Warpaint | Music | Wellington | New Zealand | TSB Arena |  |
 | 2017-09-14 | Hollie Smith, Mark Vanilau | Music | Wellington | New Zealand | San Fran |  |
@@ -93,7 +93,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2016-10-20 | Julianna Barwick | Music | Wellington | New Zealand | Caroline |  |
 | 2016-10-15 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Nutcracker |
 | 2016-09-10 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Memory of an Angel |
-| 2016-09-04 | Shaolin Warriors | Theatre | Wellington | New Zealand | St James Theatre | Shaolin Warriors |
+| 2016-09-04 | Shaolin Warriors | Theatre | Wellington | New Zealand | St James Theatre |  |
 | 2016-07-16 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Capriccio |
 | 2016-06-11 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Odes To Joy |
 | 2016-05-07 | Jim Jefferies | Comedy | Wellington | New Zealand | The Opera House |  |
@@ -141,7 +141,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2013-09-20 | Fat Freddy's Drop | Music | Wellington | New Zealand | The Opera House |  |
 | 2013-09-12 | The Datsuns, Milk Train | Music | Wellington | New Zealand | Bar Bodega |  |
 | 2013-07-27 | Shapeshifter | Music | Wellington | New Zealand | Wellington Town Hall |  |
-| 2013-07-20 | Hairy Maclairy Live | Theatre | Wellington | New Zealand | The Opera House | Hairy Maclairy Live |
+| 2013-07-20 | Hairy Maclairy Live | Theatre | Wellington | New Zealand | The Opera House |  |
 | 2013-05-05 | Tom Green | Comedy | Wellington | New Zealand | The Opera House |  |
 | 2013-05-04 | Unida, Beastwars | Music | Wellington | New Zealand | Bar Bodega |  |
 | 2013-03-19 | Neil Young and Crazy Horse, Husky, The Drones | Music | Wellington | New Zealand | TSB Arena |  |
@@ -158,12 +158,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2012-06-26 | Robert Cray | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2012-06-20 | Tom Petty, Jonathan Wilson | Music | London | United Kingdom | Royal Albert Hall |  |
 | 2012-06-05 | Cypress Hill | Music | London | United Kingdom | The Forum |  |
-| 2012-06-02 | The Sunshine Boys | Theatre | London | United Kingdom | Savoy Theatre | The Sunshine Boys |
+| 2012-06-02 | The Sunshine Boys | Theatre | London | United Kingdom | Savoy Theatre |  |
 | 2012-05-26 | Judas Priest, Saxon | Music | London | United Kingdom | Hammersmith Apollo |  |
 | 2012-05-03 | Jose Gonzalez, Tinariwen | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2012-04-30 | Russian Circles, Wovenhand | Music | London | United Kingdom | Scala |  |
 | 2012-03-25 | Korn, Downlink | Music | London | United Kingdom | Brixton Academy |  |
-| 2012-03-20 | The Phantom Of The Opera | Theatre | London | United Kingdom | Her Majesty's Theatre | The Phantom Of The Opera |
+| 2012-03-20 | The Phantom Of The Opera | Theatre | London | United Kingdom | Her Majesty's Theatre |  |
 | 2012-03-15 | Anthrax | Music | London | United Kingdom | Islington Academy |  |
 | 2012-02-26 | Imogen Heap, Ana Silvera | Music | London | United Kingdom | Roundhouse |  |
 | 2012-02-06 | Gilby Clarke, Badmouth | Music | London | United Kingdom | Underworld Camden |  |
@@ -219,7 +219,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-06-29 | Melissa Etheridge | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling |
 | 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy |  |
-| 2010-06-03 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre | Love Never Dies |
+| 2010-06-03 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre |  |
 | 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | HMV Forum |  |
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall |  |
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe |  |
@@ -234,7 +234,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-11-19 | Julian Clary | Comedy | London | United Kingdom | Leicester Square Theatre |  |
 | 2009-11-17 | Alice In Chains, Little Fish | Music | London | United Kingdom | HMV Forum |  |
 | 2009-11-12 | Biffy Clyro, Manchester Orchestra | Music | London | United Kingdom | Brixton Academy |  |
-| 2009-11-05 | Othello | Theatre | London | United Kingdom | Trafalgar Studios | Othello |
+| 2009-11-05 | Othello | Theatre | London | United Kingdom | Trafalgar Studios |  |
 | 2009-11-01 | Europe | Music | London | United Kingdom | Relentless Garage |  |
 | 2009-10-28 | ZZ Top, Steel Panther | Music | London | United Kingdom | Wembley Arena |  |
 | 2009-10-10 | The Cult, Aqua Nebula Oscillator | Music | London | United Kingdom | Royal Albert Hall |  |
@@ -257,12 +257,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-06-16 | Anthrax, Trigger the Bloodshed, Suicide Silence | Music | London | United Kingdom | ULU |  |
 | 2009-06-10 | Faith No More, Selfish Cunt | Music | London | United Kingdom | Brixton Academy |  |
 | 2009-06-06 | James Taylor Quartet | Music | London | United Kingdom | 100 Club |  |
-| 2009-06-03 | Waiting for Godot | Theatre | London | United Kingdom | Theatre Royal Haymarket | Waiting for Godot |
+| 2009-06-03 | Waiting for Godot | Theatre | London | United Kingdom | Theatre Royal Haymarket |  |
 | 2009-05-05 | Therapy? | Music | London | United Kingdom | Islington Academy |  |
 | 2009-05-03 | Gary Moore | Music | London | United Kingdom | Hammersmith Apollo |  |
 | 2009-03-30 | Sinead O'Connor | Music | London | United Kingdom | The Pigalle Club |  |
 | 2009-03-28 | Metallica, Machine Head, The Sword | Music | London | United Kingdom | The O2 Arena |  |
-| 2009-03-13 | Oliver | Theatre | London | United Kingdom | Theatre Royal Drury Lane | Oliver |
+| 2009-03-13 | Oliver | Theatre | London | United Kingdom | Theatre Royal Drury Lane |  |
 | 2009-02-21 | Judas Priest, Megadeth, Testament | Music | London | United Kingdom | Wembley Arena |  |
 | 2009-02-19 | The Datsuns | Music | London | United Kingdom | Underworld Camden |  |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Comedy | London | United Kingdom | Hammersmith Apollo | Nine Lessons and Carols for Godless People |
@@ -281,7 +281,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-09-23 | Nigel Kennedy Quintet | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2008-09-18 | Duff McKagen | Music | London | United Kingdom | Islington Academy |  |
 | 2008-09-17 | Doug Stanhope | Comedy | London | United Kingdom | Arts Theatre |  |
-| 2008-09-16 | Riflemind starring John Hannah | Theatre | London | United Kingdom | Trafalgar Studios | Riflemind |
+| 2008-09-16 | Riflemind starring John Hannah | Theatre | London | United Kingdom | Trafalgar Studios |  |
 | 2008-09-13 | Allanah Myles | Music | London | United Kingdom | The Underworld |  |
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly |  |
 | 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | California | United States of America | Shoreline Ampitheatre | Metal Masters Tour |
@@ -291,9 +291,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-07-31 | Billy Idol | Music | London | United Kingdom | Brixton Academy |  |
 | 2008-07-20 | Nigel Kennedy, BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 2008 |
 | 2008-07-19 | Jill Scott | Music | London | United Kingdom | Brixton Academy |  |
-| 2008-07-16 | Fat Pig | Theatre | London | United Kingdom | Trafalgar Studios | Fat Pig |
-| 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | National Theatre | The Year of Magical Thinking |
-| 2008-07-10 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe | The Frontline |
+| 2008-07-16 | Fat Pig | Theatre | London | United Kingdom | Trafalgar Studios |  |
+| 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | National Theatre |  |
+| 2008-07-10 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe |  |
 | 2008-07-05 | Iron Maiden, Avenged Sevenfold, Within Temptation, Lauren Harris | Music | London | United Kingdom | Twickenham Stadium |  |
 | 2008-07-03 | Duran Duran, The Duke Spirit, The Real People | Music | London | United Kingdom | The O2 |  |
 | 2008-06-28 | Eric Clapton, Sheryl Crow, John Mayer, Jason Mraz, Robert Randolph and The Family Band, Steve Boyce Band | Music | London | United Kingdom | Hyde Park | Hard Rock Calling |
@@ -301,7 +301,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-06-26 | Def Leppard, Whitesnake, Black Stone Cherry | Music | London | United Kingdom | Wembley Arena |  |
 | 2008-06-15 | Radiohead, Bat For Lashes | Music | Nimes | France | Arènes de Nîmes |  |
 | 2008-06-10 | The Herbaliser | Music | London | United Kingdom | 93 Feet East |  |
-| 2008-05-29 | We Will Rock You | Theatre | London | United Kingdom | Dominion Theatre | We Will Rock You |
+| 2008-05-29 | We Will Rock You | Theatre | London | United Kingdom | Dominion Theatre |  |
 | 2008-05-27 | Mark Knopfler, Bap Kennedy | Music | London | United Kingdom | Royal Albert Hall |  |
 | 2008-05-23 | Public Enemy, Dr Octagon (Kool Keith), Kutmasta Kurt, Edan, Anti Pop Consortium, MC Dagha | Music | London | United Kingdom | Brixton Academy |  |
 | 2008-05-17 | The Trailer Boat Ride | Music | London | United Kingdom |  |  |
@@ -314,12 +314,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-03-20 | The Cure | Music | London | United Kingdom | Wembley Arena |  |
 | 2008-03-16 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo |  |
 | 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum, Kentish Town |  |
-| 2008-03-01 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic | Speed-the-plow |
+| 2008-03-01 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic |  |
 | 2008-02-24 | Tiesto, Ferry Corsten, Marco V, Sander van Doorn | Music | Utrecht | The Netherlands | Jaarbeurs (Trance Energy) | Trance Energy |
 | 2008-02-16 | Ninja Tune, The Bug (Flowdan), Plastician, Ghislain Poirier, Bonobo, DJ Food, Coldcut (Jon More), zero dB, The Death Set, X Rabit | Music | London | United Kingdom | Electrowerkz | Ninja Tune presents You Don't Know |
 | 2008-02-02 | Great White | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2007-12-13 | Chemical Bros, Simian Mobile Disco | Music | London | United Kingdom | Brixton Academy |  |
-| 2007-11-29 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre | Macbeth |
+| 2007-11-29 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre |  |
 | 2007-11-28 | English National Opera | Opera | London | United Kingdom | London Coliseum | Aida |
 | 2007-11-24 | Amy Winehouse | Music | London | United Kingdom | Hammersmith Apollo |  |
 | 2007-11-23 | The Hives | Music | London | United Kingdom | Hammersmith Apollo |  |
@@ -333,7 +333,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-10-23 | LCD Soundsystem | Music | London | United Kingdom | Brixton Academy |  |
 | 2007-10-18 | Underworld | Music | London | United Kingdom | Roundhouse |  |
 | 2007-10-11 | Turin Brakes | Music | London | United Kingdom | The Forum |  |
-| 2007-10-09 | Swimming with Sharks | Theatre | London | United Kingdom | Vaudeville Theatre | Swimming with Sharks |
+| 2007-10-09 | Swimming with Sharks | Theatre | London | United Kingdom | Vaudeville Theatre |  |
 | 2007-10-06 | Amp Fiddler | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2007-09-29 | Russell Brand | Comedy | London | United Kingdom | Hackney Empire |  |
 | 2007-09-18 | Kosheen | Music | London | United Kingdom | KOKO |  |
@@ -347,7 +347,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-07-08 | Metallica, Machine Head, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium |  |
 | 2007-07-07 | Madonna, Red Hot Chili Peppers, Genesis, Duran Duran, Metallica, Foo Fighters, Beastie Boys, Snow Patrol, Keane, Black Eyed Peas, John Legend, David Gray, Damien Rice, Corinne Bailey Rae, James Blunt, Kasabian, Bloc Party, Paolo Nutini, Pussycat Dolls | Music | London | United Kingdom | Wembley Stadium | Live Earth |
 | 2007-06-17 | Muse, Biffy Clyro, My Chemical Romance | Music | London | United Kingdom | Wembley Stadium |  |
-| 2007-03-12 | Avenue Q | Theatre | London | United Kingdom | Noel Coward Theatre | Avenue Q |
+| 2007-03-12 | Avenue Q | Theatre | London | United Kingdom | Noel Coward Theatre |  |
 | 2007-02-15 | Indigo Girls | Music | London | United Kingdom | Shepherd's Bush Empire |  |
 | 2007-02-06 | Wolfmother | Music | London | United Kingdom | Hammersmith Apollo |  |
 | 2006-12-23 | Iron Maiden, Trivium, Lauren Harris | Music | London | United Kingdom | Earls Court |  |
