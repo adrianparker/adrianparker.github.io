@@ -6,10 +6,10 @@ const TABLE = [
   "",
   "Some description text.",
   "",
-  "| Date | Performer | Category | City | Country | Venue | Show / Festival |",
-  "|---|---|---|---|---|---|---|",
-  "| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition |",
-  "| 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre |  |"
+  "| Date | Show | Category | City | Country | Venue | Notes | Association |",
+  "|---|---|---|---|---|---|---|---|",
+  "| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition | Weta |",
+  "| 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre |  |  |"
 ].join("\n");
 
 describe("gig-history — parseGigHistory", () => {
@@ -23,7 +23,8 @@ describe("gig-history — parseGigHistory", () => {
       city: "Paraparaumu",
       country: "New Zealand",
       venue: "Coastlands Theatre",
-      show: "Hadestown: Teen Edition"
+      show: "Hadestown: Teen Edition",
+      association: "Weta"
     });
   });
 

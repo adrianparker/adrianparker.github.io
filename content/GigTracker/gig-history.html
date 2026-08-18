@@ -287,7 +287,10 @@ function parseGigMarkdown(text) {
     if (!trimmed.startsWith("|")) continue;
     const parts = trimmed.replace(/^\|+/, "").replace(/\|+$/, "")
       .split("|").map(p => p.trim());
-    if (parts.length === 7) {
+    if (parts.length === 8) {
+      const [date, performer, category, city, country, venue, show, association] = parts;
+      rows.push({ date, performer, category, city, country, venue, show, association });
+    } else if (parts.length === 7) {
       const [date, performer, category, city, country, venue, show] = parts;
       rows.push({ date, performer, category, city, country, venue, show });
     } else if (parts.length === 6) {
