@@ -30,7 +30,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre | |  |
 | 2024-02-25 | The National, The Beths | Music | Wellington | New Zealand | TSB Arena | |  |
 | 2024-01-27 | Simple Minds, Texas, Collective Soul, Pseudo Echo | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2024 | |
-| 2023-12-07 | Come Together | Music | Wellington | New Zealand | St James Theatre | The Best of Come Together - Big End of Year Bash 2023 | |
+| 2023-12-07 | Come Together | Music | Wellington | New Zealand | St James Theatre | Big End of Year Bash 2023 | |
 | 2023-11-12 | Robbie Williams, Ladyhawke | Music | Napier | New Zealand | Mission Estate Winery | |  |
 | 2023-03-18 | Shihad, Devilskin, Villainy, The Feelers, Racing, Che Fu | Music | Wellington | New Zealand | Waitangi Park | Jim Beam Homegrown 2023 | Jon Toogood |
 | 2023-02-04 | ZZ Top, Pat Benatar, Stone Temple Pilots, The Angels | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2023 | |
@@ -42,7 +42,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2022-10-22 | George Thorogood & The Destroyers | Music | Wellington | New Zealand | Michael Fowler Centre | |  |
 | 2022-09-23 | The Beths | Music | Wellington | New Zealand | The Opera House | |  |
 | 2022-08-20 | Reb Fountain, Jazmine Mary | Music | Wellington | New Zealand | The Opera House | |  |
-| 2022-07-07 | Come Together | Music | Wellington | New Zealand | The Opera House | Rumours | |
+| 2022-07-07 | Come Together | Music | Wellington | New Zealand | The Opera House | Fleetwood Mac - Rumours | |
 | 2022-07-02 | Hollie Smith | Music | Wellington | New Zealand | Meow | |  |
 | 2022-06-25 | Teeks, NZ Symphony Orchestra | Music | Wellington | New Zealand | St James Theatre | Guest appearance by Hollie Smith | |
 | 2021-12-10 | Mel Parsons | Music | Wellington | New Zealand | Meow | |  |
@@ -51,7 +51,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | |  |
 | 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | |  |
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | | Neil Finn |
-| 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Come Together - Dire Straits' Brothers In Arms | |
+| 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena | |  |
 | 2020-10-17 | Thomas Oliver | Music | Wellington | New Zealand | The Opera House | |  |
 | 2020-10-09 | The Beths | Music | Wellington | New Zealand | San Fran | |  |
@@ -69,7 +69,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2019-03-02 | Eminem, Hilltop Hoods | Music | Wellington | New Zealand | Westpac Stadium | |  |
 | 2019-02-23 | Trinity Roots, The Beths, C.W. Stoneking, The Miltones | Music | Paraparaumu | New Zealand | Southward's Car Museum | Coastella | |
 | 2019-02-06 | Jon Toogood | Music | Wellington | New Zealand | Meow | |  |
-| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Whose Line Is It Anyway | |
+| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | |
 | 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House | |  |
 | 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 | Jon Toogood |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's | |  |
@@ -196,7 +196,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-05-22 | The Straits | Music | London | United Kingdom | Royal Albert Hall | The Straits' debut public performance (charity show) | |
 | 2011-05-20 | The Naked And Famous | Music | London | United Kingdom | Shepherd's Bush Empire | |  |
 | 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 | |  |
-| 2011-05-16 | Uncaged Monkeys | Comedy | London | United Kingdom | Hammersmith Apollo | Uncaged Monkeys — Brian Cox, Ben Goldacre, Simon Singh, Robin Ince, Helen Arney | |
+| 2011-05-16 | Uncaged Monkeys | Comedy | London | United Kingdom | Hammersmith Apollo | Featuring Brian Cox, Ben Goldacre, Simon Singh, Robin Ince, Helen Arney | |
 | 2011-05-05 | Paloma Faith | Music | London | United Kingdom | Union Chapel | |  |
 | 2011-04-11 | Jose Gonzalez, Gothenburg String Theory, Little Scream | Music | London | United Kingdom | Barbican Hall | |  |
 | 2011-04-08 | Ed Byrne | Comedy | London | United Kingdom | Hammersmith Apollo | |  |
