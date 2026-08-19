@@ -285,7 +285,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-09-16 | Riflemind starring John Hannah | Theatre | London | United Kingdom | Trafalgar Studios | |  |
 | 2008-09-13 | Allanah Myles | Music | London | United Kingdom | The Underworld | |  |
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly | |  |
-| 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | California | United States of America | Shoreline Ampitheatre | Metal Masters Tour | |
+| 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | Mountain View | United States of America | Shoreline Ampitheatre | Metal Masters Tour | |
 | 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | |
 | 2008-08-20 | Maceo Parker | Music | London | United Kingdom | The Pigalle Club | |  |
 | 2008-08-13 | Lenny Kravitz, Sons of Albion | Music | London | United Kingdom | Brixton Academy | |  |
