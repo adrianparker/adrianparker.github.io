@@ -268,7 +268,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-02-19 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | Hammersmith Apollo | Featuring Richard Dawkins, Ben Goldacre, Simon Singh, Stewart Lee, Ricky Gervais, Josie Long, Tim Minchin, Richard Herring, Natalie Haynes, Chris Addison, Mark Thomas, Phil Jupitus, Dara Ó Briain, Jo Neary, Peter Buckley Hill, Jarvis Cocker, Robyn Hitchcock, Darren Hayman, Waen Shepherd, The Martin White Mini Fax Machine Orchestra, Gavin Osborn | Ricky Gervais |
 | 2008-12-17 | Biffy Clyro, Frightened Rabbit, People in Planes | Music | London | United Kingdom | Brixton Academy | | |
-| 2008-12-10 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | | |
+| 2008-12-09 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | | |
 | 2008-12-07 | Coldplay | Music | Glasgow | United Kingdom | SECC | | |
 | 2008-12-03 | Slipknot, Machine Head, Children of Bodom | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2008-11-24 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | What It Is | |
@@ -289,7 +289,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly | | |
 | 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | Mountain View | United States of America | Shoreline Ampitheatre | Metal Masters Tour | |
 | 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | |
-| 2008-08-23 | Carl Cox, Erick Morillo, John Digweed, Fedde Le Grand, Layo & Bushwacka!, Paolo Mojo | Music | London | United Kingdom | South West Four | Guest appearance by Danny Tenaglia | |
+| 2008-08-23 | Carl Cox, Erick Morillo, John Digweed, Fedde Le Grand, Layo & Bushwacka!, Paolo Mojo | Music | London | United Kingdom | Clapham Common | South West Four (2008). Guest appearance by Danny Tenaglia | |
 | 2008-08-20 | Maceo Parker | Music | London | United Kingdom | The Pigalle Club | | |
 | 2008-08-13 | Lenny Kravitz, Sons of Albion | Music | London | United Kingdom | Brixton Academy | | |
 | 2008-07-31 | Billy Idol | Music | London | United Kingdom | Brixton Academy | | |
@@ -319,7 +319,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-03-20 | The Cure, 65 Days of Static | Music | London | United Kingdom | Wembley Arena | | |
 | 2008-03-16 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum, Kentish Town | | |
-| 2008-03-01 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic | | |
+| 2008-02-29 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic | | |
 | 2008-02-24 | Tiesto, Ferry Corsten, Marco V, Sander van Doorn | Music | Utrecht | The Netherlands | Jaarbeurs (Trance Energy) | Trance Energy | |
 | 2008-02-16 | Ninja Tune, The Bug (Flowdan), Plastician, Ghislain Poirier, Bonobo, DJ Food, Coldcut (Jon More), zero dB, The Death Set, X Rabit | Music | London | United Kingdom | Electrowerkz | Ninja Tune presents You Don't Know | |
 | 2008-02-02 | Great White | Music | London | United Kingdom | Shepherd's Bush Empire | | |
@@ -335,7 +335,6 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-11-08 | Lez Zeppelin | Music | London | United Kingdom | Mean Fiddler | | |
 | 2007-11-05 | Tesla, Killing For Company | Music | London | United Kingdom | Islington Academy | | |
 | 2007-11-02 | W.A.S.P. | Music | London | United Kingdom | London Astoria | | |
-| 2007-10-30 | Ratt | Music | London | United Kingdom | Astoria | | |
 | 2007-10-23 | LCD Soundsystem | Music | London | United Kingdom | Brixton Academy | | |
 | 2007-10-18 | Underworld | Music | London | United Kingdom | Roundhouse | | |
 | 2007-10-11 | Turin Brakes | Music | London | United Kingdom | The Forum | | |
