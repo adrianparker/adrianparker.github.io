@@ -148,7 +148,19 @@ function sortRows(rows) {
   return sortDir === "asc" ? sorted : sorted.reverse();
 }
 
+function updateActiveIndicators() {
+  let anyActive = searchTerm !== "";
+  Object.keys(filterIds).forEach(key => {
+    const isActive = !!filters[key];
+    if (isActive) anyActive = true;
+    document.getElementById(filterIds[key]).classList.toggle("is-active", isActive);
+  });
+  document.getElementById("search").classList.toggle("is-active", searchTerm !== "");
+  document.getElementById("reset").classList.toggle("is-active", anyActive);
+}
+
 function render() {
+  updateActiveIndicators();
   const filtered = applyFilters(GIGS);
   const sorted = sortRows(filtered);
   const tbody = document.getElementById("tbody");
