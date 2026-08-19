@@ -94,6 +94,12 @@ function attachFilterListeners() {
         populateFilters();
       }
       render();
+      // A <select> keeps matching :focus-visible after a real interaction
+      // (unlike a <button>), so the shared focus/active outline (#108)
+      // stays showing even once the value is back to "All..." and
+      // .is-active has been removed. Blurring after commit clears it,
+      // matching how the reset button already behaves.
+      sel.blur();
     });
   });
 }
