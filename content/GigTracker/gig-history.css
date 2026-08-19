@@ -51,9 +51,28 @@ h1 {
   cursor: pointer;
   color: var(--muted);
 }
-.filters button:hover {
+.filters button:hover,
+.filters button.is-active {
   color: var(--text);
+}
+.filters button:hover {
   border-color: var(--accent);
+}
+/*
+  .is-active marks a control that currently has a non-default value (a filter
+  chosen, text typed in search, or — for the reset button — any filter
+  active). It shares this rule with :focus-visible so the "something is set
+  here" indicator is pixel-identical to real focus, by construction rather
+  than by matching colours independently. See tests/smoke.test.mjs.
+*/
+.filters select:focus-visible,
+.filters input:focus-visible,
+.filters button:focus-visible,
+.filters select.is-active,
+.filters input.is-active,
+.filters button.is-active {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 .count {
   color: var(--muted);

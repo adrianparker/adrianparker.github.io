@@ -10,6 +10,7 @@ How to run, maintain and troubleshoot the tests for adrianparker.github.io.
 | **Smoke** (`tests/smoke.test.mjs`) | The build produced the right pages, with the right structure | ~60ms | yes |
 | **Theme** (`tests/theme.test.mjs`) | Light/dark toggle behaviour, persistence, no-JS fallback | ~35s | no, local only |
 | **Analytics** (`tests/analytics.test.mjs`) | PostHog config, custom events, no third-party requests | ~18s | no, local only |
+| **Gig Tracker** (`tests/gig-tracker.test.mjs`) | Filter "active" indicator matches real focus, in both themes | ~20s | no, local only |
 | **Visual regression** (`tests/visual-regression.test.mjs`) | Rendered appearance, against committed baseline screenshots | ~55s | no, local only |
 
 Mocha for running, Chai for assertions, c8 for coverage, cheerio for DOM
@@ -22,6 +23,7 @@ npm run test:unit      # unit tests + coverage gate. No build, no browser
 npm run test:smoke     # build + smoke tests
 npm run test:theme     # build + light/dark theme behaviour
 npm run test:analytics # build + PostHog config and custom events
+npm run test:gigtracker # build + gig tracker filter active indicator
 npm run test:visual    # build + visual regression
 npm test               # everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
