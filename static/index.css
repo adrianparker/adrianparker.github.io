@@ -530,7 +530,7 @@ p, label, th, td, section>a, .blog-post>ul {
   line-height: 1.5em;
 }
 
-h1, h2, label, a, a:visited, figcaption, .footnote-item, th {
+h1, h2, h3, label, a, a:visited, figcaption, .footnote-item, th {
   color: var(--color-accent);
 }
 
@@ -542,7 +542,7 @@ li>a:visited {
   color: var(--color-text);
 }
 
-h3, p, td, .blog-post>ul {
+p, td, .blog-post>ul {
   color: var(--color-text);
 }
 
