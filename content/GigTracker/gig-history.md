@@ -151,7 +151,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2012-07-27 | Hollie Smith | Music | London | United Kingdom | Vandella |  |  |
 | 2012-07-20 | Rhys Darby | Comedy | London | United Kingdom | Shepherd's Bush Empire |  |  |
 | 2012-07-17 | Madonna, LMFAO, Martin Solveig | Music | London | United Kingdom | Hyde Park | MDNA Tour |  |
-| 2012-07-14 | Bruce Springsteen | Music | London | United Kingdom | Hyde Park | Hard Rock Calling. Guest appearances by Paul McCartney, John Fogerty, Tom Morello |  |
+| 2012-07-14 | Bruce Springsteen, John Fogerty, Lady Antebellum, Amy Macdonald, Hey Monea! | Music | London | United Kingdom | Hyde Park | Hard Rock Calling. Guest appearances by Paul McCartney, John Fogerty, Tom Morello |  |
 | 2012-07-13 | Soundgarden, Iggy & the Stooges, Cold Chisel, Black Stone Cherry | Music | London | United Kingdom | Hyde Park | Hard Rock Calling |  |
 | 2012-07-08 | Faith No More, Guano Padano | Music | London | United Kingdom | Hammersmith Apollo | Guest appearance by Danny DeVito |  |
 | 2012-07-06 | Deadmau5, The Roots, Santigold, Childish Gambino, Metric | Music | London | United Kingdom | Hyde Park | Wireless Festival |  |
@@ -388,7 +388,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1998-08-19 | The Whores Next Door, Trinity, Salvage | Music | Wellington | New Zealand | Victoria University of Wellington | Battle of the Bands |  |
 | 1998-07-25 | Alex Paterson, Coda | Music | Wellington | New Zealand | Escape |  |  |
 | 1998-06-13 | Whores Next Door, Wretched Skinny | Music | Wellington | New Zealand | Black Kat Cafe |  |  |
-| 1998-04-09 | Breathe, The Stereo Bus, Tim Finn, DLT & Che Fu, Head Like A Hole | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
+| 1998-04-09 | Breathe, The Stereo Bus, Tim Finn, DLT & Che Fu, Head Like A Hole | Music | Wellington | New Zealand | Wellington Town Hall |  | DLT, Che Fu |
 | 1998-04-08 | Portishead | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1998-03-10 | Cassandra Wilson | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1998-02-19 | Foo Fighters, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  | Aaron Tokona |
@@ -400,7 +400,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1997-03-07 | Head Like A Hole, Frenzal Rhomb | Music | Wellington | New Zealand | Union Hall |  |  |
 | 1997-03-05 | Superette | Music | Wellington | New Zealand | Union Hall |  |  |
 | 1997-03-04 | David Harrow, Salmonella Dub | Music | Wellington | New Zealand | Union Hall |  | Tiki Taane |
-| 1997-02-22 | ENZSO (Split Enz / NZ Symphony Orchestra) | Music | Upper Hutt | New Zealand | Trentham Memorial Park |  |  |
+| 1997-02-22 | ENZSO | Music | Upper Hutt | New Zealand | Trentham Memorial Park | Featuring Split Enz / NZ Symphony Orchestra | Neil Finn, Tim Finn, NZ Symphony Orchestra |
 | 1997-02-21 | Letterbox Lambs, Superette | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1997-01-22 | The Exponents, Pash | Music | Wellington | New Zealand | James Cabaret |  | Jordan Luck |
 | 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  | Aaron Tokona |
