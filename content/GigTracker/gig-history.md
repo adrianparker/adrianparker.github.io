@@ -187,7 +187,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-08-13 | Throwing Needles | Music | London | United Kingdom | Punk (Soho) | | |
 | 2011-08-05 | Iron Maiden, DragonForce | Music | London | United Kingdom | The O2 Arena | | |
 | 2011-07-29 | Placido Domingo, Angela Gheorghiu | Opera | London | United Kingdom | The O2 Arena | | |
+| 2011-07-15 | James Taylor | Music | London | United Kingdom | The O2 | | |
 | 2011-07-14 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | | |
+| 2011-07-06 | Weezer | Music | London | United Kingdom | Brixton Academy | | |
 | 2011-06-30 | Cyndi Lauper, Charlie Musselwhite, Allen Toussaint | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2011-06-28 | BB King | Music | London | United Kingdom | Royal Albert Hall | Guest appearances by Slash, Ronnie Wood, Mick Hucknall, Derek Trucks, Susan Tedeschi | |
 | 2011-06-25 | Bon Jovi, Stevie Nicks, Ray Davies, Black Cards, Lissie, Vintage Trouble | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | |
@@ -217,6 +219,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | |
+| 2010-07-14 | Gil Scott-Heron | Music | London | United Kingdom | Somerset House | | |
 | 2010-06-29 | Melissa Etheridge | Music | London | United Kingdom | Shepherd's Bush Empire | | |
 | 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Neil Finn |
 | 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy | | Frank Black |
@@ -249,6 +252,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | HMV Forum | | |
 | 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena | | Eddie Vedder |
 | 2009-08-04 | Alice In Chains | Music | London | United Kingdom | Scala | | |
+| 2009-07-15 | Pendulum | Music | London | United Kingdom | Somerset House | | |
+| 2009-07-11 | Lily Allen | Music | London | United Kingdom | Somerset House | | |
 | 2009-07-04 | Jeff Beck, Imelda May, Tal Wilkenfeld | Music | London | United Kingdom | Royal Albert Hall | Guest appearance by David Gilmour | |
 | 2009-06-28 | Bruce Springsteen, Dave Matthews Band, James Morrison, The Gaslight Anthem | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | |
 | 2009-06-27 | Neil Young, The Pretenders, Seasick Steve, Fleet Foxes, Ben Harper & Relentless7 | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Ben Harper |
@@ -274,7 +279,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-11-24 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | What It Is | |
 | 2008-11-23 | Kristin Hersh | Music | London | United Kingdom | Borderline | | |
 | 2008-11-05 | Bryan Adams | Music | London | United Kingdom | The O2 | | |
-| 2008-10-26 | Cypress Hill | Music | London | United Kingdom | Battersea Power Station | | |
+| 2008-10-25 | Cypress Hill | Music | London | United Kingdom | Battersea Power Station | Freeze Festival | |
 | 2008-10-24 | Aimee Mann, The Submarines | Music | London | United Kingdom | IndigO2 (The O2) | | |
 | 2008-10-16 | Spiritualized | Music | London | United Kingdom | Roundhouse | | |
 | 2008-10-01 | Seasick Steve, Amy LaVere | Music | London | United Kingdom | Royal Albert Hall | | |
@@ -358,6 +363,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-07-04 | Tori Amos | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2007-06-28 | Tesla | Music | London | United Kingdom | Shepherd's Bush Empire | | |
 | 2007-06-27 | Fat Freddy's Drop | Music | London | United Kingdom | Astoria | | |
+| 2007-06-24 | Aerosmith, Chris Cornell, Jet, The Answer | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | |
+| 2007-06-23 | Peter Gabriel, Crowded House, The Feeling, Ghosts | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Neil Finn |
 | 2007-06-22 | The Jesus and Mary Chain | Music | London | United Kingdom | Royal Festival Hall | Meltdown 2007 | |
 | 2007-06-17 | Muse, Biffy Clyro, My Chemical Romance | Music | London | United Kingdom | Wembley Stadium | | |
 | 2007-06-11 | Motley Crue | Music | London | United Kingdom | Hammersmith Apollo | | |
@@ -381,6 +388,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-08-26 | Sander Kleinenberg, Steve Lawler, Carl Cox, Paul Oakenfold, John Digweed, Pete Tong, Judge Jules, Seb Fontaine, Danny Howells, Fergie, The Shapeshifters, Mauro Picotto, Stanton Warriors, Nic Fanciulli, Sander van Doorn, Desyn Masiello, James Zabiela, Ian Betts, Matt Hardwick | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2006 | |
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor | |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | | |
+| 2004-12-17 | Cypress Hill | Music | Wellington | New Zealand | Starlight Ballroom | | |
 | 2003-04-24 | Morcheeba | Music | Wellington | New Zealand | Wellington Town Hall | | |
 | 2002-07-11 | The Breeders | Music | San Francisco | United States of America | The Fillmore | | |
 | 2002-07-05 | The Cranberries | Music | Los Angeles | United States of America | Greek Theatre | | |
