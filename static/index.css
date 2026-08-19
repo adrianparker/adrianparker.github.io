@@ -1109,9 +1109,13 @@ html.js .app-nav-collapse {
   to the right of the filters/heading, in the table's own --panel colour
   rather than the page's. Making the table its own scroll region keeps the
   rest of the page pinned to the viewport width.
+
+  This scroll region has to be a wrapper div rather than the table itself
+  (#107): `display: block` on a <table> strips its table-box sizing, so the
+  anonymous internal table box shrinks to content width instead of filling
+  100% when the content is narrower than the container.
 */
-.app-page .gig-tracker table {
-  display: block;
+.app-page .gig-tracker .table-scroll {
   overflow-x: auto;
   max-width: 100%;
   -webkit-overflow-scrolling: touch;
