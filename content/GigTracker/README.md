@@ -27,7 +27,7 @@ followed by one data row per gig, most recent first:
 ```
 | Date | Show | Category | City | Country | Venue | Notes | Association |
 |---|---|---|---|---|---|---|---|
-| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |  |
+| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | |  |
 ```
 
 All eight columns are required on every row (leave a column blank rather than
