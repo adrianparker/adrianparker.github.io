@@ -75,7 +75,7 @@ function uniqueSorted(key) {
   if (key === "performer") {
     rows.forEach(g => {
       splitPerformers(g.performer).forEach(p => vals.add(p));
-      if (g.association) vals.add(g.association);
+      splitPerformers(g.association).forEach(a => vals.add(a));
     });
   } else {
     rows.forEach(g => { if (g[key]) vals.add(g[key]); });
@@ -120,7 +120,7 @@ function applyFilters(rows) {
     const matchesDropdowns = Object.keys(filters).every(key => {
       if (!filters[key]) return true;
       if (key === "performer") {
-        return splitPerformers(g.performer).includes(filters[key]) || g.association === filters[key];
+        return splitPerformers(g.performer).includes(filters[key]) || splitPerformers(g.association).includes(filters[key]);
       }
       return g[key] === filters[key];
     });
