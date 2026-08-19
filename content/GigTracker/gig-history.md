@@ -239,7 +239,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-10-28 | ZZ Top, Steel Panther | Music | London | United Kingdom | Wembley Arena | |  |
 | 2009-10-10 | The Cult, Aqua Nebula Oscillator | Music | London | United Kingdom | Royal Albert Hall | |  |
 | 2009-10-07 | Pixies | Music | London | United Kingdom | Brixton Academy | | Frank Black |
-| 2009-09-24 | JTQ + The Ronnie Scott's All Stars | Music | London | United Kingdom | Ronnie Scott's Jazz Club | |  |
+| 2009-09-24 | JTQ + The Ronnie Scott's All Stars | Music | London | United Kingdom | Ronnie Scott's Jazz Club | | James Taylor Quartet |
 | 2009-09-19 | Coldplay, Jay-Z, White Lies, Girls Aloud | Music | London | United Kingdom | Wembley Stadium | |  |
 | 2009-09-17 | Massive Attack | Music | London | United Kingdom | Brixton Academy | |  |
 | 2009-09-16 | Dame Kiri Te Kanawa | Opera | London | United Kingdom | The Tower of London | Continental Airlines Tower Festival | |
