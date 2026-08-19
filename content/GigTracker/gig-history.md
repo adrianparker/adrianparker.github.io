@@ -145,7 +145,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2013-07-20 | Hairy Maclairy Live | Theatre | Wellington | New Zealand | The Opera House | | |
 | 2013-05-05 | Tom Green | Comedy | Wellington | New Zealand | The Opera House | | |
 | 2013-05-04 | Unida, Beastwars | Music | Wellington | New Zealand | Bar Bodega | | |
-| 2013-03-19 | Neil Young and Crazy Horse, Husky, The Drones | Music | Wellington | New Zealand | TSB Arena | | |
+| 2013-03-19 | Neil Young and Crazy Horse, Husky, The Drones | Music | Wellington | New Zealand | TSB Arena | | Neil Young |
 | 2012-08-12 | Blur, New Order, The Specials | Music | London | United Kingdom | Hyde Park | BT London Live | |
 | 2012-08-01 | Ella Fitzgerald Experience | Music | London | United Kingdom | Ronnie Scott's Jazz Club | | |
 | 2012-07-28 | Eddie Vedder, Glen Hansard | Music | Manchester | United Kingdom | O2 Apollo | | |
@@ -187,7 +187,6 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-08-13 | Throwing Needles | Music | London | United Kingdom | Punk (Soho) | | |
 | 2011-08-05 | Iron Maiden, DragonForce | Music | London | United Kingdom | The O2 Arena | | |
 | 2011-07-29 | Placido Domingo, Angela Gheorghiu | Opera | London | United Kingdom | The O2 Arena | | |
-| 2011-07-15 | James Taylor | Music | London | United Kingdom | The O2 | | |
 | 2011-07-14 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | | |
 | 2011-07-06 | Weezer | Music | London | United Kingdom | Brixton Academy | | |
 | 2011-06-30 | Cyndi Lauper, Charlie Musselwhite, Allen Toussaint | Music | London | United Kingdom | Hammersmith Apollo | | |
@@ -252,8 +251,6 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | HMV Forum | | |
 | 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena | | Eddie Vedder |
 | 2009-08-04 | Alice In Chains | Music | London | United Kingdom | Scala | | |
-| 2009-07-15 | Pendulum | Music | London | United Kingdom | Somerset House | | |
-| 2009-07-11 | Lily Allen | Music | London | United Kingdom | Somerset House | | |
 | 2009-07-04 | Jeff Beck, Imelda May, Tal Wilkenfeld | Music | London | United Kingdom | Royal Albert Hall | Guest appearance by David Gilmour | |
 | 2009-06-28 | Bruce Springsteen, Dave Matthews Band, James Morrison, The Gaslight Anthem | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | |
 | 2009-06-27 | Neil Young, The Pretenders, Seasick Steve, Fleet Foxes, Ben Harper & Relentless7 | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Ben Harper |
