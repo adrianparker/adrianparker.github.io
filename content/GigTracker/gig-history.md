@@ -17,27 +17,27 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa Theatre |  |  |
 | 2026-02-27 | Transvision Vamp, Dropper | Music | Wellington | New Zealand | Meow Nui |  |  |
 | 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre |  |  |
-| 2025-11-26 | Pixies, Elliot & Vincent | Music | Wellington | New Zealand | St James Theatre |  |  |
+| 2025-11-26 | Pixies, Elliot & Vincent | Music | Wellington | New Zealand | St James Theatre |  | Frank Black |
 | 2025-11-22 | Beastwars, Soft Bait, Pull Down The Sun | Music | Wellington | New Zealand | Meow Nui |  |  |
 | 2025-10-21 | Commodores | Music | Wellington | New Zealand | St James Theatre |  |  |
 | 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa Theatre |  |  |
 | 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre |  |  |
 | 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Coastlands Theatre |  |  |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's |  |  |
-| 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui |  |  |
+| 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui |  | Jon Toogood |
 | 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House |  |  |
-| 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 |  |
+| 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 | Jon Toogood |
 | 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre |  |  |
 | 2024-02-25 | The National, The Beths | Music | Wellington | New Zealand | TSB Arena |  |  |
 | 2024-01-27 | Simple Minds, Texas, Collective Soul, Pseudo Echo | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2024 |  |
 | 2023-12-07 | Come Together | Music | Wellington | New Zealand | St James Theatre | The Best of Come Together - Big End of Year Bash 2023 |  |
 | 2023-11-12 | Robbie Williams, Ladyhawke | Music | Napier | New Zealand | Mission Estate Winery |  |  |
-| 2023-03-18 | Shihad, Devilskin, Villainy, The Feelers, Racing, Che Fu | Music | Wellington | New Zealand | Waitangi Park | Jim Beam Homegrown 2023 |  |
+| 2023-03-18 | Shihad, Devilskin, Villainy, The Feelers, Racing, Che Fu | Music | Wellington | New Zealand | Waitangi Park | Jim Beam Homegrown 2023 | Jon Toogood |
 | 2023-02-04 | ZZ Top, Pat Benatar, Stone Temple Pilots, The Angels | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2023 |  |
 | 2023-02-02 | Ed Sheeran, Kaylee Bell, Maisie Peters | Music | Wellington | New Zealand | Sky Stadium |  |  |
 | 2023-01-28 | Cowboy Junkies | Music | Wellington | New Zealand | The Opera House |  |  |
-| 2022-12-14 | Pixies, Anthonie Tonnon | Music | Wellington | New Zealand | The Opera House |  |  |
-| 2022-12-08 | Guns N' Roses, Alien Weaponry, The Chats | Music | Wellington | New Zealand | Sky Stadium |  |  |
+| 2022-12-14 | Pixies, Anthonie Tonnon | Music | Wellington | New Zealand | The Opera House |  | Frank Black |
+| 2022-12-08 | Guns N' Roses, Alien Weaponry, The Chats | Music | Wellington | New Zealand | Sky Stadium |  | Duff McKagen, Slash |
 | 2022-11-24 | David Gray | Music | Wellington | New Zealand | TSB Arena |  |  |
 | 2022-10-22 | George Thorogood & The Destroyers | Music | Wellington | New Zealand | Michael Fowler Centre |  |  |
 | 2022-09-23 | The Beths | Music | Wellington | New Zealand | The Opera House |  |  |
@@ -50,7 +50,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge |  |  |
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre |  |  |
 | 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre |  |  |
-| 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena |  |  |
+| 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena |  | Neil Finn |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Come Together - Dire Straits' Brothers In Arms |  |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena |  |  |
 | 2020-10-17 | Thomas Oliver | Music | Wellington | New Zealand | The Opera House |  |  |
@@ -60,7 +60,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2020-02-23 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Glass / Richter / Jarvi |  |
 | 2020-02-05 | Queen + Adam Lambert | Music | Wellington | New Zealand | Sky Stadium |  |  |
 | 2020-01-25 | Billy Idol, George Thorogood, Anastasia, Smash Mouth | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2020 |  |
-| 2019-09-16 | Fleetwood Mac | Music | Auckland | New Zealand | Spark Arena |  |  |
+| 2019-09-16 | Fleetwood Mac | Music | Auckland | New Zealand | Spark Arena |  | Neil Finn, Stevie Nicks |
 | 2019-07-24 | Hilltop Hoods, Jordan Lee | Music | Auckland | New Zealand | The Studio |  |  |
 | 2019-06-08 | Hollie Smith | Music | Wellington | New Zealand | The Thistle Inn |  |  |
 | 2019-06-05 | Herbie Hancock | Music | Wellington | New Zealand | Michael Fowler Centre | Wellington Jazz Festival 2019 |  |
@@ -71,7 +71,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2019-02-06 | Jon Toogood | Music | Wellington | New Zealand | Meow |  |  |
 | 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Whose Line Is It Anyway |  |
 | 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House |  |  |
-| 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 |  |
+| 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 | Jon Toogood |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's |  |  |
 | 2018-09-13 | Chicago | Theatre | Wellington | New Zealand | The Opera House |  |  |
 | 2018-07-13 | Beastwars, Earth Tongue, Slumbug | Music | Wellington | New Zealand | San Fran |  |  |
@@ -84,9 +84,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2017-04-28 | Ed Byrne | Comedy | Wellington | New Zealand | The Opera House |  |  |
 | 2017-04-22 | The Darkness, Push Push | Music | Christchurch | New Zealand | The Foundry |  |  |
 | 2017-03-23 | Adele | Music | Auckland | New Zealand | Mount Smart Stadium |  |  |
-| 2017-03-10 | Pixies, Cut Off Your Hands | Music | Wellington | New Zealand | TSB Arena |  |  |
+| 2017-03-10 | Pixies, Cut Off Your Hands | Music | Wellington | New Zealand | TSB Arena |  | Frank Black |
 | 2017-02-05 | James Taylor | Music | Napier | New Zealand | Church Road Winery |  |  |
-| 2017-02-02 | Guns N' Roses, Wolfmother | Music | Wellington | New Zealand | Westpac Stadium |  |  |
+| 2017-02-02 | Guns N' Roses, Wolfmother | Music | Wellington | New Zealand | Westpac Stadium |  | Duff McKagen, Slash |
 | 2016-12-04 | Ben Harper, Miller Yule | Music | Wellington | New Zealand | Michael Fowler Centre |  |  |
 | 2016-12-03 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | The Planets |  |
 | 2016-10-26 | Slipknot, Lamb of God | Music | Auckland | New Zealand | Vector Arena |  |  |
@@ -118,7 +118,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2015-03-29 | Gary Clark Jr, Aaron Tokona | Music | Wellington | New Zealand | Shed 6 |  | |
 | 2015-03-01 | Slipknot, Marilyn Manson, Slash, Fall Out Boy, Judas Priest, The Smashing Pumpkins | Music | Sydney | Australia | Olympic Park | Soundwave Festival |  |
 | 2015-02-18 | Slash, Devilskin | Music | Wellington | New Zealand | TSB Arena |  |  |
-| 2015-02-14 | Supergroove, Dave Dobbyn, Don McGlashan, Anika Moa | Music | Martinborough | New Zealand | Luna Estate | The Winery Tour 2015 |  |
+| 2015-02-14 | Supergroove, Dave Dobbyn, Don McGlashan, Anika Moa | Music | Martinborough | New Zealand | Luna Estate | The Winery Tour 2015 | Che Fu |
 | 2015-01-24 | Heart, Foreigner, 3 Dog Night | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2015 |  |
 | 2014-12-19 | The Datsuns | Music | Wellington | New Zealand | San Fran |  |  |
 | 2014-10-31 | Lorde | Music | Wellington | New Zealand | TSB Arena |  |  |
@@ -174,7 +174,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-11-22 | Wye Oak | Music | London | United Kingdom | XOYO |  |  |
 | 2011-11-19 | Bob Dylan, Mark Knopfler | Music | London | United Kingdom | Hammersmith Apollo |  |  |
 | 2011-11-15 | Roxette, Darren Hayes | Music | London | United Kingdom | Wembley Arena |  |  |
-| 2011-11-02 | Throwing Muses, Spectrals | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
+| 2011-11-02 | Throwing Muses, Spectrals | Music | London | United Kingdom | Shepherd's Bush Empire |  | Kristin Hersh |
 | 2011-10-29 | Alice Cooper, New York Dolls, Arthur Brown | Music | London | United Kingdom | Alexandra Palace | Guest appearance by Lou Reed |  |
 | 2011-10-27 | Lenny Kravitz | Music | London | United Kingdom | Hammersmith Apollo |  |  |
 | 2011-10-18 | Marketa Irglova | Music | London | United Kingdom | Bush Hall |  |  |
@@ -217,8 +217,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala |  |  |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo |  |  |
 | 2010-06-29 | Melissa Etheridge | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
-| 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling |  |
-| 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy |  |  |
+| 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Neil Finn |
+| 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy |  | Frank Black |
 | 2010-06-03 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre |  |  |
 | 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | HMV Forum |  |  |
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall |  |  |
@@ -238,7 +238,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-11-01 | Europe | Music | London | United Kingdom | Relentless Garage |  |  |
 | 2009-10-28 | ZZ Top, Steel Panther | Music | London | United Kingdom | Wembley Arena |  |  |
 | 2009-10-10 | The Cult, Aqua Nebula Oscillator | Music | London | United Kingdom | Royal Albert Hall |  |  |
-| 2009-10-07 | Pixies | Music | London | United Kingdom | Brixton Academy |  |  |
+| 2009-10-07 | Pixies | Music | London | United Kingdom | Brixton Academy |  | Frank Black |
 | 2009-09-24 | JTQ + The Ronnie Scott's All Stars | Music | London | United Kingdom | Ronnie Scott's Jazz Club |  |  |
 | 2009-09-19 | Coldplay, Jay-Z, White Lies, Girls Aloud | Music | London | United Kingdom | Wembley Stadium |  |  |
 | 2009-09-17 | Massive Attack | Music | London | United Kingdom | Brixton Academy |  |  |
@@ -246,7 +246,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-09-04 | Doug Stanhope | Comedy | London | United Kingdom | Leicester Square Theatre |  |  |
 | 2009-08-29 | Sasha & Digweed, David Guetta, Eric Prydz, Armin Van Buuren, Above & Beyond, Richie Hawtin | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2009 |  |
 | 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | HMV Forum |  |  |
-| 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena |  |  |
+| 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena |  | Eddie Vedder |
 | 2009-08-04 | Alice In Chains | Music | London | United Kingdom | Scala |  |  |
 | 2009-07-04 | Jeff Beck, Imelda May, Tal Wilkenfeld | Music | London | United Kingdom | Royal Albert Hall | Guest appearance by David Gilmour |  |
 | 2009-06-28 | Bruce Springsteen, Dave Matthews Band, James Morrison, The Gaslight Anthem | Music | London | United Kingdom | Hyde Park | Hard Rock Calling |  |
@@ -276,7 +276,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-10-26 | Cypress Hill | Music | London | United Kingdom | Battersea Power Station |  |  |
 | 2008-10-24 | Aimee Mann, The Submarines | Music | London | United Kingdom | IndigO2 (The O2) |  |  |
 | 2008-10-02 | Seasick Steve, Amy LaVere | Music | London | United Kingdom | Royal Albert Hall |  |  |
-| 2008-09-30 | Brett Anderson, Kid Harpoon | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
+| 2008-09-30 | Brett Anderson, Kid Harpoon | Music | London | United Kingdom | Shepherd's Bush Empire | | |
+| 2008-09-27 | Supergroove | Music | London | United Kingdom | Olympia Grand Hall | | |
 | 2008-09-26 | LA Guns, Love/Hate | Music | London | United Kingdom | Islington Academy |  |  |
 | 2008-09-23 | Nigel Kennedy Quintet | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
 | 2008-09-18 | Duff McKagen | Music | London | United Kingdom | Islington Academy |  |  |
@@ -357,10 +358,10 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-11-12 | Bruce Springsteen | Music | London | United Kingdom | Wembley Arena | Guest appearance by Nils Lofgren |  |
 | 2006-11-08 | The Datsuns | Music | London | United Kingdom | Electric Ballroom |  |  |
 | 2006-11-07 | INXS | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
-| 2006-10-21 | Salmonella Dub | Music | London | United Kingdom | Shepherd's Bush Empire |  |  |
+| 2006-10-21 | Salmonella Dub | Music | London | United Kingdom | Shepherd's Bush Empire |  | Tiki Taane |
 | 2006-10-08 | Sander Kleinenberg, Mark Knight, Sebastien Leger, Martijn Ten Velden, Nick Bridges | Music | London | United Kingdom | Ministry of Sound |  |  |
 | 2006-09-16 | English National Opera | Opera | London | United Kingdom | Coliseum | Gaddafi: A Living Myth |  |
-| 2006-09-12 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy |  |  |
+| 2006-09-12 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy |  | Eddie Vedder |
 | 2006-08-26 | Sander Kleinenberg, Steve Lawler, Carl Cox, Paul Oakenfold, John Digweed, Pete Tong, Judge Jules, Seb Fontaine, Danny Howells, Fergie, The Shapeshifters, Mauro Picotto, Stanton Warriors, Nic Fanciulli, Sander van Doorn, Desyn Masiello, James Zabiela, Ian Betts, Matt Hardwick | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2006 |  |
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor |  |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | |  |
@@ -375,7 +376,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1999-04-17 | Keb' Mo', Paul Ubana Jones | Music | Wellington | New Zealand | State Opera House |  |  |
 | 1999-03-15 | Jaunt, The Whores Next Door, Pushkin | Music | Wellington | New Zealand | Indigo |  |  |
 | 1998-11-27 | Pushkin, The Whores Next Door, Broomdance | Music | Wellington | New Zealand | Indigo |  |  |
-| 1998-11-13 | Bongmaster, Hell Is Other People, Shihad | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1998-11-13 | Bongmaster, Hell Is Other People, Shihad | Music | Wellington | New Zealand | James Cabaret |  | Jon Toogood |
 | 1998-10-24 | Salvage, Whores Next Door, Wretched Skinny, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe |  |  |
 | 1998-10-09 | The Living End, Brubeck | Music | Wellington | New Zealand | James Cabaret |  |  |
 | 1998-10-01 | Whores Next Door, Tau, Empty Quarter | Music | Wellington | New Zealand | Indigo |  |  |
@@ -398,20 +399,20 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1997-03-13 | Baconfoot, Snitches, Gas Huffer | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1997-03-07 | Head Like A Hole, Frenzal Rhomb | Music | Wellington | New Zealand | Union Hall |  |  |
 | 1997-03-05 | Superette | Music | Wellington | New Zealand | Union Hall |  |  |
-| 1997-03-04 | David Harrow, Salmonella Dub | Music | Wellington | New Zealand | Union Hall |  |  |
+| 1997-03-04 | David Harrow, Salmonella Dub | Music | Wellington | New Zealand | Union Hall |  | Tiki Taane |
 | 1997-02-22 | ENZSO (Split Enz / NZ Symphony Orchestra) | Music | Upper Hutt | New Zealand | Trentham Memorial Park |  |  |
 | 1997-02-21 | Letterbox Lambs, Superette | Music | Wellington | New Zealand | Bar Bodega |  |  |
-| 1997-01-22 | The Exponents, Pash | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1997-01-22 | The Exponents, Pash | Music | Wellington | New Zealand | James Cabaret |  | Jordan Luck |
 | 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall |  | Aaron Tokona |
 | 1997-01-05 | Weta, Breathe, Short | Music | Wellington | New Zealand | Civic Square |  | Aaron Tokona |
 | 1996-12-18 | The Warners | Music | Wellington | New Zealand | Bar Bodega |  |  |
-| 1996-05-10 | Shihad | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1996-05-10 | Shihad | Music | Wellington | New Zealand | James Cabaret |  | Jon Toogood |
 | 1996-05-04 | Red Hot Chilli Peppers, Thorazine Shuffle | Music | Wellington | New Zealand | Events Centre |  |  |
 | 1996-04-10 | Atomic Blossom | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1996-01-19 | Skwish | Music | Wellington | New Zealand |  |  |  |
-| 1996-01-11 | Knightshade, Dave Dobbyn, Muttonbirds, Joe Satriani, Stranglers, The Cruel Sea, Mental As Anything, The Exponents, Barry Saunders, Head Like A Hole, Pumpkinhead | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock 5 |  |
+| 1996-01-11 | Knightshade, Dave Dobbyn, Muttonbirds, Joe Satriani, Stranglers, The Cruel Sea, Mental As Anything, The Exponents, Barry Saunders, Head Like A Hole, Pumpkinhead | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock 5 | Don McGlashan, Jordan Luck |
 | 1995-10-01 | Skwish | Music | Wellington | New Zealand | Cuba Cuba |  |  |
-| 1995-08-11 | Shihad, Short | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1995-08-11 | Shihad, Short | Music | Wellington | New Zealand | James Cabaret |  | Jon Toogood |
 | 1995-08-05 | Faith No More, Pumpkinhead, Dead Flowers | Music | Wellington | New Zealand | Wellington Show + Sports Centre |  |  |
 | 1995-08-04 | Letterbox Lambs, Breathe | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1995-08-02 | Condition Red | Music | Wellington | New Zealand | Antipodes |  |  |
@@ -419,7 +420,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1995-05-25 | Sweet Family Unit | Music | Wellington | New Zealand | Antipodes |  |  |
 | 1995-04-01 | Squirm | Music | Wellington | New Zealand | Antipodes |  |  |
 | 1995-01-19 | The Cult, Fat Mannequin | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
-| 1995-01-14 | No Thrills, Head Like A Hole, Greg Johnson, Yothu Yindi, The Exponents, Tama Renata, Upper Hutt Posse, Brainchilds, Muttonbirds, Supergroove, Midnight Oil, Dave Dobbyn, Tim Finn, Semi Lemon Kola | Music | Woodville | New Zealand |  | Mountain Rock IV |  |
+| 1995-01-14 | No Thrills, Head Like A Hole, Greg Johnson, Yothu Yindi, The Exponents, Tama Renata, Upper Hutt Posse, Brainchilds, Muttonbirds, Supergroove, Midnight Oil, Dave Dobbyn, Tim Finn, Semi Lemon Kola | Music | Woodville | New Zealand |  | Mountain Rock IV | Che Fu, DLT, Don McGlashan, Jordan Luck |
 | 1994-12-22 | Stonor, Nefretete, Wormhole, Rollie Stones | Music | Lower Hutt | New Zealand | Lucky Jacks |  |  |
 | 1994-12-17 | Stonor | Music | Grenada North | New Zealand | Warehouse |  |  |
 | 1994-12-09 | Slink Patrol, Skwish, Stonor | Music | Wellington | New Zealand | Thistle Hall |  |  |
@@ -429,52 +430,53 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1994-11-06 | Pantera, Fat Mannequin | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1994-11-02 | Skwish, Plankton | Music | Wellington | New Zealand | Bar Bodega |  |  |
 | 1994-10-05 | Beastie Boys, Helmet, Emulsifier | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
-| 1994-08-27 | Supergroove, Nixons, MCOJ & DLT | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1994-08-27 | Supergroove, Nixons, MCOJ & DLT | Music | Wellington | New Zealand | James Cabaret |  | Che Fu |
 | 1994-08-04 | Skwish | Music | Wellington | New Zealand | Bar Bodega |  |  |
-| 1994-07-23 | Supergroove, Thorazine Shuffle, DLT | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1994-07-23 | Supergroove, Thorazine Shuffle, DLT | Music | Wellington | New Zealand | James Cabaret |  | Che Fu |
 | 1994-07-01 | Head Like A Hole, Monster | Music | Wellington | New Zealand | Union Hall |  |  |
 | 1994-06-23 | Kristin Hersh, Brainchilds | Music | Wellington | New Zealand | Paramount Theatre |  |  |
 | 1994-05-27 | Burning Roses, The Crystalline | Music | Wellington | New Zealand | Union Building, Victoria University |  |  |
 | 1994-05-21 | Desert Road | Music | Wellington | New Zealand | Metro |  |  |
-| 1994-04-27 | Muttonbirds, Emma Paki, Bilge Festival | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1994-04-27 | Muttonbirds, Emma Paki, Bilge Festival | Music | Wellington | New Zealand | James Cabaret |  | Don McGlashan |
 | 1994-03-01 | The 3Ds, Bailter Space, Solid Gold Hell | Music | Wellington | New Zealand | Union Hall |  |  |
 | 1994-02-27 | JPSE, Cinematic | Music | Wellington | New Zealand | Union Hall |  |  |
-| 1994-02-05 | Soundgarden, The Smashing Pumpkins, Shihad, Head Like A Hole, Muttonbirds, JPSE, Breeders, Urge Overkill, Hard-Ons, Jan Hellriegel, Cruel Sea, Kid Eternity, Freedom, Crowded House, Dave Dobbyn, Annie Crummer | Music | Wellington | New Zealand | Wellington Town Hall | Big Day Out |  |
+| 1994-02-25 | Crowded House, Dave Dobbyn, Annie Crummer | Music | Wellington | New Zealand | Wellington Town Hall | Freedom | Neil Finn |
+| 1994-02-05 | Soundgarden, The Smashing Pumpkins, Shihad, Head Like A Hole, Muttonbirds, JPSE, The Breeders, Urge Overkill, Hard-Ons, Jan Hellriegel, Cruel Sea, Kid Eternity | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | Jon Toogood, Don McGlashan |
 | 1994-02-04 | Boney M | Music | Hamilton | New Zealand | Hamilton Domain |  |  |
-| 1994-01-15 | Supergroove, Andrew Fagan, The Warratahs, R. Bryant, K Borich, Hello Sailor, Jan Hellriegel, Dave Dobbyn, Shona Laing, Straitjacket Fits, Desert Road, The Exponents, Drawn, Wildfire, Shihad, Head Like A Hole, Dead Flowers | Music | Woodville | New Zealand |  | Mountain Rock III |  |
-| 1994-01-14 | Dave Dobbyn, The Exponents | Music | Wellington | New Zealand | James Cabaret |  |  |
-| 1993-12-17 | Premature Autopsy, Loves Ugly Children, Head Like A Hole, Shihad | Music | Wellington | New Zealand | Union Hall |  |  |
+| 1994-01-15 | Supergroove, Andrew Fagan, The Warratahs, R. Bryant, K Borich, Hello Sailor, Jan Hellriegel, Dave Dobbyn, Shona Laing, Straitjacket Fits, Desert Road, The Exponents, Drawn, Wildfire, Shihad, Head Like A Hole, Dead Flowers | Music | Woodville | New Zealand |  | Mountain Rock III | Barry Saunders, Che Fu, Jon Toogood, Jordan Luck |
+| 1994-01-14 | Dave Dobbyn, The Exponents | Music | Wellington | New Zealand | James Cabaret |  | Jordan Luck |
+| 1993-12-17 | Premature Autopsy, Loves Ugly Children, Head Like A Hole, Shihad | Music | Wellington | New Zealand | Union Hall |  | Jon Toogood |
 | 1993-11-18 | Karnage, Warpspasm, Carcass | Music | Wellington | New Zealand | Stox |  |  |
 | 1993-09-16 | Glass Candle Grenade, Wake | Music | Wellington | New Zealand | Kaminskys |  |  |
 | 1993-09-12 | Living Colour, Big Deal | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1993-08-15 | Wellington Youth Choir, Manawatu Youth Choir | Music | Wellington | New Zealand |  |  |  |
 | 1993-07-28 | Pungent Stench, Tension, Warp Drive | Music | Wellington | New Zealand | Kaminskys |  |  |
-| 1993-07-23 | Shihad, Skinshed, Flail | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1993-07-23 | Shihad, Skinshed, Flail | Music | Wellington | New Zealand | James Cabaret |  | Jon Toogood |
 | 1993-07-02 | Head Like A Hole, Steak, Funkmutha | Music | Wellington | New Zealand | Stox |  |  |
 | 1993-05-22 | Push Push, The Spirals | Music | Wellington | New Zealand | Show & Sports Centre |  |  |
 | 1993-05-13 | Faith No More, Emulsifier | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1993-04-23 | JPSE | Music | Wellington | New Zealand | Sol Bar |  |  |
 | 1993-04-17 | Dead Flowers, Andrew Fagan, Big Deal, Ugly Truth, Open Oyster, Wildfire | Music | Wellington | New Zealand | Shed 11 |  |  |
-| 1993-04-03 | Shihad, Conventional Toasters, Funkmutha | Music | Wellington | New Zealand | James Cabaret |  |  |
-| 1993-03-04 | JPSE, Muttonbirds | Music | Wellington | New Zealand | Union Hall |  |  |
-| 1993-03-02 | The Lemonheads, David Kilgour, Bilge Festival | Music | Wellington | New Zealand | Union Hall |  |  |
+| 1993-04-03 | Shihad, Conventional Toasters, Funkmutha | Music | Wellington | New Zealand | James Cabaret |  | Jon Toogood |
+| 1993-03-04 | JPSE, Muttonbirds | Music | Wellington | New Zealand | Union Hall |  | Don McGlashan |
+| 1993-03-02 | The Lemonheads, David Kilgour, Bilge Festival | Music | Wellington | New Zealand | Union Hall |  | Evan Dando |
 | 1993-02-25 | Billy Connolly | Comedy | Wellington | New Zealand | Michael Fowler Centre |  |  |
-| 1993-02-06 | Guns N' Roses, Skid Row, Dead Flowers | Music | Auckland | New Zealand | Mount Smart Stadium |  |  |
-| 1993-01-16 | Shona Laing, Sam Hunt, Push Push, Shihad, Muttonbirds, Ted Clarke, Jan Hellriegel, Desert Road, Nine Livez, Dead Flowers, Southside of Bombay, Big Deal, Blue Buffoons, Flippin Hippies, Savana, Johnny B Band, Out of the Blue, Snowline | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock II |  |
+| 1993-02-06 | Guns N' Roses, Skid Row, Dead Flowers | Music | Auckland | New Zealand | Mount Smart Stadium |  | Duff McKagen, Gilby Clarke, Sebastian Bach, Slash |
+| 1993-01-16 | Shona Laing, Sam Hunt, Push Push, Shihad, Muttonbirds, Ted Clarke, Jan Hellriegel, Desert Road, Nine Livez, Dead Flowers, Southside of Bombay, Big Deal, Blue Buffoons, Flippin Hippies, Savana, Johnny B Band, Out of the Blue, Snowline | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock II | Don McGlashan, Jon Toogood |
 | 1993-01-11 | Jenny Morris, JPSE | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1993-01-02 | Archies Aunts, Charlotte Sometimes, Shona Laing,  Merenia | Music | Wellington | New Zealand | Civic Square |  |  |
-| 1992-12-10 | Malchicks, The Exponents | Music | Wellington | New Zealand | James Cabaret |  |  |
+| 1992-12-10 | Malchicks, The Exponents | Music | Wellington | New Zealand | James Cabaret |  | Jordan Luck |
 | 1992-11-08 | Still, Kamikaze Daydream | Music | Wellington | New Zealand | Dragons |  |  |
 | 1992-08-13 | The Cure, Jan Hellriegel | Music | Wellington | New Zealand | Wellington Town Hall |  |  |
 | 1992-05-17 | Scarf | Music | Hastings | New Zealand | Club Ew-els |  |  |
-| 1992-04-16 | Braintree, Shihad | Music | Wellington | New Zealand | New Carpark |  |  |
-| 1992-04-03 | Buddakhan, The Exponents | Music | Wellington | New Zealand | New Carpark |  |  |
+| 1992-04-16 | Braintree, Shihad | Music | Wellington | New Zealand | New Carpark |  | Jon Toogood |
+| 1992-04-03 | Buddakhan, The Exponents | Music | Wellington | New Zealand | New Carpark |  | Jordan Luck |
 | 1992-03-07 | Scios, Slaine, Sacrament, Deliverance, Vas Deferens | Music | Wellington | New Zealand | New Carpark |  |  |
-| 1992-01-25 | Midge Marsden, Push Push, Dick Thrust, Shihad, Desert Road, Southside of Bombay, Lets Planet, Big Deal, Thin Fish, Head Like A Hole, Ralph Bennett, Dave Murphy, Luke Hurcey, Johnny B Band, Wild Fire, Serpentine, Bullfrog Rata, Blue Smoke, Sam Hunt, Vandrix, Helter Skelter | Music | Woodville | New Zealand | | Mountain Rock |  |
+| 1992-01-25 | Midge Marsden, Push Push, Dick Thrust, Shihad, Desert Road, Southside of Bombay, Lets Planet, Big Deal, Thin Fish, Head Like A Hole, Ralph Bennett, Dave Murphy, Luke Hurcey, Johnny B Band, Wild Fire, Serpentine, Bullfrog Rata, Blue Smoke, Sam Hunt, Vandrix, Helter Skelter | Music | Woodville | New Zealand | | Mountain Rock | Jon Toogood |
 | 1992-01-24 | Buddakhan | Music | Wellington | New Zealand | New Carpark |  |  |
-| 1992-01-01 | Push Push, The Exponents | Music | Napier | New Zealand | Onekawa Rockgarden |  |  |
+| 1992-01-01 | Push Push, The Exponents | Music | Napier | New Zealand | Onekawa Rockgarden |  | Jordan Luck |
 | 1991-12-28 | Ted Clarke, Backdoor Blues | Music | Hastings | New Zealand | Stortford Lodge |  |  |
-| 1991-11-14 | Shihad, AC/DC | Music | Wellington | New Zealand | Athletic Park |  |  |
+| 1991-11-14 | Shihad, AC/DC | Music | Wellington | New Zealand | Athletic Park |  | Jon Toogood |
 | 1991-09-27 | Scios, NIHL, Sacrament, Josephine Bewitched, Deliverance | Music | Wellington | New Zealand | Empire Warehouse |  |  |
 | 1991-04-10 | Jeff Healey, Midge Marsden | Music | Wellington | New Zealand | St James Theatre |  |  |
-| 1986-03-04 | Dire Straits, Satellite Spies | Music | Wellington | New Zealand | Athletic Park |  |  |
+| 1986-03-04 | Dire Straits, Satellite Spies | Music | Wellington | New Zealand | Athletic Park |  | Mark Knopfler |
