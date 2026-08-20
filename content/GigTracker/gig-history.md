@@ -16,7 +16,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2026-03-20 | The Datsuns, Warm Leather | Music | Wellington | New Zealand | San Fran | | |
 | 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa Theatre | | |
 | 2026-02-27 | Transvision Vamp, Dropper | Music | Wellington | New Zealand | Meow Nui | | |
-| 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre | | |
+| 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre | Son of a Carpenter | |
 | 2025-11-26 | Pixies, Elliot & Vincent | Music | Wellington | New Zealand | St James Theatre | | Frank Black |
 | 2025-11-22 | Beastwars, Soft Bait, Pull Down The Sun | Music | Wellington | New Zealand | Meow Nui | | |
 | 2025-10-21 | Commodores | Music | Wellington | New Zealand | St James Theatre | | |
@@ -25,7 +25,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | | |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's | | |
 | 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui | | Jon Toogood |
-| 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House | | |
+| 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House | The Goodfellow World Tour | |
 | 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 | Jon Toogood |
 | 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre | | |
 | 2024-02-25 | The National, The Beths | Music | Wellington | New Zealand | TSB Arena | | |
@@ -48,7 +48,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-12-10 | Mel Parsons | Music | Wellington | New Zealand | Meow | | |
 | 2021-06-12 | The Nathan Haines Octet | Music | Wellington | New Zealand | The Opera House | | |
 | 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge | | |
-| 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | | |
+| 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | Authentic Stupidity | |
 | 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | | |
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | | Neil Finn |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | |
@@ -69,7 +69,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2019-03-02 | Eminem, Hilltop Hoods | Music | Wellington | New Zealand | Westpac Stadium | | |
 | 2019-02-23 | Trinity Roots, The Beths, C.W. Stoneking, The Miltones | Music | Paraparaumu | New Zealand | Southward's Car Museum | Coastella | |
 | 2019-02-06 | Jon Toogood | Music | Wellington | New Zealand | Meow | | |
-| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | |
+| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Colin, Brad & Greg From Whose Line Is It Anyway? |
 | 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House | | |
 | 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 | Jon Toogood |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's | | |
@@ -77,11 +77,11 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2018-07-13 | Beastwars, Earth Tongue, Slumbug | Music | Wellington | New Zealand | San Fran | | |
 | 2017-12-14 | Alt-J, Warpaint | Music | Wellington | New Zealand | TSB Arena | | |
 | 2017-09-14 | Hollie Smith, Mark Vanilau | Music | Wellington | New Zealand | San Fran | | |
-| 2017-07-09 | Rhys Darby | Comedy | Wellington | New Zealand | The Opera House | | |
+| 2017-07-09 | Rhys Darby | Comedy | Wellington | New Zealand | The Opera House | Mystic Time Bird | |
 | 2017-06-09 | Dianne Reeves | Music | Wellington | New Zealand | The Opera House | Wellington Jazz Festival 2017 | |
 | 2017-05-20 | Head Like A Hole, Hiboux | Music | Wellington | New Zealand | Valhalla | | |
 | 2017-05-05 | Thomas Oliver | Music | Auckland | New Zealand | The Tuning Fork | | |
-| 2017-04-28 | Ed Byrne | Comedy | Wellington | New Zealand | The Opera House | | |
+| 2017-04-28 | Ed Byrne | Comedy | Wellington | New Zealand | The Opera House | Outside Looking In | |
 | 2017-04-22 | The Darkness, Push Push | Music | Christchurch | New Zealand | The Foundry | | |
 | 2017-03-23 | Adele | Music | Auckland | New Zealand | Mount Smart Stadium | | |
 | 2017-03-10 | Pixies, Cut Off Your Hands | Music | Wellington | New Zealand | TSB Arena | | Frank Black |
@@ -109,9 +109,10 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2015-10-13 | Neil Finn | Music | Wellington | New Zealand | The Opera House | | |
 | 2015-10-02 | Devilskin, Villainy | Music | Wellington | New Zealand | San Fran | | |
 | 2015-09-19 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Classical Hits | |
-| 2015-08-31 | Dylan Moran | Comedy | Wellington | New Zealand | St James Theatre | | |
+| 2015-08-31 | Dylan Moran | Comedy | Wellington | New Zealand | St James Theatre | We Got This | |
 | 2015-08-13 | Ahoribuzz | Music | Wellington | New Zealand | Meow | | Aaron Tokona |
 | 2015-06-12 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Wagner Gala | |
+| 2015-05-16 | New Zeland Opera, Orchestra Wellington | Opera | Wellington | New Zealand | St James Theatre | La Cenerentola (Cinderella) | |
 | 2015-06-04 | Dee Dee Bridgewater, Irvin Mayfield & The New Orleans Jazz Orchestra | Music | Wellington | New Zealand | The Opera House | | |
 | 2015-05-09 | Motley Crue, Alice Cooper | Music | Auckland | New Zealand | Vector Arena | The Final Tour | |
 | 2015-05-03 | Everclear | Music | Wellington | New Zealand | Bar Bodega | | |
@@ -130,7 +131,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2014-08-08 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Mahler's 9th | |
 | 2014-06-13 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Beethoven's 4th & 5th | |
 | 2014-06-06 | Chick Corea & Gary Burton | Music | Wellington | New Zealand | Michael Fowler Centre | | |
-| 2014-05-11 | Billy Connolly | Comedy | Wellington | New Zealand | TSB Arena | | |
+| 2014-05-11 | Billy Connolly | Comedy | Wellington | New Zealand | TSB Arena | High Horse Tour | |
 | 2014-05-03 | Arctic Monkeys, Pond | Music | Wellington | New Zealand | TSB Arena | | |
 | 2014-04-27 | Steve Earle and the Dukes, The Mastersons | Music | Wellington | New Zealand | St James Theatre | | |
 | 2014-03-20 | Nine Inch Nails, Queens Of The Stone Age | Music | Wellington | New Zealand | TSB Arena | | |
@@ -139,9 +140,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2013-12-02 | Iris DeMent | Music | Wellington | New Zealand | Old St Paul's | | |
 | 2013-11-28 | Rules of Addiction | Music | Wellington | New Zealand | Bar Medusa | | |
 | 2013-10-05 | 8 Foot Sativa, Gunt, Bulletbelt, Gift of Ruin | Music | Wellington | New Zealand | Bar Medusa | | |
-| 2013-09-20 | Fat Freddy's Drop | Music | Wellington | New Zealand | The Opera House | | |
+| 2013-09-20 | Fat Freddy's Drop | Music | Wellington | New Zealand | The Opera House | Blackbird Album Release Tour | |
 | 2013-09-12 | The Datsuns, Milk Train | Music | Wellington | New Zealand | Bar Bodega | | |
-| 2013-07-27 | Shapeshifter | Music | Wellington | New Zealand | Wellington Town Hall | | |
+| 2013-07-27 | Shapeshifter | Music | Wellington | New Zealand | Wellington Town Hall | Delta Live | |
 | 2013-07-20 | Hairy Maclairy Live | Theatre | Wellington | New Zealand | The Opera House | | |
 | 2013-05-05 | Tom Green | Comedy | Wellington | New Zealand | The Opera House | | |
 | 2013-05-04 | Unida, Beastwars | Music | Wellington | New Zealand | Bar Bodega | | |
@@ -150,7 +151,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2012-08-01 | Ella Fitzgerald Experience | Music | London | United Kingdom | Ronnie Scott's Jazz Club | | |
 | 2012-07-28 | Eddie Vedder, Glen Hansard | Music | Manchester | United Kingdom | O2 Apollo | | |
 | 2012-07-27 | Hollie Smith | Music | London | United Kingdom | Vandella | | |
-| 2012-07-20 | Rhys Darby | Comedy | London | United Kingdom | Shepherd's Bush Empire | | |
+| 2012-07-20 | Rhys Darby | Comedy | London | United Kingdom | Shepherd's Bush Empire | This Way to Spaceship | |
 | 2012-07-17 | Madonna, LMFAO, Martin Solveig | Music | London | United Kingdom | Hyde Park | MDNA Tour | |
 | 2012-07-14 | Bruce Springsteen, John Fogerty, Lady Antebellum, Amy Macdonald, Hey Monea! | Music | London | United Kingdom | Hyde Park | Hard Rock Calling. Guest appearances by Paul McCartney, John Fogerty, Tom Morello | |
 | 2012-07-13 | Soundgarden, Iggy & the Stooges, Cold Chisel, Black Stone Cherry | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | |
@@ -187,7 +188,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-08-13 | Throwing Needles | Music | London | United Kingdom | Punk (Soho) | | |
 | 2011-08-05 | Iron Maiden, DragonForce | Music | London | United Kingdom | The O2 Arena | | |
 | 2011-07-29 | Placido Domingo, Angela Gheorghiu | Opera | London | United Kingdom | The O2 Arena | | |
-| 2011-07-14 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | | |
+| 2011-07-14 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | Yeah, Yeah | |
 | 2011-07-06 | Weezer | Music | London | United Kingdom | Brixton Academy | | |
 | 2011-06-30 | Cyndi Lauper, Charlie Musselwhite, Allen Toussaint | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2011-06-28 | BB King | Music | London | United Kingdom | Royal Albert Hall | Guest appearances by Slash, Ronnie Wood, Mick Hucknall, Derek Trucks, Susan Tedeschi | |
@@ -201,7 +202,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-05-16 | Uncaged Monkeys | Other | London | United Kingdom | Hammersmith Apollo | Featuring Brian Cox, Ben Goldacre, Simon Singh, Robin Ince, Helen Arney | |
 | 2011-05-05 | Paloma Faith | Music | London | United Kingdom | Union Chapel | | |
 | 2011-04-11 | Jose Gonzalez, Gothenburg String Theory, Little Scream | Music | London | United Kingdom | Barbican Hall | | |
-| 2011-04-08 | Ed Byrne | Comedy | London | United Kingdom | Hammersmith Apollo | | |
+| 2011-04-08 | Ed Byrne | Comedy | London | United Kingdom | Hammersmith Apollo | Crowd Pleaser | |
 | 2011-04-07 | Kylie Minogue, Ultra Girls | Music | London | United Kingdom | The O2 | | |
 | 2011-03-23 | Cage The Elephant | Music | London | United Kingdom | Electric Ballroom | | |
 | 2011-02-28 | Adler's Appetite | Music | London | United Kingdom | Underworld Camden | Guest appearance by Duff McKagan | |
@@ -226,7 +227,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | HMV Forum | | |
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall | | |
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe | | |
-| 2010-04-28 | Ricky Gervais | Comedy | London | United Kingdom | Wembley Arena | | |
+| 2010-04-28 | Ricky Gervais | Comedy | London | United Kingdom | Wembley Arena | Science | |
 | 2010-04-23 | Rhod Gilbert | Comedy | London | United Kingdom | Hammersmith Apollo | The Cat That Looked like Nicholas Lyndhurst | | 
 | 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | |
 | 2010-04-01 | Airbourne, Black Spiders, Taking Dawn | Music | London | United Kingdom | Hammersmith Apollo | | |
@@ -271,7 +272,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-02-19 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | Hammersmith Apollo | Featuring Richard Dawkins, Ben Goldacre, Simon Singh, Stewart Lee, Ricky Gervais, Josie Long, Tim Minchin, Richard Herring, Natalie Haynes, Chris Addison, Mark Thomas, Phil Jupitus, Dara Ó Briain, Jo Neary, Peter Buckley Hill, Jarvis Cocker, Robyn Hitchcock, Darren Hayman, Waen Shepherd, The Martin White Mini Fax Machine Orchestra, Gavin Osborn | Ricky Gervais |
 | 2008-12-17 | Biffy Clyro, Frightened Rabbit, People in Planes | Music | London | United Kingdom | Brixton Academy | | |
-| 2008-12-09 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | | |
+| 2008-12-09 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | Tinselworm | |
 | 2008-12-07 | Coldplay | Music | Glasgow | United Kingdom | SECC | | |
 | 2008-12-03 | Slipknot, Machine Head, Children of Bodom | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2008-11-24 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | What It Is | |
@@ -343,7 +344,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-10-11 | Turin Brakes | Music | London | United Kingdom | The Forum | | |
 | 2007-10-09 | Swimming with Sharks | Theatre | London | United Kingdom | Vaudeville Theatre | | |
 | 2007-10-06 | Amp Fiddler | Music | London | United Kingdom | Shepherd's Bush Empire | | |
-| 2007-09-29 | Russell Brand | Comedy | London | United Kingdom | Hackney Empire | | |
+| 2007-09-29 | Russell Brand | Comedy | London | United Kingdom | Hackney Empire | Only Joking | |
 | 2007-09-18 | Kosheen | Music | London | United Kingdom | KOKO | | |
 | 2007-09-07 | The Jesus and Mary Chain, The Horrors, Evan Dando | Music | London | United Kingdom | Brixton Academy | | |
 | 2007-09-06 | Beastie Boys | Music | London | United Kingdom | Roundhouse | | |
