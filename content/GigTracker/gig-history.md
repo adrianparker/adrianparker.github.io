@@ -227,6 +227,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall | | |
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe | | |
 | 2010-04-28 | Ricky Gervais | Comedy | London | United Kingdom | Wembley Arena | | |
+| 2010-04-23 | Rhod Gilbert | Comedy | London | United Kingdom | Hammersmith Apollo | The Cat That Looked like Nicholas Lyndhurst | | 
 | 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | |
 | 2010-04-01 | Airbourne, Black Spiders, Taking Dawn | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2010-02-20 | Depeche Mode, Nitzer Ebb | Music | London | United Kingdom | The O2 Arena | | |
@@ -286,7 +287,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-09-23 | Nigel Kennedy Quintet | Music | London | United Kingdom | Shepherd's Bush Empire | | |
 | 2008-09-18 | Duff McKagen | Music | London | United Kingdom | Islington Academy | | |
 | 2008-09-17 | Doug Stanhope | Comedy | London | United Kingdom | Arts Theatre | | |
-| 2008-09-16 | Riflemind starring John Hannah | Theatre | London | United Kingdom | Trafalgar Studios | | |
+| 2008-09-16 | Riflemind | Theatre | London | United Kingdom | Trafalgar Studios | Starring John Hannah. Directed by Philip Seymour Hoffman | |
 | 2008-09-13 | Allanah Myles | Music | London | United Kingdom | The Underworld | | |
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly | | |
 | 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | Mountain View | United States of America | Shoreline Ampitheatre | Metal Masters Tour | |
