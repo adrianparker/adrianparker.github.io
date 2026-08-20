@@ -125,12 +125,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2014-12-19 | The Datsuns | Music | Wellington | New Zealand | San Fran | | |
 | 2014-10-31 | Lorde | Music | Wellington | New Zealand | TSB Arena | | |
 | 2014-10-10 | Beastwars, Windhand, Mermaidens | Music | Wellington | New Zealand | San Fran | | |
-| 2014-09-30 | Dire Straits Experience | Music | Wellington | New Zealand | Michael Fowler Centre | | |
+| 2014-09-30 | The Dire Straits Experience | Music | Wellington | New Zealand | Michael Fowler Centre | | |
 | 2014-09-19 | Boy and Bear, Mali Mali, Alexander Wildwood | Music | Wellington | New Zealand | Bar Bodega | | |
 | 2014-08-28 | Kristin Hersh | Music | Wellington | New Zealand | Bar Bodega | | |
 | 2014-08-08 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Mahler's 9th | |
 | 2014-06-13 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Beethoven's 4th & 5th | |
-| 2014-06-06 | Chick Corea & Gary Burton | Music | Wellington | New Zealand | Michael Fowler Centre | | |
+| 2014-06-06 | Chick Corea, Gary Burton | Music | Wellington | New Zealand | Michael Fowler Centre | Duets | |
 | 2014-05-11 | Billy Connolly | Comedy | Wellington | New Zealand | TSB Arena | High Horse Tour | |
 | 2014-05-03 | Arctic Monkeys, Pond | Music | Wellington | New Zealand | TSB Arena | | |
 | 2014-04-27 | Steve Earle and the Dukes, The Mastersons | Music | Wellington | New Zealand | St James Theatre | | |
