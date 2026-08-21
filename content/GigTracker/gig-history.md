@@ -313,8 +313,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-05-26 | Mark Knopfler, Bap Kennedy | Music | London | United Kingdom | Royal Albert Hall | | |
 | 2008-05-23 | Public Enemy, Dr Octagon (Kool Keith), Kutmasta Kurt, Edan, Anti Pop Consortium, MC Dagha | Music | London | United Kingdom | Brixton Academy | | |
 | 2008-05-17 | The Trailer Boat Ride | Music | London | United Kingdom | | | |
-| 2008-04-17 | The Breeders | Music | London | United Kingdom | KOKO | | |
-| 2008-04-15 | Hollie Smith | Music | London | United Kingdom | Neighbourhood | | |
+| 2008-04-16 | The Breeders | Music | London | United Kingdom | KOKO | | |
+| 2008-04-14 | Hollie Smith | Music | London | United Kingdom | 12 Acklam Rd | | |
 | 2008-04-11 | Jose Gonzalez | Music | London | United Kingdom | Shepherd's Bush Empire | | |
 | 2008-04-10 | Portishead | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2008-04-09 | Black Crowes | Music | London | United Kingdom | Brixton Academy | | |
@@ -351,8 +351,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-08-25 | Red Hot Chili Peppers, Arcade Fire, Bloc Party, Panic! At The Disco, Angels and Airwaves, Eagles of Death Metal, Paramore, Unkle, Biffy Clyro, The Shins, Dinosaur Jr | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | |
 | 2007-08-24 | Razorlight, Kings of Leon, Interpol, Maximo Park, Jimmy Eat World, Gossip, Gogol Bordello, Ash, Brand New | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | |
 | 2007-08-21 | Tool | Music | London | United Kingdom | Brixton Academy | | |
+| 2007-08-17 | Prince | Music | London | United Kingdom | The O2 Arena | 21 Nights in London: The Earth Tour | |
 | 2007-08-10 | BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | |
-| 2007-07-30 | Scorpions, Macauley Schenker Group | Music | London | United Kingdom | Hammersmith Apollo | | |
+| 2007-07-30 | Scorpions, Michael Schenker Group (MSG) | Music | London | United Kingdom | Hammersmith Apollo | | |
 | 2007-07-15 | Frank Black | Music | London | United Kingdom | Shepherd's Bush Empire | | |
 | 2007-07-14 | Bert Jansch, Beth Orton, Bernard Butler | Music | London | United Kingdom | Somerset House | | |
 | 2007-07-08 | Metallica, Machine Head, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium | | |
