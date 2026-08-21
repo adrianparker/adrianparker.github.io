@@ -197,12 +197,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-06-11 | Yelawolf | Music | Amsterdam | The Netherlands | Melkweg Oude Zaal | | | |
 | 2011-05-22 | The Straits | Music | London | United Kingdom | Royal Albert Hall | The Straits' debut public performance (charity show) | | |
 | 2011-05-20 | The Naked And Famous | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
-| 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 | | | |
+| 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 Arena | | | |
 | 2011-05-16 | Uncaged Monkeys | Other | London | United Kingdom | Hammersmith Apollo | Featuring Brian Cox, Ben Goldacre, Simon Singh, Robin Ince, Helen Arney | | |
 | 2011-05-05 | Paloma Faith | Music | London | United Kingdom | Union Chapel | | | |
 | 2011-04-11 | Jose Gonzalez, Gothenburg String Theory, Little Scream | Music | London | United Kingdom | Barbican Hall | | | |
 | 2011-04-08 | Ed Byrne | Comedy | London | United Kingdom | Hammersmith Apollo | Crowd Pleaser | | |
-| 2011-04-07 | Kylie Minogue, Ultra Girls | Music | London | United Kingdom | The O2 | | | |
+| 2011-04-07 | Kylie Minogue, Ultra Girls | Music | London | United Kingdom | The O2 Arena | | | |
 | 2011-03-23 | Cage The Elephant | Music | London | United Kingdom | Electric Ballroom | | | |
 | 2011-02-28 | Adler's Appetite | Music | London | United Kingdom | Underworld Camden | Guest appearance by Duff McKagan | | |
 | 2011-02-25 | Foo Fighters, Cee Lo Green, Band Of Horses, No Age | Music | London | United Kingdom | Wembley Arena | NME Awards Big Gig 2011 | | |
@@ -210,10 +210,10 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-11-21 | Soulfly | Music | London | United Kingdom | KOKO | | | |
 | 2010-11-19 | Therapy? | Music | London | United Kingdom | HMV Forum | | | |
 | 2010-11-17 | Deftones, Coheed and Cambria | Music | London | United Kingdom | Brixton Academy | | | |
-| 2010-11-11 | Linkin Park, Does It Offend You Yeah? | Music | London | United Kingdom | The O2 | | | |
+| 2010-11-11 | Linkin Park, Does It Offend You Yeah? | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | |
 | 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | | | |
-| 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 | | | |
+| 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-09-25 | Zodiac Mindwarp | Music | London | United Kingdom | Borderline | | | |
 | 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | |
@@ -276,7 +276,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-12-03 | Slipknot, Machine Head, Children of Bodom | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2008-11-24 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | What It Is | | |
 | 2008-11-23 | Kristin Hersh | Music | London | United Kingdom | Borderline | | | |
-| 2008-11-05 | Bryan Adams | Music | London | United Kingdom | The O2 | | | |
+| 2008-11-05 | Bryan Adams | Music | London | United Kingdom | The O2 Arena | | | |
 | 2008-10-25 | Cypress Hill | Music | London | United Kingdom | Battersea Power Station | Freeze Festival | | |
 | 2008-10-24 | Aimee Mann, The Submarines | Music | London | United Kingdom | IndigO2 (The O2) | | | |
 | 2008-10-16 | Spiritualized | Music | London | United Kingdom | Roundhouse | | | |
@@ -302,7 +302,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | National Theatre | Starring Vanessa Redgrave. Directed by David Hare | | |
 | 2008-07-10 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe | Starring Naana Agyei-Ampadu, Trystan Gravells. Directed by Matthew Dunster | | |
 | 2008-07-05 | Iron Maiden, Avenged Sevenfold, Within Temptation, Lauren Harris | Music | London | United Kingdom | Twickenham Stadium | | | |
-| 2008-07-03 | Duran Duran, The Duke Spirit, The Real People | Music | London | United Kingdom | The O2 | | | |
+| 2008-07-03 | Duran Duran, The Duke Spirit, The Real People | Music | London | United Kingdom | The O2 Arena | | | |
 | 2008-06-28 | Eric Clapton, Sheryl Crow, John Mayer, Jason Mraz, Robert Randolph and The Family Band, Steve Boyce Band | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | | |
 | 2008-06-27 | Bon Jovi, The Feeling, Ivy Rise | Music | London | United Kingdom | Twickenham Stadium | | | |
 | 2008-06-26 | Def Leppard, Whitesnake, Black Stone Cherry | Music | London | United Kingdom | Wembley Arena | | | |
