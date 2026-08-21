@@ -6,10 +6,10 @@ const TABLE = [
   "",
   "Some description text.",
   "",
-  "| Date | Show | Category | City | Country | Venue | Notes | Association |",
-  "|---|---|---|---|---|---|---|---|",
-  "| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition | Weta |",
-  "| 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre | | |"
+  "| Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |",
+  "|---|---|---|---|---|---|---|---|---|",
+  "| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Hadestown: Teen Edition | Weta | 8a1b2c3d |",
+  "| 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre | | | |"
 ].join("\n");
 
 describe("gig-history — parseGigHistory", () => {
@@ -24,7 +24,8 @@ describe("gig-history — parseGigHistory", () => {
       country: "New Zealand",
       venue: "Coastlands Theatre",
       show: "Hadestown: Teen Edition",
-      association: "Weta"
+      association: "Weta",
+      setlistfmId: "8a1b2c3d"
     });
   });
 
