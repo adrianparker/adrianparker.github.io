@@ -143,7 +143,6 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2013-09-20 | Fat Freddy's Drop | Music | Wellington | New Zealand | The Opera House | Blackbird Album Release Tour | |
 | 2013-09-12 | The Datsuns, Milk Train | Music | Wellington | New Zealand | Bar Bodega | | |
 | 2013-07-27 | Shapeshifter | Music | Wellington | New Zealand | Wellington Town Hall | Delta Live | |
-| 2013-07-20 | Hairy Maclairy Live | Theatre | Wellington | New Zealand | The Opera House | Directed by Tim Bray | |
 | 2013-05-05 | Tom Green | Comedy | Wellington | New Zealand | The Opera House | | |
 | 2013-05-04 | Unida, Beastwars | Music | Wellington | New Zealand | Bar Bodega | | |
 | 2013-03-19 | Neil Young and Crazy Horse, Husky, The Drones | Music | Wellington | New Zealand | TSB Arena | | Neil Young |
