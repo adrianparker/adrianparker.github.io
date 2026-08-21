@@ -25,17 +25,24 @@ to it.
 followed by one data row per gig, most recent first:
 
 ```
-| Date | Show | Category | City | Country | Venue | Notes | Association |
-|---|---|---|---|---|---|---|---|
-| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | | |
+| Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |
+|---|---|---|---|---|---|---|---|---|
+| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | | | |
 ```
 
-All eight columns are required on every row (leave a column blank rather than
-omitting it — see the `Notes` and `Association` columns above). Free text before the
-header (a title, a description paragraph) and after the table (notes) is
-ignored by the parser in `lib/gig-history.mjs`; only lines starting with `|`
-after the header count as rows, and a row with the wrong number of columns is
-skipped.
+All nine columns are required on every row (leave a column blank rather than
+omitting it — see the `Notes`, `Association` and `Setlist.fm ID` columns
+above). Free text before the header (a title, a description paragraph) and
+after the table (notes) is ignored by the parser in `lib/gig-history.mjs`;
+only lines starting with `|` after the header count as rows, and a row with
+the wrong number of columns is skipped.
+
+`Setlist.fm ID` is data only — the setlist.fm ID for the gig, where one
+exists. It is parsed into each gig object as `setlistfmId` but the app
+deliberately never reads that field: it has no `<th>`, isn't part of the
+`applyFilters`/search key lists, and isn't rendered in any row. Leave it
+blank for gigs that don't have one; adding a value never changes anything a
+visitor sees.
 
 ## How the embed works
 
