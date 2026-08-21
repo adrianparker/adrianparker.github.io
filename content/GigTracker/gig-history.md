@@ -268,7 +268,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-03-28 | Metallica, Machine Head, The Sword | Music | London | United Kingdom | The O2 Arena | | |
 | 2009-03-13 | Oliver | Theatre | London | United Kingdom | Theatre Royal Drury Lane | Starring Rowan Atkinson, Jodie Prenger. Directed by Rupert Goold | |
 | 2009-02-21 | Judas Priest, Megadeth, Testament | Music | London | United Kingdom | Wembley Arena | | |
-| 2009-02-19 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | |
+| 2009-02-18 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | Hammersmith Apollo | Featuring Richard Dawkins, Ben Goldacre, Simon Singh, Stewart Lee, Ricky Gervais, Josie Long, Tim Minchin, Richard Herring, Natalie Haynes, Chris Addison, Mark Thomas, Phil Jupitus, Dara Ó Briain, Jo Neary, Peter Buckley Hill, Jarvis Cocker, Robyn Hitchcock, Darren Hayman, Waen Shepherd, The Martin White Mini Fax Machine Orchestra, Gavin Osborn | Ricky Gervais |
 | 2008-12-17 | Biffy Clyro, Frightened Rabbit, People in Planes | Music | London | United Kingdom | Brixton Academy | | |
 | 2008-12-09 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | Tinselworm | |
@@ -288,7 +288,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-09-18 | Duff McKagen | Music | London | United Kingdom | Islington Academy | | |
 | 2008-09-17 | Doug Stanhope | Comedy | London | United Kingdom | Arts Theatre | | |
 | 2008-09-16 | Riflemind | Theatre | London | United Kingdom | Trafalgar Studios | Starring John Hannah, Paul Hilton. Directed by Philip Seymour Hoffman | |
-| 2008-09-13 | Allanah Myles | Music | London | United Kingdom | The Underworld | | |
+| 2008-09-13 | Allanah Myles | Music | London | United Kingdom | Underworld Camden | | |
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly | | |
 | 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | Mountain View | United States of America | Shoreline Ampitheatre | Metal Masters Tour | |
 | 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | |
