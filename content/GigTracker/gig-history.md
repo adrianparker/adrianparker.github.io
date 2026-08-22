@@ -50,7 +50,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge | | | |
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | Authentic Stupidity | | |
 | 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | Starring Thom Monckton | | |
-| 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | | Neil Finn | |
+| 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | To The Island | Neil Finn | |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | | |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2020-10-17 | Thomas Oliver | Music | Wellington | New Zealand | The Opera House | | | |
@@ -182,7 +182,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-10-12 | Brett Anderson | Music | London | United Kingdom | KOKO | | | |
 | 2011-10-01 | Von Hertzen Brothers | Music | London | United Kingdom | Borderline | | | |
 | 2011-09-02 | Doug Stanhope | Comedy | London | United Kingdom | Leicester Square Theatre | | | |
-| 2011-08-30 | Janes Addiction | Music | London | United Kingdom | KOKO | | | |
+| 2011-08-30 | Jane's Addiction | Music | London | United Kingdom | KOKO | | | |
 | 2011-08-24 | Deftones, Pulled Apart By Horses | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2011-08-13 | Throwing Needles | Music | London | United Kingdom | Punk (Soho) | | | |
 | 2011-08-05 | Iron Maiden, DragonForce | Music | London | United Kingdom | The O2 Arena | | | |
@@ -198,7 +198,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-05-28 | The Merchant of Venice | Theatre | Stratford-upon-Avon | United Kingdom | Royal Shakespeare Theatre | | | |
 | 2011-05-22 | The Straits | Music | London | United Kingdom | Royal Albert Hall | The Straits' debut public performance (charity show) | | |
 | 2011-05-20 | The Naked And Famous | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
-| 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 Arena | | | |
+| 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 Arena | The Wall Live | | |
 | 2011-05-16 | Uncaged Monkeys | Other | London | United Kingdom | Hammersmith Apollo | Featuring Brian Cox, Ben Goldacre, Simon Singh, Robin Ince, Helen Arney | | |
 | 2011-05-05 | Paloma Faith | Music | London | United Kingdom | Union Chapel | | | |
 | 2011-04-11 | Jose Gonzalez, Gothenburg String Theory, Little Scream | Music | London | United Kingdom | Barbican Hall | | | |
@@ -215,7 +215,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | |
 | 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | | | |
 | 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | |
-| 2010-09-25 | Zodiac Mindwarp | Music | London | United Kingdom | Borderline | | | |
+| 2010-09-25 | Zodiac Mindwarp & The Love Reaction | Music | London | United Kingdom | Borderline | | | |
 | 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | | |
@@ -265,9 +265,10 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-06-03 | Waiting for Godot | Theatre | London | United Kingdom | Theatre Royal Haymarket | Starring Ian McKellen, Patrick Stewart, Simon Callow. Directed by Sean Mathias | | |
 | 2009-05-05 | Therapy? | Music | London | United Kingdom | Islington Academy | | | |
 | 2009-05-03 | Gary Moore | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2009-04-05 | The Lion King | Theatre | London | United Kingdom | Lyceum Theatre | | | |
 | 2009-03-30 | Sinead O'Connor | Music | London | United Kingdom | The Pigalle Club | | | |
 | 2009-03-28 | Metallica, Machine Head, The Sword | Music | London | United Kingdom | The O2 Arena | | | |
-| 2009-03-13 | Oliver | Theatre | London | United Kingdom | Theatre Royal Drury Lane | Starring Rowan Atkinson, Jodie Prenger. Directed by Rupert Goold | | |
+| 2009-03-12 | Oliver! | Theatre | London | United Kingdom | Theatre Royal Drury Lane | Starring Rowan Atkinson, Jodie Prenger. Directed by Rupert Goold | | |
 | 2009-02-21 | Judas Priest, Megadeth, Testament | Music | London | United Kingdom | Wembley Arena | | | |
 | 2009-02-18 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | | |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | Hammersmith Apollo | Featuring Richard Dawkins, Ben Goldacre, Simon Singh, Stewart Lee, Ricky Gervais, Josie Long, Tim Minchin, Richard Herring, Natalie Haynes, Chris Addison, Mark Thomas, Phil Jupitus, Dara Ó Briain, Jo Neary, Peter Buckley Hill, Jarvis Cocker, Robyn Hitchcock, Darren Hayman, Waen Shepherd, The Martin White Mini Fax Machine Orchestra, Gavin Osborn | Ricky Gervais | |
@@ -390,9 +391,17 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor | | |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | | | |
 | 2004-12-17 | Cypress Hill | Music | Wellington | New Zealand | Starlight Ballroom | | | |
+| 2004-09-10 | The Datsuns | Music | Wellington | New Zealand | Union Hall | | | |
+| 2004-07-01 | Muldoon | Theatre | Wellington | New Zealand | Downstage | Starring David McPhail | | |
+| 2004-04-29 | Bic Runga, Tim Guy | Music | Wellington | New Zealand | St John's In The City | Acoustic Church | | |
+| 2004-02-14 | David Bowie, Brooke Fraser | Music | Wellington | New Zealand | Westpac Stadium | A Reality | | |
+| 2004-01-10 | Turin Brakes, Sleepers Union | Music | Wellington | New Zealand | Indigo | | | |
+| 2003-11-30 | Jello Biafra | Other | Wellington | New Zealand | Paramount Theatre | Spoken word | | |
 | 2003-04-24 | Morcheeba | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 2002-07-11 | The Breeders | Music | San Francisco | United States of America | The Fillmore | | | |
 | 2002-07-05 | The Cranberries | Music | Los Angeles | United States of America | Greek Theatre | | | |
+| 2002-06-19 | Stiff Little Fingers | Music | Los Angeles | United States of America | The Troubador | | | |
+| 2002-06-08 | Royal New Zealand Ballet | Other | Wellington | New Zealand | St James Theatre | Swan Lake | | |
 | 2002-04-20 | Steve Hill | Music | Wellington | New Zealand | Phoenix | | | |
 | 2002-04-19 | Tool | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2002-03-01 | Don Juan | Theatre | Wellington | New Zealand | The Opera House | Royal Dramatic Theatre (Dramaten) | | |
