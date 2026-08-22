@@ -120,9 +120,9 @@ I kept a list of every live show I went to, until 1999 or so. Shihad is the most
 | Shihad | James Cabaret (with Bongmaster, Hell Is Other People) | 13/11/1998 |
 | The General Electric | Big Day Out festival | 21/01/2000 |
 ||||
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *I bet I went to more shows in this 23 year gap, but no records were kept* ||
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *I bet I went to more shows in this 18 year gap, but no records were kept* ||
 ||||
-| Old Gods | Shed 6 | 20/10/2023 |
+| FVEY | Shed 6 | 20/10/2018 |
 | Old Gods | Homegrown festival | 18/03/2023 |
 | Old Gods | Rock the Bowl festival | 29/12/2024 |
 | Old Gods | Meow Nui Wellington | 16/03/2025 |
