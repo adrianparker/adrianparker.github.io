@@ -9,8 +9,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 
 | Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |
 |---|---|---|---|---|---|---|---|---|
-| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | | | |
-| 2026-06-23 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | | | |
+| 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Louis Oakey, Hover Waterworth, Eleanor Parker | | |
+| 2026-06-23 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Louis Oakey, Hover Waterworth, Eleanor Parker | | |
 | 2026-05-23 | Teen Jesus and the Jean Teasers, Ivy | Music | Wellington | New Zealand | San Fran | | | |
 | 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2026-03-20 | The Datsuns, Warm Leather | Music | Wellington | New Zealand | San Fran | | | |
@@ -22,7 +22,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2025-10-21 | Commodores | Music | Wellington | New Zealand | St James Theatre | | | |
 | 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa Theatre | Starring Pamela Sidhu, Regan Taylor, Serena Cotton, Jack Sergent-Shadbolt. Directed by Peter Feeney | | |
 | 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre | Starring Gemma Hoskins, Rachel McSweeney. Directed by Maya Handa Naff | | |
-| 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Coastlands Theatre | Directed by Shelley Shackleton and Natalie Taiaki | | |
+| 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Hover Waterworth, Eleanor Parker | | |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's | | | |
 | 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui | | Jon Toogood | |
 | 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House | The Goodfellow World Tour | | |
@@ -49,7 +49,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-06-12 | The Nathan Haines Octet | Music | Wellington | New Zealand | The Opera House | | | |
 | 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge | | | |
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | Authentic Stupidity | | |
-| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | | | |
+| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | Starring Thom Monckton | | |
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | | Neil Finn | |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | | |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena | | | |
