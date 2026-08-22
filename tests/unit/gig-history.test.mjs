@@ -39,9 +39,14 @@ describe("gig-history — parseGigHistory", () => {
     expect(parseGigHistory(withTrailer)).to.have.lengthOf(2);
   });
 
-  it("skips a data row with the wrong number of columns", () => {
+  it("throws on a data row with too few columns", () => {
     const withBadRow = `${TABLE}\n| 2026-01-01 | Missing Columns |`;
-    expect(parseGigHistory(withBadRow)).to.have.lengthOf(2);
+    expect(() => parseGigHistory(withBadRow)).to.throw(/has 2 column\(s\), expected 9/);
+  });
+
+  it("throws on a data row with too many columns", () => {
+    const withBadRow = `${TABLE}\n| 2026-01-01 | Too | Many | Columns | Here | Than | Should | Be | Present | Really |`;
+    expect(() => parseGigHistory(withBadRow)).to.throw(/has 10 column\(s\), expected 9/);
   });
 
   it("returns an empty array when there is no header row", () => {
