@@ -231,7 +231,6 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-06-29 | Melissa Etheridge | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Neil Finn | |
 | 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy | | Frank Black | |
-| 2010-06-03 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre | Starring Ramin Karimloo, Sierra Boggess, Summer Strallen. Directed by Jack O'Brien | | |
 | 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | HMV Forum | | | |
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall | | | |
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe | | | |
@@ -239,6 +238,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-04-23 | Rhod Gilbert | Comedy | London | United Kingdom | Hammersmith Apollo | The Cat That Looked like Nicholas Lyndhurst | | |
 | 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | | |
 | 2010-04-01 | Airbourne, Black Spiders, Taking Dawn | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2010-03-06 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre | Starring Ramin Karimloo, Sierra Boggess, Summer Strallen. Directed by Jack O'Brien | | |
 | 2010-02-20 | Depeche Mode, Nitzer Ebb | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-02-13 | The Misanthrope | Theatre | London | United Kingdom | Comedy Theatre | Starring Keira Knightley, Damian Lewis | | |
 | 2010-01-22 | Brett Anderson | Music | London | United Kingdom | Shepherd's Bush Empire | | | |  
@@ -308,14 +308,14 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-08-30 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | San Bernadino | United States of America | Glen Helen Pavilion | Metal Masters Tour | | |
 | 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
 | 2008-08-23 | Carl Cox, Erick Morillo, John Digweed, Fedde Le Grand, Layo & Bushwacka!, Paolo Mojo | Music | London | United Kingdom | Clapham Common | South West Four (2008). Guest appearance by Danny Tenaglia | | |
-| 2008-08-20 | Maceo Parker | Music | London | United Kingdom | The Pigalle Club | | | |
+| 2008-08-19 | Maceo Parker | Music | London | United Kingdom | The Pigalle Club | | | |
 | 2008-08-13 | Lenny Kravitz, Sons of Albion | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-07-31 | Billy Idol | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-07-19 | Nigel Kennedy, BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 02 | | |
 | 2008-07-18 | Jill Scott | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-07-16 | Fat Pig | Theatre | London | United Kingdom | Trafalgar Studios | Starring Kris Marshall, Robert Webb. Directed by Neil LaBute | | |
 | 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | Lyttelton Theatre | Starring Vanessa Redgrave. Directed by David Hare | | |
-| 2008-07-10 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe | Starring Naana Agyei-Ampadu, Trystan Gravells. Directed by Matthew Dunster | | |
+| 2008-07-09 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe | Starring Naana Agyei-Ampadu, Trystan Gravells. Directed by Matthew Dunster | | |
 | 2008-07-05 | Iron Maiden, Avenged Sevenfold, Within Temptation, Lauren Harris | Music | London | United Kingdom | Twickenham Stadium | | | |
 | 2008-07-03 | Duran Duran, The Duke Spirit, The Real People | Music | London | United Kingdom | The O2 Arena | | | |
 | 2008-06-28 | Eric Clapton, Sheryl Crow, John Mayer, Jason Mraz, Robert Randolph and The Family Band, Steve Boyce Band | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | | |
@@ -324,8 +324,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-06-25 | Radiohead | Music | London | United Kingdom | Victoria Park | | | |
 | 2008-06-20 | Pygmalion | Theatre | London | United Kingdom | The Old Vic | Starring Michelle Dockery, Tim Pigott-Smith, Una Stubbs. Directed by Sir Peter Hall | | |
 | 2008-06-14 | Radiohead, Bat For Lashes | Music | Nimes | France | Arènes de Nîmes | | | |
-| 2008-06-10 | The Herbaliser | Music | London | United Kingdom | 93 Feet East | | | |
-| 2008-05-29 | We Will Rock You | Theatre | London | United Kingdom | Dominion Theatre | Directed by Christopher Renshaw | | |
+| 2008-06-09 | The Herbaliser | Music | London | United Kingdom | 93 Feet East | | | |
+| 2008-05-28 | We Will Rock You | Theatre | London | United Kingdom | Dominion Theatre | Directed by Christopher Renshaw | | |
 | 2008-05-26 | Mark Knopfler, Bap Kennedy | Music | London | United Kingdom | Royal Albert Hall | | | |
 | 2008-05-23 | Public Enemy, Dr Octagon (Kool Keith), Kutmasta Kurt, Edan, Anti Pop Consortium, MC Dagha | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-05-17 | The Trailer Boat Ride | Music | London | United Kingdom | | | | |
@@ -336,7 +336,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-04-09 | Black Crowes | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-04-08 | English National Opera | Opera | London | United Kingdom | London Coliseum | David Lynch's Lost Highway | | |
 | 2008-03-20 | The Cure, 65 Days of Static | Music | London | United Kingdom | Wembley Arena | | | |
-| 2008-03-16 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2008-03-15 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum, Kentish Town | | | |
 | 2008-02-29 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic | Starring Kevin Spacey, Jeff Goldblum, Laura Michelle Kelly. Directed by Matthew Warchus | | |
 | 2008-02-24 | Tiesto, Ferry Corsten, Marco V, Sander van Doorn | Music | Utrecht | The Netherlands | Jaarbeurs (Trance Energy) | Trance Energy | | |
@@ -345,7 +345,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-01-11 | The Importance of Being Earnest | Theatre | London | United Kingdom | Lyric Hammersmith | Starring John Nicholson, Javier Marzan. Directed by David Farr | | |
 | 2007-12-13 | Chemical Bros, Simian Mobile Disco | Music | London | United Kingdom | Brixton Academy | | | |
 | 2007-11-28 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre | Starring Patrick Stewart, Kate Fleetwood. Directed by Rupert Goold | | |
-| 2007-11-28 | English National Opera | Opera | London | United Kingdom | London Coliseum | Aida | | |
+| 2007-11-27 | English National Opera | Opera | London | United Kingdom | London Coliseum | Aida | | |
 | 2007-11-24 | Amy Winehouse | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-11-23 | The Hives | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-11-17 | Alice Cooper, Motorhead, Joan Jett | Music | London | United Kingdom | Wembley Arena | | | |
@@ -373,7 +373,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-07-30 | Scorpions, Michael Schenker Group (MSG) | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-07-15 | Frank Black | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2007-07-14 | Bert Jansch, Beth Orton, Bernard Butler | Music | London | United Kingdom | Somerset House | | | |
-| 2007-07-08 | Metallica, Machine Head, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium | | | |
+| 2007-07-08 | Metallica, Bullet For My Valentine, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium | | | |
 | 2007-07-07 | Madonna, Red Hot Chili Peppers, Genesis, Duran Duran, Metallica, Foo Fighters, Beastie Boys, Snow Patrol, Keane, Black Eyed Peas, John Legend, David Gray, Damien Rice, Corinne Bailey Rae, James Blunt, Kasabian, Bloc Party, Paolo Nutini, Pussycat Dolls | Music | London | United Kingdom | Wembley Stadium | Live Earth | | |
 | 2007-07-06 | Seal | Music | London | United Kingdom | Tower of London | | | |
 | 2007-07-04 | Tori Amos | Music | London | United Kingdom | Hammersmith Apollo | | | |
@@ -383,13 +383,13 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-06-23 | Peter Gabriel, Crowded House, The Feeling, Ghosts | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Neil Finn | |
 | 2007-06-22 | The Jesus and Mary Chain, 1990s | Music | London | United Kingdom | Royal Festival Hall | Jarvis Cocker's Meltdown | | |
 | 2007-06-17 | Muse, Biffy Clyro, My Chemical Romance | Music | London | United Kingdom | Wembley Stadium | | | |
-| 2007-06-11 | Motley Crue | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2007-06-11 | Motley Crue, Papa Roach | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-05-01 | Money Mark | Music | London | United Kingdom | ICA | | | |
 | 2007-04-26 | Spiritualized | Music | London | United Kingdom | Shepherd's Bush Empire | Acoustic Mainlines | | |
 | 2007-03-12 | Avenue Q | Theatre | London | United Kingdom | Noel Coward Theatre | Starring Luke Evans, Jon Robyns, Julie Atherton. Directed by Jason Moore | | |
 | 2007-02-15 | Indigo Girls | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2007-02-08 | Massive Attack | Music | London | United Kingdom | Brixton Academy | | | |
-| 2007-02-06 | Wolfmother | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2007-02-05 | Wolfmother | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2006-12-23 | Iron Maiden, Trivium, Lauren Harris | Music | London | United Kingdom | Earls Court | | | |
 | 2006-12-03 | The Zutons | Music | London | United Kingdom | Roundhouse | | | |
 | 2006-11-27 | Tool, Mastodon | Music | London | United Kingdom | Wembley Arena | | | |
