@@ -88,10 +88,11 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2017-03-10 | Pixies, Cut Off Your Hands | Music | Wellington | New Zealand | TSB Arena | | Frank Black | |
 | 2017-02-05 | James Taylor | Music | Napier | New Zealand | Church Road Winery | | | |
 | 2017-02-02 | Guns N' Roses, Wolfmother | Music | Wellington | New Zealand | Westpac Stadium | Not In This Lifetime | Duff McKagen, Slash | |
+| 2017-01-27 | Airbourne, Alien Weaponry | Music | Wellington | New Zealand | San Fran | | | |
 | 2016-12-04 | Ben Harper, Miller Yule | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2016-12-03 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | The Planets | | |
 | 2016-10-26 | Slipknot, Lamb of God | Music | Auckland | New Zealand | Vector Arena | | | |
-| 2016-10-22 | Villainy | Music | Wellington | New Zealand | Bar Bodega | | | |
+| 2016-10-22 | Villainy, Skinny Hobos | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 2016-10-20 | Julianna Barwick | Music | Wellington | New Zealand | Caroline | | | |
 | 2016-10-15 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Nutcracker | | |
 | 2016-09-10 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Memory of an Angel | | |
@@ -99,7 +100,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2016-07-16 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Capriccio | | |
 | 2016-06-11 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Odes To Joy | | |
 | 2016-05-07 | Jim Jefferies | Comedy | Wellington | New Zealand | The Opera House | | | |
-| 2016-04-29 | Iron Maiden, The Raven Age | Music | Christchurch | New Zealand | Horncastle Arena | | | |
+| 2016-04-29 | Iron Maiden, The Raven Age | Music | Christchurch | New Zealand | Horncastle Arena | The Book Of Souls | | |
 | 2016-04-22 | Beastwars, The Shocking, Stunning | Music | Wellington | New Zealand | San Fran | | | |
 | 2016-04-08 | Hollie Smith | Music | Wellington | New Zealand | San Fran | | | |
 | 2016-04-01 | Mick Fleetwood Blues, The Miltones | Music | Wellington | New Zealand | The Opera House | | | |
@@ -121,7 +122,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2015-04-02 | Billy Idol, Cheap Trick, The Angels | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2015-03-29 | Gary Clark Jr, Aaron Tokona | Music | Wellington | New Zealand | Shed 6 | | | |
 | 2015-03-01 | Slipknot, Marilyn Manson, Slash, Fall Out Boy, Judas Priest, The Smashing Pumpkins | Music | Sydney | Australia | Olympic Park | Soundwave Festival | | |
-| 2015-02-18 | Slash, Devilskin | Music | Wellington | New Zealand | TSB Arena | | | |
+| 2015-02-18 | Slash, Devilskin | Music | Wellington | New Zealand | TSB Arena | World On Fire | | |
 | 2015-02-14 | Supergroove, Dave Dobbyn, Don McGlashan, Anika Moa | Music | Martinborough | New Zealand | Luna Estate | The Winery Tour 2015 | Che Fu | |
 | 2015-01-24 | Heart, Foreigner, 3 Dog Night | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2015 | | |
 | 2014-12-19 | The Datsuns | Music | Wellington | New Zealand | San Fran | | | |
@@ -224,6 +225,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | The Grand Design | | |
 | 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-09-25 | Zodiac Mindwarp & The Love Reaction | Music | London | United Kingdom | Borderline | | | |
+| 2010-08-19 | La Bete | Theatre | London | United Kingdom | Comedy Theatre | Starring Mark Rylance, David Hyde Pierce, Joanna Lumley, Stephen Ouimette. Directed by Matthew Warchus | | |
 | 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You Yeah, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | | |
@@ -334,7 +336,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-04-11 | Jose Gonzalez | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2008-04-10 | Portishead | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2008-04-09 | Black Crowes | Music | London | United Kingdom | Brixton Academy | | | |
-| 2008-04-08 | English National Opera | Opera | London | United Kingdom | London Coliseum | David Lynch's Lost Highway | | |
+| 2008-04-08 | English National Opera | Opera | London | United Kingdom | Young Vic | David Lynch's Lost Highway | | |
 | 2008-03-20 | The Cure, 65 Days of Static | Music | London | United Kingdom | Wembley Arena | | | |
 | 2008-03-15 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum, Kentish Town | | | |
@@ -369,6 +371,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-08-24 | Razorlight, Kings of Leon, Interpol, Maximo Park, Jimmy Eat World, Gossip, Gogol Bordello, Ash, Brand New | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
 | 2007-08-21 | Tool | Music | London | United Kingdom | Brixton Academy | | | |
 | 2007-08-17 | Prince | Music | London | United Kingdom | The O2 Arena | 21 Nights in London: The Earth Tour | | |
+| 2007-08-13 | The Merchant Of Venice | Theatre | London | United Kingdom | Shakespeare's Globe | Starring John McEnery, Kirsty Besterman, Phil Cumbus, Dale Rapley. Directed by Rebecca Gatward | | |
 | 2007-08-09 | BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | | |
 | 2007-07-30 | Scorpions, Michael Schenker Group (MSG) | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-07-15 | Frank Black | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
@@ -418,6 +421,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2004-07-28 | Naked Samoans Go Home | Theatre | Wellington | New Zealand | Downstage | Starring Dave Fane, Mario Gaoa, Oscar Kightley, Shimpal Lelisi, Robbie Magasiva, Jerome Leota | | |
 | 2004-07-01 | Muldoon | Theatre | Wellington | New Zealand | Downstage | Starring David McPhail | | |
 | 2004-04-29 | Bic Runga, Tim Guy | Music | Wellington | New Zealand | St John's In The City | Acoustic Church | | |
+| 2004-04-15 | Niu Sila | Theatre | Wellington | New Zealand | Downstage | Starring Dave Fane, Damon Andrews. Directed by Conrad Newport | | |
 | 2004-02-14 | David Bowie, Brooke Fraser | Music | Wellington | New Zealand | Westpac Stadium | A Reality | | |
 | 2004-01-10 | Turin Brakes, Sleepers Union | Music | Wellington | New Zealand | Indigo | | | |
 | 2003-11-30 | Jello Biafra | Other | Wellington | New Zealand | Paramount Theatre | Spoken word | | |
@@ -437,6 +441,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2001-05-10 | Pantera, Corrosion of Conformity | Music | Wellington | New Zealand | Queens Wharf Events Centre | Reinventing The Steel | | |
 | 2001-02-09 | No 2 | Theatre | Wellington | New Zealand | Downstage | Starring Madeleine Sami. Directed by Toa Fraser | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 2000-03-21 | Awesome Foursome | Theatre | Wellington | New Zealand | BATS Theatre | Starring Rob McEwen, Sophie Thompson. Directed by Jonathon Hendry | | |
 | 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
 | 1999-10-02 | Alanis Morissette, Stellar* | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | Hello Nasty | | |
