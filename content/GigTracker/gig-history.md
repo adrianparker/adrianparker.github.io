@@ -53,7 +53,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | To The Island | Neil Finn | |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | | |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena | | | |
-| 2020-10-17 | Thomas Oliver | Music | Wellington | New Zealand | The Opera House | | | |
+| 2020-10-17 | Thomas Oliver | Music | Wellington | New Zealand | The Opera House | The Brightest Light | | |
 | 2020-10-09 | The Beths | Music | Wellington | New Zealand | San Fran | | | |
 | 2020-10-03 | Whole Lotta Led | Music | Wellington | New Zealand | The Opera House | | | |
 | 2020-03-07 | Beastwars, Uncle Acid and the Deadbeats, Witchskull, Earth Tongue | Music | Upper Hutt | New Zealand | Panhead Brewery | Obey the Riff | | |
@@ -66,11 +66,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2019-06-05 | Herbie Hancock | Music | Wellington | New Zealand | Michael Fowler Centre | Wellington Jazz Festival 2019 | | |
 | 2019-05-03 | Jordan Luck, Ekko Park | Music | Wellington | New Zealand | San Fran | | | |
 | 2019-03-05 | The Jesus and Mary Chain, Shoddy | Music | Wellington | New Zealand | The Opera House | | | |
-| 2019-03-02 | Eminem, Hilltop Hoods | Music | Wellington | New Zealand | Westpac Stadium | | | |
+| 2019-03-02 | Eminem, Hilltop Hoods | Music | Wellington | New Zealand | Westpac Stadium | Rapture | | |
 | 2019-02-23 | Trinity Roots, The Beths, C.W. Stoneking, The Miltones | Music | Paraparaumu | New Zealand | Southward's Car Museum | Coastella | | |
 | 2019-02-06 | Jon Toogood | Music | Wellington | New Zealand | Meow | | | |
+| 2018-12-01 | Public Service Announcement: Ghosts of Christmas Parties | Theatre | Wellington | New Zealand | Circa | Starring Neenah Dekkers-Reihana, Batanai Mashingaidze, Anya Tate-Manning, Matthew Staijen-Leach, Tom Knowles. Directed by Hannah Smith, Anya Tate-Manning | | |
 | 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Colin, Brad & Greg From Whose Line Is It Anyway? | | |
-| 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House | | | |
+| 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House | True | | |
 | 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 | Jon Toogood | |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's | | | |
 | 2018-09-13 | Chicago | Theatre | Wellington | New Zealand | The Opera House | Starring Carmen Pretorius, Samantha Peo, Jonathan Roxmouth. Directed by Walter Bobbie | | |
@@ -86,7 +87,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2017-03-23 | Adele | Music | Auckland | New Zealand | Mount Smart Stadium | | | |
 | 2017-03-10 | Pixies, Cut Off Your Hands | Music | Wellington | New Zealand | TSB Arena | | Frank Black | |
 | 2017-02-05 | James Taylor | Music | Napier | New Zealand | Church Road Winery | | | |
-| 2017-02-02 | Guns N' Roses, Wolfmother | Music | Wellington | New Zealand | Westpac Stadium | | Duff McKagen, Slash | |
+| 2017-02-02 | Guns N' Roses, Wolfmother | Music | Wellington | New Zealand | Westpac Stadium | Not In This Lifetime | Duff McKagen, Slash | |
 | 2016-12-04 | Ben Harper, Miller Yule | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2016-12-03 | Orchestra Wellington | Orchestra | Wellington | New Zealand | Michael Fowler Centre | The Planets | | |
 | 2016-10-26 | Slipknot, Lamb of God | Music | Auckland | New Zealand | Vector Arena | | | |
@@ -105,11 +106,12 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2016-02-26 | The Sword, American Sharks, Clowns | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 2015-12-12 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Handel's Messiah | | |
 | 2015-11-25 | Tame Impala, Silicon | Music | Wellington | New Zealand | Shed 6 | | | |
-| 2015-11-21 | Elton John, Sol3 Mio | Music | Wellington | New Zealand | Westpac Stadium | | | |
-| 2015-10-13 | Neil Finn | Music | Wellington | New Zealand | The Opera House | | | |
+| 2015-11-21 | Elton John, Sol3 Mio | Music | Wellington | New Zealand | Westpac Stadium | Follow The Yellow Brick Road | | |
+| 2015-10-13 | Neil Finn | Music | Wellington | New Zealand | The Opera House | Solo with Strings | | |
 | 2015-10-02 | Devilskin, Villainy | Music | Wellington | New Zealand | San Fran | | | |
 | 2015-09-19 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Classical Hits | | |
-| 2015-08-31 | Dylan Moran | Comedy | Wellington | New Zealand | St James Theatre | We Got This | | |
+| 2015-09-05 | The White Guitar | Theatre | Wellington | New Zealand | Hannah Playhouse | Starring Scribe. Directed by Nina Nawalowalo, Jim Moriarty | | |
+| 2015-08-31 | Dylan Moran | Comedy | Wellington | New Zealand | St James Theatre | Off The Hook | | |
 | 2015-08-13 | Ahoribuzz | Music | Wellington | New Zealand | Meow | | Aaron Tokona | |
 | 2015-06-12 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Wagner Gala | | |
 | 2015-05-16 | New Zealand Opera, Orchestra Wellington | Opera | Wellington | New Zealand | St James Theatre | La Cenerentola (Cinderella) | | |
@@ -123,22 +125,23 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2015-02-14 | Supergroove, Dave Dobbyn, Don McGlashan, Anika Moa | Music | Martinborough | New Zealand | Luna Estate | The Winery Tour 2015 | Che Fu | |
 | 2015-01-24 | Heart, Foreigner, 3 Dog Night | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2015 | | |
 | 2014-12-19 | The Datsuns | Music | Wellington | New Zealand | San Fran | | | |
-| 2014-10-31 | Lorde | Music | Wellington | New Zealand | TSB Arena | | | |
+| 2014-10-31 | Lorde, Yumi Zouma | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2014-10-10 | Beastwars, Windhand, Mermaidens | Music | Wellington | New Zealand | San Fran | | | |
 | 2014-09-30 | The Dire Straits Experience | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2014-09-19 | Boy and Bear, Mali Mali, Alexander Wildwood | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 2014-08-28 | Kristin Hersh | Music | Wellington | New Zealand | Bar Bodega | | | |
+| 2014-08-26 | Chamber Music New Zealand | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Rhythm & Resonance | | |
 | 2014-08-08 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Mahler's 9th | | |
 | 2014-06-13 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Beethoven's 4th & 5th | | |
 | 2014-06-06 | Chick Corea, Gary Burton | Music | Wellington | New Zealand | Michael Fowler Centre | Duets | | |
 | 2014-05-11 | Billy Connolly | Comedy | Wellington | New Zealand | TSB Arena | High Horse Tour | | |
 | 2014-05-03 | Arctic Monkeys, Pond | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2014-04-27 | Steve Earle and the Dukes, The Mastersons | Music | Wellington | New Zealand | St James Theatre | | | |
-| 2014-03-20 | Nine Inch Nails, Queens Of The Stone Age | Music | Wellington | New Zealand | TSB Arena | | | |
+| 2014-03-20 | Nine Inch Nails, Queens Of The Stone Age, Brody Dalle | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2014-03-14 | Kimbra, Arrested Development, Tim Finn, Pokey Lafarge | Music | New Plymouth | New Zealand | Bowl of Brooklands | WOMAD New Zealand | | |
 | 2013-12-14 | Belinda Carlisle | Music | Wellington | New Zealand | The Opera House | | | |
 | 2013-12-02 | Iris DeMent | Music | Wellington | New Zealand | Old St Paul's | | | |
-| 2013-11-28 | Rules of Addiction | Music | Wellington | New Zealand | Bar Medusa | | | |
+| 2013-11-28 | Rules of Addiction | Music | Wellington | New Zealand | Bar Medusa | World Made Of Lies | | |
 | 2013-10-05 | 8 Foot Sativa, Gunt, Bulletbelt, Gift of Ruin | Music | Wellington | New Zealand | Bar Medusa | | | |
 | 2013-09-20 | Fat Freddy's Drop | Music | Wellington | New Zealand | The Opera House | Blackbird Album Release Tour | | |
 | 2013-09-12 | The Datsuns, Milk Train | Music | Wellington | New Zealand | Bar Bodega | | | |
@@ -146,14 +149,16 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2013-05-05 | Tom Green | Comedy | Wellington | New Zealand | The Opera House | | | |
 | 2013-05-04 | Unida, Beastwars | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 2013-03-19 | Neil Young and Crazy Horse, Husky, The Drones | Music | Wellington | New Zealand | TSB Arena | | Neil Young | |
+| 2013-02-05 | Kings of the Gym | Theatre | Wellington | New Zealand | Circa | Starring Ginette McDonald, Paul McLaughlin. Directed by Danny Mulheron | | |
 | 2012-08-12 | Blur, New Order, The Specials | Music | London | United Kingdom | Hyde Park | BT London Live | | |
 | 2012-08-01 | Ella Fitzgerald Experience | Music | London | United Kingdom | Ronnie Scott's Jazz Club | | | |
 | 2012-07-28 | Eddie Vedder, Glen Hansard | Music | Manchester | United Kingdom | O2 Apollo | | | |
 | 2012-07-27 | Hollie Smith | Music | London | United Kingdom | Vandella | | | |
 | 2012-07-20 | Rhys Darby | Comedy | London | United Kingdom | Shepherd's Bush Empire | This Way to Spaceship | | |
 | 2012-07-17 | Madonna, LMFAO, Martin Solveig | Music | London | United Kingdom | Hyde Park | MDNA Tour | | |
+| 2012-07-15 | Paul Simon, Alison Krauss, Christina Perri | Music | London | United Kingdom | Hyde Park | Hard Rock Calling. Guest appearances by Ladysmith Black Mambazo, Jimmy Cliff, Hugh Masekela | | |
 | 2012-07-14 | Bruce Springsteen, John Fogerty, Lady Antebellum, Amy Macdonald, Hey Monea! | Music | London | United Kingdom | Hyde Park | Hard Rock Calling. Guest appearances by Paul McCartney, John Fogerty, Tom Morello | | |
-| 2012-07-13 | Soundgarden, Iggy & the Stooges, Cold Chisel, Black Stone Cherry | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | | |
+| 2012-07-13 | Soundgarden, Iggy & the Stooges, Cold Chisel, Black Stone Cherry | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Chris Cornell | |
 | 2012-07-08 | Faith No More, Guano Padano | Music | London | United Kingdom | Hammersmith Apollo | Guest appearance by Danny DeVito | | |
 | 2012-07-06 | Deadmau5, The Roots, Santigold, Childish Gambino, Metric | Music | London | United Kingdom | Hyde Park | Wireless Festival | | |
 | 2012-06-26 | Robert Cray | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
@@ -166,7 +171,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2012-03-25 | Korn, Downlink | Music | London | United Kingdom | Brixton Academy | | | |
 | 2012-03-20 | The Phantom Of The Opera | Theatre | London | United Kingdom | Her Majesty's Theatre | Starring Peter Jöback, Sofia Escobar. Directed by Harold Prince | | |
 | 2012-03-15 | Anthrax | Music | London | United Kingdom | Islington Academy | | | |
-| 2012-02-26 | Imogen Heap, Ana Silvera | Music | London | United Kingdom | Roundhouse | | | |
+| 2012-03-10 | The Comedy Of Errors | Theatre | London | United Kingdom | Olivier Theatre | Starring Lenny Henry, Lucian Msamati. Directed by Dominic Cooke | | |
+| 2012-02-26 | Imogen Heap, Ana Silvera | Music | London | United Kingdom | Roundhouse | The Seashell and the Clergyman | | |
+| 2012-02-11 | Thriller Live | Theatre | London | United Kingdom | Lyric Theatre | | | |
 | 2012-02-06 | Gilby Clarke, Badmouth | Music | London | United Kingdom | Underworld Camden | | | |
 | 2012-01-29 | Throwing Needles | Music | London | United Kingdom | | | | |
 | 2011-12-18 | The Royal Ballet | Other | London | United Kingdom | Royal Opera House | The Nutcracker | | |
@@ -175,6 +182,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-11-22 | Wye Oak | Music | London | United Kingdom | XOYO | | | |
 | 2011-11-19 | Bob Dylan, Mark Knopfler | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2011-11-15 | Roxette, Darren Hayes | Music | London | United Kingdom | Wembley Arena | | | |
+| 2011-11-08 | The Royal Ballet | Other | London | United Kingdom | Royal Opera House | L'histoire de Manon | | |
 | 2011-11-02 | Throwing Muses, Spectrals | Music | London | United Kingdom | Shepherd's Bush Empire | | Kristin Hersh | |
 | 2011-10-29 | Alice Cooper, New York Dolls, Arthur Brown | Music | London | United Kingdom | Alexandra Palace | Guest appearance by Lou Reed | | |
 | 2011-10-27 | Lenny Kravitz | Music | London | United Kingdom | Hammersmith Apollo | | | |
@@ -213,10 +221,10 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-11-17 | Deftones, Coheed and Cambria | Music | London | United Kingdom | Brixton Academy | | | |
 | 2010-11-11 | Linkin Park, Does It Offend You Yeah? | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | |
-| 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | | | |
+| 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | The Grand Design | | |
 | 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-09-25 | Zodiac Mindwarp & The Love Reaction | Music | London | United Kingdom | Borderline | | | |
-| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
+| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You Yeah, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | | |
 | 2010-07-14 | Gil Scott-Heron | Music | London | United Kingdom | Somerset House | | | |
@@ -232,17 +240,20 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | | |
 | 2010-04-01 | Airbourne, Black Spiders, Taking Dawn | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2010-02-20 | Depeche Mode, Nitzer Ebb | Music | London | United Kingdom | The O2 Arena | | | |
+| 2010-02-13 | The Misanthrope | Theatre | London | United Kingdom | Comedy Theatre | Starring Keira Knightley, Damian Lewis | | |
+| 2010-01-22 | Brett Anderson | Music | London | United Kingdom | Shepherd's Bush Empire | | | |  
 | 2009-12-19 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | UCL Bloomsbury | Featuring Brian Cox, Richard Dawkins, Ben Goldacre, Simon Singh, Johnny Ball, Mark Steel, Shappi Khorsandi, Josie Long, Richard Herring, Chris Addison, Al Murray, Robyn Hitchcock, the Mystery Fax Machine Chamber Orchestra, Gavin Osborn | | |
 | 2009-12-10 | Marilyn Manson, Esoterica | Music | London | United Kingdom | Brixton Academy | | | |
 | 2009-12-09 | Placebo, Silversun Pickups, The Horrors | Music | London | United Kingdom | The O2 Arena | | | |
 | 2009-12-02 | W.A.S.P., The Glitterati | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
-| 2009-11-19 | Julian Clary | Comedy | London | United Kingdom | Leicester Square Theatre | | | |
+| 2009-11-19 | Julian Clary | Comedy | London | United Kingdom | Leicester Square Theatre | Lord of the Mince | | |
 | 2009-11-17 | Alice In Chains, Little Fish | Music | London | United Kingdom | HMV Forum | | | |
+| 2009-11-14 | The Phantom Of The Opera | Theatre | London | United Kingdom | Her Majesty's Theatre | | | |
 | 2009-11-12 | Biffy Clyro, Manchester Orchestra | Music | London | United Kingdom | Brixton Academy | | | |
-| 2009-11-05 | Othello | Theatre | London | United Kingdom | Trafalgar Studios | Starring Lenny Henry, Conrad Nelson. Directed by Barrie Rutter | | |
+| 2009-11-04 | Othello | Theatre | London | United Kingdom | Trafalgar Studios | Starring Lenny Henry, Conrad Nelson. Directed by Barrie Rutter | | |
 | 2009-11-01 | Europe | Music | London | United Kingdom | Relentless Garage | | | |
 | 2009-10-28 | ZZ Top, Steel Panther | Music | London | United Kingdom | Wembley Arena | | | |
-| 2009-10-10 | The Cult, Aqua Nebula Oscillator | Music | London | United Kingdom | Royal Albert Hall | | | |
+| 2009-10-10 | The Cult, Aqua Nebula Oscillator | Music | London | United Kingdom | Royal Albert Hall | 'Love' Live | | |
 | 2009-10-07 | Pixies | Music | London | United Kingdom | Brixton Academy | | Frank Black | |
 | 2009-09-24 | JTQ + The Ronnie Scott's All Stars | Music | London | United Kingdom | Ronnie Scott's Jazz Club | | James Taylor Quartet | |
 | 2009-09-19 | Coldplay, Jay-Z, White Lies, Girls Aloud | Music | London | United Kingdom | Wembley Stadium | | | |
@@ -257,25 +268,27 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-06-28 | Bruce Springsteen, Dave Matthews Band, James Morrison, The Gaslight Anthem | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | | |
 | 2009-06-27 | Neil Young, The Pretenders, Seasick Steve, Fleet Foxes, Ben Harper & Relentless7 | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Ben Harper | |
 | 2009-06-26 | AC/DC, The Answer, The Subways | Music | London | United Kingdom | Wembley Stadium | | | |
-| 2009-06-25 | Chicken Foot, Skin | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
+| 2009-06-25 | Chickenfoot, Skin | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2009-06-18 | Tesla | Music | London | United Kingdom | Islington Academy | | | |
 | 2009-06-16 | Anthrax, Trigger the Bloodshed, Suicide Silence | Music | London | United Kingdom | ULU | | | |
 | 2009-06-10 | Faith No More, Selfish Cunt | Music | London | United Kingdom | Brixton Academy | | | |
 | 2009-06-06 | James Taylor Quartet | Music | London | United Kingdom | 100 Club | | | |
 | 2009-06-03 | Waiting for Godot | Theatre | London | United Kingdom | Theatre Royal Haymarket | Starring Ian McKellen, Patrick Stewart, Simon Callow. Directed by Sean Mathias | | |
 | 2009-05-05 | Therapy? | Music | London | United Kingdom | Islington Academy | | | |
-| 2009-05-03 | Gary Moore | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2009-05-02 | Gary Moore | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2009-04-05 | The Lion King | Theatre | London | United Kingdom | Lyceum Theatre | | | |
 | 2009-03-30 | Sinead O'Connor | Music | London | United Kingdom | The Pigalle Club | | | |
 | 2009-03-28 | Metallica, Machine Head, The Sword | Music | London | United Kingdom | The O2 Arena | | | |
 | 2009-03-12 | Oliver! | Theatre | London | United Kingdom | Theatre Royal Drury Lane | Starring Rowan Atkinson, Jodie Prenger. Directed by Rupert Goold | | |
+| 2009-02-23 | The Taming of the Shrew | Theatre | London | United Kingdom | Novello Theatre | | | |
 | 2009-02-21 | Judas Priest, Megadeth, Testament | Music | London | United Kingdom | Wembley Arena | | | |
 | 2009-02-18 | The Datsuns | Music | London | United Kingdom | Underworld Camden | | | |
 | 2008-12-21 | Nine Lessons and Carols for Godless People | Other | London | United Kingdom | Hammersmith Apollo | Featuring Richard Dawkins, Ben Goldacre, Simon Singh, Stewart Lee, Ricky Gervais, Josie Long, Tim Minchin, Richard Herring, Natalie Haynes, Chris Addison, Mark Thomas, Phil Jupitus, Dara Ó Briain, Jo Neary, Peter Buckley Hill, Jarvis Cocker, Robyn Hitchcock, Darren Hayman, Waen Shepherd, The Martin White Mini Fax Machine Orchestra, Gavin Osborn | Ricky Gervais | |
 | 2008-12-17 | Biffy Clyro, Frightened Rabbit, People in Planes | Music | London | United Kingdom | Brixton Academy | | | |
+| 2008-12-11 | Carousel | Theatre | London | United Kingdom | Savoy Theatre | Starring Jeremiah James, Alexandra Silber. Directed by Lindsay Posner | | |
 | 2008-12-09 | Bill Bailey | Comedy | London | United Kingdom | Gielgud Theatre | Tinselworm | | |
-| 2008-12-07 | Coldplay | Music | Glasgow | United Kingdom | SECC | | | |
-| 2008-12-03 | Slipknot, Machine Head, Children of Bodom | Music | London | United Kingdom | Hammersmith Apollo | | | |
+| 2008-12-06 | Coldplay | Music | Glasgow | United Kingdom | SECC | | | |
+| 2008-12-02 | Slipknot, Machine Head, Children of Bodom | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2008-11-24 | Dylan Moran | Comedy | London | United Kingdom | Hammersmith Apollo | What It Is | | |
 | 2008-11-23 | Kristin Hersh | Music | London | United Kingdom | Borderline | | | |
 | 2008-11-05 | Bryan Adams | Music | London | United Kingdom | The O2 Arena | | | |
@@ -285,23 +298,23 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-10-01 | Seasick Steve, Amy LaVere | Music | London | United Kingdom | Royal Albert Hall | | | |
 | 2008-09-30 | Brett Anderson, Kid Harpoon | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2008-09-27 | Supergroove | Music | London | United Kingdom | Olympia Grand Hall | | | |
-| 2008-09-26 | LA Guns, Love/Hate | Music | London | United Kingdom | Islington Academy | | | |
+| 2008-09-25 | LA Guns, Love/Hate | Music | London | United Kingdom | Islington Academy | | | |
 | 2008-09-23 | Nigel Kennedy Quintet | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2008-09-18 | Duff McKagen | Music | London | United Kingdom | Islington Academy | | | |
-| 2008-09-17 | Doug Stanhope | Comedy | London | United Kingdom | Arts Theatre | | | |
-| 2008-09-16 | Riflemind | Theatre | London | United Kingdom | Trafalgar Studios | Starring John Hannah, Paul Hilton. Directed by Philip Seymour Hoffman | | |
-| 2008-09-13 | Allanah Myles | Music | London | United Kingdom | Underworld Camden | | | |
+| 2008-09-16 | Doug Stanhope | Comedy | London | United Kingdom | Arts Theatre | | | |
+| 2008-09-15 | Riflemind | Theatre | London | United Kingdom | Trafalgar Studios | Starring John Hannah, Paul Hilton. Directed by Philip Seymour Hoffman | | |
+| 2008-09-12 | Alannah Myles | Music | London | United Kingdom | Underworld Camden | | | |
 | 2008-09-09 | The Datsuns | Music | London | United Kingdom | Barfly | | | |
-| 2008-08-31 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | Mountain View | United States of America | Shoreline Ampitheatre | Metal Masters Tour | | |
-| 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | | |
+| 2008-08-30 | Heaven and Hell, Motorhead, Judas Priest, Testament | Music | San Bernadino | United States of America | Glen Helen Pavilion | Metal Masters Tour | | |
+| 2008-08-24 | Metallica, Tenacious D, Slipknot, Feeder, Avenged Sevenfold, Dropkick Murphys | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
 | 2008-08-23 | Carl Cox, Erick Morillo, John Digweed, Fedde Le Grand, Layo & Bushwacka!, Paolo Mojo | Music | London | United Kingdom | Clapham Common | South West Four (2008). Guest appearance by Danny Tenaglia | | |
 | 2008-08-20 | Maceo Parker | Music | London | United Kingdom | The Pigalle Club | | | |
 | 2008-08-13 | Lenny Kravitz, Sons of Albion | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-07-31 | Billy Idol | Music | London | United Kingdom | Brixton Academy | | | |
-| 2008-07-20 | Nigel Kennedy, BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 2008 | | |
-| 2008-07-19 | Jill Scott | Music | London | United Kingdom | Brixton Academy | | | |
+| 2008-07-19 | Nigel Kennedy, BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 02 | | |
+| 2008-07-18 | Jill Scott | Music | London | United Kingdom | Brixton Academy | | | |
 | 2008-07-16 | Fat Pig | Theatre | London | United Kingdom | Trafalgar Studios | Starring Kris Marshall, Robert Webb. Directed by Neil LaBute | | |
-| 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | National Theatre | Starring Vanessa Redgrave. Directed by David Hare | | |
+| 2008-07-13 | The Year of Magical Thinking | Theatre | London | United Kingdom | Lyttelton Theatre | Starring Vanessa Redgrave. Directed by David Hare | | |
 | 2008-07-10 | The Frontline | Theatre | London | United Kingdom | Shakespeare's Globe | Starring Naana Agyei-Ampadu, Trystan Gravells. Directed by Matthew Dunster | | |
 | 2008-07-05 | Iron Maiden, Avenged Sevenfold, Within Temptation, Lauren Harris | Music | London | United Kingdom | Twickenham Stadium | | | |
 | 2008-07-03 | Duran Duran, The Duke Spirit, The Real People | Music | London | United Kingdom | The O2 Arena | | | |
@@ -309,7 +322,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-06-27 | Bon Jovi, The Feeling, Ivy Rise | Music | London | United Kingdom | Twickenham Stadium | | | |
 | 2008-06-26 | Def Leppard, Whitesnake, Black Stone Cherry | Music | London | United Kingdom | Wembley Arena | | | |
 | 2008-06-25 | Radiohead | Music | London | United Kingdom | Victoria Park | | | |
-| 2008-06-15 | Radiohead, Bat For Lashes | Music | Nimes | France | Arènes de Nîmes | | | |
+| 2008-06-20 | Pygmalion | Theatre | London | United Kingdom | The Old Vic | Starring Michelle Dockery, Tim Pigott-Smith, Una Stubbs. Directed by Sir Peter Hall | | |
+| 2008-06-14 | Radiohead, Bat For Lashes | Music | Nimes | France | Arènes de Nîmes | | | |
 | 2008-06-10 | The Herbaliser | Music | London | United Kingdom | 93 Feet East | | | |
 | 2008-05-29 | We Will Rock You | Theatre | London | United Kingdom | Dominion Theatre | Directed by Christopher Renshaw | | |
 | 2008-05-26 | Mark Knopfler, Bap Kennedy | Music | London | United Kingdom | Royal Albert Hall | | | |
@@ -328,8 +342,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-02-24 | Tiesto, Ferry Corsten, Marco V, Sander van Doorn | Music | Utrecht | The Netherlands | Jaarbeurs (Trance Energy) | Trance Energy | | |
 | 2008-02-16 | Ninja Tune, The Bug (Flowdan), Plastician, Ghislain Poirier, Bonobo, DJ Food, Coldcut (Jon More), zero dB, The Death Set, X Rabit | Music | London | United Kingdom | Electrowerkz | Ninja Tune presents You Don't Know | | |
 | 2008-02-02 | Great White | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
+| 2008-01-11 | The Importance of Being Earnest | Theatre | London | United Kingdom | Lyric Hammersmith | Starring John Nicholson, Javier Marzan. Directed by David Farr | | |
 | 2007-12-13 | Chemical Bros, Simian Mobile Disco | Music | London | United Kingdom | Brixton Academy | | | |
-| 2007-11-29 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre | Starring Patrick Stewart, Kate Fleetwood. Directed by Rupert Goold | | |
+| 2007-11-28 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre | Starring Patrick Stewart, Kate Fleetwood. Directed by Rupert Goold | | |
 | 2007-11-28 | English National Opera | Opera | London | United Kingdom | London Coliseum | Aida | | |
 | 2007-11-24 | Amy Winehouse | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-11-23 | The Hives | Music | London | United Kingdom | Hammersmith Apollo | | | |
@@ -341,20 +356,20 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-11-05 | Tesla, Killing For Company | Music | London | United Kingdom | Islington Academy | | | |
 | 2007-11-02 | W.A.S.P. | Music | London | United Kingdom | London Astoria | | | |
 | 2007-10-23 | LCD Soundsystem | Music | London | United Kingdom | Brixton Academy | | | |
-| 2007-10-18 | Underworld | Music | London | United Kingdom | Roundhouse | | | |
+| 2007-10-17 | Underworld | Music | London | United Kingdom | Roundhouse | | | |
 | 2007-10-11 | Turin Brakes | Music | London | United Kingdom | The Forum | | | |
 | 2007-10-09 | Swimming with Sharks | Theatre | London | United Kingdom | Vaudeville Theatre | Starring Christian Slater, Matt Smith, Helen Baxendale. Directed by Wilson Milam | | |
 | 2007-10-06 | Amp Fiddler | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2007-09-29 | Russell Brand | Comedy | London | United Kingdom | Hackney Empire | Only Joking | | |
 | 2007-09-18 | Kosheen | Music | London | United Kingdom | KOKO | | | |
 | 2007-09-07 | The Jesus and Mary Chain, The Horrors, Evan Dando | Music | London | United Kingdom | Brixton Academy | | | |
-| 2007-09-06 | Beastie Boys | Music | London | United Kingdom | Roundhouse | | | |
-| 2007-08-26 | The Smashing Pumpkins, Nine Inch Nails, Lostprophets, Fall Out Boy, Funeral for a Friend, The Used, Billy Talent | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | | |
-| 2007-08-25 | Red Hot Chili Peppers, Arcade Fire, Bloc Party, Panic! At The Disco, Angels and Airwaves, Eagles of Death Metal, Paramore, Unkle, Biffy Clyro, The Shins, Dinosaur Jr | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | | |
-| 2007-08-24 | Razorlight, Kings of Leon, Interpol, Maximo Park, Jimmy Eat World, Gossip, Gogol Bordello, Ash, Brand New | Music | Reading | United Kingdom | Richfield Avenue (Reading Festival) | Reading Festival | | |
+| 2007-09-05 | Beastie Boys | Music | London | United Kingdom | Roundhouse | | | |
+| 2007-08-26 | The Smashing Pumpkins, Nine Inch Nails, Lostprophets, Fall Out Boy, Funeral for a Friend, The Used, Billy Talent | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
+| 2007-08-25 | Red Hot Chili Peppers, Arcade Fire, Bloc Party, Panic! At The Disco, Angels and Airwaves, Eagles of Death Metal, Paramore, Unkle, Biffy Clyro, The Shins, Dinosaur Jr | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
+| 2007-08-24 | Razorlight, Kings of Leon, Interpol, Maximo Park, Jimmy Eat World, Gossip, Gogol Bordello, Ash, Brand New | Music | Reading | United Kingdom | Richfield Avenue | Reading Festival | | |
 | 2007-08-21 | Tool | Music | London | United Kingdom | Brixton Academy | | | |
 | 2007-08-17 | Prince | Music | London | United Kingdom | The O2 Arena | 21 Nights in London: The Earth Tour | | |
-| 2007-08-10 | BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | | |
+| 2007-08-09 | BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | | |
 | 2007-07-30 | Scorpions, Michael Schenker Group (MSG) | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-07-15 | Frank Black | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2007-07-14 | Bert Jansch, Beth Orton, Bernard Butler | Music | London | United Kingdom | Somerset House | | | |
@@ -364,9 +379,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-07-04 | Tori Amos | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-06-28 | Tesla | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2007-06-27 | Fat Freddy's Drop | Music | London | United Kingdom | Astoria | | | |
-| 2007-06-24 | Aerosmith, Chris Cornell, Jet, The Answer | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | | |
+| 2007-06-24 | Aerosmith, Chris Cornell, Jet, The Answer | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Joe Perry | |
 | 2007-06-23 | Peter Gabriel, Crowded House, The Feeling, Ghosts | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Neil Finn | |
-| 2007-06-22 | The Jesus and Mary Chain | Music | London | United Kingdom | Royal Festival Hall | Meltdown 2007 | | |
+| 2007-06-22 | The Jesus and Mary Chain, 1990s | Music | London | United Kingdom | Royal Festival Hall | Jarvis Cocker's Meltdown | | |
 | 2007-06-17 | Muse, Biffy Clyro, My Chemical Romance | Music | London | United Kingdom | Wembley Stadium | | | |
 | 2007-06-11 | Motley Crue | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-05-01 | Money Mark | Music | London | United Kingdom | ICA | | | |
@@ -380,39 +395,50 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-11-27 | Tool, Mastodon | Music | London | United Kingdom | Wembley Arena | | | |
 | 2006-11-17 | W.A.S.P., Jaded | Music | London | United Kingdom | London Astoria | | | |
 | 2006-11-12 | Bruce Springsteen | Music | London | United Kingdom | Wembley Arena | Guest appearance by Nils Lofgren | | |
-| 2006-11-08 | The Datsuns | Music | London | United Kingdom | Electric Ballroom | | | |
-| 2006-11-07 | INXS | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
+| 2006-11-07 | The Datsuns | Music | London | United Kingdom | Electric Ballroom | | | |
+| 2006-11-06 | INXS | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2006-10-21 | Salmonella Dub | Music | London | United Kingdom | Shepherd's Bush Empire | | Tiki Taane | |
 | 2006-10-08 | Sander Kleinenberg, Mark Knight, Sebastien Leger, Martijn Ten Velden, Nick Bridges | Music | London | United Kingdom | Ministry of Sound | | | |
 | 2006-09-16 | English National Opera | Opera | London | United Kingdom | Coliseum | Gaddafi: A Living Myth | | |
-| 2006-09-12 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy | | Eddie Vedder | |
+| 2006-09-11 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy | | Eddie Vedder | |
 | 2006-08-26 | Sander Kleinenberg, Steve Lawler, Carl Cox, Paul Oakenfold, John Digweed, Pete Tong, Judge Jules, Seb Fontaine, Danny Howells, Fergie, The Shapeshifters, Mauro Picotto, Stanton Warriors, Nic Fanciulli, Sander van Doorn, Desyn Masiello, James Zabiela, Ian Betts, Matt Hardwick | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2006 | | |
+| 2006-08-17 | The Vegemite Tales | Theatre | London | United Kingdom | The Venue Theatre | Starring Blair McDonough, Andrew Robb, Tom Sangster. Directed by Bill Buckhurst | | |
+| 2006-08-09 | Fool For Love | Theatre | London | United Kingdom | Apollo Theatre | Starring Juliette Lewis, Martin Henderson. Directed by Lindsay Posner | | |
+| 2006-08-05 | A Tourist's Guide to Terrorism | Theatre | Edinburgh | United Kingdom | Grassmarket | Starring Maeve Fitzgerald, Shane Nestor. Directed by Alice Coghlan. Edinburgh Festival fringe | | |
+| 2006-08-05 | Anything to Declare | Theatre | Edinburgh | United Kingdom | C Cubed Temple | Starring Mel Dodge. Directed by Rachel More. Edinburgh Festival fringe | | |
 | 2006-07-30 | Massive Attack, Terry Callier | Music | Tetbury | United Kingdom | Westonbirt Arboretum | Forest Concert. Terry Callier collapsed on stage | | |
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor | | |
+| 2005-11-23 | John Cleese | Comedy | Wellington | New Zealand | The Opera House | | | |
+| 2005-06-10 | The Complete Works of William Shakespeare (abridged) | Theatre | Wellington | New Zealand | Soundings Theatre | Starring Oliver Driver, Jeremy Elwood, Keith Adams | | |
+| 2005-04-29 | Straitjacket Fits | Music | Wellington | New Zealand | Bar Bodega | Reunion Tour | | | |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | | | |
 | 2004-12-17 | Cypress Hill | Music | Wellington | New Zealand | Starlight Ballroom | | | |
 | 2004-09-10 | The Datsuns | Music | Wellington | New Zealand | Union Hall | | | |
+| 2004-09-03 | Krishnan's Dairy | Theatre | Wellington | New Zealand | BATS Theatre | Starring Jacob Rajan. Directed by Justin Lewis | | |
+| 2004-07-28 | Naked Samoans Go Home | Theatre | Wellington | New Zealand | Downstage | Starring Dave Fane, Mario Gaoa, Oscar Kightley, Shimpal Lelisi, Robbie Magasiva, Jerome Leota | | |
 | 2004-07-01 | Muldoon | Theatre | Wellington | New Zealand | Downstage | Starring David McPhail | | |
 | 2004-04-29 | Bic Runga, Tim Guy | Music | Wellington | New Zealand | St John's In The City | Acoustic Church | | |
 | 2004-02-14 | David Bowie, Brooke Fraser | Music | Wellington | New Zealand | Westpac Stadium | A Reality | | |
 | 2004-01-10 | Turin Brakes, Sleepers Union | Music | Wellington | New Zealand | Indigo | | | |
 | 2003-11-30 | Jello Biafra | Other | Wellington | New Zealand | Paramount Theatre | Spoken word | | |
 | 2003-04-24 | Morcheeba | Music | Wellington | New Zealand | Wellington Town Hall | | | |
+| 2002-11-09 | Royal New Zealand Ballet | Other | Wellington | New Zealand | St James Theatre | Carmen | | |
 | 2002-07-11 | The Breeders | Music | San Francisco | United States of America | The Fillmore | | | |
 | 2002-07-05 | The Cranberries | Music | Los Angeles | United States of America | Greek Theatre | | | |
 | 2002-06-19 | Stiff Little Fingers | Music | Los Angeles | United States of America | The Troubador | | | |
 | 2002-06-08 | Royal New Zealand Ballet | Other | Wellington | New Zealand | St James Theatre | Swan Lake | | |
 | 2002-04-20 | Steve Hill | Music | Wellington | New Zealand | Phoenix | | | |
-| 2002-04-19 | Tool | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 2002-04-19 | Tool, The Melvins | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2002-03-01 | Don Juan | Theatre | Wellington | New Zealand | The Opera House | Royal Dramatic Theatre (Dramaten) | | |
 | 2002-02-27 | Rota | Other | Wellington | New Zealand | St James Theatre | Companhia de Dança Deborah Colker | | |
 | 2001-12-17 | Fear Factory, Don't | Music | Wellington | New Zealand | Starlight Ballroom | | | |
 | 2001-08-10 | The Bad Apple Orchestra, Trinity Roots | Music | Wellington | New Zealand | Indigo | Featuring members of Fat Freddy's Drop | | |
 | 2001-07-24 | Powderfinger, Garageland | Music | Wellington | New Zealand | Wellington Town Hall | Odyssey No. 5 | | |
 | 2001-05-10 | Pantera, Corrosion of Conformity | Music | Wellington | New Zealand | Queens Wharf Events Centre | Reinventing The Steel | | |
+| 2001-02-09 | No 2 | Theatre | Wellington | New Zealand | Downstage | Starring Madeleine Sami. Directed by Toa Fraser | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
-| 1999-10-02 | Alanis Morissette | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 1999-10-02 | Alanis Morissette, Stellar* | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | Hello Nasty | | |
 | 1999-04-30 | Ewen Gilmour | Comedy | Wellington | New Zealand | The Boatshed | Situations Vacant | | |
 | 1999-04-17 | Keb' Mo', Paul Ubana Jones | Music | Wellington | New Zealand | State Opera House | | | |
@@ -446,7 +472,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1997-02-22 | ENZSO | Music | Upper Hutt | New Zealand | Trentham Memorial Park | Featuring Split Enz / NZ Symphony Orchestra | Neil Finn, Tim Finn, NZ Symphony Orchestra | |
 | 1997-02-21 | Letterbox Lambs, Superette | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1997-01-22 | The Exponents, Pash | Music | Wellington | New Zealand | James Cabaret | | Jordan Luck | |
-| 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall | | Aaron Tokona | |
+| 1997-01-16 | Soundgarden, Weta | Music | Wellington | New Zealand | Wellington Town Hall | | Aaron Tokona, Chris Cornell | |
 | 1997-01-05 | Weta, Breathe, Short | Music | Wellington | New Zealand | Civic Square | | Aaron Tokona | |
 | 1996-12-18 | The Warners | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1996-05-10 | Shihad | Music | Wellington | New Zealand | James Cabaret | | Jon Toogood | |
@@ -484,7 +510,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1994-03-01 | The 3Ds, Bailter Space, Solid Gold Hell | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-02-27 | JPSE, Cinematic | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-02-25 | Crowded House, Dave Dobbyn, Annie Crummer | Music | Wellington | New Zealand | Wellington Town Hall | Freedom | Neil Finn | |
-| 1994-02-05 | Soundgarden, The Smashing Pumpkins, Shihad, Head Like A Hole, Muttonbirds, JPSE, The Breeders, Urge Overkill, Hard-Ons, Jan Hellriegel, Cruel Sea, Kid Eternity | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | Jon Toogood, Don McGlashan | |
+| 1994-02-05 | Soundgarden, The Smashing Pumpkins, Shihad, Head Like A Hole, Muttonbirds, JPSE, The Breeders, Urge Overkill, Hard-Ons, Jan Hellriegel, Cruel Sea, Kid Eternity | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | Jon Toogood, Don McGlashan, Chris Cornell | |
 | 1994-02-04 | Boney M | Music | Hamilton | New Zealand | Hamilton Domain | | | |
 | 1994-02-03 | Wellington Operatic | Opera | Wellington | New Zealand | State Opera House | Les Miserables | | | 
 | 1994-01-15 | Supergroove, Andrew Fagan, The Warratahs, R. Bryant, K Borich, Hello Sailor, Jan Hellriegel, Dave Dobbyn, Shona Laing, Straitjacket Fits, Desert Road, The Exponents, Drawn, Wildfire, Shihad, Head Like A Hole, Dead Flowers | Music | Woodville | New Zealand | | Mountain Rock III | Barry Saunders, Che Fu, Jon Toogood, Jordan Luck | |
