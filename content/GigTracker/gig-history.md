@@ -394,7 +394,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-12-03 | The Zutons | Music | London | United Kingdom | Roundhouse | | | |
 | 2006-11-27 | Tool, Mastodon | Music | London | United Kingdom | Wembley Arena | | | |
 | 2006-11-17 | W.A.S.P., Jaded | Music | London | United Kingdom | London Astoria | | | |
-| 2006-11-12 | Bruce Springsteen | Music | London | United Kingdom | Wembley Arena | Guest appearance by Nils Lofgren | | |
+| 2006-11-11 | Bruce Springsteen | Music | London | United Kingdom | Wembley Arena | Guest appearance by Nils Lofgren | | |
 | 2006-11-07 | The Datsuns | Music | London | United Kingdom | Electric Ballroom | | | |
 | 2006-11-06 | INXS | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2006-10-21 | Salmonella Dub | Music | London | United Kingdom | Shepherd's Bush Empire | | Tiki Taane | |
@@ -410,7 +410,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor | | |
 | 2005-11-23 | John Cleese | Comedy | Wellington | New Zealand | The Opera House | | | |
 | 2005-06-10 | The Complete Works of William Shakespeare (abridged) | Theatre | Wellington | New Zealand | Soundings Theatre | Starring Oliver Driver, Jeremy Elwood, Keith Adams | | |
-| 2005-04-29 | Straitjacket Fits | Music | Wellington | New Zealand | Bar Bodega | Reunion Tour | | | |
+| 2005-04-29 | Straitjacket Fits | Music | Wellington | New Zealand | Bar Bodega | Reunion Tour | | |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | | | |
 | 2004-12-17 | Cypress Hill | Music | Wellington | New Zealand | Starlight Ballroom | | | |
 | 2004-09-10 | The Datsuns | Music | Wellington | New Zealand | Union Hall | | | |
