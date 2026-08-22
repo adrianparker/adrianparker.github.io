@@ -102,7 +102,7 @@ Churn was eventually released, having been played live for seemingly forever. I 
 
 Then Killjoy - their best work by some distance. Then the self titled one with fish on it. But we forgave them that one. Then.... well, [more](https://en.wikipedia.org/wiki/Shihad_discography). It becomes a blur.
 
-I kept a list of every live show I went to, until 1999 or so. Shihad is the most common name on it, despite it being *quite* a long list. Despite a 25 year gap in records, I still saw them at least 16 times. I doubt I'll see any band more often. 
+I kept a list of every live show I went to, until 1999 or so. Shihad is the most common name on it, despite it being *quite* a long list. Despite a 23 year gap in records, I still saw them at least 17 times. I doubt I'll see any band more often. 
 
 | Era | Show | Date |
 |:-----------|:------|:------|
@@ -118,8 +118,9 @@ I kept a list of every live show I went to, until 1999 or so. Shihad is the most
 | Killjoy | James Cabaret (with Short) | 11/08/1995 |
 | Killjoy | James Cabaret | 10/05/1996 |
 | Shihad | James Cabaret (with Bongmaster, Hell Is Other People) | 13/11/1998 |
+| The General Electric | Big Day Out festival | 21/01/2000 |
 ||||
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *I bet I went to more shows in this 25 year gap, but no records were kept* ||
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | *I bet I went to more shows in this 23 year gap, but no records were kept* ||
 ||||
 | Old Gods | Shed 6 | 20/10/2023 |
 | Old Gods | Homegrown festival | 18/03/2023 |

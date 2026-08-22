@@ -394,6 +394,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2002-04-19 | Tool | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2001-05-10 | Pantera | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | |
 | 1999-10-02 | Alanis Morissette | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 1999-04-17 | Keb' Mo', Paul Ubana Jones | Music | Wellington | New Zealand | State Opera House | | | |
