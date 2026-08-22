@@ -195,6 +195,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-06-21 | Ozzy Osbourne | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2011-06-18 | Simple Minds, James Walsh (Starsailor) | Music | Nottingham | United Kingdom | Sherwood Pines Park | Forest Live | | |
 | 2011-06-11 | Yelawolf | Music | Amsterdam | The Netherlands | Melkweg Oude Zaal | | | |
+| 2011-05-28 | The Merchant of Venice | Theatre | Stratford-upon-Avon | United Kingdom | Royal Shakespeare Theatre | | | |
 | 2011-05-22 | The Straits | Music | London | United Kingdom | Royal Albert Hall | The Straits' debut public performance (charity show) | | |
 | 2011-05-20 | The Naked And Famous | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2011-05-18 | Roger Waters | Music | London | United Kingdom | The O2 Arena | | | |
@@ -392,12 +393,19 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2003-04-24 | Morcheeba | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 2002-07-11 | The Breeders | Music | San Francisco | United States of America | The Fillmore | | | |
 | 2002-07-05 | The Cranberries | Music | Los Angeles | United States of America | Greek Theatre | | | |
+| 2002-04-20 | Steve Hill | Music | Wellington | New Zealand | Phoenix | | | |
 | 2002-04-19 | Tool | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
-| 2001-05-10 | Pantera | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 2002-03-01 | Don Juan | Theatre | Wellington | New Zealand | The Opera House | Royal Dramatic Theatre (Dramaten) | | |
+| 2002-02-27 | Rota | Other | Wellington | New Zealand | St James Theatre | Companhia de Dança Deborah Colker | | |
+| 2001-12-17 | Fear Factory, Don't | Music | Wellington | New Zealand | Starlight Ballroom | | | |
+| 2001-08-10 | The Bad Apple Orchestra, Trinity Roots | Music | Wellington | New Zealand | Indigo | Featuring members of Fat Freddy's Drop | | |
+| 2001-07-24 | Powderfinger, Garageland | Music | Wellington | New Zealand | Wellington Town Hall | Odyssey No. 5 | | |
+| 2001-05-10 | Pantera, Corrosion of Conformity | Music | Wellington | New Zealand | Queens Wharf Events Centre | Reinventing The Steel | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
 | 1999-10-02 | Alanis Morissette | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
-| 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | | | |
+| 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | Hello Nasty | | |
+| 1999-04-30 | Ewen Gilmour | Comedy | Wellington | New Zealand | The Boatshed | Situations Vacant | | |
 | 1999-04-17 | Keb' Mo', Paul Ubana Jones | Music | Wellington | New Zealand | State Opera House | | | |
 | 1999-03-15 | Jaunt, The Whores Next Door, Pushkin | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-11-27 | Pushkin, The Whores Next Door, Broomdance | Music | Wellington | New Zealand | Indigo | | | |
@@ -420,10 +428,11 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1998-01-29 | Radiohead | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1997-10-03 | Bike, Breakfast of Champions | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1997-07-05 | Faith No More, Better Than Ezra, The Nixons, Orbit, Muse | Music | Fort Lauderdale | United States of America | Markham Park | Zetafest | | |
+| 1997-04-11 | Derrick Carter | Music | Wellington | New Zealand | Escape | | | |
 | 1997-04-05 | Head Like A Hole | Music | Wellington | New Zealand | Civic Square | | | |
 | 1997-03-13 | Baconfoot, Snitches, Gas Huffer | Music | Wellington | New Zealand | Bar Bodega | | | |
-| 1997-03-07 | Head Like A Hole, Frenzal Rhomb | Music | Wellington | New Zealand | Union Hall | | | |
-| 1997-03-05 | Superette | Music | Wellington | New Zealand | Union Hall | | | |
+| 1997-03-07 | Head Like A Hole, Frenzal Rhomb, Short, Breathe | Music | Wellington | New Zealand | Union Hall | | | |
+| 1997-03-05 | The 3Ds, Superette, Fur Patrol | Music | Wellington | New Zealand | Union Hall | | | |
 | 1997-03-04 | David Harrow, Salmonella Dub | Music | Wellington | New Zealand | Union Hall | | Tiki Taane | |
 | 1997-02-22 | ENZSO | Music | Upper Hutt | New Zealand | Trentham Memorial Park | Featuring Split Enz / NZ Symphony Orchestra | Neil Finn, Tim Finn, NZ Symphony Orchestra | |
 | 1997-02-21 | Letterbox Lambs, Superette | Music | Wellington | New Zealand | Bar Bodega | | | |
@@ -438,7 +447,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1996-01-11 | Knightshade, Dave Dobbyn, Muttonbirds, Joe Satriani, Stranglers, The Cruel Sea, Mental As Anything, The Exponents, Barry Saunders, Head Like A Hole, Pumpkinhead | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock 5 | Don McGlashan, Jordan Luck | |
 | 1995-10-01 | Skwish | Music | Wellington | New Zealand | Cuba Cuba | | | |
 | 1995-08-11 | Shihad, Short | Music | Wellington | New Zealand | James Cabaret | | Jon Toogood | |
-| 1995-08-05 | Faith No More, Pumpkinhead, Dead Flowers | Music | Wellington | New Zealand | Wellington Show + Sports Centre | | | |
+| 1995-08-05 | Faith No More, Pumpkinhead, Dead Flowers | Music | Wellington | New Zealand | Wellington Show + Sports Centre | King For A Day.... | | |
 | 1995-08-04 | Letterbox Lambs, Breathe | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1995-08-02 | Condition Red | Music | Wellington | New Zealand | Antipodes | | | |
 | 1995-07-31 | Dave Dobbyn, Emma Paki | Music | Wellington | New Zealand | James Cabaret | | | |
@@ -452,22 +461,23 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1994-11-30 | Tori Amos, Ted Brown | Music | Auckland | New Zealand | Auckland Town Hall | | | |
 | 1994-11-26 | Stonor | Music | Lower Hutt | New Zealand | Miller Bar | | | |
 | 1994-11-18 | Stonor | Music | Wellington | New Zealand | 38 Norway St | | | |
-| 1994-11-06 | Pantera, Fat Mannequin | Music | Wellington | New Zealand | Wellington Town Hall | | | |
+| 1994-11-06 | Pantera, Fat Mannequin | Music | Wellington | New Zealand | Wellington Town Hall | Far Beyond Driven | | |
 | 1994-11-02 | Skwish, Plankton | Music | Wellington | New Zealand | Bar Bodega | | | |
-| 1994-10-05 | Beastie Boys, Helmet, Emulsifier | Music | Wellington | New Zealand | Wellington Town Hall | | | |
+| 1994-10-05 | Beastie Boys, Helmet, Emulsifier | Music | Wellington | New Zealand | Wellington Town Hall | Ill Communication | | |
 | 1994-08-27 | Supergroove, Nixons, MCOJ & DLT | Music | Wellington | New Zealand | James Cabaret | | Che Fu | |
 | 1994-08-04 | Skwish | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1994-07-23 | Supergroove, Thorazine Shuffle, DLT | Music | Wellington | New Zealand | James Cabaret | | Che Fu | |
 | 1994-07-01 | Head Like A Hole, Monster | Music | Wellington | New Zealand | Union Hall | | | |
-| 1994-06-23 | Kristin Hersh, Brainchilds | Music | Wellington | New Zealand | Paramount Theatre | | | |
+| 1994-06-22 | Kristin Hersh, Brainchilds | Music | Wellington | New Zealand | Paramount Theatre | Hips & Makers | | |
 | 1994-05-27 | Burning Roses, The Crystalline | Music | Wellington | New Zealand | Union Building, Victoria University | | | |
 | 1994-05-21 | Desert Road | Music | Wellington | New Zealand | Metro | | | |
-| 1994-04-27 | Muttonbirds, Emma Paki, Bilge Festival | Music | Wellington | New Zealand | James Cabaret | | Don McGlashan | |
+| 1994-04-27 | Muttonbirds, Emma Paki, Bilge Festival | Music | Wellington | New Zealand | James Cabaret | Salty | Don McGlashan | |
 | 1994-03-01 | The 3Ds, Bailter Space, Solid Gold Hell | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-02-27 | JPSE, Cinematic | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-02-25 | Crowded House, Dave Dobbyn, Annie Crummer | Music | Wellington | New Zealand | Wellington Town Hall | Freedom | Neil Finn | |
 | 1994-02-05 | Soundgarden, The Smashing Pumpkins, Shihad, Head Like A Hole, Muttonbirds, JPSE, The Breeders, Urge Overkill, Hard-Ons, Jan Hellriegel, Cruel Sea, Kid Eternity | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | Jon Toogood, Don McGlashan | |
 | 1994-02-04 | Boney M | Music | Hamilton | New Zealand | Hamilton Domain | | | |
+| 1994-02-03 | Wellington Operatic | Opera | Wellington | New Zealand | State Opera House | Les Miserables | | | 
 | 1994-01-15 | Supergroove, Andrew Fagan, The Warratahs, R. Bryant, K Borich, Hello Sailor, Jan Hellriegel, Dave Dobbyn, Shona Laing, Straitjacket Fits, Desert Road, The Exponents, Drawn, Wildfire, Shihad, Head Like A Hole, Dead Flowers | Music | Woodville | New Zealand | | Mountain Rock III | Barry Saunders, Che Fu, Jon Toogood, Jordan Luck | |
 | 1994-01-14 | Dave Dobbyn, The Exponents | Music | Wellington | New Zealand | James Cabaret | | Jordan Luck | |
 | 1993-12-17 | Premature Autopsy, Loves Ugly Children, Head Like A Hole, Shihad | Music | Wellington | New Zealand | Union Hall | | Jon Toogood | |
@@ -486,6 +496,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1993-03-04 | JPSE, Muttonbirds | Music | Wellington | New Zealand | Union Hall | | Don McGlashan | |
 | 1993-03-02 | The Lemonheads, David Kilgour, Bilge Festival | Music | Wellington | New Zealand | Union Hall | | Evan Dando | |
 | 1993-02-25 | Billy Connolly | Comedy | Wellington | New Zealand | Michael Fowler Centre | | | |
+| 1993-02-24 | The 2 Gentlemen of Verona | Theatre | Wellington | New Zealand | The Dell | Summer Shakespeare | | |
 | 1993-02-06 | Guns N' Roses, Skid Row, Dead Flowers | Music | Auckland | New Zealand | Mount Smart Stadium | | Duff McKagen, Gilby Clarke, Sebastian Bach, Slash | |
 | 1993-01-16 | Shona Laing, Sam Hunt, Push Push, Shihad, Muttonbirds, Ted Clarke, Jan Hellriegel, Desert Road, Nine Livez, Dead Flowers, Southside of Bombay, Big Deal, Blue Buffoons, Flippin Hippies, Savana, Johnny B Band, Out of the Blue, Snowline | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock II | Don McGlashan, Jon Toogood | |
 | 1993-01-11 | Jenny Morris, JPSE | Music | Wellington | New Zealand | Wellington Town Hall | | | |
