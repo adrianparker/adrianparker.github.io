@@ -385,6 +385,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-09-16 | English National Opera | Opera | London | United Kingdom | Coliseum | Gaddafi: A Living Myth | | |
 | 2006-09-12 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy | | Eddie Vedder | |
 | 2006-08-26 | Sander Kleinenberg, Steve Lawler, Carl Cox, Paul Oakenfold, John Digweed, Pete Tong, Judge Jules, Seb Fontaine, Danny Howells, Fergie, The Shapeshifters, Mauro Picotto, Stanton Warriors, Nic Fanciulli, Sander van Doorn, Desyn Masiello, James Zabiela, Ian Betts, Matt Hardwick | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2006 | | |
+| 2006-07-30 | Massive Attack, Terry Callier | Music | Tetbury | United Kingdom | Westonbirt Arboretum | Forest Concert. Terry Callier collapsed on stage | |
 | 2006-06-17 | Foo Fighters, Motorhead, Queens Of The Stone Age, Angels and Airwaves, Juliette & The Licks, The Subways | Music | London | United Kingdom | Hyde Park | Guest appearances by Lemmy, Brian May, Roger Taylor | | |
 | 2004-12-27 | Tenacious D | Music | Wellington | New Zealand | St James Theatre | | | |
 | 2004-12-17 | Cypress Hill | Music | Wellington | New Zealand | Starlight Ballroom | | | |
