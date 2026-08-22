@@ -34,8 +34,10 @@ All nine columns are required on every row (leave a column blank rather than
 omitting it — see the `Notes`, `Association` and `Setlist.fm ID` columns
 above). Free text before the header (a title, a description paragraph) and
 after the table (notes) is ignored by the parser in `lib/gig-history.mjs`;
-only lines starting with `|` after the header count as rows, and a row with
-the wrong number of columns is skipped.
+only lines starting with `|` after the header count as rows. A row with the
+wrong number of columns — too few or too many — fails the build rather than
+being silently dropped, so a mistyped row can't make a gig quietly vanish
+from the site.
 
 `Setlist.fm ID` is data only — the setlist.fm ID for the gig, where one
 exists. It is parsed into each gig object as `setlistfmId` but the app

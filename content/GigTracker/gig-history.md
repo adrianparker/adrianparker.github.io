@@ -69,7 +69,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2019-03-02 | Eminem, Hilltop Hoods | Music | Wellington | New Zealand | Westpac Stadium | | | |
 | 2019-02-23 | Trinity Roots, The Beths, C.W. Stoneking, The Miltones | Music | Paraparaumu | New Zealand | Southward's Car Museum | Coastella | | |
 | 2019-02-06 | Jon Toogood | Music | Wellington | New Zealand | Meow | | | |
-| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Colin, Brad & Greg From Whose Line Is It Anyway? | |
+| 2018-11-26 | Whose Line Is It Anyway | Comedy | Wellington | New Zealand | The Opera House | Colin, Brad & Greg From Whose Line Is It Anyway? | | |
 | 2018-11-08 | Trinity Roots | Music | Wellington | New Zealand | The Opera House | | | |
 | 2018-10-20 | Shihad, Beastwars, Villainy | Music | Wellington | New Zealand | Shed 6 | Shihad 30 | Jon Toogood | |
 | 2018-10-13 | Don McGlashan | Music | Wellington | New Zealand | Old St Paul's | | | |
@@ -395,7 +395,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2002-04-19 | Tool | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2001-05-10 | Pantera | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
-| 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | |
+| 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
 | 1999-10-02 | Alanis Morissette | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 1999-04-17 | Keb' Mo', Paul Ubana Jones | Music | Wellington | New Zealand | State Opera House | | | |
