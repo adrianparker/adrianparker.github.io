@@ -427,6 +427,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2004-01-10 | Turin Brakes, Sleepers Union | Music | Wellington | New Zealand | Indigo | | | |
 | 2003-11-30 | Jello Biafra | Other | Wellington | New Zealand | Paramount Theatre | Spoken word | | |
 | 2003-04-24 | Morcheeba | Music | Wellington | New Zealand | Wellington Town Hall | | | |
+| 2003-02-15 | Satoshi Tomiie | Music | Wellington | New Zealand | Sub Nine | Unity | | |
 | 2002-11-09 | Royal New Zealand Ballet | Other | Wellington | New Zealand | St James Theatre | Carmen | | |
 | 2002-07-11 | The Breeders | Music | San Francisco | United States of America | The Fillmore | | | |
 | 2002-07-05 | The Cranberries | Music | Los Angeles | United States of America | Greek Theatre | | | |
