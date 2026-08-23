@@ -219,7 +219,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2011-02-25 | Foo Fighters, Cee Lo Green, Band Of Horses, No Age | Music | London | United Kingdom | Wembley Arena | NME Awards Big Gig 2011 | | |
 | 2011-02-12 | Esben and the Witch | Music | Amsterdam | The Netherlands | Paradiso | | | |
 | 2010-11-21 | Soulfly | Music | London | United Kingdom | KOKO | | | |
-| 2010-11-19 | Therapy? | Music | London | United Kingdom | HMV Forum | | | |
+| 2010-11-19 | Therapy? | Music | London | United Kingdom | The Forum | | | |
 | 2010-11-17 | Deftones, Coheed and Cambria | Music | London | United Kingdom | Brixton Academy | | | |
 | 2010-11-11 | Linkin Park, Does It Offend You, Yeah? | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | |
@@ -234,7 +234,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-06-29 | Melissa Etheridge | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2010-06-27 | Paul McCartney, Crowded House, Crosby Stills & Nash, Elvis Costello | Music | London | United Kingdom | Hyde Park | Hard Rock Calling | Neil Finn | |
 | 2010-06-04 | Pixies | Music | London | United Kingdom | Troxy | | Frank Black | |
-| 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | HMV Forum | | | |
+| 2010-05-31 | Sunny Day Real Estate, Biffy Clyro | Music | London | United Kingdom | The Forum | | | |
 | 2010-05-24 | Hope Sandoval, Dirt Blue Gene | Music | London | United Kingdom | Bush Hall | | | |
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe | | | |
 | 2010-04-28 | Ricky Gervais | Comedy | London | United Kingdom | Wembley Arena | Science | | |
@@ -250,7 +250,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-12-09 | Placebo, Silversun Pickups, The Horrors | Music | London | United Kingdom | The O2 Arena | | | |
 | 2009-12-02 | W.A.S.P., The Glitterati | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2009-11-19 | Julian Clary | Comedy | London | United Kingdom | Leicester Square Theatre | Lord of the Mince | | |
-| 2009-11-17 | Alice In Chains, Little Fish | Music | London | United Kingdom | HMV Forum | | | |
+| 2009-11-17 | Alice In Chains, Little Fish | Music | London | United Kingdom | The Forum | | | |
 | 2009-11-14 | The Phantom Of The Opera | Theatre | London | United Kingdom | Her Majesty's Theatre | | | |
 | 2009-11-12 | Biffy Clyro, Manchester Orchestra | Music | London | United Kingdom | Brixton Academy | | | |
 | 2009-11-04 | Othello | Theatre | London | United Kingdom | Trafalgar Studios | Starring Lenny Henry, Conrad Nelson. Directed by Barrie Rutter | | |
@@ -264,7 +264,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-09-16 | Dame Kiri Te Kanawa | Opera | London | United Kingdom | The Tower of London | Continental Airlines Tower Festival | | |
 | 2009-09-04 | Doug Stanhope | Comedy | London | United Kingdom | Leicester Square Theatre | | | |
 | 2009-08-29 | Sasha & Digweed, David Guetta, Eric Prydz, Armin Van Buuren, Above & Beyond, Richie Hawtin | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2009 | John Digweed | |
-| 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | HMV Forum | | | |
+| 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | The Forum | | | |
 | 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena | | Eddie Vedder | |
 | 2009-08-04 | Alice In Chains | Music | London | United Kingdom | Scala | | | |
 | 2009-07-04 | Jeff Beck, Imelda May, Tal Wilkenfeld | Music | London | United Kingdom | Royal Albert Hall | Guest appearance by David Gilmour | | |
@@ -340,7 +340,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-04-08 | English National Opera | Opera | London | United Kingdom | Young Vic | David Lynch's Lost Highway | | |
 | 2008-03-20 | The Cure, 65 Days of Static | Music | London | United Kingdom | Wembley Arena | | | |
 | 2008-03-15 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | | |
-| 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum, Kentish Town | | | |
+| 2008-03-07 | Apocolyptica | Music | London | United Kingdom | The Forum | | | |
 | 2008-02-29 | Speed-the-plow | Theatre | London | United Kingdom | The Old Vic | Starring Kevin Spacey, Jeff Goldblum, Laura Michelle Kelly. Directed by Matthew Warchus | | |
 | 2008-02-24 | Tiesto, Ferry Corsten, Marco V, Sander van Doorn | Music | Utrecht | The Netherlands | Jaarbeurs (Trance Energy) | Trance Energy | | |
 | 2008-02-16 | Ninja Tune, The Bug (Flowdan), Plastician, Ghislain Poirier, Bonobo, DJ Food, Coldcut (Jon More), zero dB, The Death Set, X Rabit | Music | London | United Kingdom | Electrowerkz | Ninja Tune presents You Don't Know | | |
@@ -382,7 +382,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-07-06 | Seal | Music | London | United Kingdom | Tower of London | | | |
 | 2007-07-04 | Tori Amos | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2007-06-28 | Tesla | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
-| 2007-06-27 | Fat Freddy's Drop | Music | London | United Kingdom | Astoria | | | |
+| 2007-06-27 | Fat Freddy's Drop | Music | London | United Kingdom | London Astoria | | | |
 | 2007-06-24 | Aerosmith, Chris Cornell, Jet, The Answer | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Joe Perry | |
 | 2007-06-23 | Peter Gabriel, Crowded House, The Feeling, Ghosts | Music | London | United Kingdom | Hyde Park | Hyde Park Calling | Neil Finn | |
 | 2007-06-22 | The Jesus and Mary Chain, 1990s | Music | London | United Kingdom | Royal Festival Hall | Jarvis Cocker's Meltdown | | |
@@ -528,7 +528,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1993-08-15 | Wellington Youth Choir, Manawatu Youth Choir | Music | Wellington | New Zealand | | | | |
 | 1993-07-28 | Pungent Stench, Tension, Warp Drive | Music | Wellington | New Zealand | Kaminskys | | | |
 | 1993-07-23 | Shihad, Skinshed, Flail | Music | Wellington | New Zealand | James Cabaret | | Jon Toogood | |
-| 1993-07-02 | Head Like A Hole, Steak, Funkmutha | Music | Wellington | New Zealand | Stox | | | |
+| 1993-07-02 | Head Like A Hole, Steak, Funkmutha | Music | Wellington | New Zealand | Stax | | | |
 | 1993-05-22 | Push Push, The Spirals | Music | Wellington | New Zealand | Show & Sports Centre | | | |
 | 1993-05-13 | Faith No More, Emulsifier | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 1993-04-23 | JPSE | Music | Wellington | New Zealand | Sol Bar | | | |
