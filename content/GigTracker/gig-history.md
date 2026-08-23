@@ -435,6 +435,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2002-06-08 | Royal New Zealand Ballet | Other | Wellington | New Zealand | St James Theatre | Swan Lake | | |
 | 2002-04-20 | Steve Hill | Music | Wellington | New Zealand | Phoenix | | | |
 | 2002-04-19 | Tool, The Melvins | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 2002-03-30 | Steve Lawler | Music | Wellington | New Zealand | Sub Nine | | | |
 | 2002-03-01 | Don Juan | Theatre | Wellington | New Zealand | The Opera House | Royal Dramatic Theatre (Dramaten) | | |
 | 2002-02-27 | Rota | Other | Wellington | New Zealand | St James Theatre | Companhia de Dança Deborah Colker | | |
 | 2001-12-17 | Fear Factory, Don't | Music | Wellington | New Zealand | Starlight Ballroom | | | |
