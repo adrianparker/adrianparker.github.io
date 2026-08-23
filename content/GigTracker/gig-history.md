@@ -59,7 +59,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2020-03-07 | Beastwars, Uncle Acid and the Deadbeats, Witchskull, Earth Tongue | Music | Upper Hutt | New Zealand | Panhead Brewery | Obey the Riff | | |
 | 2020-02-23 | NZ Symphony Orchestra | Orchestra | Wellington | New Zealand | Michael Fowler Centre | Glass / Richter / Jarvi | | |
 | 2020-02-05 | Queen + Adam Lambert | Music | Wellington | New Zealand | Sky Stadium | | | |
-| 2020-01-25 | Billy Idol, George Thorogood, Anastasia, Smash Mouth | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2020 | | |
+| 2020-01-25 | Billy Idol, George Thorogood & The Destroyers, Anastasia, Smash Mouth | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2020 | | |
 | 2019-09-16 | Fleetwood Mac | Music | Auckland | New Zealand | Spark Arena | | Neil Finn, Stevie Nicks | |
 | 2019-07-24 | Hilltop Hoods, Jordan Lee | Music | Auckland | New Zealand | The Studio | | | |
 | 2019-06-08 | Hollie Smith | Music | Wellington | New Zealand | The Thistle Inn | | | |
@@ -220,13 +220,13 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-11-21 | Soulfly | Music | London | United Kingdom | KOKO | | | |
 | 2010-11-19 | Therapy? | Music | London | United Kingdom | HMV Forum | | | |
 | 2010-11-17 | Deftones, Coheed and Cambria | Music | London | United Kingdom | Brixton Academy | | | |
-| 2010-11-11 | Linkin Park, Does It Offend You Yeah? | Music | London | United Kingdom | The O2 Arena | | | |
+| 2010-11-11 | Linkin Park, Does It Offend You, Yeah? | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | |
 | 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | The Grand Design | | |
 | 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | |
 | 2010-09-25 | Zodiac Mindwarp & The Love Reaction | Music | London | United Kingdom | Borderline | | | |
 | 2010-08-19 | La Bete | Theatre | London | United Kingdom | Comedy Theatre | Starring Mark Rylance, David Hyde Pierce, Joanna Lumley, Stephen Ouimette. Directed by Matthew Warchus | | |
-| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You Yeah, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
+| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You, Yeah?, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | | |
 | 2010-07-14 | Gil Scott-Heron | Music | London | United Kingdom | Somerset House | | | |
@@ -238,7 +238,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-05-04 | Belinda Carlisle | Music | London | United Kingdom | Jazz Cafe | | | |
 | 2010-04-28 | Ricky Gervais | Comedy | London | United Kingdom | Wembley Arena | Science | | |
 | 2010-04-23 | Rhod Gilbert | Comedy | London | United Kingdom | Hammersmith Apollo | The Cat That Looked like Nicholas Lyndhurst | | |
-| 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | | |
+| 2010-04-13 | Joe Perry Project | Music | London | United Kingdom | 100 Club | | Joe Perry | |
 | 2010-04-01 | Airbourne, Black Spiders, Taking Dawn | Music | London | United Kingdom | Hammersmith Apollo | | | |
 | 2010-03-06 | Love Never Dies | Theatre | London | United Kingdom | Adelphi Theatre | Starring Ramin Karimloo, Sierra Boggess, Summer Strallen. Directed by Jack O'Brien | | |
 | 2010-02-20 | Depeche Mode, Nitzer Ebb | Music | London | United Kingdom | The O2 Arena | | | |
@@ -262,7 +262,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2009-09-17 | Massive Attack | Music | London | United Kingdom | Brixton Academy | | | |
 | 2009-09-16 | Dame Kiri Te Kanawa | Opera | London | United Kingdom | The Tower of London | Continental Airlines Tower Festival | | |
 | 2009-09-04 | Doug Stanhope | Comedy | London | United Kingdom | Leicester Square Theatre | | | |
-| 2009-08-29 | Sasha & Digweed, David Guetta, Eric Prydz, Armin Van Buuren, Above & Beyond, Richie Hawtin | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2009 | | |
+| 2009-08-29 | Sasha & Digweed, David Guetta, Eric Prydz, Armin Van Buuren, Above & Beyond, Richie Hawtin | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2009 | John Digweed | |
 | 2009-08-27 | Deftones, Rival Schools | Music | London | United Kingdom | HMV Forum | | | |
 | 2009-08-18 | Pearl Jam | Music | London | United Kingdom | The O2 Arena | | Eddie Vedder | |
 | 2009-08-04 | Alice In Chains | Music | London | United Kingdom | Scala | | | |
@@ -345,7 +345,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-02-16 | Ninja Tune, The Bug (Flowdan), Plastician, Ghislain Poirier, Bonobo, DJ Food, Coldcut (Jon More), zero dB, The Death Set, X Rabit | Music | London | United Kingdom | Electrowerkz | Ninja Tune presents You Don't Know | | |
 | 2008-02-02 | Great White | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
 | 2008-01-11 | The Importance of Being Earnest | Theatre | London | United Kingdom | Lyric Hammersmith | Starring John Nicholson, Javier Marzan. Directed by David Farr | | |
-| 2007-12-13 | Chemical Bros, Simian Mobile Disco | Music | London | United Kingdom | Brixton Academy | | | |
+| 2007-12-13 | The Chemical Brothers, Simian Mobile Disco | Music | London | United Kingdom | Brixton Academy | | | |
 | 2007-11-28 | Macbeth | Theatre | London | United Kingdom | Gielgud Theatre | Starring Patrick Stewart, Kate Fleetwood. Directed by Rupert Goold | | |
 | 2007-11-27 | English National Opera | Opera | London | United Kingdom | London Coliseum | Aida | | |
 | 2007-11-24 | Amy Winehouse | Music | London | United Kingdom | Hammersmith Apollo | | | |
@@ -442,7 +442,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2001-02-09 | No 2 | Theatre | Wellington | New Zealand | Downstage | Starring Madeleine Sami. Directed by Toa Fraser | | |
 | 2000-05-01 | ZZ Top | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 2000-03-21 | Awesome Foursome | Theatre | Wellington | New Zealand | BATS Theatre | Starring Rob McEwen, Sophie Thompson. Directed by Jonathon Hendry | | |
-| 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
+| 2000-01-21 | Red Hot Chili Peppers, Nine Inch Nails, Foo Fighters, Blink-182, Joe Strummer and the Mescaleros, Shihad, Grinspoon, Spiderbait, Head Like A Hole, The Chemical Brothers, Basement Jaxx | Music | Auckland | New Zealand | Mount Smart Stadium | Big Day Out | | |
 | 1999-10-02 | Alanis Morissette, Stellar* | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1999-05-30 | Beastie Boys, DJ Mix Master Mike | Music | Wellington | New Zealand | Wellington Town Hall | Hello Nasty | | |
 | 1999-04-30 | Ewen Gilmour | Comedy | Wellington | New Zealand | The Boatshed | Situations Vacant | | |
@@ -450,17 +450,17 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1999-03-15 | Jaunt, The Whores Next Door, Pushkin | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-11-27 | Pushkin, The Whores Next Door, Broomdance | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-11-13 | Bongmaster, Hell Is Other People, Shihad | Music | Wellington | New Zealand | James Cabaret | | Jon Toogood | |
-| 1998-10-24 | Salvage, Whores Next Door, Wretched Skinny, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe | | | |
+| 1998-10-24 | Salvage, The Whores Next Door, Wretched Skinny, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe | | | |
 | 1998-10-09 | The Living End, Brubeck | Music | Wellington | New Zealand | James Cabaret | | | |
-| 1998-10-01 | Whores Next Door, Tau, Empty Quarter | Music | Wellington | New Zealand | Indigo | | | |
-| 1998-09-25 | Whores, Empty Quarter, Wretched Skinny, Trawler, Big Blue Blanket | Music | Wellington | New Zealand | Black Kat Cafe | | | |
+| 1998-10-01 | The Whores Next Door, Tau, Empty Quarter | Music | Wellington | New Zealand | Indigo | | | |
+| 1998-09-25 | The Whores Next Door, Empty Quarter, Wretched Skinny, Trawler, Big Blue Blanket | Music | Wellington | New Zealand | Black Kat Cafe | | | |
 | 1998-09-18 | Fur Patrol, Weta | Music | Wellington | New Zealand | Indigo | | Aaron Tokona | |
 | 1998-09-14 | Death In June | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-09-03 | The Whores Next Door, Lamps, Pushkats | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-08-21 | The Whores Next Door, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe | | | |
 | 1998-08-19 | The Whores Next Door, Trinity, Salvage | Music | Wellington | New Zealand | Victoria University of Wellington | Battle of the Bands | | |
 | 1998-07-25 | Alex Paterson, Coda | Music | Wellington | New Zealand | Escape | | | |
-| 1998-06-13 | Whores Next Door, Wretched Skinny | Music | Wellington | New Zealand | Black Kat Cafe | | | |
+| 1998-06-13 | The Whores Next Door, Wretched Skinny | Music | Wellington | New Zealand | Black Kat Cafe | | | |
 | 1998-04-09 | Breathe, The Stereo Bus, Tim Finn, DLT & Che Fu, Head Like A Hole | Music | Wellington | New Zealand | Wellington Town Hall | | DLT, Che Fu | |
 | 1998-04-08 | Portishead | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 1998-03-10 | Cassandra Wilson | Music | Wellington | New Zealand | Wellington Town Hall | | | |
@@ -481,7 +481,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1997-01-05 | Weta, Breathe, Short | Music | Wellington | New Zealand | Civic Square | | Aaron Tokona | |
 | 1996-12-18 | The Warners | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1996-05-10 | Shihad | Music | Wellington | New Zealand | James Cabaret | | Jon Toogood | |
-| 1996-05-04 | Red Hot Chilli Peppers, Thorazine Shuffle | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
+| 1996-05-04 | Red Hot Chili Peppers, Thorazine Shuffle | Music | Wellington | New Zealand | Queens Wharf Events Centre | | | |
 | 1996-04-10 | Atomic Blossom | Music | Wellington | New Zealand | Bar Bodega | | | |
 | 1996-01-19 | Skwish | Music | Wellington | New Zealand | | | | |
 | 1996-01-11 | Knightshade, Dave Dobbyn, Muttonbirds, Joe Satriani, Stranglers, The Cruel Sea, Mental As Anything, The Exponents, Barry Saunders, Head Like A Hole, Pumpkinhead | Music | Woodville | New Zealand | Airlie Brae | Mountain Rock 5 | Don McGlashan, Jordan Luck | |
