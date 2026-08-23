@@ -14,20 +14,20 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2026-05-23 | Teen Jesus and the Jean Teasers, Ivy | Music | Wellington | New Zealand | San Fran | | | |
 | 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2026-03-20 | The Datsuns, Warm Leather | Music | Wellington | New Zealand | San Fran | | | |
-| 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa Theatre | Starring Stella Reid, Joel Baxendale, Hannah Kelly | | |
+| 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa | Starring Stella Reid, Joel Baxendale, Hannah Kelly | | |
 | 2026-02-27 | Transvision Vamp, Dropper | Music | Wellington | New Zealand | Meow Nui | | | |
 | 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre | Son of a Carpenter | | |
 | 2025-11-26 | Pixies, Elliot & Vincent | Music | Wellington | New Zealand | St James Theatre | | Frank Black | |
 | 2025-11-22 | Beastwars, Soft Bait, Pull Down The Sun | Music | Wellington | New Zealand | Meow Nui | | | |
 | 2025-10-21 | Commodores | Music | Wellington | New Zealand | St James Theatre | | | |
-| 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa Theatre | Starring Pamela Sidhu, Regan Taylor, Serena Cotton, Jack Sergent-Shadbolt. Directed by Peter Feeney | | |
+| 2025-10-10 | 2:22 A Ghost Story | Theatre | Wellington | New Zealand | Circa | Starring Pamela Sidhu, Regan Taylor, Serena Cotton, Jack Sergent-Shadbolt. Directed by Peter Feeney | | |
 | 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre | Starring Gemma Hoskins, Rachel McSweeney. Directed by Maya Handa Naff | | |
 | 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Hover Waterworth, Eleanor Parker | | |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's | | | |
 | 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui | | Jon Toogood | |
 | 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House | The Goodfellow World Tour | | |
 | 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 | Jon Toogood | |
-| 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa Theatre | Directed by Penny Ashton | | |
+| 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa | Directed by Penny Ashton | | |
 | 2024-02-25 | The National, The Beths | Music | Wellington | New Zealand | TSB Arena | | | |
 | 2024-01-27 | Simple Minds, Texas, Collective Soul, Pseudo Echo | Music | Taupo | New Zealand | Taupo Amphitheatre | Summer Concert Tour 2024 | | |
 | 2023-12-07 | Come Together | Music | Wellington | New Zealand | St James Theatre | Big End of Year Bash 2023 | | |
@@ -47,9 +47,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2022-06-25 | Teeks, NZ Symphony Orchestra | Music | Wellington | New Zealand | St James Theatre | Guest appearance by Hollie Smith | | |
 | 2021-12-10 | Mel Parsons | Music | Wellington | New Zealand | Meow | | | |
 | 2021-06-12 | The Nathan Haines Octet | Music | Wellington | New Zealand | The Opera House | | | |
-| 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | The Hunter Lounge | | | |
+| 2021-05-22 | Beastwars, Earth Tongue | Music | Wellington | New Zealand | Union Hall | | | |
 | 2021-05-21 | Ben Elton | Comedy | Wellington | New Zealand | Michael Fowler Centre | Authentic Stupidity | | |
-| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa Theatre | Starring Thom Monckton | | |
+| 2021-04-03 | The Artist | Theatre | Wellington | New Zealand | Circa | Starring Thom Monckton | | |
 | 2021-03-15 | Crowded House, Reb Fountain | Music | Wellington | New Zealand | TSB Arena | To The Island | Neil Finn | |
 | 2020-11-25 | Come Together | Music | Wellington | New Zealand | The Opera House | Dire Straits' Brothers In Arms | | |
 | 2020-11-21 | Shapeshifter, Tiki Taane | Music | Wellington | New Zealand | TSB Arena | | | |
@@ -458,7 +458,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1998-09-14 | Death In June | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-09-03 | The Whores Next Door, Lamps, Pushkats | Music | Wellington | New Zealand | Indigo | | | |
 | 1998-08-21 | The Whores Next Door, Empty Quarter | Music | Wellington | New Zealand | Black Kat Cafe | | | |
-| 1998-08-19 | The Whores Next Door, Trinity, Salvage | Music | Wellington | New Zealand | Victoria University of Wellington | Battle of the Bands | | |
+| 1998-08-19 | The Whores Next Door, Trinity Roots, Salvage | Music | Wellington | New Zealand | Union Hall | Battle of the Bands | | |
 | 1998-07-25 | Alex Paterson, Coda | Music | Wellington | New Zealand | Escape | | | |
 | 1998-06-13 | The Whores Next Door, Wretched Skinny | Music | Wellington | New Zealand | Black Kat Cafe | | | |
 | 1998-04-09 | Breathe, The Stereo Bus, Tim Finn, DLT & Che Fu, Head Like A Hole | Music | Wellington | New Zealand | Wellington Town Hall | | DLT, Che Fu | |
@@ -509,7 +509,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1994-07-23 | Supergroove, Thorazine Shuffle, DLT | Music | Wellington | New Zealand | James Cabaret | | Che Fu | |
 | 1994-07-01 | Head Like A Hole, Monster | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-06-22 | Kristin Hersh, Brainchilds | Music | Wellington | New Zealand | Paramount Theatre | Hips & Makers | | |
-| 1994-05-27 | Burning Roses, The Crystalline | Music | Wellington | New Zealand | Union Building, Victoria University | | | |
+| 1994-05-27 | Burning Roses, The Crystalline | Music | Wellington | New Zealand | Union Hall | | | |
 | 1994-05-21 | Desert Road | Music | Wellington | New Zealand | Metro | | | |
 | 1994-04-27 | Muttonbirds, Emma Paki, Bilge Festival | Music | Wellington | New Zealand | James Cabaret | Salty | Don McGlashan | |
 | 1994-03-01 | The 3Ds, Bailter Space, Solid Gold Hell | Music | Wellington | New Zealand | Union Hall | | | |
@@ -521,7 +521,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 1994-01-15 | Supergroove, Andrew Fagan, The Warratahs, R. Bryant, K Borich, Hello Sailor, Jan Hellriegel, Dave Dobbyn, Shona Laing, Straitjacket Fits, Desert Road, The Exponents, Drawn, Wildfire, Shihad, Head Like A Hole, Dead Flowers | Music | Woodville | New Zealand | | Mountain Rock III | Barry Saunders, Che Fu, Jon Toogood, Jordan Luck | |
 | 1994-01-14 | Dave Dobbyn, The Exponents | Music | Wellington | New Zealand | James Cabaret | | Jordan Luck | |
 | 1993-12-17 | Premature Autopsy, Loves Ugly Children, Head Like A Hole, Shihad | Music | Wellington | New Zealand | Union Hall | | Jon Toogood | |
-| 1993-11-18 | Karnage, Warpspasm, Carcass | Music | Wellington | New Zealand | Stox | | | |
+| 1993-11-18 | Karnage, Warpspasm, Carcass | Music | Wellington | New Zealand | Stax | | | |
 | 1993-09-16 | Glass Candle Grenade, Wake | Music | Wellington | New Zealand | Kaminskys | | | |
 | 1993-09-12 | Living Colour, Big Deal | Music | Wellington | New Zealand | Wellington Town Hall | | | |
 | 1993-08-15 | Wellington Youth Choir, Manawatu Youth Choir | Music | Wellington | New Zealand | | | | |
