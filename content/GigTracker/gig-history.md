@@ -14,6 +14,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2026-05-23 | Teen Jesus and the Jean Teasers, Ivy | Music | Wellington | New Zealand | San Fran | | | |
 | 2026-05-01 | Fat Freddy's Drop | Music | Wellington | New Zealand | Michael Fowler Centre | | | |
 | 2026-03-20 | The Datsuns, Warm Leather | Music | Wellington | New Zealand | San Fran | | | |
+| 2026-03-12 | Thirty-Six | Theatre | Wellington | New Zealand | Circa | Starring Fern Sutherland, Niwa Whatuira, Anya Tate-Manning. Directed by Yael Gezentsvey | | |
 | 2026-03-01 | Werewolf | Theatre | Wellington | New Zealand | Circa | Starring Stella Reid, Joel Baxendale, Hannah Kelly | | |
 | 2026-02-27 | Transvision Vamp, Dropper | Music | Wellington | New Zealand | Meow Nui | | | |
 | 2026-02-06 | Jim Jefferies | Comedy | Wellington | New Zealand | Michael Fowler Centre | Son of a Carpenter | | |
