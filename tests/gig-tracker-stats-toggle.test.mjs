@@ -57,4 +57,33 @@ describe('Gig Tracker statistics toggle active state', function () {
 
     await context.close();
   });
+
+  it('does not leave a stuck accent border from sticky mobile :hover (#132)', async function () {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      hasTouch: true,
+      isMobile: true
+    });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/Gig-History/index.html`, { waitUntil: 'networkidle' });
+
+    // This emulated touch context has no hover-capable pointer, matching the
+    // real mobile browsers where a tap leaves the tapped element matching
+    // :hover indefinitely.
+    expect(await page.evaluate(() => matchMedia('(hover: hover)').matches)).to.equal(false);
+
+    const borderColor = () => page.evaluate(() =>
+      getComputedStyle(document.getElementById('stats-toggle')).borderColor);
+    const defaultBorderColor = await borderColor();
+
+    await page.tap('#stats-toggle');
+    await page.waitForSelector('#stats-panel.stats-panel--open');
+    await page.tap('#stats-toggle');
+    await page.waitForSelector('#stats-panel', { state: 'hidden' });
+
+    expect(await borderColor(), 'border reverts to default, no lingering hover tint')
+      .to.equal(defaultBorderColor);
+
+    await context.close();
+  });
 });

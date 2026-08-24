@@ -57,12 +57,17 @@ h1 {
   cursor: pointer;
   color: var(--muted);
 }
-.filters button:hover,
 .filters button.is-active {
   color: var(--text);
 }
-.filters button:hover {
-  border-color: var(--accent);
+@media (hover: hover) {
+  /* Real pointers only. Touch leaves an element matching :hover until
+     something else is tapped so an unscoped rule left the stats toggle
+     with a stray accent border after the panel closed (issue 132). */
+  .filters button:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
 }
 /*
   .is-active marks a control that currently has a non-default value (a filter
