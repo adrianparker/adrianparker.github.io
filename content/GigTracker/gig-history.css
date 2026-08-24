@@ -239,8 +239,14 @@ tbody tr:last-child td {
   cursor: pointer;
 }
 .stats-tooltip {
-  position: absolute;
-  z-index: 1;
+  /*
+    position: fixed rather than absolute so the tooltip escapes .stats-panel's
+    overflow: hidden (needed for the slide animation) instead of being
+    clipped by it, and so it positions against the viewport for the edge
+    clamping done in JS. See #stats-chart-wrap's mousemove handler.
+  */
+  position: fixed;
+  z-index: 50;
   pointer-events: none;
   background: var(--panel);
   border: 1px solid var(--border);

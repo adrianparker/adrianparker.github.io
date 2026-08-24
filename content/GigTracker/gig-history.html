@@ -446,9 +446,22 @@ statsChartWrap.addEventListener("mousemove", (e) => {
   if (!bucket) { statsTooltip.hidden = true; return; }
   statsTooltip.innerHTML = buildTooltipHtml(bucket);
   statsTooltip.hidden = false;
-  const wrapRect = statsChartWrap.getBoundingClientRect();
-  statsTooltip.style.left = `${e.clientX - wrapRect.left + 12}px`;
-  statsTooltip.style.top = `${e.clientY - wrapRect.top + 12}px`;
+
+  // Clamp to the viewport (position: fixed is viewport-relative) so the
+  // tooltip never runs off the right/bottom edge for bars near either side
+  // of the chart.
+  const margin = 12;
+  const ttRect = statsTooltip.getBoundingClientRect();
+  let left = e.clientX + margin;
+  let top = e.clientY + margin;
+  if (left + ttRect.width > window.innerWidth - margin) {
+    left = e.clientX - ttRect.width - margin;
+  }
+  if (top + ttRect.height > window.innerHeight - margin) {
+    top = e.clientY - ttRect.height - margin;
+  }
+  statsTooltip.style.left = `${Math.max(margin, left)}px`;
+  statsTooltip.style.top = `${Math.max(margin, top)}px`;
 });
 
 statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; });
