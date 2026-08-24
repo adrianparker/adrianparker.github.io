@@ -315,8 +315,8 @@ function computeYAxisTicks(maxTotal) {
 function statsFilterSummary() {
   const parts = Object.keys(filters)
     .filter(key => filters[key])
-    .map(key => `${key} = ${filters[key]}`);
-  if (searchTerm) parts.push(`search = "${searchTerm}"`);
+    .map(key => filters[key]);
+  if (searchTerm) parts.push(`"${searchTerm}"`);
   return parts;
 }
 
