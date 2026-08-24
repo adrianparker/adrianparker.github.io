@@ -251,6 +251,12 @@ tbody tr:last-child td {
   fill: transparent;
   cursor: pointer;
 }
+.stats-crosshair {
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  pointer-events: none;
+}
 .stats-tooltip {
   /*
     position: fixed rather than absolute so the tooltip escapes .stats-panel's
