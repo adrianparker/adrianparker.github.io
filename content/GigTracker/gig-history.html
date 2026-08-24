@@ -18,12 +18,24 @@
   <select id="f-country"><option value="">All Countries</option></select>
   <select id="f-venue"><option value="">All Venues</option></select>
   <button id="reset">Clear filters</button>
+  <button id="stats-toggle">Statistics</button>
   <button id="reload">Reload</button>
   <input type="file" id="file-input" accept=".md" style="display:none">
   <span class="count" id="reload-status"></span>
 </div>
 
 <div class="count" id="rowcount"></div>
+
+<div class="stats-panel" id="stats-panel" hidden>
+  <div class="stats-frame">
+    <div class="stats-title" id="stats-title"></div>
+    <div class="stats-legend" id="stats-legend"></div>
+    <div class="stats-chart-wrap" id="stats-chart-wrap">
+      <svg class="stats-chart" id="stats-chart" viewBox="0 0 960 320" preserveAspectRatio="none"></svg>
+      <div class="stats-tooltip" id="stats-tooltip" hidden></div>
+    </div>
+  </div>
+</div>
 
 <div class="table-scroll">
   <table>
@@ -203,6 +215,8 @@ function render() {
       arrow.textContent = "";
     }
   });
+
+  if (statsOpen) renderStats(filtered);
 }
 
 function escapeHtml(str) {
@@ -243,6 +257,201 @@ function selectFilter(key, value) {
   populateFilters();
   render();
 }
+
+const CATEGORY_ORDER = ["Music", "Theatre", "Comedy", "Opera", "Orchestra", "Other"];
+const CATEGORY_VAR = {
+  Music: "--cat-music",
+  Theatre: "--cat-theatre",
+  Comedy: "--cat-comedy",
+  Opera: "--cat-opera",
+  Orchestra: "--cat-orchestra",
+  Other: "--cat-other"
+};
+
+let statsOpen = false;
+let currentStatsBuckets = [];
+
+function monthsInRange(rows) {
+  if (rows.length === 0) return [];
+  const keys = rows.map(g => g.date.slice(0, 7)).sort();
+  let [y, m] = keys[0].split("-").map(Number);
+  const [endY, endM] = keys[keys.length - 1].split("-").map(Number);
+  const months = [];
+  while (y < endY || (y === endY && m <= endM)) {
+    months.push(`${y}-${String(m).padStart(2, "0")}`);
+    m++;
+    if (m > 12) { m = 1; y++; }
+  }
+  return months;
+}
+
+function bucketByMonth(rows) {
+  const months = monthsInRange(rows);
+  const byMonth = new Map(months.map(month => [month, { month, total: 0, byCategory: {} }]));
+  rows.forEach(g => {
+    const bucket = byMonth.get(g.date.slice(0, 7));
+    if (!bucket) return;
+    bucket.total++;
+    bucket.byCategory[g.category] = (bucket.byCategory[g.category] || 0) + 1;
+  });
+  return months.map(month => byMonth.get(month));
+}
+
+function monthLabel(month) {
+  const [y, m] = month.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, 1))
+    .toLocaleDateString("en-NZ", { month: "short", year: "2-digit", timeZone: "UTC" });
+}
+
+function computeYAxisTicks(maxTotal) {
+  const targetTicks = 5;
+  const step = Math.max(1, Math.ceil(maxTotal / targetTicks));
+  const max = step * Math.ceil(maxTotal / step);
+  const ticks = [];
+  for (let t = 0; t <= max; t += step) ticks.push(t);
+  return { max, ticks };
+}
+
+function statsFilterSummary() {
+  const parts = Object.keys(filters)
+    .filter(key => filters[key])
+    .map(key => `${key} = ${filters[key]}`);
+  if (searchTerm) parts.push(`search = "${searchTerm}"`);
+  return parts;
+}
+
+function updateStatsTitle() {
+  const parts = statsFilterSummary();
+  document.getElementById("stats-title").textContent = parts.length === 0
+    ? "Gigs by month"
+    : `Gigs by month — filtered: ${parts.join(", ")}`;
+}
+
+function renderStatsLegend() {
+  document.getElementById("stats-legend").innerHTML = CATEGORY_ORDER.map(cat => `
+    <span class="stats-legend-item">
+      <span class="stats-swatch" style="background:var(${CATEGORY_VAR[cat]})"></span>${escapeHtml(cat)}
+    </span>
+  `).join("");
+}
+
+function buildTooltipHtml(bucket) {
+  const rows = CATEGORY_ORDER
+    .filter(cat => bucket.byCategory[cat])
+    .map(cat => `
+      <div class="stats-tooltip-row">
+        <span class="stats-swatch" style="background:var(${CATEGORY_VAR[cat]})"></span>${escapeHtml(cat)}: ${bucket.byCategory[cat]}
+      </div>
+    `).join("");
+  const gigWord = bucket.total === 1 ? "gig" : "gigs";
+  return `<div class="stats-tooltip-title">${escapeHtml(monthLabel(bucket.month))} — ${bucket.total} ${gigWord}</div>${rows}`;
+}
+
+function drawStatsChart(buckets) {
+  const svg = document.getElementById("stats-chart");
+  const W = 960, H = 320;
+  const marginLeft = 44, marginRight = 12, marginTop = 16, marginBottom = 34;
+  const chartW = W - marginLeft - marginRight;
+  const chartH = H - marginTop - marginBottom;
+  const axisY = marginTop + chartH;
+
+  if (buckets.length === 0) {
+    svg.innerHTML = `<text x="${W / 2}" y="${H / 2}" text-anchor="middle" class="stats-empty-text">No gigs match these filters.</text>`;
+    currentStatsBuckets = [];
+    return;
+  }
+
+  const maxTotal = Math.max(...buckets.map(b => b.total));
+  const { max: yMax, ticks } = computeYAxisTicks(maxTotal);
+  const groupWidth = chartW / buckets.length;
+  const barWidth = Math.min(groupWidth * 0.62, 48);
+  const labelEvery = Math.max(1, Math.ceil(buckets.length / 12));
+
+  const parts = [];
+
+  ticks.forEach(t => {
+    const y = axisY - (t / yMax) * chartH;
+    parts.push(`<line x1="${marginLeft}" y1="${y}" x2="${W - marginRight}" y2="${y}" class="stats-gridline" />`);
+    parts.push(`<text x="${marginLeft - 8}" y="${y + 4}" text-anchor="end" class="stats-axis-label">${t}</text>`);
+  });
+
+  buckets.forEach((b, i) => {
+    const x = marginLeft + i * groupWidth + (groupWidth - barWidth) / 2;
+    let yCursor = axisY;
+    const segments = CATEGORY_ORDER.map(cat => {
+      const count = b.byCategory[cat] || 0;
+      if (count === 0) return "";
+      const segH = (count / yMax) * chartH;
+      yCursor -= segH;
+      return `<rect x="${x}" y="${yCursor}" width="${barWidth}" height="${segH}" fill="var(${CATEGORY_VAR[cat]})" />`;
+    }).join("");
+    const hitX = marginLeft + i * groupWidth;
+    parts.push(`
+      <g class="stats-bar-group" data-month="${b.month}">
+        <rect x="${hitX}" y="${marginTop}" width="${groupWidth}" height="${chartH}" class="stats-hit-area" />
+        ${segments}
+      </g>
+    `);
+    if (i % labelEvery === 0) {
+      parts.push(`<text x="${x + barWidth / 2}" y="${H - marginBottom + 16}" text-anchor="middle" class="stats-axis-label">${monthLabel(b.month)}</text>`);
+    }
+  });
+
+  parts.push(`<line x1="${marginLeft}" y1="${axisY}" x2="${W - marginRight}" y2="${axisY}" class="stats-axis-line" />`);
+
+  svg.innerHTML = parts.join("");
+  currentStatsBuckets = buckets;
+}
+
+function renderStats(filteredRows) {
+  const rows = filteredRows || applyFilters(GIGS);
+  updateStatsTitle();
+  renderStatsLegend();
+  const wrap = document.getElementById("stats-chart-wrap");
+  wrap.classList.add("stats-chart-wrap--updating");
+  drawStatsChart(bucketByMonth(rows));
+  requestAnimationFrame(() => wrap.classList.remove("stats-chart-wrap--updating"));
+}
+
+const statsToggle = document.getElementById("stats-toggle");
+const statsPanel = document.getElementById("stats-panel");
+
+function hideStatsPanelIfClosed() {
+  // Guards against a stale transitionend from a previous close firing after
+  // a quick reopen has already set hidden = false — without this check that
+  // late event would hide the panel again despite --open being applied.
+  if (!statsOpen) statsPanel.hidden = true;
+}
+
+statsToggle.addEventListener("click", () => {
+  statsOpen = !statsOpen;
+  statsToggle.classList.toggle("is-active", statsOpen);
+  if (statsOpen) {
+    statsPanel.hidden = false;
+    renderStats();
+    requestAnimationFrame(() => statsPanel.classList.add("stats-panel--open"));
+  } else {
+    statsPanel.classList.remove("stats-panel--open");
+    statsPanel.addEventListener("transitionend", hideStatsPanelIfClosed, { once: true });
+  }
+});
+
+const statsChartWrap = document.getElementById("stats-chart-wrap");
+const statsTooltip = document.getElementById("stats-tooltip");
+
+statsChartWrap.addEventListener("mousemove", (e) => {
+  const group = e.target.closest(".stats-bar-group");
+  if (!group) { statsTooltip.hidden = true; return; }
+  const bucket = currentStatsBuckets.find(b => b.month === group.dataset.month);
+  if (!bucket) { statsTooltip.hidden = true; return; }
+  statsTooltip.innerHTML = buildTooltipHtml(bucket);
+  statsTooltip.hidden = false;
+  const wrapRect = statsChartWrap.getBoundingClientRect();
+  statsTooltip.style.left = `${e.clientX - wrapRect.left + 12}px`;
+  statsTooltip.style.top = `${e.clientY - wrapRect.top + 12}px`;
+});
+
+statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; });
 
 document.getElementById("tbody").addEventListener("click", (e) => {
   const link = e.target.closest(".performer-link");
