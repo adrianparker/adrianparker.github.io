@@ -217,6 +217,15 @@ tbody tr:last-child td {
   width: 100%;
   height: auto;
   aspect-ratio: 960 / 320;
+  /*
+    Width now tracks the full desktop shell (issue 116), which on a wide
+    monitor pushes the aspect-ratio-derived height well past .stats-panel--open's
+    max-height, clipping most of the chart — leaving only the tallest bars'
+    tips above the fold. Capping the height keeps bars proportioned by
+    width alone above 960px; narrower viewports are still governed by
+    aspect-ratio as before.
+  */
+  max-height: 320px;
 }
 .stats-gridline {
   stroke: var(--border);
