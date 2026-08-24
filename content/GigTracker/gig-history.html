@@ -458,6 +458,11 @@ statsToggle.addEventListener("click", () => {
   } else {
     statsPanel.classList.remove("stats-panel--open");
     statsPanel.addEventListener("transitionend", hideStatsPanelIfClosed, { once: true });
+    // Touch taps leave the button matching :focus-visible longer than a
+    // mouse click does, so on mobile the shared focus/active outline (#108)
+    // stuck showing after close. Blurring after commit clears it, matching
+    // how the filter <select>s already behave (see attachFilterListeners).
+    statsToggle.blur();
   }
 });
 
