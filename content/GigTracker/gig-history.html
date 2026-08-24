@@ -47,8 +47,9 @@
           <table id="stats-performer-table">
             <thead>
               <tr>
-                <th data-key="name">Performer<span class="arrow"></span></th>
-                <th data-key="count">Gigs<span class="arrow"></span></th>
+                <th data-key="name">Show<span class="arrow"></span></th>
+                <th data-key="count">Performances<span class="arrow"></span></th>
+                <th class="stats-performer-table-spacer" aria-hidden="true"></th>
               </tr>
             </thead>
             <tbody id="stats-performer-tbody"></tbody>
@@ -231,7 +232,7 @@ function render() {
   document.getElementById("rowcount").textContent =
     `Showing ${sorted.length} of ${GIGS.length} gigs`;
 
-  document.querySelectorAll("thead th").forEach(th => {
+  document.querySelectorAll(".table-scroll thead th").forEach(th => {
     const arrow = th.querySelector(".arrow");
     if (th.dataset.key === sortKey) {
       arrow.textContent = sortDir === "asc" ? "▲" : "▼";
@@ -357,7 +358,7 @@ function updatePerformersTitle() {
 }
 
 function updatePerformerSortArrows() {
-  document.querySelectorAll("#stats-performer-table thead th").forEach(th => {
+  document.querySelectorAll("#stats-performer-table thead th[data-key]").forEach(th => {
     const arrow = th.querySelector(".arrow");
     if (th.dataset.key === performerSortKey) {
       arrow.textContent = performerSortDir === "asc" ? "▲" : "▼";
@@ -370,12 +371,13 @@ function updatePerformerSortArrows() {
 function renderPerformerTable(rows) {
   const tbody = document.getElementById("stats-performer-tbody");
   if (rows.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="2" class="empty">No gigs match these filters.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="3" class="empty">No gigs match these filters.</td></tr>';
   } else {
     tbody.innerHTML = rows.map(p => `
       <tr data-performer="${escapeAttr(p.name)}">
-        <td><span class="stats-swatch" style="background:${p.color}"></span>${escapeHtml(p.name)}</td>
+        <td><span class="stats-swatch" style="background:${p.color}"></span><a href="#" class="performer-link" data-artist="${escapeAttr(p.name)}">${escapeHtml(p.name)}</a></td>
         <td>${p.count}</td>
+        <td></td>
       </tr>
     `).join("");
   }
@@ -752,7 +754,7 @@ statsPieWrap.addEventListener("mousemove", (e) => {
 
 statsPieWrap.addEventListener("mouseleave", () => { statsPieTooltip.hidden = true; clearPerformerHighlight(); });
 
-document.querySelectorAll("#stats-performer-table thead th").forEach(th => {
+document.querySelectorAll("#stats-performer-table thead th[data-key]").forEach(th => {
   th.addEventListener("click", () => {
     const key = th.dataset.key;
     if (performerSortKey === key) {
@@ -772,7 +774,7 @@ window.addEventListener("resize", () => {
   if (statsOpen && currentStatsBuckets.length > 0) drawStatsChart(currentStatsBuckets);
 });
 
-document.getElementById("tbody").addEventListener("click", (e) => {
+function handlePerformerLinkClick(e) {
   const link = e.target.closest(".performer-link");
   if (!link) return;
   e.preventDefault();
@@ -781,9 +783,12 @@ document.getElementById("tbody").addEventListener("click", (e) => {
   } else if (link.dataset.filterKey) {
     selectFilter(link.dataset.filterKey, link.dataset.filterValue);
   }
-});
+}
 
-document.querySelectorAll("thead th").forEach(th => {
+document.getElementById("tbody").addEventListener("click", handlePerformerLinkClick);
+document.getElementById("stats-performer-tbody").addEventListener("click", handlePerformerLinkClick);
+
+document.querySelectorAll(".table-scroll thead th").forEach(th => {
   th.addEventListener("click", () => {
     const key = th.dataset.key;
     if (sortKey === key) {

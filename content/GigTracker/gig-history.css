@@ -335,13 +335,56 @@ tbody tr:last-child td {
   min-width: 200px;
   max-height: 320px;
   overflow-y: auto;
+  overflow-x: hidden;
+  /*
+    The border and rounded corners live here rather than on the table
+    itself. A sticky header positions relative to its nearest ancestor
+    with overflow other than visible — if that ancestor were the table
+    (which also carries the shared table's own overflow: hidden below),
+    the header would stick to the top of the table, which never moves
+    relative to itself, so it would never visually stick at all.
+  */
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 .stats-performer-table-wrap table {
   margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  /*
+    position: sticky on a th silently no-ops under border-collapse: collapse
+    (the shared table rule) in every browser tested — separate is what
+    lets the sticky header below actually stick while scrolling.
+  */
+  border-collapse: separate;
+  border-spacing: 0;
 }
 .stats-performer-table-wrap thead th {
   position: sticky;
   top: 0;
+  z-index: 1;
+}
+/*
+  Shrink-wraps the Show and Performances columns to their content instead
+  of letting the table's auto layout hand a share of the row's full width
+  to whichever cells have room to grow — which put "Performances" a long
+  way from "Show" whenever a filter left only short names in the table.
+  The trailing spacer column (empty header cell, empty cell per row) is
+  the one column allowed to grow, so it absorbs all the table's leftover
+  width instead: the table still stretches full width like the gig
+  history table, but the two real columns stay hugged together on the
+  left.
+*/
+#stats-performer-table th:nth-child(1),
+#stats-performer-table td:nth-child(1),
+#stats-performer-table th:nth-child(2),
+#stats-performer-table td:nth-child(2) {
+  width: 1%;
+  white-space: nowrap;
+}
+.stats-performer-table-spacer {
+  cursor: default;
 }
 .stats-performer-row--highlight {
   background: var(--row-hover);
