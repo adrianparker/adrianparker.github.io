@@ -114,4 +114,26 @@ describe('Gig Tracker statistics chart hover', function () {
     expect(crosshairDisplay.y).to.equal('none');
     await context.close();
   });
+
+  it('shows no tooltip or crosshair at the mobile breakpoint (#135)', async function () {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const page = await context.newPage();
+    await openWithStatsPanel(page);
+
+    const totals = await groupTotals(page);
+    const activeMonth = totals.find(t => t.total > 0);
+    expect(activeMonth, 'expected at least one month with gigs').to.exist;
+
+    await hoverGroup(page, activeMonth.month);
+    const hidden = await page.getAttribute('#stats-tooltip', 'hidden');
+    expect(hidden).to.not.equal(null);
+
+    const crosshairDisplay = await page.evaluate(() => ({
+      x: document.getElementById('stats-crosshair-x').style.display,
+      y: document.getElementById('stats-crosshair-y').style.display
+    }));
+    expect(crosshairDisplay.x).to.equal('none');
+    expect(crosshairDisplay.y).to.equal('none');
+    await context.close();
+  });
 });
