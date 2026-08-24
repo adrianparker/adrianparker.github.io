@@ -470,6 +470,10 @@ statsToggle.addEventListener("click", () => {
 
 const statsChartWrap = document.getElementById("stats-chart-wrap");
 const statsTooltip = document.getElementById("stats-tooltip");
+// Matches gig-history.css's mobile breakpoint. Disabled at that width for now
+// (#135) — the tooltip/crosshair overlay gets crowded on a chart with lots of
+// gigs in a wide date range; it'll come back reworked for mobile later.
+const statsMobileQuery = window.matchMedia("(max-width: 47.999em)");
 
 function hideCrosshair() {
   const x = document.getElementById("stats-crosshair-x");
@@ -499,6 +503,7 @@ function showCrosshair(group, bucket) {
 }
 
 statsChartWrap.addEventListener("mousemove", (e) => {
+  if (statsMobileQuery.matches) { statsTooltip.hidden = true; hideCrosshair(); return; }
   const group = e.target.closest(".stats-bar-group");
   if (!group) { statsTooltip.hidden = true; hideCrosshair(); return; }
   const bucket = currentStatsBuckets.find(b => b.month === group.dataset.month);
