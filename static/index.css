@@ -88,6 +88,29 @@
   --color-button-text: #cccccc;
   --color-button-text: light-dark(#ffffff, #cccccc);
 
+  /* Category colours for the Gig Tracker's Statistics chart. Each category
+     needs a colour distinguishable from its neighbours in both themes, so
+     unlike most tokens above these aren't reused site colours — dark gets a
+     vivid tone, light gets the same hue pulled darker/muted, matching the
+     asymmetry --color-accent already uses. */
+  --color-cat-music: #5b8def;
+  --color-cat-music: light-dark(#3f6fd6, #5b8def);
+
+  --color-cat-theatre: #e0b84a;
+  --color-cat-theatre: light-dark(#a9790a, #e0b84a);
+
+  --color-cat-comedy: #e0714a;
+  --color-cat-comedy: light-dark(#b04f24, #e0714a);
+
+  --color-cat-opera: #b26fe0;
+  --color-cat-opera: light-dark(#8a4bc2, #b26fe0);
+
+  --color-cat-orchestra: #4ac9a8;
+  --color-cat-orchestra: light-dark(#1f8f72, #4ac9a8);
+
+  --color-cat-other: #7a8290;
+  --color-cat-other: light-dark(#5c6270, #7a8290);
+
   /* The grid line colours for the light theme's graph-paper background
      (see the body rule below). Referenced only from light-scoped rules,
      so — unlike the tokens above — these don't need a dark counterpart. */

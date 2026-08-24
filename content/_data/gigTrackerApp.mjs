@@ -54,7 +54,19 @@ const PALETTE = {
     dark, so it goes on hover where being noticeable is the point.
   */
   "--row-alt": "var(--color-bg-bottom)",
-  "--row-hover": "var(--color-hairline)"
+  "--row-hover": "var(--color-hairline)",
+  /*
+    Category colours for the Statistics chart, mapped onto their own site
+    tokens (added to static/index.css alongside the tokens above) rather than
+    reusing an existing one, so each category keeps a distinct, consistent
+    colour (blue = Music, yellow = Theatre, ...) in both themes.
+  */
+  "--cat-music": "var(--color-cat-music)",
+  "--cat-theatre": "var(--color-cat-theatre)",
+  "--cat-comedy": "var(--color-cat-comedy)",
+  "--cat-opera": "var(--color-cat-opera)",
+  "--cat-orchestra": "var(--color-cat-orchestra)",
+  "--cat-other": "var(--color-cat-other)"
 };
 
 /*
