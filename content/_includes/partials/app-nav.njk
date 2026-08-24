@@ -70,6 +70,7 @@
         var root = document.documentElement;
         var collapse = document.getElementById('app-nav-collapse');
         var menu = document.getElementById('app-nav-menu');
+        var nav = document.getElementById('app-nav');
 
         if (collapse) {
             var render = function () {
@@ -92,11 +93,65 @@
         // Below the breakpoint the same nav is a sheet that pushes down from
         // the bar. Kept separate from the collapse state so a phone reader
         // never inherits a desktop choice.
-        if (menu) {
+        if (menu && nav) {
+            var focusableSelector = 'a[href], button:not([disabled])';
+
+            // .app-nav-home and .app-nav-collapse are display:none at this
+            // breakpoint (the bar already covers what they offer — see the
+            // CSS comment above their rule), so they must be skipped here or
+            // focus() silently no-ops on them.
+            var visibleFocusable = function () {
+                return Array.prototype.slice.call(nav.querySelectorAll(focusableSelector))
+                    .filter(function (el) { return el.offsetParent !== null; });
+            };
+
+            var openSheet = function () {
+                root.dataset.appNavSheet = 'open';
+                menu.setAttribute('aria-expanded', 'true');
+                var firstFocusable = visibleFocusable()[0];
+                if (firstFocusable) firstFocusable.focus();
+            };
+
+            var closeSheet = function () {
+                root.dataset.appNavSheet = 'closed';
+                menu.setAttribute('aria-expanded', 'false');
+                menu.focus();
+            };
+
             menu.addEventListener('click', function () {
-                var open = root.dataset.appNavSheet === 'open';
-                root.dataset.appNavSheet = open ? 'closed' : 'open';
-                menu.setAttribute('aria-expanded', String(!open));
+                if (root.dataset.appNavSheet === 'open') {
+                    closeSheet();
+                } else {
+                    openSheet();
+                }
+            });
+
+            // Escape closes the sheet, and Tab is trapped inside it while
+            // open — both are needed for the sheet to be as easy to close
+            // and navigate with a keyboard as it is to open (#99).
+            nav.addEventListener('keydown', function (e) {
+                if (root.dataset.appNavSheet !== 'open') return;
+
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeSheet();
+                    return;
+                }
+
+                if (e.key !== 'Tab') return;
+
+                var focusable = visibleFocusable();
+                if (focusable.length === 0) return;
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
             });
         }
     })();
