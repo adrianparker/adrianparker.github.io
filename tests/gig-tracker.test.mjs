@@ -107,14 +107,24 @@ describe('Gig Tracker filter active indicator', function () {
       it('clears the indicator when filters are reset', async function () {
         const { context, page } = await open(colorScheme);
 
-        const baseline = await outlineOf(page, '#f-performer');
+        // Each control's own resting style is the baseline — a select and
+        // the reset button rest at different colours by design (--text vs
+        // --muted), so this must not compare one control's post-reset style
+        // against another's baseline.
+        const performerBaseline = await outlineOf(page, '#f-performer');
+        const resetBaseline = await outlineOf(page, '#reset');
         await page.selectOption('#f-performer', { index: 1 });
-        expect(await outlineOf(page, '#f-performer'), 'active after selecting').to.not.equal(baseline);
-        expect(await outlineOf(page, '#reset'), 'reset active after selecting').to.not.equal(baseline);
+        expect(await outlineOf(page, '#f-performer'), 'active after selecting').to.not.equal(performerBaseline);
+        expect(await outlineOf(page, '#reset'), 'reset active after selecting').to.not.equal(resetBaseline);
 
         await page.click('#reset');
-        expect(await outlineOf(page, '#f-performer'), 'inactive after reset').to.equal(baseline);
-        expect(await outlineOf(page, '#reset'), 'reset inactive after reset').to.equal(baseline);
+        // Selecting a performer narrows the other dropdowns (#118), which
+        // can change their rendered width and shift the reset button out
+        // from under the pointer when clicked — move away so :hover can't
+        // leak into this reading.
+        await page.mouse.move(0, 0);
+        expect(await outlineOf(page, '#f-performer'), 'inactive after reset').to.equal(performerBaseline);
+        expect(await outlineOf(page, '#reset'), 'reset inactive after reset').to.equal(resetBaseline);
 
         await context.close();
       });
