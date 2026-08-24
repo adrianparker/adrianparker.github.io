@@ -270,6 +270,7 @@ const CATEGORY_VAR = {
 
 let statsOpen = false;
 let currentStatsBuckets = [];
+let currentStatsLayout = null;
 
 function monthsInRange(rows) {
   if (rows.length === 0) return [];
@@ -366,6 +367,7 @@ function drawStatsChart(buckets) {
   if (buckets.length === 0) {
     svg.innerHTML = `<text x="${W / 2}" y="${H / 2}" text-anchor="middle" class="stats-empty-text">No gigs match these filters.</text>`;
     currentStatsBuckets = [];
+    currentStatsLayout = null;
     return;
   }
 
@@ -414,8 +416,14 @@ function drawStatsChart(buckets) {
 
   parts.push(`<line x1="${marginLeft}" y1="${axisY}" x2="${W - marginRight}" y2="${axisY}" class="stats-axis-line" />`);
 
+  // Hidden until the mousemove handler positions and shows them over a bar
+  // with a non-zero total (#121).
+  parts.push(`<line id="stats-crosshair-x" x1="0" y1="${marginTop}" x2="0" y2="${axisY}" class="stats-crosshair" style="display:none" />`);
+  parts.push(`<line id="stats-crosshair-y" x1="${marginLeft}" y1="0" x2="${W - marginRight}" y2="0" class="stats-crosshair" style="display:none" />`);
+
   svg.innerHTML = parts.join("");
   currentStatsBuckets = buckets;
+  currentStatsLayout = { marginLeft, marginRight, marginTop, axisY, chartH, groupWidth, yMax };
 }
 
 function renderStats(filteredRows) {
@@ -454,13 +462,44 @@ statsToggle.addEventListener("click", () => {
 const statsChartWrap = document.getElementById("stats-chart-wrap");
 const statsTooltip = document.getElementById("stats-tooltip");
 
+function hideCrosshair() {
+  const x = document.getElementById("stats-crosshair-x");
+  const y = document.getElementById("stats-crosshair-y");
+  if (x) x.style.display = "none";
+  if (y) y.style.display = "none";
+}
+
+function showCrosshair(group, bucket) {
+  const x = document.getElementById("stats-crosshair-x");
+  const y = document.getElementById("stats-crosshair-y");
+  if (!x || !y || !currentStatsLayout) return;
+  const { marginTop, axisY, chartH, groupWidth, yMax } = currentStatsLayout;
+  const hitX = Number(group.querySelector(".stats-hit-area").getAttribute("x"));
+  const centerX = hitX + groupWidth / 2;
+  const topY = axisY - (bucket.total / yMax) * chartH;
+
+  x.setAttribute("x1", centerX);
+  x.setAttribute("x2", centerX);
+  x.setAttribute("y1", marginTop);
+  x.setAttribute("y2", axisY);
+  x.style.display = "";
+
+  y.setAttribute("y1", topY);
+  y.setAttribute("y2", topY);
+  y.style.display = "";
+}
+
 statsChartWrap.addEventListener("mousemove", (e) => {
   const group = e.target.closest(".stats-bar-group");
-  if (!group) { statsTooltip.hidden = true; return; }
+  if (!group) { statsTooltip.hidden = true; hideCrosshair(); return; }
   const bucket = currentStatsBuckets.find(b => b.month === group.dataset.month);
-  if (!bucket) { statsTooltip.hidden = true; return; }
+  // A bucket with no gigs still has a hit area (spanning the full column so
+  // hovering next to its neighbours' bars is forgiving), but there is
+  // nothing to show a tooltip or crosshair for (#122).
+  if (!bucket || bucket.total === 0) { statsTooltip.hidden = true; hideCrosshair(); return; }
   statsTooltip.innerHTML = buildTooltipHtml(bucket);
   statsTooltip.hidden = false;
+  showCrosshair(group, bucket);
 
   // Clamp to the viewport (position: fixed is viewport-relative) so the
   // tooltip never runs off the right/bottom edge for bars near either side
@@ -479,7 +518,7 @@ statsChartWrap.addEventListener("mousemove", (e) => {
   statsTooltip.style.top = `${Math.max(margin, top)}px`;
 });
 
-statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; });
+statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; hideCrosshair(); });
 
 // The chart's viewBox tracks its rendered width (see drawStatsChart), so a
 // window resize needs a redraw or the old viewBox stays stretched against
