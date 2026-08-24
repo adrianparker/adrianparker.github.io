@@ -172,22 +172,27 @@ tbody tr:last-child td {
   padding: 14px 16px 10px;
   margin-bottom: 16px;
 }
+.stats-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 8px;
+}
 .stats-title {
   color: var(--muted);
   font-size: 0.85rem;
   font-weight: 400;
-  margin-bottom: 8px;
-  padding-right: 140px;
+  flex: 1 1 200px;
+  min-width: 0;
 }
 .stats-legend {
-  position: absolute;
-  top: 14px;
-  right: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 4px 10px;
-  max-width: 220px;
+  flex: 0 1 auto;
 }
 .stats-legend-item {
   display: inline-flex;
@@ -289,14 +294,8 @@ tbody tr:last-child td {
   white-space: nowrap;
 }
 @media (max-width: 47.999em) {
-  .stats-title {
-    padding-right: 0;
-  }
   .stats-legend {
-    position: static;
-    max-width: none;
     justify-content: flex-start;
-    margin-bottom: 8px;
   }
   .stats-frame {
     padding: 12px 12px 8px;
