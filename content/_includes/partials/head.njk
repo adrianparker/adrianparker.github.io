@@ -72,10 +72,19 @@
   can't carry frame-ancestors (browsers ignore it there), and headers like
   X-Frame-Options/Permissions-Policy have no meta-tag form at all — those
   stay unset until the site sits behind a proxy/CDN that can inject them.
-  'unsafe-inline' is still needed by a handful of un-nonced inline
-  <script>/<style> blocks (this file, analytics.njk, app-nav.njk,
-  theme-toggle.njk, and the appInlineStyles block above) — tracked as a
-  follow-up issue to drop 'unsafe-inline' once those are nonced/hashed.
+
+  'unsafe-inline' below is a placeholder, not the shipped policy. There is
+  no per-request templating on a static site, so nonces aren't viable — the
+  csp-hash build transform (lib/csp-hash.mjs) replaces it on every page with
+  sha256 hash sources computed from that page's own rendered inline
+  <script>/<style> blocks, which is why it must stay textually present here
+  for the transform to find and replace (#100).
+
+  style-src keeps 'unsafe-inline' on the one page (the embedded Gig Tracker)
+  that sets `style="..."` attributes at runtime with colours computed on the
+  fly — hash sources cannot cover an attribute value that isn't known ahead
+  of time. The transform detects this per page from the rendered HTML, so it
+  is not hardcoded to a specific route.
 #}
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.posthog.com https://*.i.posthog.com https://*.flickr.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.staticflickr.com https://www.setlist.fm; font-src 'self'; connect-src 'self' https://*.posthog.com https://*.i.posthog.com; media-src 'self' https://*.cloudfront.net; frame-src https://*.flickr.com; form-action 'self' https://adrianparker.us6.list-manage.com; object-src 'none'; base-uri 'self';">
 <meta name="referrer" content="strict-origin-when-cross-origin">

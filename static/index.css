@@ -639,6 +639,25 @@ figure {
   mask: url('/img/external-link.svg') no-repeat center / contain;
 }
 
+/* Mailchimp's bot honeypot field — kept present for screen readers to skip via aria-hidden, but off-screen for everyone else. */
+.subscribe-honeypot {
+  position: absolute;
+  left: -5000px;
+}
+
+/* Column alignment for markdown tables — see lib/filters.mjs's table-alignment-classes rule. */
+.ta-left {
+  text-align: left;
+}
+
+.ta-right {
+  text-align: right;
+}
+
+.ta-center {
+  text-align: center;
+}
+
 .subscribe_button {
   background-color: var(--color-button-bg);
   color: var(--color-button-text);

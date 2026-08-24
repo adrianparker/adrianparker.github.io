@@ -3,6 +3,7 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import { markdownLibrary, renderMarkdown, readableDate, isoDate, limit } from "./lib/filters.mjs";
 import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
 import { imageShortcode, videoShortcode } from "./lib/shortcodes.mjs";
+import { injectCspHashes } from "./lib/csp-hash.mjs";
 
 export default function (eleventyConfig) {
 
@@ -92,6 +93,17 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addShortcode("image", imageShortcode);
   eleventyConfig.addShortcode("video", videoShortcode);
+
+  /*
+    Runs on the fully rendered HTML of each page, not the templates, so it
+    catches every inline <script>/<style> block regardless of which partial
+    produced it — including ones that vary per page, like the embedded Gig
+    Tracker's script and the appInlineStyles block (#100).
+  */
+  eleventyConfig.addTransform("csp-hash", function (content) {
+    if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) return content;
+    return injectCspHashes(content);
+  });
 
   return {
     dir: {
