@@ -167,7 +167,7 @@ tbody tr:last-child td {
   transition: max-height 280ms ease;
 }
 .stats-panel--open {
-  max-height: 420px;
+  max-height: 900px;
 }
 .stats-frame {
   position: relative;
@@ -298,6 +298,57 @@ tbody tr:last-child td {
   color: var(--muted);
   white-space: nowrap;
 }
+.stats-performers {
+  margin-top: 16px;
+}
+.stats-performers-title {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.stats-performers-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+.stats-pie-wrap {
+  position: relative;
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.stats-pie {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.stats-pie-slice {
+  cursor: pointer;
+  stroke: var(--panel);
+  stroke-width: 1.5;
+}
+.stats-performer-table-wrap {
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.stats-performer-table-wrap table {
+  margin: 0;
+}
+.stats-performer-table-wrap thead th {
+  position: sticky;
+  top: 0;
+}
+.stats-performer-row--highlight {
+  background: var(--row-hover);
+}
+#stats-performer-tbody .stats-swatch {
+  margin-right: 6px;
+}
 @media (max-width: 47.999em) {
   .stats-legend {
     justify-content: flex-start;
@@ -306,6 +357,6 @@ tbody tr:last-child td {
     padding: 12px 12px 8px;
   }
   .stats-panel--open {
-    max-height: 520px;
+    max-height: 1150px;
   }
 }

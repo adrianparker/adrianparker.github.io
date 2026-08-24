@@ -36,6 +36,26 @@
       <svg class="stats-chart" id="stats-chart" viewBox="0 0 960 320" preserveAspectRatio="none"></svg>
       <div class="stats-tooltip" id="stats-tooltip" hidden></div>
     </div>
+    <div class="stats-performers">
+      <div class="stats-performers-title" id="stats-performers-title"></div>
+      <div class="stats-performers-body">
+        <div class="stats-pie-wrap" id="stats-pie-wrap">
+          <svg class="stats-pie" id="stats-pie" viewBox="0 0 320 320"></svg>
+          <div class="stats-tooltip" id="stats-pie-tooltip" hidden></div>
+        </div>
+        <div class="stats-performer-table-wrap">
+          <table id="stats-performer-table">
+            <thead>
+              <tr>
+                <th data-key="name">Performer<span class="arrow"></span></th>
+                <th data-key="count">Gigs<span class="arrow"></span></th>
+              </tr>
+            </thead>
+            <tbody id="stats-performer-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -276,6 +296,171 @@ let statsOpen = false;
 let currentStatsBuckets = [];
 let currentStatsLayout = null;
 
+let performerColorMap = new Map();
+let performerSortKey = "count";
+let performerSortDir = "desc";
+let currentPerformerRows = [];
+let currentPieSlices = [];
+
+// Hue is assigned by a stable alphabetical order over every performer ever
+// seen (not just the currently filtered ones), so a performer keeps the same
+// colour whether the pie is showing all gigs or a narrow filter. The golden
+// angle spreads hues apart even for a long list, and alternating lightness
+// keeps hues that land close together (e.g. two names a few slots apart)
+// visually distinct rather than just two shades of the same colour.
+function buildPerformerColorMap() {
+  const names = new Set();
+  GIGS.forEach(g => splitPerformers(g.performer).forEach(p => names.add(p)));
+  const sorted = Array.from(names).sort((a, b) => a.localeCompare(b));
+  const map = new Map();
+  sorted.forEach((name, i) => {
+    const hue = (i * 137.508) % 360;
+    // Lightness is kept in a narrow mid-range — dark enough to still read
+    // against the light theme's cream panel, light enough to still read
+    // against the dark theme's near-black one (colour here is generated in
+    // JS, so it can't follow the site's light-dark() tokens the way the bar
+    // chart's category colours do).
+    const lightness = i % 2 === 0 ? 58 : 48;
+    map.set(name, `hsl(${hue.toFixed(1)}, 65%, ${lightness}%)`);
+  });
+  return map;
+}
+
+function bucketByPerformer(rows) {
+  const counts = new Map();
+  rows.forEach(g => {
+    splitPerformers(g.performer).forEach(p => {
+      counts.set(p, (counts.get(p) || 0) + 1);
+    });
+  });
+  return Array.from(counts.entries()).map(([name, count]) => ({
+    name,
+    count,
+    color: performerColorMap.get(name) || "hsl(0, 0%, 60%)"
+  }));
+}
+
+function sortPerformerRows(rows) {
+  const sorted = [...rows].sort((a, b) => {
+    return performerSortKey === "count"
+      ? a.count - b.count
+      : a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+  });
+  return performerSortDir === "asc" ? sorted : sorted.reverse();
+}
+
+function updatePerformersTitle() {
+  const parts = statsFilterSummary();
+  document.getElementById("stats-performers-title").textContent = parts.length === 0
+    ? "Gigs by performer"
+    : `Gigs by performer — filtered: ${parts.join(", ")}`;
+}
+
+function updatePerformerSortArrows() {
+  document.querySelectorAll("#stats-performer-table thead th").forEach(th => {
+    const arrow = th.querySelector(".arrow");
+    if (th.dataset.key === performerSortKey) {
+      arrow.textContent = performerSortDir === "asc" ? "▲" : "▼";
+    } else {
+      arrow.textContent = "";
+    }
+  });
+}
+
+function renderPerformerTable(rows) {
+  const tbody = document.getElementById("stats-performer-tbody");
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="2" class="empty">No gigs match these filters.</td></tr>';
+  } else {
+    tbody.innerHTML = rows.map(p => `
+      <tr data-performer="${escapeAttr(p.name)}">
+        <td><span class="stats-swatch" style="background:${p.color}"></span>${escapeHtml(p.name)}</td>
+        <td>${p.count}</td>
+      </tr>
+    `).join("");
+  }
+  updatePerformerSortArrows();
+}
+
+function polarPoint(cx, cy, r, angleDeg) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+
+function pieSlicePath(cx, cy, r, startAngle, endAngle) {
+  // A single performer sweeps the full 360°, which the two-point arc syntax
+  // below can't express (start and end points coincide) — drawn as two
+  // half-circle arcs instead.
+  if (endAngle - startAngle >= 359.999) {
+    const p1 = polarPoint(cx, cy, r, startAngle);
+    const pMid = polarPoint(cx, cy, r, startAngle + 180);
+    return `M ${p1.x} ${p1.y} A ${r} ${r} 0 1 1 ${pMid.x} ${pMid.y} A ${r} ${r} 0 1 1 ${p1.x} ${p1.y} Z`;
+  }
+  const start = polarPoint(cx, cy, r, startAngle);
+  const end = polarPoint(cx, cy, r, endAngle);
+  const largeArc = endAngle - startAngle > 180 ? 1 : 0;
+  return `M ${cx} ${cy} L ${start.x} ${start.y} A ${r} ${r} 0 ${largeArc} 1 ${end.x} ${end.y} Z`;
+}
+
+function drawPerformerPie(rows) {
+  const svg = document.getElementById("stats-pie");
+  const size = 320;
+  const cx = size / 2, cy = size / 2, r = size / 2 - 8;
+
+  if (rows.length === 0) {
+    svg.innerHTML = `<text x="${cx}" y="${cy}" text-anchor="middle" class="stats-empty-text">No gigs match these filters.</text>`;
+    currentPieSlices = [];
+    return;
+  }
+
+  const total = rows.reduce((sum, p) => sum + p.count, 0);
+  let angle = -90; // start at 12 o'clock, sweep clockwise
+  const slices = rows.map(p => {
+    const sweep = (p.count / total) * 360;
+    const slice = { ...p, startAngle: angle, endAngle: angle + sweep };
+    angle += sweep;
+    return slice;
+  });
+
+  svg.innerHTML = slices.map(s => `
+    <path d="${pieSlicePath(cx, cy, r, s.startAngle, s.endAngle)}" fill="${s.color}"
+      class="stats-pie-slice" data-performer="${escapeAttr(s.name)}" />
+  `).join("");
+  currentPieSlices = slices;
+}
+
+function buildPieTooltipHtml(slice) {
+  const gigWord = slice.count === 1 ? "gig" : "gigs";
+  return `
+    <div class="stats-tooltip-title">${escapeHtml(slice.name)}</div>
+    <div class="stats-tooltip-row">
+      <span class="stats-swatch" style="background:${slice.color}"></span>${slice.count} ${gigWord}
+    </div>
+  `;
+}
+
+function clearPerformerHighlight() {
+  document.querySelectorAll("#stats-performer-tbody tr.stats-performer-row--highlight")
+    .forEach(tr => tr.classList.remove("stats-performer-row--highlight"));
+}
+
+function highlightPerformerRow(name) {
+  clearPerformerHighlight();
+  const row = Array.from(document.querySelectorAll("#stats-performer-tbody tr"))
+    .find(tr => tr.dataset.performer === name);
+  if (row) row.classList.add("stats-performer-row--highlight");
+}
+
+function renderPerformerStats(rows) {
+  updatePerformersTitle();
+  currentPerformerRows = bucketByPerformer(rows);
+  // The pie always shows biggest-first regardless of how the table is
+  // sorted — the table is what the user is reordering, the pie is the
+  // at-a-glance picture.
+  drawPerformerPie([...currentPerformerRows].sort((a, b) => b.count - a.count));
+  renderPerformerTable(sortPerformerRows(currentPerformerRows));
+}
+
 function monthsInRange(rows) {
   if (rows.length === 0) return [];
   const keys = rows.map(g => g.date.slice(0, 7)).sort();
@@ -438,6 +623,7 @@ function renderStats(filteredRows) {
   wrap.classList.add("stats-chart-wrap--updating");
   drawStatsChart(bucketByMonth(rows));
   requestAnimationFrame(() => wrap.classList.remove("stats-chart-wrap--updating"));
+  renderPerformerStats(rows);
 }
 
 const statsToggle = document.getElementById("stats-toggle");
@@ -533,6 +719,51 @@ statsChartWrap.addEventListener("mousemove", (e) => {
 });
 
 statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; hideCrosshair(); });
+
+const statsPieWrap = document.getElementById("stats-pie-wrap");
+const statsPieTooltip = document.getElementById("stats-pie-tooltip");
+
+function positionTooltip(tooltip, e) {
+  const margin = 12;
+  const ttRect = tooltip.getBoundingClientRect();
+  let left = e.clientX + margin;
+  let top = e.clientY + margin;
+  if (left + ttRect.width > window.innerWidth - margin) {
+    left = e.clientX - ttRect.width - margin;
+  }
+  if (top + ttRect.height > window.innerHeight - margin) {
+    top = e.clientY - ttRect.height - margin;
+  }
+  tooltip.style.left = `${Math.max(margin, left)}px`;
+  tooltip.style.top = `${Math.max(margin, top)}px`;
+}
+
+statsPieWrap.addEventListener("mousemove", (e) => {
+  if (statsMobileQuery.matches) { statsPieTooltip.hidden = true; clearPerformerHighlight(); return; }
+  const path = e.target.closest(".stats-pie-slice");
+  if (!path) { statsPieTooltip.hidden = true; clearPerformerHighlight(); return; }
+  const slice = currentPieSlices.find(s => s.name === path.dataset.performer);
+  if (!slice) { statsPieTooltip.hidden = true; clearPerformerHighlight(); return; }
+  statsPieTooltip.innerHTML = buildPieTooltipHtml(slice);
+  statsPieTooltip.hidden = false;
+  highlightPerformerRow(slice.name);
+  positionTooltip(statsPieTooltip, e);
+});
+
+statsPieWrap.addEventListener("mouseleave", () => { statsPieTooltip.hidden = true; clearPerformerHighlight(); });
+
+document.querySelectorAll("#stats-performer-table thead th").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.key;
+    if (performerSortKey === key) {
+      performerSortDir = performerSortDir === "asc" ? "desc" : "asc";
+    } else {
+      performerSortKey = key;
+      performerSortDir = key === "count" ? "desc" : "asc";
+    }
+    renderPerformerTable(sortPerformerRows(currentPerformerRows));
+  });
+});
 
 // The chart's viewBox tracks its rendered width (see drawStatsChart), so a
 // window resize needs a redraw or the old viewBox stays stretched against
@@ -637,6 +868,7 @@ function rebuildFrom(parsed) {
   document.getElementById("tbody").innerHTML = "";
 
   GIGS = parsed;
+  performerColorMap = buildPerformerColorMap();
   populateFilters();
   updateSubtitle();
   render();
@@ -687,6 +919,7 @@ document.getElementById("file-input").addEventListener("change", (e) => {
 });
 
 updateSubtitle();
+performerColorMap = buildPerformerColorMap();
 attachFilterListeners();
 populateFilters();
 render();
