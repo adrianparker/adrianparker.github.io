@@ -15,7 +15,8 @@
     "debug": "DEBUG=* npx eleventy",
     "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",
     "test:analytics": "npm run build && mocha tests/analytics.test.mjs --timeout 60000",
-    "test:gigtracker": "npm run build && mocha tests/gig-tracker.test.mjs --timeout 60000"
+    "test:gigtracker": "npm run build && mocha tests/gig-tracker.test.mjs --timeout 60000",
+    "test:gigtracker-stats-chart": "npm run build && mocha tests/gig-tracker-stats-chart.test.mjs --timeout 60000"
   },
   "repository": {
     "type": "git",
