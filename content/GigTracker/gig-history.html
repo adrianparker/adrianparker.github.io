@@ -349,11 +349,19 @@ function buildTooltipHtml(bucket) {
 
 function drawStatsChart(buckets) {
   const svg = document.getElementById("stats-chart");
-  const W = 960, H = 320;
+  // One viewBox unit equals one real CSS pixel — W tracks the chart's
+  // actual rendered width so preserveAspectRatio="none" never has to
+  // stretch the two axes by different factors. Text and stroke widths are
+  // set in plain px, so a mismatched scale (the old fixed 960 viewBox
+  // against a much wider desktop chart, issue 116) blew them up
+  // horizontally. H matches the fixed height in gig-history.css.
+  const W = Math.round(svg.getBoundingClientRect().width) || 960, H = 320;
   const marginLeft = 44, marginRight = 12, marginTop = 16, marginBottom = 34;
   const chartW = W - marginLeft - marginRight;
   const chartH = H - marginTop - marginBottom;
   const axisY = marginTop + chartH;
+
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
   if (buckets.length === 0) {
     svg.innerHTML = `<text x="${W / 2}" y="${H / 2}" text-anchor="middle" class="stats-empty-text">No gigs match these filters.</text>`;
@@ -365,7 +373,14 @@ function drawStatsChart(buckets) {
   const { max: yMax, ticks } = computeYAxisTicks(maxTotal);
   const groupWidth = chartW / buckets.length;
   const barWidth = Math.min(groupWidth * 0.62, 48);
-  const labelEvery = Math.max(1, Math.ceil(buckets.length / 12));
+  // A fixed "one in every 12" thinning assumed the old constant-960 chart
+  // width; on a narrow chart (mobile, or a collapsed sidebar) that still
+  // crammed ~12 labels like "Mar 86" into far too little space and they
+  // overlapped into an unreadable smear. Basing it on how many actually
+  // fit at the label's real rendered width scales with the chart itself.
+  const approxLabelWidth = 50;
+  const maxLabels = Math.max(1, Math.floor(chartW / approxLabelWidth));
+  const labelEvery = Math.max(1, Math.ceil(buckets.length / maxLabels));
 
   const parts = [];
 
@@ -465,6 +480,13 @@ statsChartWrap.addEventListener("mousemove", (e) => {
 });
 
 statsChartWrap.addEventListener("mouseleave", () => { statsTooltip.hidden = true; });
+
+// The chart's viewBox tracks its rendered width (see drawStatsChart), so a
+// window resize needs a redraw or the old viewBox stays stretched against
+// the new width.
+window.addEventListener("resize", () => {
+  if (statsOpen && currentStatsBuckets.length > 0) drawStatsChart(currentStatsBuckets);
+});
 
 document.getElementById("tbody").addEventListener("click", (e) => {
   const link = e.target.closest(".performer-link");

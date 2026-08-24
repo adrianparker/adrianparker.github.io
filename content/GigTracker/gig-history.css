@@ -174,7 +174,8 @@ tbody tr:last-child td {
 }
 .stats-title {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  font-weight: 400;
   margin-bottom: 8px;
   padding-right: 140px;
 }
@@ -215,17 +216,18 @@ tbody tr:last-child td {
 .stats-chart {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 960 / 320;
   /*
-    Width now tracks the full desktop shell (issue 116), which on a wide
-    monitor pushes the aspect-ratio-derived height well past .stats-panel--open's
-    max-height, clipping most of the chart — leaving only the tallest bars'
-    tips above the fold. Capping the height keeps bars proportioned by
-    width alone above 960px; narrower viewports are still governed by
-    aspect-ratio as before.
+    A fixed pixel height rather than a width-derived aspect-ratio. The
+    chart's viewBox is set in JS to match its actual rendered width (one
+    viewBox unit per CSS pixel — see drawStatsChart), so with a variable
+    width but a fixed height, text and stroke widths (specified in plain
+    px) render at their literal size instead of being stretched by
+    whatever the width-to-960 scale factor happened to be. That stretch is
+    also what clipped most of the chart on a wide desktop shell (issue
+    116): the old aspect-ratio height grew past .stats-panel--open's
+    max-height.
   */
-  max-height: 320px;
+  height: 320px;
 }
 .stats-gridline {
   stroke: var(--border);
@@ -237,11 +239,13 @@ tbody tr:last-child td {
 }
 .stats-axis-label {
   fill: var(--muted);
-  font-size: 11px;
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 .stats-empty-text {
   fill: var(--muted);
-  font-size: 13px;
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 .stats-hit-area {
   fill: transparent;
