@@ -76,15 +76,22 @@ function splitPerformers(str) {
   return str.split(",").map(s => s.trim()).filter(Boolean);
 }
 
+function matchesFilterKey(g, key, value) {
+  if (key === "performer") {
+    return splitPerformers(g.performer).includes(value) || splitPerformers(g.association).includes(value);
+  }
+  return g[key] === value;
+}
+
+// Options for a dropdown are drawn from rows matching every *other* active
+// filter (search is deliberately excluded, per #118), so activating one
+// filter narrows the rest without ever invalidating itself.
 function uniqueSorted(key) {
   let rows = GIGS;
-  if (key === "city" && filters.country) {
-    rows = rows.filter(g => g.country === filters.country);
-  }
-  if (key === "venue") {
-    if (filters.country) rows = rows.filter(g => g.country === filters.country);
-    if (filters.city) rows = rows.filter(g => g.city === filters.city);
-  }
+  Object.keys(filters).forEach(otherKey => {
+    if (otherKey === key || !filters[otherKey]) return;
+    rows = rows.filter(g => matchesFilterKey(g, otherKey, filters[otherKey]));
+  });
   const vals = new Set();
   if (key === "performer") {
     rows.forEach(g => {
@@ -102,9 +109,7 @@ function attachFilterListeners() {
     const sel = document.getElementById(filterIds[key]);
     sel.addEventListener("change", () => {
       filters[key] = sel.value;
-      if (key === "country" || key === "city") {
-        populateFilters();
-      }
+      populateFilters();
       render();
       // A <select> keeps matching :focus-visible after a real interaction
       // (unlike a <button>), so the shared focus/active outline (#108)
@@ -139,10 +144,7 @@ function applyFilters(rows) {
   return rows.filter(g => {
     const matchesDropdowns = Object.keys(filters).every(key => {
       if (!filters[key]) return true;
-      if (key === "performer") {
-        return splitPerformers(g.performer).includes(filters[key]) || splitPerformers(g.association).includes(filters[key]);
-      }
-      return g[key] === filters[key];
+      return matchesFilterKey(g, key, filters[key]);
     });
     if (!matchesDropdowns) return false;
     if (!searchTerm) return true;
