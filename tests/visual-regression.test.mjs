@@ -59,7 +59,8 @@ describe('Visual Regression Tests - Responsive Design', function () {
 
       describe(label, function () {
         it('renders and captures a screenshot', async function () {
-          await takeScreenshot(config.baseUrl + pagePath, viewport, actualPath, theme);
+          const interact = config.testInteractions?.[pageName];
+          await takeScreenshot(config.baseUrl + pagePath, viewport, actualPath, theme, interact);
           expect(fs.existsSync(actualPath), `screenshot written for ${label}`).to.be.true;
         });
 

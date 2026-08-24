@@ -42,7 +42,29 @@ export default {
     // The bundle-less app page. Its .app-shell/.app-panel styling lives only
     // in static/index.css, so this is the only test that exercises it.
     'gigtracker-app': '/Gig-History/index.html',
+    // Same page, but with the City filter set to London and Statistics
+    // open — the default capture above never opens the stats panel, so
+    // this is the only baseline that renders the bar chart itself. See
+    // `testInteractions` below for what drives it into this state.
+    'gigtracker-app-stats-london': '/Gig-History/index.html',
     'not-found': '/404.html'
+  },
+
+  /**
+   * Per-page setup run after a page has loaded and settled, before the
+   * screenshot. Most pages need none of this — client-side state (an open
+   * panel, a chosen filter) isn't reachable by URL alone, so a page that
+   * wants to capture that state needs an entry here instead.
+   */
+  testInteractions: {
+    async 'gigtracker-app-stats-london'(page) {
+      await page.selectOption('#f-city', { label: 'London' });
+      await page.click('#stats-toggle');
+      await page.waitForSelector('#stats-panel.stats-panel--open');
+      await page.waitForFunction(
+        () => document.querySelectorAll('#stats-chart .stats-bar-group').length > 0
+      );
+    }
   },
 
   /**

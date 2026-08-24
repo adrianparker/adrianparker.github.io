@@ -10,8 +10,19 @@ import config from '../config.mjs';
 
 /**
  * Screenshots a page at a given viewport.
+ *
+ * `interact`, if given, is an async function(page) run after the page has
+ * settled (images decoded, fonts ready) and before the final layout-settle
+ * wait — e.g. to select a filter or open a panel so the capture reflects
+ * client-side state rather than the page's initial load.
  */
-export async function takeScreenshot(pageUrl, viewport, screenshotPath, colorScheme = 'dark') {
+export async function takeScreenshot(
+  pageUrl,
+  viewport,
+  screenshotPath,
+  colorScheme = 'dark',
+  interact
+) {
   let browser;
   try {
     browser = await chromium.launch(config.browserOptions);
@@ -83,6 +94,8 @@ export async function takeScreenshot(pageUrl, viewport, screenshotPath, colorSch
 
     // Wait for webfonts, so headings are not captured mid-swap.
     await page.evaluate(() => document.fonts.ready).catch(() => {});
+
+    if (interact) await interact(page);
 
     // Settle any remaining late layout.
     await page.waitForTimeout(1000);
