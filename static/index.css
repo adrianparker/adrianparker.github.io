@@ -1188,6 +1188,10 @@ html.js .app-nav-collapse {
 @media (width >= 850px) {
   .app-page .app-shell {
     padding: 2px 0%;
+    /* Gig Tracker (#116) wants the full column width on desktop — the
+       table, stats chart and filter row all benefit from the space, and
+       .app-shell has no other consumer to cap for. */
+    max-width: none;
   }
 }
 
