@@ -177,7 +177,7 @@ We held our breaths. Surely that was it?
 
 Hell no. They kept going. And we loved it more than anything. Check out the setlist:
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=2358f4bb" alt="Shihad Setlist Meow Nui, Wellington, New Zealand 2025, LOUD FOREVER" style="border: 0;" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=2358f4bb" alt="Shihad Setlist Meow Nui, Wellington, New Zealand 2025, LOUD FOREVER" />
 
 They played all of their own favourites. 
 

@@ -117,4 +117,18 @@ describe("filters — renderMarkdown", () => {
   it("exposes the same instance Eleventy uses for .md files", () => {
     expect(markdownLibrary).to.have.property("render").that.is.a("function");
   });
+
+  it("renders aligned table columns as classes, not inline style attributes", () => {
+    const out = renderMarkdown("| L | R | C |\n|:---|---:|:---:|\n| a | b | c |\n");
+    expect(out).to.contain('class="ta-left"');
+    expect(out).to.contain('class="ta-right"');
+    expect(out).to.contain('class="ta-center"');
+    expect(out).to.not.contain("style=");
+  });
+
+  it("leaves unaligned table columns without a class", () => {
+    const out = renderMarkdown("| A |\n|---|\n| a |\n");
+    expect(out).to.not.contain("class=");
+    expect(out).to.not.contain("style=");
+  });
 });
