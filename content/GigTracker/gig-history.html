@@ -342,12 +342,17 @@ function bucketByPerformer(rows) {
 }
 
 function sortPerformerRows(rows) {
-  const sorted = [...rows].sort((a, b) => {
-    return performerSortKey === "count"
+  // Sort directly to the requested direction rather than sorting ascending
+  // and reversing: reversing also flips the relative order of tied rows
+  // (e.g. same performance count), which would put the table out of step
+  // with the pie — that always sorts ties in first-appearance order.
+  const dir = performerSortDir === "asc" ? 1 : -1;
+  return [...rows].sort((a, b) => {
+    const cmp = performerSortKey === "count"
       ? a.count - b.count
       : a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    return cmp * dir;
   });
-  return performerSortDir === "asc" ? sorted : sorted.reverse();
 }
 
 function updatePerformersTitle() {

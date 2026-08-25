@@ -386,8 +386,16 @@ tbody tr:last-child td {
 .stats-performer-table-spacer {
   cursor: default;
 }
-.stats-performer-row--highlight {
-  background: var(--row-hover);
+#stats-performer-tbody tr.stats-performer-row--highlight {
+  /*
+    --row-hover is a translucent white tint meant to sit on --panel. On the
+    striped rows (--row-alt, already a step lighter than --panel) it barely
+    shifts the colour any further in dark mode, so the highlight all but
+    vanished on every second row. Tinting with --accent instead reads as a
+    distinct colour rather than a small brightness change, so it stays
+    visible against both the plain and striped row backgrounds.
+  */
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 #stats-performer-tbody .stats-swatch {
   margin-right: 6px;
