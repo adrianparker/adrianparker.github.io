@@ -220,15 +220,22 @@ tbody tr:last-child td {
   flex: none;
 }
 .stats-map-wrap {
-  width: 100%;
-  margin-bottom: 12px;
+  /*
+    Its own card in the stack, matching .stats-frame's look — not nested
+    inside it, so the bar chart's title/legend (.stats-header) sits directly
+    above the chart it actually describes, not above the map.
+  */
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
 }
 .stats-map {
   width: 100%;
   /* Same fixed height as .stats-chart below — same layout-stability reason. */
   height: 320px;
   border-radius: 6px;
-  border: 1px solid var(--border);
 }
 .gig-map-marker-wrap {
   /* Leaflet sets inline width/height/margin from iconSize; this just turns
