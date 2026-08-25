@@ -2,7 +2,7 @@
 
 Every unique Country / City / Venue combination from `gig-history.md`, with a Location value you can drop into Google Maps to place a pin.
 
-Where a venue's coordinates were found (usually via Wikipedia, the venue's official site, or a venue database), Location is `latitude, longitude` in decimal degrees. Where only a street address could be confirmed (no precise coordinates), Location is that address — paste it into Google Maps and it will drop a pin for you. Where no address could be found after a genuine search, Location is left blank, as are the three rows where the source gig-history file itself has no venue recorded.
+Location is `latitude, longitude` in decimal degrees wherever possible — most rows were found directly (Wikipedia, the venue's official site, a venue database), and the rest were backfilled from a street address via a one-off Nominatim geocoding pass (see git history for `scripts/geocode-locations.mjs`, since removed). A handful of rows still hold a street address rather than coordinates, where geocoding found no match — paste that address into a map to place a pin by hand. Where no address could be found after a genuine search, Location is left blank, as are the three rows where the source gig-history file itself has no venue recorded.
 
 Some entries are historic/defunct venues (many small Wellington and London bars/clubs), so addresses reflect their last known location where discoverable.
 
@@ -46,7 +46,7 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | New Plymouth | Bowl of Brooklands | -39.06250, 174.08800 |
 | New Zealand | Paraparaumu | | -40.9006, 175.0106 |
 | New Zealand | Paraparaumu | Southward's Car Museum | -40.8940, 175.0292 |
-| New Zealand | Paraparaumu | Te Raukura ki Kapiti | 34a Raumati Road, Raumati Beach, Paraparaumu 5032, New Zealand |
+| New Zealand | Paraparaumu | Te Raukura ki Kapiti | -40.92101, 174.98416 |
 | New Zealand | Taupo | | -38.6857, 176.0702 |
 | New Zealand | Taupo | Taupo Amphitheatre | -38.70216, 176.06316 |
 | New Zealand | Upper Hutt | | -41.1259, 175.0525 |
@@ -57,19 +57,19 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | Wellington | Antipodes | |
 | New Zealand | Wellington | Athletic Park | -41.31722, 174.77694 |
 | New Zealand | Wellington | BATS Theatre | -41.2940744, 174.7831551 |
-| New Zealand | Wellington | Bar Bodega | 101 Ghuznee Street, Te Aro, Wellington 6011, New Zealand |
-| New Zealand | Wellington | Bar Medusa | 154 Vivian Street, Te Aro, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Bar Bodega | -41.29264, 174.77330 |
+| New Zealand | Wellington | Bar Medusa | -41.29480, 174.77534 |
 | New Zealand | Wellington | Black Kat Cafe | |
-| New Zealand | Wellington | Caroline | 1-5 Manners Street, Te Aro, Wellington 6011, New Zealand |
-| New Zealand | Wellington | Circa | 1 Taranaki Street, Wellington 6011, New Zealand |
-| New Zealand | Wellington | Civic Square | Civic Square, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Caroline | -41.29183, 174.77788 |
+| New Zealand | Wellington | Circa | -41.29029, 174.78056 |
+| New Zealand | Wellington | Civic Square | -41.28849, 174.77632 |
 | New Zealand | Wellington | Cuba Cuba | |
 | New Zealand | Wellington | Downstage | -41.2937, 174.7836 |
 | New Zealand | Wellington | Dragons | |
 | New Zealand | Wellington | Empire Warehouse | |
 | New Zealand | Wellington | Escape | |
 | New Zealand | Wellington | Hannah Playhouse | -41.2937, 174.7836 |
-| New Zealand | Wellington | Indigo | 171 Cuba Street, Te Aro, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Indigo | -41.29415, 174.77556 |
 | New Zealand | Wellington | James Cabaret | -41.2977, 174.7745 |
 | New Zealand | Wellington | Kaminskys | |
 | New Zealand | Wellington | Meow | -41.2937, 174.7758 |
@@ -92,30 +92,30 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | Wellington | St John's In The City | -41.2904, 174.7761 |
 | New Zealand | Wellington | Starlight Ballroom | -41.2952, 174.7748 |
 | New Zealand | Wellington | State Opera House | -41.2915, 174.7778 |
-| New Zealand | Wellington | Stax | 171 Cuba Street, Te Aro, Wellington 6011, New Zealand |
-| New Zealand | Wellington | Sub Nine | 9 Edward Street, Te Aro, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Stax | -41.29415, 174.77556 |
+| New Zealand | Wellington | Sub Nine | -41.29065, 174.77484 |
 | New Zealand | Wellington | TSB Arena | -41.2823, 174.7810 |
-| New Zealand | Wellington | The Boatshed | Taranaki Street Wharf, Wellington 6011, New Zealand |
-| New Zealand | Wellington | The Dell | Botanic Garden, Wellington 6012, New Zealand |
+| New Zealand | Wellington | The Boatshed | -41.28899, 174.78020 |
+| New Zealand | Wellington | The Dell | -41.28343, 174.76547 |
 | New Zealand | Wellington | The Opera House | -41.29150, 174.77780 |
-| New Zealand | Wellington | The Thistle Inn | 3 Mulgrave Street, Thorndon, Wellington 6011, New Zealand |
-| New Zealand | Wellington | Thistle Hall | 293 Cuba Street, Te Aro, Wellington 6011, New Zealand |
+| New Zealand | Wellington | The Thistle Inn | -41.27770, 174.77963 |
+| New Zealand | Wellington | Thistle Hall | -41.29735, 174.77361 |
 | New Zealand | Wellington | Union Hall | |
-| New Zealand | Wellington | Valhalla | 154 Vivian Street, Te Aro, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Valhalla | -41.29480, 174.77534 |
 | New Zealand | Wellington | Waitangi Park | -41.29200, 174.78300 |
 | New Zealand | Wellington | Wellington Show + Sports Centre | |
-| New Zealand | Wellington | Wellington Town Hall | 101 Wakefield Street, Wellington 6011, New Zealand |
+| New Zealand | Wellington | Wellington Town Hall | -41.28938, 174.77706 |
 | New Zealand | Wellington | Westpac Stadium | -41.27290, 174.78520 |
 | New Zealand | Woodville | | -40.3383, 175.8720 |
 | New Zealand | Woodville | Airlie Brae | |
 | The Netherlands | Amsterdam | | 52.3676, 4.9041 |
 | The Netherlands | Amsterdam | Melkweg Oude Zaal | Lijnbaansgracht 234A, 1017 PH Amsterdam, Netherlands |
-| The Netherlands | Amsterdam | Paradiso | Weteringschans 6-8, 1017 SG Amsterdam, Netherlands |
+| The Netherlands | Amsterdam | Paradiso | 52.36219, 4.88382 |
 | The Netherlands | Utrecht | | 52.0907, 5.1214 |
-| The Netherlands | Utrecht | Jaarbeurs (Trance Energy) | Jaarbeursplein 6, 3521 AL Utrecht, Netherlands |
+| The Netherlands | Utrecht | Jaarbeurs (Trance Energy) | 52.08778, 5.10684 |
 | United Kingdom | Edinburgh | | 55.9533, -3.1883 |
 | United Kingdom | Edinburgh | C Cubed Temple | Brodie's Close, 493 Lawnmarket, Royal Mile, Edinburgh EH1 2LR, UK |
-| United Kingdom | Edinburgh | Grassmarket | Grassmarket, Edinburgh EH1 2JR, UK |
+| United Kingdom | Edinburgh | Grassmarket | 55.94738, -3.19595 |
 | United Kingdom | Glasgow | | 55.8642, -4.2518 |
 | United Kingdom | Glasgow | SECC | Exhibition Way, Glasgow G3 8YW, UK |
 | United Kingdom | London | | 51.5072, -0.1276 |
