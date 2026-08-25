@@ -81,25 +81,33 @@ const LITERAL_COLOURS = {
 };
 
 /**
- * Attaches lat/lng to each gig, resolved against Locations.md (see
- * lib/locations.mjs). A Country/City/Venue combination with no usable
- * coordinates — the map view's fallback chain has nowhere left to go — is
- * warned about once rather than failing the build, since a gap here means
- * Locations.md is stale, not that the gig data is wrong.
+ * Attaches both venue-level (lat/lng) and city-level (cityLat/cityLng)
+ * coordinates to each gig, resolved against Locations.md (see
+ * lib/locations.mjs). The map view needs both: venue precision when a City
+ * filter narrows to one city, city-level aggregation when only Country is
+ * active (see renderStatsMap in gig-history.html). A Country/City/Venue
+ * combination with no usable coordinates at all — the fallback chain has
+ * nowhere left to go — is warned about once rather than failing the build,
+ * since a gap here means Locations.md is stale, not that the gig data is
+ * wrong.
  */
 function withCoordinates (gigs, locations) {
   const warned = new Set();
   return gigs.map((gig) => {
     const resolved = resolveLocation(locations, gig);
+    const cityLevel = resolveLocation(locations, { ...gig, venue: "" });
     if (!resolved) {
       const key = `${gig.country} / ${gig.city} / ${gig.venue}`;
       if (!warned.has(key)) {
         warned.add(key);
         console.warn(`[gig-tracker] no map location resolved for ${key} — add a row to Locations.md`);
       }
-      return gig;
     }
-    return { ...gig, ...resolved };
+    return {
+      ...gig,
+      ...(resolved ? { lat: resolved.lat, lng: resolved.lng } : {}),
+      ...(cityLevel ? { cityLat: cityLevel.lat, cityLng: cityLevel.lng } : {})
+    };
   });
 }
 

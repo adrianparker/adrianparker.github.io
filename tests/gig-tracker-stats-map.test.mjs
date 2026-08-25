@@ -89,6 +89,31 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
+  it('aggregates every venue in a city onto one marker when only country is filtered', async function () {
+    // London has many distinct venues in the data (Brixton Academy, KOKO,
+    // Royal Albert Hall, ...) — with only a Country filter active, they must
+    // collapse onto a single city-level marker rather than one pin each.
+    const { context: cityContext, page: cityPage } = await openPage();
+    await cityPage.selectOption('#f-city', 'London');
+    await cityPage.waitForSelector('#stats-map-wrap:not([hidden])');
+    await cityPage.waitForSelector('.gig-map-marker');
+    const londonVenueMarkerCount = (await cityPage.$$eval('.gig-map-marker', (els) => els.length));
+    const londonGigTotal = (await cityPage.$$eval('.gig-map-marker', (els) =>
+      els.reduce((sum, el) => sum + Number(el.textContent), 0)));
+    expect(londonVenueMarkerCount, 'expected London to have more than one venue in the data').to.be.greaterThan(1);
+    await cityContext.close();
+
+    const { context, page } = await openPage();
+    await page.selectOption('#f-country', 'United Kingdom');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+
+    const londonMarker = await page.$('.gig-map-marker[title="London"]');
+    expect(londonMarker, 'expected exactly one London marker').to.exist;
+    expect(Number(await londonMarker.textContent())).to.equal(londonGigTotal);
+    await context.close();
+  });
+
   it('hides again when filters are cleared', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');
