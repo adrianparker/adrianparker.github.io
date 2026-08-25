@@ -386,7 +386,7 @@ tbody tr:last-child td {
 .stats-performer-table-spacer {
   cursor: default;
 }
-.stats-performer-row--highlight {
+#stats-performer-tbody tr.stats-performer-row--highlight {
   background: var(--row-hover);
 }
 #stats-performer-tbody .stats-swatch {
