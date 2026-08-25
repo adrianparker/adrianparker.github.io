@@ -19,7 +19,7 @@ import path from "node:path";
 
 import { buildAppEmbed } from "../../lib/embed-app.mjs";
 import { parseGigHistory } from "../../lib/gig-history.mjs";
-import { parseLocations, resolveLocation } from "../../lib/locations.mjs";
+import { parseLocations, findLocation } from "../../lib/locations.mjs";
 
 const APP_DIR = path.join(import.meta.dirname, "..", "GigTracker");
 const SCOPE = ".gig-tracker";
@@ -90,12 +90,18 @@ const LITERAL_COLOURS = {
  * nowhere left to go — is warned about once rather than failing the build,
  * since a gap here means Locations.md is stale, not that the gig data is
  * wrong.
+ *
+ * hasVenueLocation records whether lat/lng came from the gig's own venue
+ * (findLocation, an exact match) rather than a city-level fallback — the
+ * City-filtered map view uses it to label a marker "Unknown address" when
+ * the gigs pinned there only landed there for lack of their own coordinates.
  */
 function withCoordinates (gigs, locations) {
   const warned = new Set();
   return gigs.map((gig) => {
-    const resolved = resolveLocation(locations, gig);
-    const cityLevel = resolveLocation(locations, { ...gig, venue: "" });
+    const exact = findLocation(locations, gig);
+    const cityLevel = findLocation(locations, { ...gig, venue: "" });
+    const resolved = exact || cityLevel;
     if (!resolved) {
       const key = `${gig.country} / ${gig.city} / ${gig.venue}`;
       if (!warned.has(key)) {
@@ -105,6 +111,7 @@ function withCoordinates (gigs, locations) {
     }
     return {
       ...gig,
+      hasVenueLocation: Boolean(exact),
       ...(resolved ? { lat: resolved.lat, lng: resolved.lng } : {}),
       ...(cityLevel ? { cityLat: cityLevel.lat, cityLng: cityLevel.lng } : {})
     };

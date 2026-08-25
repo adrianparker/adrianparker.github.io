@@ -114,6 +114,21 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
+  it('labels a venue-less marker "Unknown address" when filtered by city', async function () {
+    // Glasgow's one gig (Coldplay at SECC) has an address in Locations.md,
+    // not coordinates, so in venue-precision mode it falls back to the city
+    // point — that marker should read as unresolved, not show "SECC".
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Glasgow');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+
+    const marker = await page.$('.gig-map-marker[title="Unknown address, Glasgow"]');
+    expect(marker, 'expected an "Unknown address, Glasgow" marker').to.exist;
+    expect(Number(await marker.textContent())).to.equal(1);
+    await context.close();
+  });
+
   it('hides again when filters are cleared', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');

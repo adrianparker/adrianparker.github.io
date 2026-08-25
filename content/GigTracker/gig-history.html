@@ -685,7 +685,18 @@ function renderStatsMap(rows) {
 
   statsMapMarkers.clearLayers();
   for (const location of byLocation.values()) {
-    const label = !cityLevel && location.venue ? `${location.venue}, ${location.city}` : location.city;
+    // In venue-precision mode, a gig with no coordinates of its own falls
+    // back to the city point (see hasVenueLocation in gigTrackerApp.mjs) and
+    // lands in the same group as any other gig doing the same — location.venue
+    // is then just whichever gig happened to be pushed first, so it can't be
+    // trusted as the marker's label.
+    const hasFallback = !cityLevel && location.gigs.some((gig) => !gig.hasVenueLocation);
+    let label = location.city;
+    if (hasFallback) {
+      label = `Unknown address, ${location.city}`;
+    } else if (!cityLevel && location.venue) {
+      label = `${location.venue}, ${location.city}`;
+    }
     const icon = L.divIcon({
       className: "gig-map-marker-wrap",
       // title gives a native hover tooltip and a hook for tests — Leaflet's

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { parseLocations, resolveLocation } from "../../lib/locations.mjs";
+import { parseLocations, resolveLocation, findLocation } from "../../lib/locations.mjs";
 
 const TABLE = [
   "# Gig Venue Locations",
@@ -99,6 +99,28 @@ describe("locations — resolveLocation", () => {
   it("returns null when the country/city isn't in the table at all", () => {
     expect(resolveLocation(rows, {
       country: "Australia", city: "Perth", venue: ""
+    })).to.be.null;
+  });
+});
+
+describe("locations — findLocation", () => {
+  const rows = parseLocations(TABLE);
+
+  it("returns coordinates for an exact Country/City/Venue match", () => {
+    expect(findLocation(rows, {
+      country: "New Zealand", city: "Wellington", venue: "Michael Fowler Centre"
+    })).to.deep.equal({ lat: -41.2862, lng: 174.7768 });
+  });
+
+  it("does not fall back to the city-level row when the exact venue has no coordinates", () => {
+    expect(findLocation(rows, {
+      country: "New Zealand", city: "Wellington", venue: "Bar Bodega"
+    })).to.be.null;
+  });
+
+  it("returns null when the venue isn't in the table at all", () => {
+    expect(findLocation(rows, {
+      country: "New Zealand", city: "Wellington", venue: "Some New Venue"
     })).to.be.null;
   });
 });
