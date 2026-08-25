@@ -18,6 +18,7 @@
     "test:gigtracker": "npm run build && mocha tests/gig-tracker.test.mjs --timeout 60000",
     "test:gigtracker-filter-adaptation": "npm run build && mocha tests/gig-tracker-filter-adaptation.test.mjs --timeout 60000",
     "test:gigtracker-stats-chart": "npm run build && mocha tests/gig-tracker-stats-chart.test.mjs --timeout 60000",
+    "test:gigtracker-stats-map": "npm run build && mocha tests/gig-tracker-stats-map.test.mjs --timeout 60000",
     "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000"
   },
   "repository": {
@@ -39,6 +40,7 @@
     "@11ty/eleventy-plugin-rss": "^3.0.0",
     "@fontsource/bebas-neue": "^5.3.0",
     "exifcmdline": "github:adrianparker/ExifCmdLine#v1.0.5",
+    "leaflet": "^1.9.4",
     "markdown-it": "^15.0.0",
     "markdown-it-footnote": "^4.0.0",
     "purecss": "^3.0.0"

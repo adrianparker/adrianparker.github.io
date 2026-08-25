@@ -85,8 +85,14 @@
   fly — hash sources cannot cover an attribute value that isn't known ahead
   of time. The transform detects this per page from the rendered HTML, so it
   is not hardcoded to a specific route.
+
+  img-src includes https://*.tile.openstreetmap.org for the Gig Tracker's
+  Statistics map view (#139) — Leaflet requests tiles from the a/b/c
+  subdomains. Leaflet's own JS/CSS are vendored from node_modules and served
+  same-origin (see eleventy.config.mjs), so script-src/style-src need no
+  change for them; only the tile images are genuinely third-party.
 #}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.posthog.com https://*.i.posthog.com https://*.flickr.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.staticflickr.com https://www.setlist.fm; font-src 'self'; connect-src 'self' https://*.posthog.com https://*.i.posthog.com; media-src 'self' https://*.cloudfront.net; frame-src https://*.flickr.com; form-action 'self' https://adrianparker.us6.list-manage.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.posthog.com https://*.i.posthog.com https://*.flickr.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.staticflickr.com https://www.setlist.fm https://*.tile.openstreetmap.org; font-src 'self'; connect-src 'self' https://*.posthog.com https://*.i.posthog.com; media-src 'self' https://*.cloudfront.net; frame-src https://*.flickr.com; form-action 'self' https://adrianparker.us6.list-manage.com; object-src 'none'; base-uri 'self';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="{{ eleventy.generator }}">

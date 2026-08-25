@@ -392,8 +392,10 @@ describe('Smoke Tests - Apps', function () {
 
     expect(app.length, 'app embedded once').to.equal(1);
     expect(app.find('table thead th').length, 'table headings').to.be.greaterThan(0);
-    // The gig data is baked in at build time, not fetched at runtime.
-    const script = app.find('script').html() || '';
+    // The gig data is baked in at build time, not fetched at runtime. Select
+    // the inline script specifically — the app also loads a vendored, external
+    // Leaflet <script src> for the Statistics map view (#139).
+    const script = app.find('script:not([src])').html() || '';
     expect(script, 'gig data inlined').to.match(/GIGS\s*=\s*\[\s*\{/);
   });
 
