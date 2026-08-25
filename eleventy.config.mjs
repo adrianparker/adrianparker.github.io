@@ -27,7 +27,9 @@ export default function (eleventyConfig) {
     "node_modules/purecss/build/pure-min.css": "vendor/pure-min.css",
     "node_modules/purecss/build/grids-responsive-min.css": "vendor/grids-responsive-min.css",
     "node_modules/@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2":
-      "fonts/bebas-neue-latin-400-normal.woff2"
+      "fonts/bebas-neue-latin-400-normal.woff2",
+    "node_modules/leaflet/dist/leaflet.js": "vendor/leaflet.js",
+    "node_modules/leaflet/dist/leaflet.css": "vendor/leaflet.css"
   });
 
   /*
@@ -46,9 +48,10 @@ export default function (eleventyConfig) {
   /*
     The Gig Tracker's source files and their contract doc. gig-history.html is
     a standalone document written by a separate agent, gig-history.md is the
-    gig data Adrian edits by hand, and Eleventy would otherwise treat all
-    three markdown/HTML files — and the README — as templates, publishing
-    orphaned, unlinked pages at /GigTracker/gig-history/ and
+    gig data Adrian edits by hand, Locations.md is the venue coordinate lookup
+    the map view joins against, and Eleventy would otherwise treat all four
+    markdown/HTML files — and the README — as templates, publishing orphaned,
+    unlinked pages at /GigTracker/gig-history/, /GigTracker/Locations/ and
     /GigTracker/README/. Same trap as the EXIF Viewer's own shell above (#45).
 
     The sources are not passthrough-copied either: content/_data/gigTrackerApp.mjs
@@ -58,10 +61,12 @@ export default function (eleventyConfig) {
   */
   eleventyConfig.ignores.add("content/GigTracker/gig-history.html");
   eleventyConfig.ignores.add("content/GigTracker/gig-history.md");
+  eleventyConfig.ignores.add("content/GigTracker/Locations.md");
   eleventyConfig.ignores.add("content/GigTracker/README.md");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.html");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.css");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.md");
+  eleventyConfig.addWatchTarget("content/GigTracker/Locations.md");
 
   // render a markdown string as HTML in place
   eleventyConfig.addFilter("md", renderMarkdown);

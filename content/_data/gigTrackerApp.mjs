@@ -19,6 +19,7 @@ import path from "node:path";
 
 import { buildAppEmbed } from "../../lib/embed-app.mjs";
 import { parseGigHistory } from "../../lib/gig-history.mjs";
+import { parseLocations, resolveLocation } from "../../lib/locations.mjs";
 
 const APP_DIR = path.join(import.meta.dirname, "..", "GigTracker");
 const SCOPE = ".gig-tracker";
@@ -79,8 +80,35 @@ const LITERAL_COLOURS = {
   "#2a2e38": "var(--color-rule)"
 };
 
+/**
+ * Attaches lat/lng to each gig, resolved against Locations.md (see
+ * lib/locations.mjs). A Country/City/Venue combination with no usable
+ * coordinates — the map view's fallback chain has nowhere left to go — is
+ * warned about once rather than failing the build, since a gap here means
+ * Locations.md is stale, not that the gig data is wrong.
+ */
+function withCoordinates (gigs, locations) {
+  const warned = new Set();
+  return gigs.map((gig) => {
+    const resolved = resolveLocation(locations, gig);
+    if (!resolved) {
+      const key = `${gig.country} / ${gig.city} / ${gig.venue}`;
+      if (!warned.has(key)) {
+        warned.add(key);
+        console.warn(`[gig-tracker] no map location resolved for ${key} — add a row to Locations.md`);
+      }
+      return gig;
+    }
+    return { ...gig, ...resolved };
+  });
+}
+
 export default function () {
-  const gigs = parseGigHistory(fs.readFileSync(path.join(APP_DIR, "gig-history.md"), "utf8"));
+  const locations = parseLocations(fs.readFileSync(path.join(APP_DIR, "Locations.md"), "utf8"));
+  const gigs = withCoordinates(
+    parseGigHistory(fs.readFileSync(path.join(APP_DIR, "gig-history.md"), "utf8")),
+    locations
+  );
   const html = fs.readFileSync(path.join(APP_DIR, "gig-history.html"), "utf8")
     .replace(GIGS_ASSIGNMENT, `let GIGS = ${JSON.stringify(gigs)};`);
 

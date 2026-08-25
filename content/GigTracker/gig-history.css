@@ -167,7 +167,12 @@ tbody tr:last-child td {
   transition: max-height 280ms ease;
 }
 .stats-panel--open {
-  max-height: 900px;
+  /*
+    900px covered chart + performers alone; the map view adds its own 320px
+    block plus margin on top when a country/city filter is active, so the
+    budget grows with it even though the map isn't always shown.
+  */
+  max-height: 1250px;
 }
 .stats-frame {
   position: relative;
@@ -213,6 +218,37 @@ tbody tr:last-child td {
   height: 9px;
   border-radius: 2px;
   flex: none;
+}
+.stats-map-wrap {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.stats-map {
+  width: 100%;
+  /* Same fixed height as .stats-chart below — same layout-stability reason. */
+  height: 320px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.gig-map-marker-wrap {
+  /* Leaflet sets inline width/height/margin from iconSize; this just turns
+     the wrapper into a centring box for the badge inside it. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gig-map-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--panel);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid var(--panel);
 }
 .stats-chart-wrap {
   position: relative;
@@ -408,6 +444,6 @@ tbody tr:last-child td {
     padding: 12px 12px 8px;
   }
   .stats-panel--open {
-    max-height: 1150px;
+    max-height: 1500px;
   }
 }
