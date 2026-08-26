@@ -129,6 +129,33 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
+  it('zooms in on mouse wheel (#146)', async function () {
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Wellington');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+
+    // Tile URLs carry the current zoom as their {z} segment, so a rising z
+    // in later tile requests is proof the wheel actually zoomed the map
+    // (scrollWheelZoom: false would leave every request at the initial z).
+    const requestedZooms = [];
+    page.on('request', (req) => {
+      const match = req.url().match(/tile\.openstreetmap\.org\/(\d+)\//);
+      if (match) requestedZooms.push(Number(match[1]));
+    });
+
+    const initialZoom = Math.max(...requestedZooms);
+    const mapBox = await page.locator('#stats-map').boundingBox();
+    await page.mouse.move(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height / 2);
+    await page.mouse.wheel(0, -200);
+    // Leaflet debounces wheel input before applying a zoom step, then fetches
+    // the new tiles.
+    await page.waitForTimeout(500);
+    expect(Math.max(...requestedZooms), 'expected a tile request at a higher zoom level after wheel scroll')
+      .to.be.greaterThan(initialZoom);
+    await context.close();
+  });
+
   it('hides again when filters are cleared', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');

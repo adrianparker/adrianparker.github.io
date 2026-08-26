@@ -672,7 +672,7 @@ function renderStatsMap(rows) {
   wrap.hidden = false;
 
   if (!statsMap) {
-    statsMap = L.map("stats-map", { attributionControl: true, scrollWheelZoom: false });
+    statsMap = L.map("stats-map", { attributionControl: true, scrollWheelZoom: true });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
       maxZoom: 18
