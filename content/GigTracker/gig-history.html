@@ -645,13 +645,14 @@ let statsMapMarkers = null;
  * with no resolved location (see gigTrackerApp.mjs's build-time warning) are
  * silently excluded — there is nowhere on the map to put them.
  *
- * With a City filter active, markers sit at venue precision (row.lat/lng).
- * With only Country active, every gig collapses onto its city's pin
- * (row.cityLat/cityLng) instead — two gigs at different venues in the same
- * city should read as one marker showing "2", not two separate pins.
+ * With a City or Venue filter active, markers sit at venue precision
+ * (row.lat/lng) and render in the venue accent colour. Otherwise every gig
+ * collapses onto its city's pin (row.cityLat/cityLng) in the default accent
+ * colour — two gigs at different venues in the same city should read as one
+ * marker showing "2", not two separate pins.
  */
 function renderStatsMap(rows) {
-  const cityLevel = !filters.city;
+  const cityLevel = !filters.city && !filters.venue;
   const byLocation = new Map();
   for (const row of rows) {
     const lat = cityLevel ? row.cityLat : row.lat;
@@ -701,7 +702,7 @@ function renderStatsMap(rows) {
       className: "gig-map-marker-wrap",
       // title gives a native hover tooltip and a hook for tests — Leaflet's
       // own bindTooltip below isn't in the DOM until actually shown.
-      html: `<span class="gig-map-marker" title="${escapeAttr(label)}">${location.gigs.length}</span>`,
+      html: `<span class="gig-map-marker${cityLevel ? "" : " gig-map-marker--venue"}" title="${escapeAttr(label)}">${location.gigs.length}</span>`,
       iconSize: [28, 28]
     });
     L.marker([location.lat, location.lng], { icon })
@@ -715,11 +716,7 @@ function renderStats(filteredRows) {
   const rows = filteredRows || applyFilters(GIGS);
   updateStatsTitle();
   renderStatsLegend();
-  if (filters.country || filters.city) {
-    renderStatsMap(rows);
-  } else {
-    document.getElementById("stats-map-wrap").hidden = true;
-  }
+  renderStatsMap(rows);
   const wrap = document.getElementById("stats-chart-wrap");
   wrap.classList.add("stats-chart-wrap--updating");
   drawStatsChart(bucketByMonth(rows));

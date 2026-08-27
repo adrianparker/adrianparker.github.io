@@ -5,6 +5,7 @@
   --text: #e8e9ec;
   --muted: #9aa0ac;
   --accent: #7c9eff;
+  --accent-venue: #e8a33d;
   --row-alt: #14171d;
   --row-hover: #1e222c;
   --cat-music: #5b8def;
@@ -256,6 +257,9 @@ tbody tr:last-child td {
   font-size: 0.75rem;
   font-weight: 700;
   border: 2px solid var(--panel);
+}
+.gig-map-marker--venue {
+  background: var(--accent-venue);
 }
 .stats-chart-wrap {
   position: relative;
