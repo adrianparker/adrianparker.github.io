@@ -705,9 +705,19 @@ function renderStatsMap(rows) {
       html: `<span class="gig-map-marker${cityLevel ? "" : " gig-map-marker--venue"}" title="${escapeAttr(label)}">${location.gigs.length}</span>`,
       iconSize: [28, 28]
     });
-    L.marker([location.lat, location.lng], { icon })
-      .bindTooltip(`${label} — ${location.gigs.length} gig${location.gigs.length === 1 ? "" : "s"}`)
+    const gigsLabel = `${location.gigs.length} gig${location.gigs.length === 1 ? "" : "s"}`;
+    // Only city-level markers are clickable — at venue precision the label
+    // is "Venue, City", not a clean "click the city" target. The city name
+    // is styled like a link for the affordance, but the click target is the
+    // marker itself: Leaflet closes the tooltip as soon as the mouse leaves
+    // the marker, which happens before the cursor can reach text inside it.
+    const tooltipContent = cityLevel
+      ? `<span class="gig-map-city-label">${escapeHtml(location.city)}</span> — ${gigsLabel}`
+      : `${label} — ${gigsLabel}`;
+    const marker = L.marker([location.lat, location.lng], { icon })
+      .bindTooltip(tooltipContent)
       .addTo(statsMapMarkers);
+    if (cityLevel) marker.on("click", () => selectFilter("city", location.city));
   }
   statsMap.fitBounds(statsMapMarkers.getBounds(), { padding: [24, 24], maxZoom: 15 });
 }
@@ -883,6 +893,7 @@ function handlePerformerLinkClick(e) {
 
 document.getElementById("tbody").addEventListener("click", handlePerformerLinkClick);
 document.getElementById("stats-performer-tbody").addEventListener("click", handlePerformerLinkClick);
+document.getElementById("stats-map").addEventListener("click", handlePerformerLinkClick);
 
 document.querySelectorAll(".table-scroll thead th").forEach(th => {
   th.addEventListener("click", () => {
