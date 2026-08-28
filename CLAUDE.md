@@ -4,6 +4,10 @@ Guidance for Claude Code working in this repo.
 
 ---
 
+## Adopt Karpathy's approach to Claude Code
+
+First read CLAUDE-k.md and adopt all instructions therein.
+
 ## Working agreement — read first
 
 **Never push to `master`.** All work goes on a branch and up as a pull request. Adrian reviews and merges manually.
