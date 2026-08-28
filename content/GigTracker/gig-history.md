@@ -403,7 +403,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2006-11-06 | INXS | Music | London | United Kingdom | Shepherd's Bush Empire | | | INXS:63cf06cf |
 | 2006-10-21 | Salmonella Dub | Music | London | United Kingdom | Shepherd's Bush Empire | | Tiki Taane | Salmonella Dub:53da6379 |
 | 2006-10-08 | Sander Kleinenberg, Mark Knight, Sebastien Leger, Martijn Ten Velden, Nick Bridges | Music | London | United Kingdom | Ministry of Sound | | | |
-| 2006-09-16 | English National Opera | Opera | London | United Kingdom | Coliseum | Gaddafi: A Living Myth | | |
+| 2006-09-16 | English National Opera | Opera | London | United Kingdom | London Coliseum | Gaddafi: A Living Myth | | |
 | 2006-09-11 | Pearl Jam, My Morning Jacket | Music | Paris | France | Palais Omnisports de Paris-Bercy | | Eddie Vedder | Pearl Jam:1bd6a100, My Morning Jacket:63d4aaa3 |
 | 2006-08-26 | Sander Kleinenberg, Steve Lawler, Carl Cox, Paul Oakenfold, John Digweed, Pete Tong, Judge Jules, Seb Fontaine, Danny Howells, Fergie, The Shapeshifters, Mauro Picotto, Stanton Warriors, Nic Fanciulli, Sander van Doorn, Desyn Masiello, James Zabiela, Ian Betts, Matt Hardwick | Music | London | United Kingdom | Clapham Common | South West Four (SW4) 2006 | | |
 | 2006-08-17 | The Vegemite Tales | Theatre | London | United Kingdom | The Venue Theatre | Starring Blair McDonough, Andrew Robb, Tom Sangster. Directed by Bill Buckhurst | | |
