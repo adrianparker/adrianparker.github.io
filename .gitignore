@@ -8,3 +8,4 @@ _site/
 tests/screenshots-actual/
 .claude/settings.local.json
 coverage/
+content/GigTracker/claude-cowork
