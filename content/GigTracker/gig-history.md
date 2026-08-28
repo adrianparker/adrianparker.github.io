@@ -3,9 +3,9 @@
 A log of live gigs (concerts, comedy, theatre, orchestra, ballet, opera, and spoken word) extracted from Adrian's Google Calendar (adrian@iceknife.com), sourced from calendar events titled "GIG ...", and from Adrian's paper notebook of gigs attended 1986-1999 (see gig-notebook.md). City, Country, and Venue are cross-checked against Gmail ticket confirmation emails (label: Tickets), with web search as a fallback where no matching email was found.
 Data has been manually improved, validated and some gigs identified in gigs-missing-from-history.md have been merged in. Do not remove any entries from this list ever. Do not edit any entry in this list without Adrian's express, explicit, and timely confirmation.
 
-**Date range covered:** 1986-03-04 to 2026-06-27
+**Last calendar check:** 2026-06-27
 
-**Most recent GIG in this file: 2026-06-27 — Hadestown: Teen Edition** — when updating this log, only fetch calendar events after this date.
+**Date range covered:** 1986-03-04 to 2026-06-27
 
 | Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |
 |---|---|---|---|---|---|---|---|---|
