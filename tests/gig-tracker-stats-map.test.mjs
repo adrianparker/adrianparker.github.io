@@ -39,8 +39,8 @@ describe('Gig Tracker statistics map view', function () {
     await stopServer();
   });
 
-  async function openPage() {
-    const context = await browser.newContext({ viewport: { width: 1200, height: 900 } });
+  async function openPage({ colorScheme } = {}) {
+    const context = await browser.newContext({ viewport: { width: 1200, height: 900 }, colorScheme });
     const page = await context.newPage();
     await page.route('https://*.tile.openstreetmap.org/**', (route) =>
       route.fulfill({ status: 200, contentType: 'image/png', body: BLANK_TILE }));
@@ -90,6 +90,36 @@ describe('Gig Tracker statistics map view', function () {
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker--venue');
+    await context.close();
+  });
+
+  it('outlines venue markers in the city-marker navy, unfilled, in light mode (#152)', async function () {
+    const { context, page } = await openPage({ colorScheme: 'light' });
+    await page.selectOption('#f-venue', { index: 1 });
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker--venue');
+    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+      return [style.backgroundColor, style.borderColor, style.color];
+    });
+    expect(venueFill, 'expected the marker to stay unfilled').to.equal('rgba(0, 0, 0, 0)');
+    expect(venueBorder, 'expected the same navy as city-level markers').to.equal('rgb(28, 79, 140)');
+    expect(venueText, 'expected the count text to match the border').to.equal('rgb(28, 79, 140)');
+    await context.close();
+  });
+
+  it('leaves venue markers unchanged in dark mode (#152)', async function () {
+    const { context, page } = await openPage({ colorScheme: 'dark' });
+    await page.selectOption('#f-venue', { index: 1 });
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker--venue');
+    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+      return [style.backgroundColor, style.borderColor, style.color];
+    });
+    expect(venueFill).to.equal('rgba(0, 0, 0, 0)');
+    expect(venueBorder).to.equal('rgb(38, 38, 38)');
+    expect(venueText).to.equal('rgb(38, 38, 38)');
     await context.close();
   });
 

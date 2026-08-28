@@ -47,6 +47,7 @@ const PALETTE = {
   "--text": "var(--color-text)",
   "--muted": "var(--color-muted)",
   "--accent": "var(--color-accent)",
+  "--accent-venue": "var(--color-accent-venue)",
   /*
     Rows sit on --panel, so the stripe and the hover both have to read as a
     shift away from it. --color-bg-bottom is the site's other surface colour
