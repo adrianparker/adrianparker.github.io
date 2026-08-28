@@ -259,7 +259,8 @@ tbody tr:last-child td {
   border: 2px solid var(--panel);
 }
 .gig-map-marker--venue {
-  background: var(--accent-venue);
+  background: transparent;
+  border-color: var(--accent-venue);
 }
 .gig-map-marker:not(.gig-map-marker--venue) {
   cursor: pointer;

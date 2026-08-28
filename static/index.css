@@ -111,12 +111,13 @@
   --color-cat-other: #7a8290;
   --color-cat-other: light-dark(#5c6270, #7a8290);
 
-  /* Fill for the Gig Tracker map's venue-level markers. Light mode needs a
-     solid fill (same navy as --color-accent's light half) to be legible
-     against the basemap — see #152. Dark stays transparent, matching what
-     already renders there; #152 was scoped to light mode only. */
-  --color-accent-venue: transparent;
-  --color-accent-venue: light-dark(#1c4f8c, transparent);
+  /* Border colour for the Gig Tracker map's venue-level markers, which are
+     unfilled (like dark mode's already are). Light mode needs the border in
+     the same navy as --color-accent's light half to be legible against the
+     basemap — see #152. Dark mode keeps --color-bg-top's dark half, matching
+     the border colour the markers already had (--panel) before #152. */
+  --color-accent-venue: #262626;
+  --color-accent-venue: light-dark(#1c4f8c, #262626);
 
   /* The grid line colours for the light theme's graph-paper background
      (see the body rule below). Referenced only from light-scoped rules,

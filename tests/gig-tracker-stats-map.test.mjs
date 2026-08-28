@@ -93,25 +93,31 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
-  it('fills venue markers with the city-marker navy in light mode (#152)', async function () {
+  it('outlines venue markers in the city-marker navy, unfilled, in light mode (#152)', async function () {
     const { context, page } = await openPage({ colorScheme: 'light' });
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker--venue');
-    const venueFill = await page.evaluate(() =>
-      getComputedStyle(document.querySelector('.gig-map-marker--venue')).backgroundColor);
-    expect(venueFill, 'expected the same navy as city-level markers').to.equal('rgb(28, 79, 140)');
+    const [venueFill, venueBorder] = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+      return [style.backgroundColor, style.borderColor];
+    });
+    expect(venueFill, 'expected the marker to stay unfilled').to.equal('rgba(0, 0, 0, 0)');
+    expect(venueBorder, 'expected the same navy as city-level markers').to.equal('rgb(28, 79, 140)');
     await context.close();
   });
 
-  it('leaves venue markers transparent in dark mode (#152)', async function () {
+  it('leaves venue markers unchanged in dark mode (#152)', async function () {
     const { context, page } = await openPage({ colorScheme: 'dark' });
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker--venue');
-    const venueFill = await page.evaluate(() =>
-      getComputedStyle(document.querySelector('.gig-map-marker--venue')).backgroundColor);
+    const [venueFill, venueBorder] = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+      return [style.backgroundColor, style.borderColor];
+    });
     expect(venueFill).to.equal('rgba(0, 0, 0, 0)');
+    expect(venueBorder).to.equal('rgb(38, 38, 38)');
     await context.close();
   });
 
