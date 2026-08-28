@@ -261,6 +261,31 @@ tbody tr:last-child td {
 .gig-map-marker--venue {
   background: var(--accent-venue);
 }
+.gig-map-marker:not(.gig-map-marker--venue) {
+  cursor: pointer;
+}
+.stats-map .leaflet-tooltip {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: none;
+}
+.gig-map-city-label {
+  color: var(--accent);
+  border-bottom: 1px dotted var(--accent);
+}
+.stats-map .leaflet-tooltip-top::before {
+  border-top-color: var(--panel);
+}
+.stats-map .leaflet-tooltip-bottom::before {
+  border-bottom-color: var(--panel);
+}
+.stats-map .leaflet-tooltip-left::before {
+  border-left-color: var(--panel);
+}
+.stats-map .leaflet-tooltip-right::before {
+  border-right-color: var(--panel);
+}
 .stats-chart-wrap {
   position: relative;
   width: 100%;
