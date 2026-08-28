@@ -121,23 +121,27 @@ function matchesFilterKey(g, key, value) {
 
 // Options for a dropdown are drawn from rows matching every *other* active
 // filter (search is deliberately excluded, per #118), so activating one
-// filter narrows the rest without ever invalidating itself.
+// filter narrows the rest without ever invalidating itself. Each option also
+// carries a count of the gigs it would show, for the dropdown labels (#153).
 function uniqueSorted(key) {
   let rows = GIGS;
   Object.keys(filters).forEach(otherKey => {
     if (otherKey === key || !filters[otherKey]) return;
     rows = rows.filter(g => matchesFilterKey(g, otherKey, filters[otherKey]));
   });
-  const vals = new Set();
+  const counts = new Map();
+  const bump = v => counts.set(v, (counts.get(v) || 0) + 1);
   if (key === "performer") {
     rows.forEach(g => {
-      splitPerformers(g.performer).forEach(p => vals.add(p));
-      splitPerformers(g.association).forEach(a => vals.add(a));
+      const names = new Set([...splitPerformers(g.performer), ...splitPerformers(g.association)]);
+      names.forEach(bump);
     });
   } else {
-    rows.forEach(g => { if (g[key]) vals.add(g[key]); });
+    rows.forEach(g => { if (g[key]) bump(g[key]); });
   }
-  return Array.from(vals).sort((a,b) => a.localeCompare(b));
+  return Array.from(counts.entries())
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([value, count]) => ({ value, count }));
 }
 
 function attachFilterListeners() {
@@ -161,10 +165,10 @@ function populateFilters() {
   Object.keys(filterIds).forEach(key => {
     const sel = document.getElementById(filterIds[key]);
     while (sel.options.length > 1) sel.remove(1);
-    uniqueSorted(key).forEach(val => {
+    uniqueSorted(key).forEach(({ value, count }) => {
       const opt = document.createElement("option");
-      opt.value = val;
-      opt.textContent = val;
+      opt.value = value;
+      opt.textContent = `${value}  ${count}`;
       sel.appendChild(opt);
     });
     if (filters[key] && Array.from(sel.options).some(o => o.value === filters[key])) {
