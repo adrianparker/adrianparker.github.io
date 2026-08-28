@@ -98,12 +98,13 @@ describe('Gig Tracker statistics map view', function () {
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker--venue');
-    const [venueFill, venueBorder] = await page.evaluate(() => {
+    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
       const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
-      return [style.backgroundColor, style.borderColor];
+      return [style.backgroundColor, style.borderColor, style.color];
     });
     expect(venueFill, 'expected the marker to stay unfilled').to.equal('rgba(0, 0, 0, 0)');
     expect(venueBorder, 'expected the same navy as city-level markers').to.equal('rgb(28, 79, 140)');
+    expect(venueText, 'expected the count text to match the border').to.equal('rgb(28, 79, 140)');
     await context.close();
   });
 
@@ -112,12 +113,13 @@ describe('Gig Tracker statistics map view', function () {
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker--venue');
-    const [venueFill, venueBorder] = await page.evaluate(() => {
+    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
       const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
-      return [style.backgroundColor, style.borderColor];
+      return [style.backgroundColor, style.borderColor, style.color];
     });
     expect(venueFill).to.equal('rgba(0, 0, 0, 0)');
     expect(venueBorder).to.equal('rgb(38, 38, 38)');
+    expect(venueText).to.equal('rgb(38, 38, 38)');
     await context.close();
   });
 
