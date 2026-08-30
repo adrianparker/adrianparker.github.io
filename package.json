@@ -54,7 +54,7 @@
     "c8": "^12.0.0",
     "chai": "^6.2.2",
     "cheerio": "^1.2.0",
-    "html-validate": "^11.8.0",
+    "html-validate": "^11.10.0",
     "mocha": "^11.8.0",
     "pixelmatch": "^7.2.0",
     "playwright": "^1.62.1",
