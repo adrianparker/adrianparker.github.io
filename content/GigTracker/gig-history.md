@@ -9,8 +9,8 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 
 | Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |
 |---|---|---|---|---|---|---|---|---|
-| 2026-09-04 | Elly Mae, Dale Kerrigan | Music | Wellington | New Zealand | Newtown Community Centre | The Night Before (Great Sounds Great) | | |
-| 2026-09-04 | Nameless and Brainless, re:ruby, girls factory | Music | Wellington | New Zealand | Moon | The Night Before (Great Sounds Great) | | |
+| 2026-09-04 | Elly Mae, Dale Kerrigan | Music | Wellington | New Zealand | Newtown Community Centre | The Night Before (Great Sounds Great) 2026 | | |
+| 2026-09-04 | Nameless and Brainless, re:ruby, girls factory | Music | Wellington | New Zealand | Moon | The Night Before (Great Sounds Great) 2026 | | |
 | 2026-08-20 | Public Service Announcements: Election Meltdown | Theatre | Wellington | New Zealand | Circa | Starring Anya Tate-Manning, Cohen Holloway, Kali Kopae. Directed by Carrie Green | | |
 | 2026-06-27 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Louis Oakey, Hover Waterworth, Eleanor Parker | | |
 | 2026-06-23 | Hadestown: Teen Edition | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Louis Oakey, Hover Waterworth, Eleanor Parker | | |
