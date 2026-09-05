@@ -76,7 +76,9 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | Wellington | Meow Nui | -41.2958, 174.7748 |
 | New Zealand | Wellington | Metro | |
 | New Zealand | Wellington | Michael Fowler Centre | -41.2862, 174.7768 |
+| New Zealand | Wellington | Moon | -41.3131480, 174.7798543 |
 | New Zealand | Wellington | New Carpark | |
+| New Zealand | Wellington | Newtown Community Centre | -41.3125737, 174.7786303 |
 | New Zealand | Wellington | Old St Paul's | -41.2760, 174.7774 |
 | New Zealand | Wellington | Paramount Theatre | -41.2932, 174.7775 |
 | New Zealand | Wellington | Phoenix | |
