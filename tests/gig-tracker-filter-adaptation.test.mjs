@@ -50,8 +50,10 @@ describe('Gig Tracker adaptive dropdown filters', function () {
     page.$eval(selector, (sel) => Array.from(sel.options)
       .filter((o) => o.value)
       .map((o) => {
-        const match = o.textContent.match(/^(.*)  (\d+)$/);
-        return { value: o.value, label: match[1], count: Number(match[2]) };
+        const match = o.textContent.match(/^(.*) \((\d+)\)$/);
+        return match
+          ? { value: o.value, label: match[1], count: Number(match[2]) }
+          : { value: o.value, label: o.textContent, count: 1 };
       }));
 
   const shownCount = async (page) => {
@@ -135,5 +137,17 @@ describe('Gig Tracker adaptive dropdown filters', function () {
     expect(cityCounts).to.have.lengthOf(1);
     expect(cityCounts[0].value).to.equal(SINGLE_CITY_COUNTRY_CITY);
     expect(cityCounts[0].count).to.equal(await shownCount(page));
+  });
+
+  // Mission Estate Winery has exactly one gig, a deterministic fixture for
+  // asserting the count is omitted rather than showing "(1)".
+  const SINGLE_GIG_VENUE = 'Mission Estate Winery';
+
+  it('omits the count for an option that matches exactly one gig (#153)', async function () {
+    const venueOption = await page.$eval('#f-venue',
+      (sel, value) => Array.from(sel.options).find((o) => o.value === value)?.textContent,
+      SINGLE_GIG_VENUE
+    );
+    expect(venueOption).to.equal(SINGLE_GIG_VENUE);
   });
 });

@@ -168,7 +168,7 @@ function populateFilters() {
     uniqueSorted(key).forEach(({ value, count }) => {
       const opt = document.createElement("option");
       opt.value = value;
-      opt.textContent = `${value}  ${count}`;
+      opt.textContent = count === 1 ? value : `${value} (${count})`;
       sel.appendChild(opt);
     });
     if (filters[key] && Array.from(sel.options).some(o => o.value === filters[key])) {
