@@ -224,13 +224,13 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2010-11-21 | Soulfly | Music | London | United Kingdom | KOKO | | | Soulfly:6bd2be62 |
 | 2010-11-19 | Therapy? | Music | London | United Kingdom | The Forum | | | |
 | 2010-11-17 | Deftones, Coheed and Cambria | Music | London | United Kingdom | Brixton Academy | | | Deftones:43d547ab, Coheed and Cambria:bd541e2 |
-| 2010-11-11 | Linkin Park, Does It Offend You, Yeah? | Music | London | United Kingdom | The O2 Arena | | | Linkin Park:33de606d, Does It Offend You, Yeah?:53da1761 |
+| 2010-11-11 | Linkin Park, Does It Offend You\, Yeah? | Music | London | United Kingdom | The O2 Arena | | | Linkin Park:33de606d, Does It Offend You, Yeah?:53da1761 |
 | 2010-10-23 | Morcheeba | Music | London | United Kingdom | Roundhouse | | | Morcheeba:4bd5073e |
 | 2010-10-20 | Stephen Hawking | Other | London | United Kingdom | Royal Albert Hall | The Grand Design | | |
 | 2010-10-13 | Guns N' Roses, Sebastian Bach | Music | London | United Kingdom | The O2 Arena | | | Guns N' Roses:7bd51e34 |
 | 2010-09-25 | Zodiac Mindwarp & The Love Reaction | Music | London | United Kingdom | Borderline | | | Zodiac Mindwarp & The Love Reaction:2bffac06 |
 | 2010-08-19 | La Bete | Theatre | London | United Kingdom | Comedy Theatre | Starring Mark Rylance, David Hyde Pierce, Joanna Lumley, Stephen Ouimette. Directed by Matthew Warchus | | |
-| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You, Yeah?, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | The Prodigy:63d45a9f, Pendulum:4bd457be, Chase & Status:3bd454c0, Enter Shikari:1bd455a4, Does It Offend You, Yeah?:1bd2ed18 |
+| 2010-07-24 | The Prodigy, Pendulum, Chase & Status, Enter Shikari, Does It Offend You\, Yeah?, Zane Lowe | Music | Milton Keynes | United Kingdom | Milton Keynes Bowl | Warriors Dance Festival | | The Prodigy:63d45a9f, Pendulum:4bd457be, Chase & Status:3bd454c0, Enter Shikari:1bd455a4, Does It Offend You, Yeah?:1bd2ed18 |
 | 2010-07-22 | Sepultura, Gama Bomb | Music | London | United Kingdom | Scala | | | Sepultura:bd45966, Gama Bomb:33964c1d |
 | 2010-07-17 | Penn & Teller | Comedy | London | United Kingdom | Hammersmith Apollo | | | |
 | 2010-07-14 | Gil Scott-Heron | Music | London | United Kingdom | Somerset House | | | Gil Scott-Heron:33d46c1d |
