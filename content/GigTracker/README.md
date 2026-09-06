@@ -37,7 +37,15 @@ followed by one data row per gig, most recent first:
 
 All nine columns are required on every row (leave a column blank rather than
 omitting it — see the `Notes`, `Association` and `Setlist.fm ID` columns
-above). Free text before the header (a title, a description paragraph) and
+above).
+
+`Show` and `Association` are comma-separated lists of artist names, split on
+the client side (`splitPerformers` in `gig-history.html`). An artist name that
+contains a literal comma (e.g. "Does It Offend You, Yeah?") must have that
+comma escaped as `\,` so it isn't mistaken for the list separator — see the
+2010-11-11 and 2010-07-24 rows for examples.
+
+Free text before the header (a title, a description paragraph) and
 after the table (notes) is ignored by the parser in `lib/gig-history.mjs`;
 only lines starting with `|` after the header count as rows. A row with the
 wrong number of columns — too few or too many — fails the build rather than

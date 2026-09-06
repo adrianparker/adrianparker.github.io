@@ -107,9 +107,13 @@ const filterIds = {
   venue: "f-venue"
 };
 
+// A performer/association list is comma-separated, but a handful of artist
+// names contain a literal comma themselves (e.g. "Does It Offend You, Yeah?")
+// — those are written in gig-history.md with the comma escaped as "\," so it
+// survives the list split intact, then unescaped back to a plain comma here.
 function splitPerformers(str) {
   if (!str) return [];
-  return str.split(",").map(s => s.trim()).filter(Boolean);
+  return str.split(/(?<!\\),/).map(s => s.trim().replace(/\\,/g, ",")).filter(Boolean);
 }
 
 // Venues sharing exact coordinates in Locations.md are the same physical
