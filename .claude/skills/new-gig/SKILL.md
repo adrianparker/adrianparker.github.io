@@ -11,13 +11,15 @@ There is a blank template at `content/posts/gigs/template.hmmm` (gitignored, so 
 
 ## 1. Gather
 
-Required:
+Ask one question at a time, waiting for Adrian's answer before asking the next. Don't bundle multiple fields into a single message.
+
+Required, in order:
 
 - **Headline artist**
 - **Venue** and **city** (and **country** — usually `New Zealand`)
 - **Date of the gig** — this is the `date` field and drives the filename
 
-Optional — ask, but don't block on them:
+Optional — ask each one individually, but don't block on them:
 
 - **Support artists** — a list
 - **setlist.fm URL**
