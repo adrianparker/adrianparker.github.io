@@ -46,6 +46,21 @@ describe('Gig Tracker adaptive dropdown filters', function () {
   const optionsOf = (page, selector) =>
     page.$eval(selector, (sel) => Array.from(sel.options).map((o) => o.value).filter(Boolean));
 
+  const optionCountsOf = (page, selector) =>
+    page.$eval(selector, (sel) => Array.from(sel.options)
+      .filter((o) => o.value)
+      .map((o) => {
+        const match = o.textContent.match(/^(.*) \((\d+)\)$/);
+        return match
+          ? { value: o.value, label: match[1], count: Number(match[2]) }
+          : { value: o.value, label: o.textContent, count: 1 };
+      }));
+
+  const shownCount = async (page) => {
+    const text = await page.$eval('#rowcount', (el) => el.textContent);
+    return Number(text.match(/Showing (\d+)/)[1]);
+  };
+
   // Real gig-history data: Australia has gigs in exactly one city (Sydney),
   // which makes it a deterministic fixture for narrowing assertions without
   // needing to hardcode the whole dataset's shape.
@@ -103,5 +118,36 @@ describe('Gig Tracker adaptive dropdown filters', function () {
     await page.fill('#search', SINGLE_CITY_COUNTRY_CITY);
 
     expect(await optionsOf(page, '#f-country')).to.deep.equal(fullCountries);
+  });
+
+  it('labels each dropdown option with the number of gigs it would show (#153)', async function () {
+    const categories = await optionCountsOf(page, '#f-category');
+    expect(categories.length).to.be.greaterThan(0);
+    categories.forEach(({ count }) => expect(count).to.be.greaterThan(0));
+
+    const sample = categories[0];
+    await page.selectOption('#f-category', sample.value);
+    expect(await shownCount(page)).to.equal(sample.count);
+  });
+
+  it('recomputes option counts as other filters narrow the results (#153)', async function () {
+    await page.selectOption('#f-country', SINGLE_CITY_COUNTRY);
+
+    const cityCounts = await optionCountsOf(page, '#f-city');
+    expect(cityCounts).to.have.lengthOf(1);
+    expect(cityCounts[0].value).to.equal(SINGLE_CITY_COUNTRY_CITY);
+    expect(cityCounts[0].count).to.equal(await shownCount(page));
+  });
+
+  // Mission Estate Winery has exactly one gig, a deterministic fixture for
+  // asserting the count is omitted rather than showing "(1)".
+  const SINGLE_GIG_VENUE = 'Mission Estate Winery';
+
+  it('omits the count for an option that matches exactly one gig (#153)', async function () {
+    const venueOption = await page.$eval('#f-venue',
+      (sel, value) => Array.from(sel.options).find((o) => o.value === value)?.textContent,
+      SINGLE_GIG_VENUE
+    );
+    expect(venueOption).to.equal(SINGLE_GIG_VENUE);
   });
 });
