@@ -135,7 +135,6 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | United Kingdom | London | Brixton Academy | 51.46563, -0.11497 |
 | United Kingdom | London | Bush Hall | 51.50652, -0.23161 |
 | United Kingdom | London | Clapham Common | 51.4618, -0.1384 |
-| United Kingdom | London | Coliseum | 51.5100, -0.1281 |
 | United Kingdom | London | Comedy Theatre | 51.5088, -0.1319 |
 | United Kingdom | London | Dominion Theatre | 51.5165, -0.1308 |
 | United Kingdom | London | Earls Court | 51.48889, -0.19778 |
