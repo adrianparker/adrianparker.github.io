@@ -87,7 +87,7 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | Wellington | Shed 11 | -41.2831, 174.7801 |
 | New Zealand | Wellington | Shed 6 | -41.2825, 174.7807 |
 | New Zealand | Wellington | Show & Sports Centre | |
-| New Zealand | Wellington | Sky Stadium | -41.272861, 174.785202 |
+| New Zealand | Wellington | Sky Stadium | -41.27290, 174.78520 |
 | New Zealand | Wellington | Sol Bar | |
 | New Zealand | Wellington | Soundings Theatre | -41.2906361, 174.781993 |
 | New Zealand | Wellington | St James Theatre | -41.29337, 174.77972 |
