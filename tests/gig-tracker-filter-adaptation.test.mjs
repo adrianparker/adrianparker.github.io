@@ -150,4 +150,32 @@ describe('Gig Tracker adaptive dropdown filters', function () {
     );
     expect(venueOption).to.equal(SINGLE_GIG_VENUE);
   });
+
+  // "San Fran", "Indigo" and "Stax" are all the same Wellington venue at
+  // different points in its history — Locations.md gives them identical
+  // coordinates, which is how the app decides they're co-located (#158).
+  const CO_LOCATED_VENUES = ['San Fran', 'Indigo', 'Stax'];
+
+  it('gives every co-located venue alias the same combined count (#158)', async function () {
+    const venueCounts = await optionCountsOf(page, '#f-venue');
+    const counts = CO_LOCATED_VENUES.map((name) =>
+      venueCounts.find((v) => v.value === name)?.count
+    );
+    expect(counts.every((c) => typeof c === 'number')).to.be.true;
+    expect(new Set(counts).size).to.equal(1);
+
+    const combinedTotal = counts[0];
+    await page.selectOption('#f-venue', CO_LOCATED_VENUES[0]);
+    expect(await shownCount(page)).to.equal(combinedTotal);
+  });
+
+  it('filters to gigs from every co-located venue alias, not just the selected one (#158)', async function () {
+    await page.selectOption('#f-venue', 'Indigo');
+
+    const rowVenues = await page.$$eval('#tbody tr', (rows) =>
+      rows.map((r) => r.children[5].textContent.trim())
+    );
+    CO_LOCATED_VENUES.forEach((name) => expect(rowVenues).to.include(name));
+    rowVenues.forEach((v) => expect(CO_LOCATED_VENUES).to.include(v));
+  });
 });
