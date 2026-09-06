@@ -1,7 +1,7 @@
 ---
 title: 'The Night Before (Great Sounds Great) 2026'
 navtitle: '2026 The Night Before'
-summary: 'Five Wellington acts, two venues, one big night for The Night Before'
+summary: 'Five fresh acts, two venues, one big night for The Night Before'
 metadesc: 'Concert review of Elly Mae, Dale Kerrigan, Nameless and Brainless, re:ruby and girls factory at Newtown Community Centre & Moon, Wellington, 4 September 2026.'
 date: 2026-09-04
 readingtime: '1 minute'
@@ -10,7 +10,7 @@ venue: 'Newtown Community Centre & Moon'
 city: 'Wellington'
 country: 'New Zealand'
 ---
-Great Sounds Great's "The Night Before" put five Wellington acts across two rooms, Newtown Community Centre and Moon, for one night of new local music.
+We caught Elly Mae, Nameless and Brainless, Dale Kerrigan, re:ruby and girls factory play across two venues in Newtown as part of Great Sounds Great's "The Night Before" festival.
 <!-- excerpt -->
 
 Elly Mae opened at Newtown Community Centre, a dreamy three-piece somewhere in Hope Sandoval / Mazzy Star territory, sounding assured on stage.
