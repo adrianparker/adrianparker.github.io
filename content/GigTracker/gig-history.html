@@ -112,9 +112,24 @@ function splitPerformers(str) {
   return str.split(",").map(s => s.trim()).filter(Boolean);
 }
 
+// Venues sharing exact coordinates in Locations.md are the same physical
+// place under different names over time (#158) — e.g. "San Fran", "Indigo"
+// and "Stax" are all one Wellington venue. hasVenueLocation gates this so
+// two venues that both merely fell back to their city's pin (no coordinates
+// of their own) aren't mistaken for the same address.
+function venueGroupKey(g) {
+  return g.hasVenueLocation ? `${g.lat},${g.lng}` : `venue:${g.venue}`;
+}
+
+const venueGroupKeyByName = new Map();
+GIGS.forEach(g => { if (g.venue) venueGroupKeyByName.set(g.venue, venueGroupKey(g)); });
+
 function matchesFilterKey(g, key, value) {
   if (key === "performer") {
     return splitPerformers(g.performer).includes(value) || splitPerformers(g.association).includes(value);
+  }
+  if (key === "venue") {
+    return venueGroupKey(g) === venueGroupKeyByName.get(value);
   }
   return g[key] === value;
 }
@@ -123,12 +138,27 @@ function matchesFilterKey(g, key, value) {
 // filter (search is deliberately excluded, per #118), so activating one
 // filter narrows the rest without ever invalidating itself. Each option also
 // carries a count of the gigs it would show, for the dropdown labels (#153).
+// For venue, that count is the combined total across every co-located alias
+// (#158), not just gigs recorded under that one name.
 function uniqueSorted(key) {
   let rows = GIGS;
   Object.keys(filters).forEach(otherKey => {
     if (otherKey === key || !filters[otherKey]) return;
     rows = rows.filter(g => matchesFilterKey(g, otherKey, filters[otherKey]));
   });
+  if (key === "venue") {
+    const groupCounts = new Map();
+    const groupKeyByName = new Map();
+    rows.forEach(g => {
+      if (!g.venue) return;
+      const gk = venueGroupKey(g);
+      groupCounts.set(gk, (groupCounts.get(gk) || 0) + 1);
+      groupKeyByName.set(g.venue, gk);
+    });
+    return Array.from(groupKeyByName.entries())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([value, gk]) => ({ value, count: groupCounts.get(gk) }));
+  }
   const counts = new Map();
   const bump = v => counts.set(v, (counts.get(v) || 0) + 1);
   if (key === "performer") {
@@ -700,7 +730,18 @@ function renderStatsMap(rows) {
     if (hasFallback) {
       label = `Unknown address, ${location.city}`;
     } else if (!cityLevel && location.venue) {
-      label = `${location.venue}, ${location.city}`;
+      // Co-located venues (#158) — several names sharing this address over
+      // time — get a breakdown instead of one arbitrary name.
+      const nameCounts = new Map();
+      location.gigs.forEach(g => {
+        if (g.venue) nameCounts.set(g.venue, (nameCounts.get(g.venue) || 0) + 1);
+      });
+      label = nameCounts.size > 1
+        ? Array.from(nameCounts.entries())
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .map(([name, count]) => `${name} (${count})`)
+            .join(", ")
+        : `${location.venue}, ${location.city}`;
     }
     const icon = L.divIcon({
       className: "gig-map-marker-wrap",

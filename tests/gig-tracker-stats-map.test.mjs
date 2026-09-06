@@ -204,6 +204,27 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
+  it('collapses co-located venue aliases onto one marker with a per-alias breakdown (#158)', async function () {
+    // San Fran, Indigo and Stax are the same Wellington address under
+    // different names over time (Locations.md gives them identical
+    // coordinates) — they should read as one marker, not three.
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Wellington');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+
+    const markers = await page.$$('.gig-map-marker[title*="San Fran"]');
+    expect(markers.length, 'expected San Fran, Indigo and Stax to share a single marker').to.equal(1);
+
+    const [marker] = markers;
+    const title = await marker.getAttribute('title');
+    expect(title).to.include('San Fran (12)');
+    expect(title).to.include('Indigo (8)');
+    expect(title).to.include('Stax (2)');
+    expect(Number(await marker.textContent()), 'expected the badge to show the combined total').to.equal(22);
+    await context.close();
+  });
+
   it('falls back to city-level pins when filters are cleared', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');

@@ -83,7 +83,7 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | New Zealand | Wellington | Paramount Theatre | -41.2932, 174.7775 |
 | New Zealand | Wellington | Phoenix | |
 | New Zealand | Wellington | Queens Wharf Events Centre | -41.2823, 174.7810 |
-| New Zealand | Wellington | San Fran | -41.2953, 174.7754 |
+| New Zealand | Wellington | San Fran | -41.29415, 174.77556 |
 | New Zealand | Wellington | Shed 11 | -41.2831, 174.7801 |
 | New Zealand | Wellington | Shed 6 | -41.2825, 174.7807 |
 | New Zealand | Wellington | Show & Sports Centre | |
