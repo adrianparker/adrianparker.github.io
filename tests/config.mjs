@@ -58,7 +58,9 @@ export default {
    */
   testInteractions: {
     async 'gigtracker-app-stats-london'(page) {
-      await page.selectOption('#f-city', { label: 'London' });
+      // Option values are the bare city name; the visible label carries a
+      // "(N)" gig count (#153) that would break an exact label match here.
+      await page.selectOption('#f-city', { value: 'London' });
       await page.click('#stats-toggle');
       await page.waitForSelector('#stats-panel.stats-panel--open');
       await page.waitForFunction(
