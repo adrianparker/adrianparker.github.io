@@ -215,6 +215,7 @@ Every Country/City combination also has its own row with a blank Venue, giving t
 | United States of America | Los Angeles | | 34.0522, -118.2437 |
 | United States of America | Los Angeles | Greek Theatre | 34.1200, -118.2943 |
 | United States of America | Los Angeles | The Troubador | 34.0819, -118.3892 |
+| United States of America | Los Angeles | The Wiltern | 34.0611, -118.3078 |
 | United States of America | San Bernadino | | 34.1083, -117.2898 |
 | United States of America | San Bernadino | Glen Helen Pavilion | 34.2043, -117.4022 |
 | United States of America | San Francisco | | 37.7749, -122.4194 |

@@ -3,12 +3,13 @@
 A log of live gigs (concerts, comedy, theatre, orchestra, ballet, opera, and spoken word) extracted from Adrian's Google Calendar (adrian@iceknife.com), sourced from calendar events titled "GIG ...", and from Adrian's paper notebook of gigs attended 1986-1999 (see gig-notebook.md). City, Country, and Venue are cross-checked against Gmail ticket confirmation emails (label: Tickets), with web search as a fallback where no matching email was found.
 Data has been manually improved, validated and some gigs identified in gigs-missing-from-history.md have been merged in. Do not remove any entries from this list ever. Do not edit any entry in this list without Adrian's express, explicit, and timely confirmation.
 
-**Last calendar check:** 2026-09-05
+**Last calendar check:** 2026-09-13
 
-**Date range covered:** 1986-03-04 to 2026-09-04
+**Date range covered:** 1986-03-04 to 2026-09-11
 
 | Date | Show | Category | City | Country | Venue | Notes | Association | Setlist.fm ID |
 |---|---|---|---|---|---|---|---|---|
+| 2026-09-11 | W.A.S.P., KK's Priest | Music | Los Angeles | United States of America | The Wiltern | 1984 To Headless 2026 | | W.A.S.P.:34b29cb, KK's Priest:234b28ef |
 | 2026-09-04 | Elly Mae, Dale Kerrigan | Music | Wellington | New Zealand | Newtown Community Centre | The Night Before (Great Sounds Great) 2026 | | |
 | 2026-09-04 | Nameless and Brainless, re:ruby, girls factory | Music | Wellington | New Zealand | Moon | The Night Before (Great Sounds Great) 2026 | | |
 | 2026-08-20 | Public Service Announcements: Election Meltdown | Theatre | Wellington | New Zealand | Circa | Starring Anya Tate-Manning, Cohen Holloway, Kali Kopae. Directed by Carrie Green | | |
