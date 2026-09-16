@@ -28,7 +28,7 @@ Eventually we built the biggest bootleg concert business in New Zealand.
 
 If bootlegs were crack, that made Andrei and me cartel kingpins. 
 
-{% image "img/IMG_9410.jpeg", "A snippet of our bootleg catalogue. Check out that dot matrix font!" %}
+{% image "Last-Ever-Last-Ever/IMG_9410", "A snippet of our bootleg catalogue. Check out that dot matrix font!" %}
 
 ## Ripping It Up
 
@@ -56,7 +56,7 @@ I raided my share of the bootleg profits, sent my cash away in the post, waited 
 
 I became the proud owner of "[Devolve](https://www.shihadwiki.com/wiki/Devolve_(ep))", the debut EP by Shihad. And I was officially hooked.
 
-{% image "img/IMG_9412.jpeg", "I still have my copy of Devolve. The original bassist on the cover! That's the notebook I recorded my first gigs in." %}
+{% image "Last-Ever-Last-Ever/IMG_9412", "I still have my copy of Devolve. The original bassist on the cover! That's the notebook I recorded my first gigs in." %}
 
 ## From Athletic Park to the New Carpark
 
@@ -82,7 +82,7 @@ My fake ID got me in, and I spent the show in the moshpit, rubbing shoulders wit
 
 Those were the days.
 
-{% image "img/IMG_9411.jpeg", "The amazingly skinny Jon Toogood of Shihad at Athletic Park, November 1991. Taken by me from the front barrier." %}
+{% image "Last-Ever-Last-Ever/IMG_9411", "The amazingly skinny Jon Toogood of Shihad at Athletic Park, November 1991. Taken by me from the front barrier." %}
 
 ## Wellington Royalty
 
@@ -98,7 +98,7 @@ For the longest time, it seemed like everyone adored this band. Shihad shows wer
 
 Churn was eventually released, having been played live for seemingly forever. I managed to get a tour poster. I still have it on the wall.
 
-{% image "img/54402416105_d81313f21f_o.jpg", "Iconic. After some good advice from my mate Ditch, now it's in a frame." %}
+{% image "Last-Ever-Last-Ever/Churn-Tour-Poster", "Iconic. After some good advice from my mate Ditch, now it's in a frame." %}
 
 Then Killjoy - their best work by some distance. Then the self titled one with fish on it. But we forgave them that one. Then.... well, [more](https://en.wikipedia.org/wiki/Shihad_discography). It becomes a blur.
 
