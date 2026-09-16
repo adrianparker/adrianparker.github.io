@@ -102,7 +102,7 @@ Churn was eventually released, having been played live for seemingly forever. I 
 
 Then Killjoy - their best work by some distance. Then the self titled one with fish on it. But we forgave them that one. Then.... well, [more](https://en.wikipedia.org/wiki/Shihad_discography). It becomes a blur.
 
-I kept a list of every live show I went to, until 1999 or so. Shihad is the most common name on it, despite it being *quite* a long list. Despite a 23 year gap in records, I still saw them at least 17 times. I doubt I'll see any band more often. 
+I kept a list of every live show I went to, until 1999 or so. Shihad is the most common name on it, despite it being *quite* a long list. Despite an 18 year gap in records, I still saw them at least 17 times. I doubt I'll see any band more often. 
 
 | Era | Show | Date |
 |:-----------|:------|:------|
