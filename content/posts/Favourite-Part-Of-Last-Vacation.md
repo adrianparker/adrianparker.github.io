@@ -25,7 +25,7 @@ Getting out on the water is good.
 
 Getting out on the water with my loved ones is fantastic.
 
-{% image "img/IMG_7524.JPG", "Surface interval near Needle Rock, NE of Whitianga" %}
+{% image "Favourite-Part-Of-Last-Vacation/IMG_7524", "Surface interval near Needle Rock, NE of Whitianga" %}
 
 [^1]: This post was my response to Week #4 of <a target="_blank" href="https://randsprompts.substack.com/p/rands-writing-prompts-4-february">Rands Writing Prompts</a>
 [^2]: First encounter with <a href="https://en.wikipedia.org/wiki/New_Zealand_demoiselle" target="_blank">demoiselle</a>. Similar to blue mao mao, but have two prominent white dots.
