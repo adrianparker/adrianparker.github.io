@@ -64,3 +64,79 @@ tags: ['post']
 
 Post content in markdown...
 ```
+
+## Photos
+
+Photos in posts are served from an S3 bucket behind CloudFront
+(`mediaUrl` in `content/_data/site.json`), not from this repo. The build
+never talks to AWS: everything it needs to know about a set of photos is in a
+small manifest committed alongside the content.
+
+### How it works
+
+- Photos are grouped into **sets**. A set id is the file stem of the post or
+  gig it belongs to, e.g. `Wine-Cork-Notice-Board-How-To` or
+  `20260523-Teen-Jesus-and-the-Jean-Teasers`.
+- `npm run photos` resizes a folder of source photos into the site's variants —
+  400px and 800px wide, as webp and jpeg, EXIF stripped (GPS included) and
+  orientation baked in — and uploads them to
+  `photos/<set-id>/<name>-<width>.<format>` in the bucket. The originals are
+  not uploaded.
+- The same run writes the set's manifest, `content/_data/photoSets/<set-id>.json`:
+
+  ```json
+  {
+    "photos": [
+      { "name": "IMG_1401", "width": 800, "height": 600 },
+      { "name": "IMG_1403", "width": 800, "height": 1066, "caption": "Optional, added by hand" }
+    ]
+  }
+  ```
+
+  `name` is the source filename without its extension; `width`/`height` are
+  the largest variant's, so the page can reserve the right space before the
+  image arrives. Array order is display order.
+- The `image` shortcode looks the photo up in its manifest and emits the
+  responsive `<picture>` (one `<source>` per format, jpeg `<img>` fallback,
+  lazy-loaded, captioned). An unknown set or photo name fails the build.
+
+Everything in `lib/photo-sets.mjs` and `lib/photo-publish.mjs` is unit-tested;
+`scripts/publish-photos.mjs` is the thin command-line wrapper.
+
+### Publishing a set
+
+One-time setup: install the AWS CLI and add a profile named `blog-photos` to
+`~/.aws/credentials` for an IAM user that can only `s3:PutObject` under the
+bucket's `photos/` prefix (plus `s3:ListBucket`, which `sync` needs). Nothing
+in this repo or in CI ever holds AWS credentials — the script shells out to
+the AWS CLI, which reads the profile itself.
+
+Put the photos for one post in a folder, then:
+
+```
+npm run photos -- <set-id> <folder> --upload
+```
+
+Without `--upload` it does everything except the upload and prints the
+`aws s3 sync` command it would have run. Variants are written to
+`.photos/<set-id>/` (gitignored). Sources narrower than 800px are refused.
+Commit the manifest with the post that uses it.
+
+The upload sets `Cache-Control: public, max-age=31536000, immutable`, so a
+changed photo must get a new name rather than be re-uploaded under the old one.
+
+### Embedding a photo
+
+```njk
+{% image "Wine-Cork-Notice-Board-How-To/IMG_7118", "Alt text, also shown as the caption" %}
+```
+
+The first argument is `<set-id>/<name>`. The alt text is rendered as the
+visible `<figcaption>` too, so write it to read as a caption.
+
+### Adding to a set, or adding a caption
+
+Re-run `npm run photos` on the folder with the new photos in it — existing
+entries keep any fields you have added by hand (such as `caption`), new photos
+are appended, and only the new variants actually transfer. To reorder, edit
+the array. To caption a photo, add a `caption` to its entry and commit.

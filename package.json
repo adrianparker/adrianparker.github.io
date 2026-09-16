@@ -11,6 +11,7 @@
     "test:headless": "npm run build && mocha 'tests/smoke.test.mjs' --reporter spec",
     "lint:html": "html-validate $(find _site -name '*.html' -not -path '*/dist/*')",
     "build": "npx eleventy",
+    "photos": "node scripts/publish-photos.mjs",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
     "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",

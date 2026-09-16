@@ -57,6 +57,7 @@ npm run test:analytics # build + PostHog config and custom events
 npm run test:visual    # build + visual regression (slow, needs Playwright)
 npm test               # unit + smoke + theme + analytics + visual, everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
+npm run photos -- <set-id> <folder> --upload  # publish a set of photos, see README → Photos
 ```
 
 Run `npm run test:unit` constantly; it takes well under a second. Run the
@@ -69,7 +70,7 @@ visual suite before anything touching CSS or templates.
 - **Never edit anything in `_site/`.** It is build output and is regenerated on every build. Edit the source instead.
 - **The stylesheet is `static/index.css`**, not `_site/index.css`. There is exactly one stylesheet for the whole blog.
 - `static/` is passthrough-copied to the site root, so `static/foo.css` is served at `/foo.css`.
-- `img/` is *not* passthrough-copied — those are source-resolution photos consumed by the `image` shortcode, which writes resized output to `_site/img/`.
+- Photos live in an S3 bucket behind CloudFront, not in the repo — see README → Photos. `img/` holds the few source-resolution photos not yet migrated; the `image` shortcode still resizes those at build time into `_site/img/`. Do not add to `img/`; publish a set instead.
 - The build input directory is `content/`, set via `dir.input` in the config.
 - Node 22+ is required (`@11ty/eleventy-img` v7). See `.nvmrc`.
 
@@ -137,11 +138,19 @@ flickrThumbnail: 'https://live.staticflickr.com/...'
 ### Shortcodes
 
 ```njk
-{% image "img/source-photo.jpg", "Alt text, also used as the visible figcaption" %}
-{% video "/video/clip.mp4" %}
+{% image "Post-File-Stem/IMG_1234", "Alt text, also used as the visible figcaption" %}
+{% video "https://d200vq1iaq5hh.cloudfront.net/clip.mp4" %}
 ```
 
-`image` generates webp + jpeg at 400px and 800px. Note the alt text is *also* rendered as the `<figcaption>`, so write it to work as a visible caption.
+`image` takes a `<set-id>/<name>` reference to a photo already published with `npm run photos` (README → Photos) and emits webp + jpeg at 400px and 800px from CloudFront. The build fails on an unknown set or name. Note the alt text is *also* rendered as the `<figcaption>`, so write it to work as a visible caption. A first argument beginning `img/` is the legacy build-time-resize route for photos still in the repo.
+
+### Publishing photos
+
+```bash
+npm run photos -- <set-id> <folder> --upload   # resize, write manifest, upload
+```
+
+Set id = the post or gig file stem. Writes `content/_data/photoSets/<set-id>.json`, which is committed with the post. Needs the `blog-photos` AWS CLI profile locally; nothing in the repo or CI holds credentials.
 
 ---
 

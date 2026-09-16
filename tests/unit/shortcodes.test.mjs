@@ -8,6 +8,8 @@ import {
   stringifyAttributes,
   videoShortcode,
   imageShortcode,
+  photoShortcode,
+  pictureHtml,
   IMAGE_WIDTHS,
   IMAGE_FORMATS,
   IMAGE_SIZES
@@ -178,5 +180,77 @@ describe("shortcodes — imageShortcode", () => {
     const written = fs.readdirSync(path.join(tmpDir, "out"));
     // 2 widths x 2 formats
     expect(written).to.have.lengthOf(IMAGE_WIDTHS.length * IMAGE_FORMATS.length);
+  });
+});
+
+describe("shortcodes — photoShortcode", () => {
+  const MEDIA = "https://media.example.net";
+  let setsDir;
+  let html;
+
+  before(() => {
+    setsDir = fs.mkdtempSync(path.join(os.tmpdir(), "photo-shortcode-"));
+    fs.writeFileSync(
+      path.join(setsDir, "My-Post.json"),
+      JSON.stringify({ photos: [{ name: "IMG_1", width: 800, height: 600 }] })
+    );
+    html = photoShortcode(MEDIA, "My-Post/IMG_1", "A remote caption", undefined, setsDir);
+  });
+
+  after(() => fs.rmSync(setsDir, { recursive: true, force: true }));
+
+  it("renders the same figure/picture/figcaption structure as imageShortcode", () => {
+    expect(html).to.match(/^<figure><picture/);
+    expect(html.trim()).to.match(/<\/figure>$/);
+    expect(html.match(/<source /g)).to.have.lengthOf(IMAGE_FORMATS.length);
+    expect(html).to.contain("<figcaption>A remote caption</figcaption>");
+    expect(html).to.contain('alt="A remote caption"');
+    expect(html).to.contain('loading="lazy"');
+    expect(html).to.contain(`sizes="${IMAGE_SIZES}"`);
+  });
+
+  it("points every URL at the media host under the set's prefix", () => {
+    expect(html).to.contain(
+      `srcset="${MEDIA}/photos/My-Post/IMG_1-400.webp 400w, ${MEDIA}/photos/My-Post/IMG_1-800.webp 800w"`
+    );
+    const img = html.match(/<img [^>]*>/)[0];
+    expect(img).to.contain(`src="${MEDIA}/photos/My-Post/IMG_1-800.jpeg"`);
+    expect(img).to.contain('width="800"');
+    expect(img).to.contain('height="600"');
+    expect(html).to.not.contain("/img/");
+  });
+
+  it("passes the class through to the picture element", () => {
+    const withClass = photoShortcode(MEDIA, "My-Post/IMG_1", "x", "hero", setsDir);
+    expect(withClass).to.contain('<picture class="hero">');
+  });
+
+  it("rejects a reference that is not <set-id>/<name>", () => {
+    for (const bad of ["IMG_1", "/IMG_1", "My-Post/"]) {
+      expect(() => photoShortcode(MEDIA, bad, "x", undefined, setsDir), bad)
+        .to.throw(/must be "<set-id>\/<name>"/);
+    }
+  });
+
+  it("fails the build on an unknown set or photo rather than shipping a broken image", () => {
+    expect(() => photoShortcode(MEDIA, "Nope/IMG_1", "x", undefined, setsDir)).to.throw(/Unknown photo set/);
+    expect(() => photoShortcode(MEDIA, "My-Post/IMG_9", "x", undefined, setsDir)).to.throw(/No photo "IMG_9"/);
+  });
+});
+
+describe("shortcodes — pictureHtml", () => {
+  const metadata = {
+    jpeg: [
+      { url: "/a-400.jpeg", width: 400, height: 300, sourceType: "image/jpeg", srcset: "/a-400.jpeg 400w" },
+      { url: "/a-800.jpeg", width: 800, height: 600, sourceType: "image/jpeg", srcset: "/a-800.jpeg 800w" }
+    ]
+  };
+
+  it("omits the class attribute when none is given", () => {
+    expect(pictureHtml(metadata, "x")).to.contain("<picture >");
+  });
+
+  it("uses the sizes it is given", () => {
+    expect(pictureHtml(metadata, "x", undefined, "100vw")).to.contain('sizes="100vw"');
   });
 });
