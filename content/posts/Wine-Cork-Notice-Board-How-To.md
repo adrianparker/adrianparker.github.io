@@ -27,7 +27,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
    - if so, you can go with 1 cork per 18 cm<sup>2</sup> of frame internal area
  - Have a handful of extra corks as well, to allow for bad cuts and breakages
   
-{% image "img/IMG_7118.JPG", "Components of the new wine cork notice board pre-assembly" %}
+{% image "Wine-Cork-Notice-Board-How-To/IMG_7118", "Components of the new wine cork notice board pre-assembly" %}
 
 ## Method
 
@@ -50,7 +50,7 @@ Like any good online tutorial, we begin with the ingredients. You will need:
    - Aiming to fill the frame top to bottom left to right with straight corks when possible
  - Glue offcuts in the small gaps that inevitably appear until there are no gaps left
  
-{% image "img/IMG_7120.jpg", "The finished wine cork notice board" %}
+{% image "Wine-Cork-Notice-Board-How-To/IMG_7120", "The finished wine cork notice board" %}
 
 ## Installation
 
@@ -59,4 +59,4 @@ OK all that is left to do now is install it on your wall. You may also like to p
 Use a stud finder to find a suitably strong part of the wall, then measure carefully to get the notice board square and level in your space.
 Hang it, and enjoy the tranquility of being able to pin random bits of paper on the wall!
 
-{% image "img/IMG_7121.JPG", "Installed wine cork notice board above a bench, where random bits of paper tend to collect" %}
+{% image "Wine-Cork-Notice-Board-How-To/IMG_7121", "Installed wine cork notice board above a bench, where random bits of paper tend to collect" %}

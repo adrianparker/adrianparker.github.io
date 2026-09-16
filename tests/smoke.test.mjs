@@ -21,6 +21,9 @@ const load = (...parts) => cheerio.load(read(...parts));
 
 const VIDEO_POST = ['posts', 'Last-Ever-Last-Ever', 'index.html'];
 const GIG_POST = ['posts', 'gigs', '20090218-Datsuns-Astoria-London', 'index.html'];
+// A post whose photos have been published to the media bucket (README → Photos).
+const PHOTO_POST = ['posts', 'Wine-Cork-Notice-Board-How-To', 'index.html'];
+const MEDIA_URL = JSON.parse(fs.readFileSync('content/_data/site.json', 'utf8')).mediaUrl;
 
 describe('Smoke Tests - Build Validation', function () {
   this.timeout(30000);
@@ -85,6 +88,27 @@ describe('Smoke Tests - Build Validation', function () {
       expect(img.attr('loading')).to.equal('lazy');
       // alt doubles as the visible caption
       expect($fig.find('figcaption').text()).to.equal(img.attr('alt'));
+    });
+  });
+
+  it('should serve a migrated post\'s photos from the media host, not the repo', function () {
+    const $ = load(...PHOTO_POST);
+    const figures = $('figure');
+    expect(figures.length).to.equal(3);
+
+    figures.each((_, el) => {
+      const $fig = $(el);
+      const prefix = `${MEDIA_URL}/photos/Wine-Cork-Notice-Board-How-To/`;
+      expect($fig.find('img').attr('src'), 'jpeg fallback').to.match(new RegExp(`^${prefix}IMG_\\d+-800\\.jpeg$`));
+      $fig.find('picture source').each((_, source) => {
+        for (const candidate of $(source).attr('srcset').split(', ')) {
+          expect(candidate.startsWith(prefix), candidate).to.be.true;
+        }
+      });
+      // still the same responsive markup the local route produced
+      expect($fig.find('picture source').length).to.equal(2);
+      expect($fig.find('img').attr('loading')).to.equal('lazy');
+      expect($fig.find('figcaption').text()).to.equal($fig.find('img').attr('alt'));
     });
   });
 });
