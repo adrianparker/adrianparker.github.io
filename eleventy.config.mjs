@@ -2,8 +2,10 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 
 import { markdownLibrary, renderMarkdown, readableDate, isoDate, limit } from "./lib/filters.mjs";
 import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
-import { imageShortcode, videoShortcode } from "./lib/shortcodes.mjs";
+import { imageShortcode, photoShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
+
+import site from "./content/_data/site.json" with { type: "json" };
 
 export default function (eleventyConfig) {
 
@@ -96,7 +98,17 @@ export default function (eleventyConfig) {
   // posts and gigs merged, newest first, for the home page and RSS feed
   eleventyConfig.addCollection("homePagePosts", homePagePosts);
 
-  eleventyConfig.addShortcode("image", imageShortcode);
+  /*
+    One `image` tag, two sources. `img/...` is a photo still in the repo,
+    resized at build time — the way every photo used to work. Anything else is
+    a `<set-id>/<name>` reference to a set already published to the media
+    bucket (see README → Photos). Posts are moving from the first to the
+    second one at a time; the local route goes when img/ is empty.
+  */
+  eleventyConfig.addShortcode("image", function (src, alt, className) {
+    if (src.startsWith("img/")) return imageShortcode(src, alt, className);
+    return photoShortcode(site.mediaUrl, src, alt, className);
+  });
   eleventyConfig.addShortcode("video", videoShortcode);
 
   /*
