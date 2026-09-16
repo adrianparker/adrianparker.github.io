@@ -97,7 +97,7 @@ Then he began pulling at my laces, as though he wanted to get my shoes open...
 he looked up at me, crouching in the dirt, oddly calm, his hands plucking at my shoelaces, becoming more urgent, and as his eyes locked on mine he asked - "can I touch your feet?"
 
 
-{% image "img/IMG_1323.jpeg", "Sure, they are good shoes - but I never realised how good!" %}
+{% image "Can-I-Touch-Your-Feet/IMG_1323", "Sure, they are good shoes - but I never realised how good!" %}
 
 It will always be the pre-dive gear-up I can never, ever, forget. 
 
