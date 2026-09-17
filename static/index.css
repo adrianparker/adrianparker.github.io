@@ -1286,12 +1286,14 @@ html.js .app-nav-collapse {
 
 /* Video embedding - responsive container */
 
-/* The frame owns sizing/centring and the border that makes the embed read
-   as a player rather than bare page content; .video-wrapper underneath just
-   holds the 16:9 box the video is positioned into. */
+/* The frame owns sizing and the border that makes the embed read as a
+   player rather than bare page content; .video-wrapper underneath just
+   holds the 16:9 box the video is positioned into. Left-aligned with the
+   text, like the slideshow: on a wide viewport the column is wider than
+   800px and a centred frame drifted away from it. */
 .video-wrapper-frame {
   max-width: 800px;
-  margin: 1.5em auto;
+  margin: 1.5em 0;
   border: 1px solid var(--color-rule);
   border-radius: 8px;
   overflow: hidden;
@@ -1350,10 +1352,12 @@ html.js .app-nav-collapse {
    static/slideshow.js for the enhancement. */
 
 /* Same width, border and corner radius as the video frame above, so a
-   post's photos and its video read as one family of embedded media. */
+   post's photos and its video read as one family of embedded media. Not
+   centred, though: on a wide viewport the content column is wider than
+   800px and a centred frame drifted away from the text's left edge. */
 .slideshow {
   max-width: 800px;
-  margin: 1.5em auto;
+  margin: 1.5em 0;
 }
 
 .slideshow-frame {
@@ -1393,9 +1397,15 @@ html.js .slideshow-track::-webkit-scrollbar {
   display: none;
 }
 
+/* min-width: 0 matters. A flex item's default minimum is its content's
+   min-content width, and for an <img> at height: 100% that is the width its
+   aspect ratio implies — a 16:9 photo in the 4:3 frame wanted 1064px, so
+   every slide grew past the track and the snap points drifted. 4:3 photos
+   happened to resolve to exactly the track width, which is how it hid. */
 .slideshow-slide {
   position: relative;
   flex: 0 0 100%;
+  min-width: 0;
   margin: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -1425,6 +1435,17 @@ html.js .slideshow-track::-webkit-scrollbar {
   background: rgba(0, 0, 0, 0.65);
   color: #ffffff;
   font-size: 0.9em;
+}
+
+/* The badge carries the post title after the count. A long title on a
+   phone-width frame would otherwise run out past the frame's edge, so it
+   ends in an ellipsis instead; the count comes first and always survives. */
+.slideshow-status {
+  display: block;
+  max-width: calc(100% - 1.5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Prev/next: hidden until static/slideshow.js runs, the same gate as the
@@ -1480,11 +1501,6 @@ html.js .slideshow-next {
   outline-offset: 2px;
 }
 
-.slideshow-prev:disabled,
-.slideshow-next:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
 
 /* Media queries */
 

@@ -2,7 +2,7 @@
   Progressive enhancement for the photo slideshow (lib/slideshow.mjs).
 
   The strip already scrolls, swipes and snaps in CSS; this adds prev/next
-  buttons and turns the "N photos" badge into a "current / total" counter.
+  buttons and turns the badge's "N photos" into a "current / total" position.
   Nothing here is required to see every photo, which is why the buttons are
   hidden until this runs (html.js, the same gate as the theme toggle).
 
@@ -18,7 +18,7 @@
         var track = root.querySelector('.slideshow-track');
         var prev = root.querySelector('.slideshow-prev');
         var next = root.querySelector('.slideshow-next');
-        var status = root.querySelector('.slideshow-status');
+        var count = root.querySelector('.slideshow-count');
         var total = track.children.length;
 
         // Slides are exactly as wide as the track, so the index is just how
@@ -28,10 +28,7 @@
         }
 
         function render() {
-            var i = current();
-            status.textContent = (i + 1) + ' / ' + total;
-            prev.disabled = i === 0;
-            next.disabled = i === total - 1;
+            count.textContent = (current() + 1) + ' / ' + total;
         }
 
         // Where the strip is heading, if a smooth scroll is still in flight.
@@ -39,12 +36,17 @@
         // two quick presses of "next" mid-animation added up to one slide.
         var target = null;
 
+        // Wraps at both ends: next on the last photo goes round to the first,
+        // and prev on the first goes to the last. The wrap itself jumps
+        // rather than scrolling smoothly — a smooth scroll back across every
+        // photo took three times as long as a step and read as a rewind.
         function step(direction) {
             var from = target === null ? current() : target;
-            target = Math.max(0, Math.min(total - 1, from + direction));
+            var wrapped = from + direction < 0 || from + direction >= total;
+            target = (from + direction + total) % total;
             track.scrollTo({
                 left: target * track.clientWidth,
-                behavior: reduceMotion ? 'auto' : 'smooth'
+                behavior: reduceMotion || wrapped ? 'auto' : 'smooth'
             });
         }
 

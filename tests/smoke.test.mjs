@@ -147,13 +147,33 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect(read('index.css')).to.include(`.${cardClass.split(/\s+/)[0]}`);
   });
 
-  it('should render Flickr embed in gig post', function () {
+  it('should render the gig\'s photo set as a slideshow, one slide per manifest entry', function () {
     const $ = load(...GIG_POST);
-    const embed = $('[data-flickr-embed="true"]');
+    const setId = '20090218-Datsuns-Astoria-London';
+    const manifest = JSON.parse(fs.readFileSync(`content/_data/photoSets/${setId}.json`, 'utf8'));
 
-    expect(embed, 'flickr embed anchor').to.have.lengthOf(1);
-    expect(embed.attr('href')).to.contain('flickr.com');
-    expect(embed.find('img').attr('src')).to.contain('live.staticflickr.com');
+    const slideshow = $('.slideshow[data-slideshow]');
+    expect(slideshow, 'slideshow root').to.have.lengthOf(1);
+
+    const slides = slideshow.find('figure.slideshow-slide');
+    expect(slides.length).to.equal(manifest.photos.length);
+
+    slides.each((i, el) => {
+      const img = $(el).find('img');
+      const prefix = `${MEDIA_URL}/photos/${setId}/${manifest.photos[i].name}-`;
+      expect(img.attr('src'), `slide ${i + 1} src`).to.equal(`${prefix}800.jpeg`);
+      expect(img.attr('loading'), `slide ${i + 1} loading`).to.equal(i === 0 ? 'eager' : 'lazy');
+      expect($(el).find('picture source').length, 'one source per format').to.equal(2);
+    });
+
+    expect(slideshow.find('.slideshow-status').text()).to.equal(`${manifest.photos.length} photos - The Datsuns @ Underworld, London`);
+    expect(slideshow.find('.slideshow-count').text()).to.equal(`${manifest.photos.length} photos`);
+    expect(slideshow.find('.slideshow-prev, .slideshow-next')).to.have.lengthOf(2);
+    expect($('script[src="/slideshow.js"]'), 'enhancement script').to.have.lengthOf(1);
+    expect(fs.existsSync(sitePath('slideshow.js')), 'slideshow.js is served').to.be.true;
+
+    // The Flickr embed this replaced is gone from this gig
+    expect($('[data-flickr-embed]')).to.have.lengthOf(0);
   });
 
   it('should list the gig post on the gigs index, linked to its own URL', function () {

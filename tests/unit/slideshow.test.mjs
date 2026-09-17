@@ -78,10 +78,12 @@ describe("slideshow — slideshowShortcode", () => {
     expect(html.match(/<figcaption/g)).to.have.lengthOf(1);
   });
 
-  it("renders prev/next buttons and a photo count the script can take over", () => {
+  it("renders prev/next buttons and a badge: a photo count the script takes over, then the label", () => {
     expect(html).to.contain('<button type="button" class="slideshow-prev" aria-label="Previous photo">');
     expect(html).to.contain('<button type="button" class="slideshow-next" aria-label="Next photo">');
-    expect(html).to.contain('<p class="slideshow-status" aria-live="polite">3 photos</p>');
+    expect(html).to.contain(
+      '<p class="slideshow-status" aria-live="polite"><span class="slideshow-count">3 photos</span> - Band &amp; Co @ Venue</p>'
+    );
   });
 
   it("loads the enhancement script from this origin, deferred", () => {

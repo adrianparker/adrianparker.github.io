@@ -155,9 +155,9 @@ each photo's alt text when it has no caption of its own.
 The slideshow is a native CSS scroll-snap strip framed like the video embed:
 it swipes on a phone and scrolls on a trackpad with no JavaScript at all, and
 the badge in the corner says how many photos there are. A small same-origin
-script (`static/slideshow.js`) then adds previous/next buttons, arrow-key
-stepping when the strip is focused, and turns the badge into a "3 / 24"
-counter. Only the first photo loads up front; the rest load as they come
+script (`static/slideshow.js`) then adds previous/next buttons that wrap
+round at either end, arrow-key stepping when the strip is focused, and
+turns the badge into a "3 / 24" counter beside the post title. Only the first photo loads up front; the rest load as they come
 into view. Nothing is fetched from anywhere but the media host — no
 third-party script, no tracking.
 
