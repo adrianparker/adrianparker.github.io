@@ -10,8 +10,7 @@ venue: 'Hammersmith Apollo'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/portishead/2008/hammersmith-apollo-london-england-63d72643.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605111930265'
-flickrThumbnail: 'https://live.staticflickr.com/2159/2499744883_b9920b0198_c.jpg'
+photos: '20080410-Portishead-Hammersmith-London'
 ---
 
 A rare chance to see one of my favourite acts, Portishead.
