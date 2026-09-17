@@ -10,8 +10,7 @@ venue: 'Royal Albert Hall'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/mark-knopfler/2008/royal-albert-hall-london-england-3dca1cf.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605821052328'
-flickrThumbnail: 'https://live.staticflickr.com/3256/2612105557_c69c7ec072_c.jpg'
+photos: '20080526-Mark-Knopfler-Royal-Albert-Hall-London'
 ---
 The maestro delivers an intimate masterclass in a world class iconic venue.
 
