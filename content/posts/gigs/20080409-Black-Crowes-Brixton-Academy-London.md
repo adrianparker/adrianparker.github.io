@@ -10,8 +10,7 @@ venue: 'Brixton Academy'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/the-black-crowes/2008/carling-academy-brixton-london-england-73d6de39.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605109758253'
-flickrThumbnail: 'https://live.staticflickr.com/3111/2500224938_2cc30e9b1d_c.jpg'
+photos: '20080409-Black-Crowes-Brixton-Academy-London'
 ---
 
 Southern drawl, rock and roll, and the sweet sweet smell of weed.
