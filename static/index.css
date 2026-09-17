@@ -1286,12 +1286,14 @@ html.js .app-nav-collapse {
 
 /* Video embedding - responsive container */
 
-/* The frame owns sizing/centring and the border that makes the embed read
-   as a player rather than bare page content; .video-wrapper underneath just
-   holds the 16:9 box the video is positioned into. */
+/* The frame owns sizing and the border that makes the embed read as a
+   player rather than bare page content; .video-wrapper underneath just
+   holds the 16:9 box the video is positioned into. Left-aligned with the
+   text, like the slideshow: on a wide viewport the column is wider than
+   800px and a centred frame drifted away from it. */
 .video-wrapper-frame {
   max-width: 800px;
-  margin: 1.5em auto;
+  margin: 1.5em 0;
   border: 1px solid var(--color-rule);
   border-radius: 8px;
   overflow: hidden;
@@ -1499,11 +1501,6 @@ html.js .slideshow-next {
   outline-offset: 2px;
 }
 
-.slideshow-prev:disabled,
-.slideshow-next:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
 
 /* Media queries */
 

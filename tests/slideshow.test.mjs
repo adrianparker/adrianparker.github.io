@@ -72,27 +72,31 @@ describe('Slideshow', function () {
     await context.close();
   });
 
-  it('starts on the first photo with prev disabled and a live counter', async function () {
+  it('starts on the first photo with a live counter and both buttons shown', async function () {
     const { context, page } = await open();
     expect(await status(page)).to.equal('1 / 14' + LABEL);
-    expect(await page.locator('.slideshow-prev').isDisabled()).to.be.true;
-    expect(await page.locator('.slideshow-next').isDisabled()).to.be.false;
     expect(await page.locator('.slideshow-prev').isVisible()).to.be.true;
+    expect(await page.locator('.slideshow-next').isVisible()).to.be.true;
     await context.close();
   });
 
-  it('steps one photo per click and disables next on the last', async function () {
+  it('steps one photo per click', async function () {
     const { context, page } = await open({ reducedMotion: 'reduce' });
     await page.locator('.slideshow-next').click();
     await expectStatus(page, '2 / 14');
-    expect(await page.locator('.slideshow-prev').isDisabled()).to.be.false;
-
     for (let i = 0; i < 12; i++) await page.locator('.slideshow-next').click();
     await expectStatus(page, '14 / 14');
-    expect(await page.locator('.slideshow-next').isDisabled()).to.be.true;
-
     await page.locator('.slideshow-prev').click();
     await expectStatus(page, '13 / 14');
+    await context.close();
+  });
+
+  it('wraps round: next on the last photo goes to the first, prev on the first to the last', async function () {
+    const { context, page } = await open({ reducedMotion: 'reduce' });
+    await page.locator('.slideshow-prev').click();
+    await expectStatus(page, '14 / 14');
+    await page.locator('.slideshow-next').click();
+    await expectStatus(page, '1 / 14');
     await context.close();
   });
 

@@ -28,10 +28,7 @@
         }
 
         function render() {
-            var i = current();
-            count.textContent = (i + 1) + ' / ' + total;
-            prev.disabled = i === 0;
-            next.disabled = i === total - 1;
+            count.textContent = (current() + 1) + ' / ' + total;
         }
 
         // Where the strip is heading, if a smooth scroll is still in flight.
@@ -39,12 +36,17 @@
         // two quick presses of "next" mid-animation added up to one slide.
         var target = null;
 
+        // Wraps at both ends: next on the last photo goes round to the first,
+        // and prev on the first goes to the last. The wrap itself jumps
+        // rather than scrolling smoothly — a smooth scroll back across every
+        // photo took three times as long as a step and read as a rewind.
         function step(direction) {
             var from = target === null ? current() : target;
-            target = Math.max(0, Math.min(total - 1, from + direction));
+            var wrapped = from + direction < 0 || from + direction >= total;
+            target = (from + direction + total) % total;
             track.scrollTo({
                 left: target * track.clientWidth,
-                behavior: reduceMotion ? 'auto' : 'smooth'
+                behavior: reduceMotion || wrapped ? 'auto' : 'smooth'
             });
         }
 
