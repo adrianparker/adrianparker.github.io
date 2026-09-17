@@ -1,0 +1,34 @@
+{
+  "photos": [
+    {
+      "name": "Scorpions-01",
+      "width": 800,
+      "height": 714
+    },
+    {
+      "name": "Scorpions-02",
+      "width": 800,
+      "height": 479
+    },
+    {
+      "name": "Scorpions-03",
+      "width": 800,
+      "height": 609
+    },
+    {
+      "name": "Scorpions-04",
+      "width": 800,
+      "height": 518
+    },
+    {
+      "name": "Scorpions-05",
+      "width": 800,
+      "height": 542
+    },
+    {
+      "name": "Scorpions-06",
+      "width": 800,
+      "height": 532
+    }
+  ]
+}
