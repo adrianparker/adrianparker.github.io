@@ -58,6 +58,10 @@ layout: base-layout.njk
 
         {{ content | safe }}
 
+        {% if photos %}
+        {% slideshow photos, title %}
+        {% endif %}
+
         {% if flickr %}
         <div class="gig-flickr-embed">
             <a data-flickr-embed="true" href="{{ flickr }}" title="{{ title }}">

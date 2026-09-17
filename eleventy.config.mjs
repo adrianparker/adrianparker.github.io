@@ -3,6 +3,7 @@ import pluginRss from "@11ty/eleventy-plugin-rss";
 import { markdownLibrary, renderMarkdown, readableDate, isoDate, limit } from "./lib/filters.mjs";
 import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
 import { imageShortcode, photoShortcode, videoShortcode } from "./lib/shortcodes.mjs";
+import { slideshowShortcode } from "./lib/slideshow.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
 
 import site from "./content/_data/site.json" with { type: "json" };
@@ -110,6 +111,12 @@ export default function (eleventyConfig) {
     return photoShortcode(site.mediaUrl, src, alt, className);
   });
   eleventyConfig.addShortcode("video", videoShortcode);
+
+  // Every photo in a published set as a swipeable strip — the gig layout
+  // renders one for `photos:` front matter; posts can call it inline.
+  eleventyConfig.addShortcode("slideshow", (setId, label) =>
+    slideshowShortcode(site.mediaUrl, setId, label)
+  );
 
   /*
     Runs on the fully rendered HTML of each page, not the templates, so it

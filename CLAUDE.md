@@ -135,6 +135,8 @@ flickrThumbnail: 'https://live.staticflickr.com/...'
 
 `navtitle` convention for gigs is `'<year> <Artist>'`. Everything from `supportArtists` down is optional — the layout guards each with `{% if %}`.
 
+Photos: prefer `photos: '<gig file stem>'` naming a set published with `npm run photos` (README → Photos); the layout renders it as a slideshow. `flickr` + `flickrThumbnail` is the legacy Flickr embed, still supported while existing gigs migrate off it — do not use it for new gigs.
+
 ### Shortcodes
 
 ```njk
@@ -143,6 +145,12 @@ flickrThumbnail: 'https://live.staticflickr.com/...'
 ```
 
 `image` takes a `<set-id>/<name>` reference to a photo already published with `npm run photos` (README → Photos) and emits webp + jpeg at 400px and 800px from CloudFront. The build fails on an unknown set or name. Note the alt text is *also* rendered as the `<figcaption>`, so write it to work as a visible caption. A first argument beginning `img/` is the legacy build-time-resize route for photos still in the repo.
+
+```njk
+{% slideshow "Gig-File-Stem", "Label for screen readers" %}
+```
+
+`slideshow` renders every photo in a published set as a swipeable strip (README → Photos → slideshow). Gigs get one automatically from `photos:` front matter; this is for placing one inside a post body.
 
 ### Publishing photos
 

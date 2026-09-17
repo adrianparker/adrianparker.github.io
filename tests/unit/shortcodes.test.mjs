@@ -10,6 +10,7 @@ import {
   imageShortcode,
   photoShortcode,
   pictureHtml,
+  pictureElement,
   IMAGE_WIDTHS,
   IMAGE_FORMATS,
   IMAGE_SIZES
@@ -252,5 +253,17 @@ describe("shortcodes — pictureHtml", () => {
 
   it("uses the sizes it is given", () => {
     expect(pictureHtml(metadata, "x", undefined, "100vw")).to.contain('sizes="100vw"');
+  });
+
+  it("is pictureElement wrapped in a captioned figure", () => {
+    const picture = pictureElement(metadata, "x");
+    expect(pictureHtml(metadata, "x")).to.equal(`<figure>${picture}<figcaption>x</figcaption></figure>`);
+    expect(picture).to.match(/^<picture /);
+    expect(picture.trim()).to.match(/<\/picture>$/);
+  });
+
+  it("lets pictureElement override the lazy default, which the slideshow's first slide needs", () => {
+    expect(pictureElement(metadata, "x")).to.contain('loading="lazy"');
+    expect(pictureElement(metadata, "x", undefined, undefined, "eager")).to.contain('loading="eager"');
   });
 });
