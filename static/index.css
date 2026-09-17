@@ -1393,9 +1393,15 @@ html.js .slideshow-track::-webkit-scrollbar {
   display: none;
 }
 
+/* min-width: 0 matters. A flex item's default minimum is its content's
+   min-content width, and for an <img> at height: 100% that is the width its
+   aspect ratio implies — a 16:9 photo in the 4:3 frame wanted 1064px, so
+   every slide grew past the track and the snap points drifted. 4:3 photos
+   happened to resolve to exactly the track width, which is how it hid. */
 .slideshow-slide {
   position: relative;
   flex: 0 0 100%;
+  min-width: 0;
   margin: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
