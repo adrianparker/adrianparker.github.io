@@ -127,13 +127,31 @@ describe("photo-publish — buildPhotoSet", () => {
     expect(error.message).to.match(/both be published as "IMG_1"/);
   });
 
-  it("refuses a source narrower than the largest width, whose URL would 404", async function () {
+  it("keeps a source narrower than the largest width at native size, under the largest width's name", async function () {
     this.timeout(30000);
     const small = path.join(dir, "small");
+    const smallOut = path.join(dir, "small-out") + path.sep;
     fs.mkdirSync(small);
-    await writeJpeg(path.join(small, "tiny.jpeg"), 640, 480);
+    await writeJpeg(path.join(small, "old-phone.jpeg"), 640, 480);
+    const manifest = await buildPhotoSet(small, smallOut, undefined, [400, 800], ["webp", "jpeg"]);
+
+    // URLs the shortcode builds still resolve...
+    expect(fs.readdirSync(smallOut).sort()).to.deep.equal([
+      "old-phone-400.jpeg", "old-phone-400.webp", "old-phone-800.jpeg", "old-phone-800.webp"
+    ]);
+    // ...and the manifest says how big the "800" really is
+    expect(manifest.photos).to.deep.equal([{ name: "old-phone", width: 640, height: 480 }]);
+    const meta = await sharp(path.join(smallOut, "old-phone-800.jpeg")).metadata();
+    expect(meta.width).to.equal(640);
+  });
+
+  it("refuses a source narrower than the smallest width, whose URL could not be honoured", async function () {
+    this.timeout(30000);
+    const tiny = path.join(dir, "tiny");
+    fs.mkdirSync(tiny);
+    await writeJpeg(path.join(tiny, "tiny.jpeg"), 320, 240);
     let error;
-    await buildPhotoSet(small, path.join(dir, "small-out") + path.sep, undefined, [400, 800], ["jpeg"]).catch((e) => { error = e; });
-    expect(error.message).to.match(/tiny\.jpeg is only 640px wide; sources must be at least 800px/);
+    await buildPhotoSet(tiny, path.join(dir, "tiny-out") + path.sep, undefined, [400, 800], ["jpeg"]).catch((e) => { error = e; });
+    expect(error.message).to.match(/tiny\.jpeg is only 320px wide; sources must be at least 400px/);
   });
 });

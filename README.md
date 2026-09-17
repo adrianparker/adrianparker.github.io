@@ -119,7 +119,9 @@ npm run photos -- <set-id> <folder> --upload
 
 Without `--upload` it does everything except the upload and prints the
 `aws s3 sync` command it would have run. Variants are written to
-`.photos/<set-id>/` (gitignored). Sources narrower than 800px are refused.
+`.photos/<set-id>/` (gitignored). A source narrower than 800px (old phone
+photos can be) is published at its native size under the 800 name, and the
+manifest records its real dimensions; narrower than 400px is refused.
 Commit the manifest with the post that uses it.
 
 The upload sets `Cache-Control: public, max-age=31536000, immutable`, so a

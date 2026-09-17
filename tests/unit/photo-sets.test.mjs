@@ -75,6 +75,19 @@ describe("photo-sets — URLs and variants", () => {
     });
   });
 
+  it("describes a photo published below the nominal width by its real size, at the nominal URL", () => {
+    const variants = photoVariants(MEDIA, "A-Set", { name: "old", width: 699, height: 750 }, [400, 800], ["jpeg"]);
+    expect(variants.jpeg[1]).to.deep.equal({
+      url: "https://media.example.net/photos/A-Set/old-800.jpeg",
+      width: 699,
+      height: 750,
+      sourceType: "image/jpeg",
+      srcset: "https://media.example.net/photos/A-Set/old-800.jpeg 699w"
+    });
+    expect(variants.jpeg[0].width).to.equal(400);
+    expect(variants.jpeg[0].height).to.equal(429);
+  });
+
   it("scales the smaller variants' heights from the largest, rounding", () => {
     const variants = photoVariants(MEDIA, "A-Set", { name: "IMG_2", width: 800, height: 1066 }, [400, 800], ["jpeg"]);
     expect(variants.jpeg[0].height).to.equal(533);
