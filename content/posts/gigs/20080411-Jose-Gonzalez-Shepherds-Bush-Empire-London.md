@@ -10,8 +10,7 @@ venue: 'Shepherd''s Bush Empire'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/jose-gonzalez/2008/shepherds-bush-empire-london-england-53d583b9.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605266413651'
-flickrThumbnail: 'https://live.staticflickr.com/2389/2525023106_fb8a519a67_c.jpg'
+photos: '20080411-Jose-Gonzalez-Shepherds-Bush-Empire-London'
 ---
 
 Unassuming, almost shy and retiring, Swedish sensation Jose Gonzalez delivered a special show.

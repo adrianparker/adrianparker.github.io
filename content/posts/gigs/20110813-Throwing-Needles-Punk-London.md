@@ -10,8 +10,7 @@ venue: 'Punk'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: ''
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157627482757402'
-flickrThumbnail: 'https://live.staticflickr.com/6190/6065168876_be3866c190_c.jpg'
+photos: '20110813-Throwing-Needles-Punk-London'
 ---
 
 Up and coming rockers Throwing Needles play an intimate London show

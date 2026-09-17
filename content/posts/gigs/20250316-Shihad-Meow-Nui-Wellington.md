@@ -11,8 +11,7 @@ venue: 'Meow Nui'
 city: 'Wellington'
 country: 'New Zealand'
 setlistfm: 'https://www.setlist.fm/setlist/shihad/2025/meow-nui-wellington-new-zealand-2358f4bb.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72177720324574371'
-flickrThumbnail: 'https://live.staticflickr.com/65535/54401167217_3ac6212a1a_z.jpg'
+photos: '20250316-Shihad-Meow-Nui-Wellington'
 ---
 
 Shihad's last ever show, in front of an adoring hometown crowd.

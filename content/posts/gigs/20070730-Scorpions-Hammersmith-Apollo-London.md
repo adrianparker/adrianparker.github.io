@@ -11,8 +11,7 @@ venue: 'Hammersmith Apollo'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/scorpions/2007/hammersmith-apollo-london-england-bd7453e.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605143725326'
-flickrThumbnail: 'https://live.staticflickr.com/3222/2505917163_f7e23ee780_c.jpg'
+photos: '20070730-Scorpions-Hammersmith-Apollo-London'
 ---
 
 German rock legends Scorpions whistled up a treat of a show.

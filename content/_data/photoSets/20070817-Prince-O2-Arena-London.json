@@ -1,0 +1,24 @@
+{
+  "photos": [
+    {
+      "name": "Prince-01",
+      "width": 800,
+      "height": 912
+    },
+    {
+      "name": "Prince-02",
+      "width": 800,
+      "height": 515
+    },
+    {
+      "name": "Prince-03",
+      "width": 699,
+      "height": 750
+    },
+    {
+      "name": "Prince-04",
+      "width": 800,
+      "height": 627
+    }
+  ]
+}

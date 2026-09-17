@@ -10,8 +10,7 @@ venue: 'O2 Arena'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/prince/2007/the-o2-arena-london-england-5bd70bdc.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605148217243'
-flickrThumbnail: 'https://live.staticflickr.com/3029/2506859504_dd01d6888b_z.jpg'
+photos: '20070817-Prince-O2-Arena-London'
 ---
 
 I've got so many hits London, I could play all night!

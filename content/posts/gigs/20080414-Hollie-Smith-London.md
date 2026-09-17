@@ -10,8 +10,7 @@ venue: '12 Acklam Rd (Neighbourhood)'
 city: 'London'
 country: 'United Kingdon'
 setlistfm: 'https://www.setlist.fm/setlist/hollie-smith/2008/neighbourhood-london-england-b776dce.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605266787793'
-flickrThumbnail: 'https://live.staticflickr.com/3176/2525094284_b5f2397762_c.jpg'
+photos: '20080414-Hollie-Smith-London'
 ---
 
 Seeing Hollie Smith in a tiny venue not long after **Long Player** was released was truly special.
