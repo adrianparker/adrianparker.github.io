@@ -5,7 +5,7 @@ description: Scaffold a new gig (concert) post for adrianparker.com with correct
 
 # New gig post
 
-A gig is a specialised post covering a concert. It lives in `content/posts/gigs/` and uses `gig-layout.njk`, which renders a metadata card plus optional setlist.fm, Spotify and Flickr links.
+A gig is a specialised post covering a concert. It lives in `content/posts/gigs/` and uses `gig-layout.njk`, which renders a metadata card plus optional setlist.fm and Spotify links, and a photo slideshow when the gig has a published photo set.
 
 There is a blank template at `content/posts/gigs/template.hmmm` (gitignored, so it never builds).
 
@@ -24,7 +24,7 @@ Optional — ask each one individually, but don't block on them:
 - **Support artists** — a list
 - **setlist.fm URL**
 - **Spotify playlist** — must be the `/embed/playlist/...` form, not a normal share link
-- **Flickr album URL** plus a **thumbnail URL** (`https://live.staticflickr.com/...`). Both are needed for the embed; one without the other won't render.
+- **Photos** — a folder of photos from the gig. If there is one, publish it as a set named after the gig file stem (`npm run photos -- <stem> <folder> --upload`, see README → Photos) and set `photos: '<stem>'`. The layout renders the set as a slideshow. (`flickr`/`flickrThumbnail` is the legacy Flickr embed still present on older gigs — don't use it for new ones.)
 
 ## 2. Filename
 
@@ -51,8 +51,7 @@ city: 'City'
 country: 'New Zealand'
 setlistfm: ''
 spotify: ''
-flickr: ''
-flickrThumbnail: ''
+photos: ''
 ---
 
 Opening paragraph.
@@ -76,7 +75,7 @@ Conventions:
 npm run build
 ```
 
-Check `_site/posts/gigs/<Slug>/index.html` — confirm the metadata card renders, that any setlist.fm and Spotify links are present, and that the Flickr embed appears if you set both Flickr fields. Then confirm it shows on `_site/gigs/index.html` and the home page.
+Check `_site/posts/gigs/<Slug>/index.html` — confirm the metadata card renders, that any setlist.fm and Spotify links are present, and that the slideshow appears (one `figure.slideshow-slide` per photo) if you set `photos`. An unknown set name fails the build. Then confirm it shows on `_site/gigs/index.html` and the home page.
 
 ## Notes
 

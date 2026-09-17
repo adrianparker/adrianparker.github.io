@@ -1306,8 +1306,10 @@ html.js .app-nav-collapse {
 /* Icon+text badge over the video, naming what it is before playback. Fixed
    dark/white rather than theme tokens on purpose: the video canvas itself
    is always dark regardless of site theme, so the badge should read the
-   same against it either way. */
-.video-label {
+   same against it either way. The slideshow's photo counter is the same
+   badge in the same corner, for the same reason. */
+.video-label,
+.slideshow-status {
   position: absolute;
   top: 0.75em;
   left: 0.75em;
@@ -1342,6 +1344,146 @@ html.js .app-nav-collapse {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Photo slideshow — see lib/slideshow.mjs for the markup and
+   static/slideshow.js for the enhancement. */
+
+/* Same width, border and corner radius as the video frame above, so a
+   post's photos and its video read as one family of embedded media. */
+.slideshow {
+  max-width: 800px;
+  margin: 1.5em auto;
+}
+
+.slideshow-frame {
+  position: relative;
+  border: 1px solid var(--color-rule);
+  border-radius: 8px;
+  overflow: hidden;
+  /* Photos letterbox against a dark canvas in either theme, like the video. */
+  background: #111111;
+}
+
+/* The scroller. Native scroll-snap does the slideshow mechanics: a swipe,
+   a trackpad drag, shift+wheel or the arrow keys (once focused) all land on
+   a whole photo. A fixed aspect ratio keeps the frame the same height for
+   every photo, portrait or landscape, so the page never jumps mid-swipe. */
+.slideshow-track {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+.slideshow-track:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* Without JavaScript the browser's own scrollbar is the one cue that there
+   is more to the right, so it stays. Once the buttons and counter are in
+   place it is just clutter on a dark frame. */
+html.js .slideshow-track {
+  scrollbar-width: none;
+}
+
+html.js .slideshow-track::-webkit-scrollbar {
+  display: none;
+}
+
+.slideshow-slide {
+  position: relative;
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.slideshow-slide picture,
+.slideshow-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-slide img {
+  object-fit: contain;
+}
+
+/* A caption, when the manifest has one, overlays the foot of its photo
+   rather than sitting below the frame, so the frame height stays constant
+   across captioned and uncaptioned slides. */
+.slideshow-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.5em 0.9em;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  font-size: 0.9em;
+}
+
+/* Prev/next: hidden until static/slideshow.js runs, the same gate as the
+   theme toggle — a button that cannot do anything should not be offered. */
+.slideshow-prev,
+.slideshow-next {
+  display: none;
+}
+
+html.js .slideshow-prev,
+html.js .slideshow-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+html.js .slideshow-prev {
+  left: 0.75em;
+}
+
+html.js .slideshow-next {
+  right: 0.75em;
+}
+
+/* The arrow glyphs sit visually low in most fonts; nudge them up. */
+.slideshow-prev span,
+.slideshow-next span {
+  position: relative;
+  top: -0.08em;
+}
+
+.slideshow-prev:hover,
+.slideshow-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.slideshow-prev:focus-visible,
+.slideshow-next:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.slideshow-prev:disabled,
+.slideshow-next:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* Media queries */
@@ -1399,6 +1541,24 @@ html.js .app-nav-collapse {
   .blog-post-summary {
     max-height: none;
     min-height: 2em;
+  }
+
+  /* Smaller, tighter prev/next on a phone: the frame is the full width and
+     44px buttons at 0.75em ate a noticeable strip of every photo. Swipe is
+     the primary gesture here anyway. */
+  html.js .slideshow-prev,
+  html.js .slideshow-next {
+    width: 36px;
+    height: 36px;
+    font-size: 1.6em;
+  }
+
+  html.js .slideshow-prev {
+    left: 0.4em;
+  }
+
+  html.js .slideshow-next {
+    right: 0.4em;
   }
 
   .posts>hr {
