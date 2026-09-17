@@ -10,8 +10,7 @@ venue: 'Koko'
 city: 'London'
 country: 'United Kingdom'
 setlistfm: 'https://www.setlist.fm/setlist/the-breeders/2008/koko-london-england-5bd0c34c.html'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/72157605266827187'
-flickrThumbnail: 'https://live.staticflickr.com/3033/2525103638_04e800de4c_c.jpg'
+photos: '20080416-Breeders-Koko-London'
 ---
 
 Featuring the same lineup as iconic album **Last Splash**. 
