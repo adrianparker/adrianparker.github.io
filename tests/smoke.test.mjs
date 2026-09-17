@@ -166,7 +166,8 @@ describe('Smoke Tests - Gig Post Type', function () {
       expect($(el).find('picture source').length, 'one source per format').to.equal(2);
     });
 
-    expect(slideshow.find('.slideshow-status').text()).to.equal(`${manifest.photos.length} photos`);
+    expect(slideshow.find('.slideshow-status').text()).to.equal(`${manifest.photos.length} photos - The Datsuns @ Underworld, London`);
+    expect(slideshow.find('.slideshow-count').text()).to.equal(`${manifest.photos.length} photos`);
     expect(slideshow.find('.slideshow-prev, .slideshow-next')).to.have.lengthOf(2);
     expect($('script[src="/slideshow.js"]'), 'enhancement script').to.have.lengthOf(1);
     expect(fs.existsSync(sitePath('slideshow.js')), 'slideshow.js is served').to.be.true;

@@ -1350,10 +1350,12 @@ html.js .app-nav-collapse {
    static/slideshow.js for the enhancement. */
 
 /* Same width, border and corner radius as the video frame above, so a
-   post's photos and its video read as one family of embedded media. */
+   post's photos and its video read as one family of embedded media. Not
+   centred, though: on a wide viewport the content column is wider than
+   800px and a centred frame drifted away from the text's left edge. */
 .slideshow {
   max-width: 800px;
-  margin: 1.5em auto;
+  margin: 1.5em 0;
 }
 
 .slideshow-frame {
@@ -1431,6 +1433,17 @@ html.js .slideshow-track::-webkit-scrollbar {
   background: rgba(0, 0, 0, 0.65);
   color: #ffffff;
   font-size: 0.9em;
+}
+
+/* The badge carries the post title after the count. A long title on a
+   phone-width frame would otherwise run out past the frame's edge, so it
+   ends in an ellipsis instead; the count comes first and always survives. */
+.slideshow-status {
+  display: block;
+  max-width: calc(100% - 1.5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Prev/next: hidden until static/slideshow.js runs, the same gate as the

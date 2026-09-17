@@ -13,6 +13,7 @@ import { startServer, stopServer } from './utils/http-server.mjs';
 const PORT = 3003;
 const BASE = `http://localhost:${PORT}`;
 const GIG = '/posts/gigs/20090218-Datsuns-Astoria-London/';
+const LABEL = ' - The Datsuns @ Underworld, London';
 
 describe('Slideshow', function () {
   this.timeout(60000);
@@ -45,25 +46,26 @@ describe('Slideshow', function () {
   }
 
   const status = (page) => page.locator('.slideshow-status').textContent();
+  const count = (page) => page.locator('.slideshow-count').textContent();
 
-  // The counter is re-rendered on the animation frame after the scroll
+  // The count is re-rendered on the animation frame after the scroll
   // event, so read it by waiting for the value rather than sampling it —
   // a plain read straight after a click is one frame stale.
   async function expectStatus(page, expected) {
     try {
       await page.waitForFunction(
-        (text) => document.querySelector('.slideshow-status').textContent === text,
+        (text) => document.querySelector('.slideshow-count').textContent === text,
         expected,
         { timeout: 5000 }
       );
     } catch {
-      expect(await status(page)).to.equal(expected);
+      expect(await count(page)).to.equal(expected);
     }
   }
 
   it('shows the photo count and a scrollbar, and no buttons, without JavaScript', async function () {
     const { context, page } = await open({ javaScriptEnabled: false });
-    expect(await status(page)).to.equal('14 photos');
+    expect(await status(page)).to.equal('14 photos' + LABEL);
     expect(await page.locator('.slideshow-prev').isVisible()).to.be.false;
     expect(await page.locator('.slideshow-next').isVisible()).to.be.false;
     expect(await page.evaluate(() => getComputedStyle(document.querySelector('.slideshow-track')).scrollbarWidth)).to.equal('auto');
@@ -72,7 +74,7 @@ describe('Slideshow', function () {
 
   it('starts on the first photo with prev disabled and a live counter', async function () {
     const { context, page } = await open();
-    expect(await status(page)).to.equal('1 / 14');
+    expect(await status(page)).to.equal('1 / 14' + LABEL);
     expect(await page.locator('.slideshow-prev').isDisabled()).to.be.true;
     expect(await page.locator('.slideshow-next').isDisabled()).to.be.false;
     expect(await page.locator('.slideshow-prev').isVisible()).to.be.true;
