@@ -24,7 +24,7 @@ Optional — ask each one individually, but don't block on them:
 - **Support artists** — a list
 - **setlist.fm URL**
 - **Spotify playlist** — must be the `/embed/playlist/...` form, not a normal share link
-- **Photos** — a folder of photos from the gig. If there is one, publish it as a set named after the gig file stem (`npm run photos -- <stem> <folder> --upload`, see README → Photos) and set `photos: '<stem>'`. The layout renders the set as a slideshow. (`flickr`/`flickrThumbnail` is the legacy Flickr embed still present on older gigs — don't use it for new ones.)
+- **Photos** — a folder of photos from the gig. If there is one, publish it as a set named after the gig file stem (`npm run photos -- <stem> <folder> --upload`, see README → Photos) and set `photos: '<stem>'`. The layout renders the set as a slideshow.
 
 ## 2. Filename
 

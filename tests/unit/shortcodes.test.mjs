@@ -2,12 +2,10 @@ import { expect } from "chai";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import sharp from "sharp";
 
 import {
   stringifyAttributes,
   videoShortcode,
-  imageShortcode,
   photoShortcode,
   pictureHtml,
   pictureElement,
@@ -83,104 +81,6 @@ describe("shortcodes — videoShortcode", () => {
     expect(out).to.contain('<p class="video-label">');
     expect(out).to.contain('<span class="video-label-icon" aria-hidden="true"></span>');
     expect(out).to.contain("Full show highlights");
-  });
-});
-
-describe("shortcodes — imageShortcode", () => {
-  let tmpDir;
-  let sourceImage;
-  let html;
-
-  before(async function () {
-    this.timeout(30000);
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "img-shortcode-"));
-    sourceImage = path.join(tmpDir, "fixture.jpeg");
-
-    // A tiny generated fixture keeps this fast; the real source photos are 1.7MB+
-    await sharp({
-      create: { width: 1000, height: 750, channels: 3, background: { r: 200, g: 120, b: 40 } }
-    }).jpeg().toFile(sourceImage);
-
-    html = await imageShortcode(
-      sourceImage,
-      "A test caption",
-      undefined,
-      IMAGE_WIDTHS,
-      IMAGE_FORMATS,
-      "(max-width: 768px) 400px, 800px",
-      path.join(tmpDir, "out") + path.sep
-    );
-  });
-
-  after(() => {
-    if (tmpDir) fs.rmSync(tmpDir, { recursive: true, force: true });
-  });
-
-  it("wraps everything in a figure", () => {
-    expect(html).to.match(/^<figure><picture/);
-    expect(html.trim()).to.match(/<\/figure>$/);
-  });
-
-  it("emits one source per format", () => {
-    const sources = html.match(/<source /g) ?? [];
-    expect(sources).to.have.lengthOf(IMAGE_FORMATS.length);
-    expect(html).to.contain('type="image/webp"');
-    expect(html).to.contain('type="image/jpeg"');
-  });
-
-  it("falls back to jpeg in the img tag, not webp", () => {
-    const img = html.match(/<img [^>]*>/)[0];
-    expect(img).to.contain(".jpeg");
-    expect(img).to.not.contain(".webp");
-  });
-
-  it("uses the largest width for the img fallback", () => {
-    const img = html.match(/<img [^>]*>/)[0];
-    expect(img).to.contain(`-${Math.max(...IMAGE_WIDTHS)}.jpeg`);
-  });
-
-  it("renders the alt text as the visible caption as well", () => {
-    expect(html).to.contain("<figcaption>A test caption</figcaption>");
-    expect(html).to.contain('alt="A test caption"');
-  });
-
-  it("sets width and height on the img fallback to prevent layout shift", () => {
-    const img = html.match(/<img [^>]*>/)[0];
-    const maxWidth = Math.max(...IMAGE_WIDTHS);
-    // fixture is a 4:3 image (1000x750), so height should scale proportionally
-    expect(img).to.contain(`width="${maxWidth}"`);
-    expect(img).to.contain(`height="${Math.round((maxWidth * 750) / 1000)}"`);
-  });
-
-  it("sets lazy loading and async decoding", () => {
-    expect(html).to.contain('loading="lazy"');
-    expect(html).to.contain('decoding="async"');
-  });
-
-  it("passes the sizes attribute through to each source", () => {
-    expect(html).to.contain('sizes="(max-width: 768px) 400px, 800px"');
-  });
-
-  it("defaults to IMAGE_SIZES, matching static/index.css's own breakpoint", async () => {
-    expect(IMAGE_SIZES).to.equal("(max-width: 47.999em) 100vw, 68vw");
-
-    const defaultSizesHtml = await imageShortcode(
-      sourceImage,
-      "A test caption",
-      undefined,
-      IMAGE_WIDTHS,
-      IMAGE_FORMATS,
-      undefined,
-      path.join(tmpDir, "out-default-sizes") + path.sep
-    );
-
-    expect(defaultSizesHtml).to.contain(`sizes="${IMAGE_SIZES}"`);
-  });
-
-  it("actually writes the resized files", () => {
-    const written = fs.readdirSync(path.join(tmpDir, "out"));
-    // 2 widths x 2 formats
-    expect(written).to.have.lengthOf(IMAGE_WIDTHS.length * IMAGE_FORMATS.length);
   });
 });
 

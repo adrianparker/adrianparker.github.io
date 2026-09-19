@@ -62,14 +62,5 @@ layout: base-layout.njk
         {% slideshow photos, title %}
         {% endif %}
 
-        {% if flickr %}
-        <div class="gig-flickr-embed">
-            <a data-flickr-embed="true" href="{{ flickr }}" title="{{ title }}">
-                <img src="{{ flickrThumbnail }}" width="800" height="600" alt="{{ title }}"/>
-            </a>
-            <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-        </div>
-        {% endif %}
-
     </article>
 </div>

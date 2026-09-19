@@ -586,8 +586,7 @@ a:active, a:hover {
    until the mobile test viewport moved off 768px, where the column was still
    wide enough to hide it. */
 .blog-post img,
-figure img,
-.gig-flickr-embed img {
+figure img {
   max-width: 100%;
   height: auto;
 }
@@ -1270,18 +1269,6 @@ html.js .app-nav-collapse {
 .gig-metadata-table tr + tr th,
 .gig-metadata-table tr + tr td {
   border-top: 1px solid var(--color-hairline);
-}
-
-/* Flickr embedded gallery container */
-
-.gig-flickr-embed {
-  margin: 1.5em 0;
-  max-width: 800px;
-}
-
-.gig-flickr-embed img {
-  width: 100%;
-  height: auto;
 }
 
 /* Video embedding - responsive container */

@@ -207,7 +207,7 @@ Here's a video with some snips from the gig and some of the stories being told. 
 
 {% video "https://d200vq1iaq5hh.cloudfront.net/20250316+Last+Ever+Last+Ever+-+Shihad.mp4", "video/mp4", "", "Watch: Shihad's last ever show" %}
 
-There are [some photos from the show](https://www.flickr.com/photos/adrianparker/albums/72177720324574371) in this gallery too.
+There are [some photos from the show](/posts/gigs/20250316-Shihad-Meow-Nui-Wellington/) in the gig write-up too.
 
 
 
