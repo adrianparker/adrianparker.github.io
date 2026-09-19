@@ -80,6 +80,16 @@
   </table>
 </div>
 
+<div class="setlist-modal-overlay" id="setlist-modal-overlay" hidden>
+  <div class="setlist-modal" id="setlist-modal">
+    <button type="button" class="setlist-modal-close" id="setlist-modal-close" aria-label="Close">&times;</button>
+    <div class="setlist-modal-label">Setlist</div>
+    <div class="setlist-modal-title" id="setlist-modal-title"></div>
+    <img class="setlist-modal-img" id="setlist-modal-img" src="" alt="">
+    <div class="setlist-modal-hint">Press Esc, or tap outside, to close.</div>
+  </div>
+</div>
+
 <!--
   Leaflet powers the Statistics map view. Vendored from node_modules rather
   than a CDN (see eleventy.config.mjs), so these paths only resolve once the
@@ -269,7 +279,7 @@ function render() {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${escapeHtml(g.date)}</td>
-        <td>${performerLinksHtml(g.performer)}</td>
+        <td>${showCellHtml(g)}</td>
         <td><span class="cat-tag">${escapeHtml(g.category)}</span></td>
         <td>${filterLinkHtml("city", g.city)}</td>
         <td>${filterLinkHtml("country", g.country)}</td>
@@ -304,12 +314,46 @@ function escapeAttr(str) {
   return escapeHtml(str).replace(/"/g,"&quot;");
 }
 
-function performerLinksHtml(performer) {
+// The Setlist.fm ID column holds one "Artist Name:id" pair per performer who
+// has a setlist for that specific show, comma-separated the same way as
+// Show/Association (see splitPerformers above) — blank when no performer has
+// one. A name is matched by exact string equality against g.performer's own
+// split names, so a typo'd artist name here just means no chip, not a build
+// failure.
+function splitSetlistIds(str) {
+  const ids = new Map();
+  splitPerformers(str).forEach(entry => {
+    const sep = entry.indexOf(":");
+    if (sep === -1) return;
+    const name = entry.slice(0, sep).trim();
+    const id = entry.slice(sep + 1).trim();
+    if (name && id) ids.set(name, id);
+  });
+  return ids;
+}
+
+function setlistChipHtml(artist, id, venue) {
+  return `<button type="button" class="setlist-chip" data-artist="${escapeAttr(artist)}" data-setlist-id="${escapeAttr(id)}" data-venue="${escapeAttr(venue)}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>`;
+}
+
+function performerLinksHtml(performer, setlistIds, venue) {
   const artists = splitPerformers(performer);
   if (artists.length === 0) return "";
   return artists
-    .map(a => `<a href="#" class="performer-link" data-artist="${escapeAttr(a)}">${escapeHtml(a)}</a>`)
+    .map(a => {
+      const link = `<a href="#" class="performer-link" data-artist="${escapeAttr(a)}">${escapeHtml(a)}</a>`;
+      const id = setlistIds.get(a);
+      return id ? link + setlistChipHtml(a, id, venue) : link;
+    })
     .join('<span class="performer-sep">, </span>');
+}
+
+function showCellHtml(g) {
+  const performers = performerLinksHtml(g.performer, splitSetlistIds(g.setlistfmId), g.venue);
+  const review = g.reviewUrl
+    ? `<a href="${escapeAttr(g.reviewUrl)}" class="review-link">Read the review</a>`
+    : "";
+  return `<div class="show-cell-performers">${performers}</div>${review}`;
 }
 
 function selectArtist(artist) {
@@ -943,6 +987,41 @@ function handlePerformerLinkClick(e) {
 document.getElementById("tbody").addEventListener("click", handlePerformerLinkClick);
 document.getElementById("stats-performer-tbody").addEventListener("click", handlePerformerLinkClick);
 document.getElementById("stats-map").addEventListener("click", handlePerformerLinkClick);
+
+// One (artist, gig) pair's lightbox can be open at a time. The keydown
+// listener is only attached while the modal is open and removed on close,
+// so it can't leak or fire against a closed modal.
+const setlistModalOverlay = document.getElementById("setlist-modal-overlay");
+const setlistModalTitle = document.getElementById("setlist-modal-title");
+const setlistModalImg = document.getElementById("setlist-modal-img");
+let setlistModalKeydownHandler = null;
+
+function openSetlistModal(artist, venue, setlistId) {
+  setlistModalTitle.textContent = `${artist} — ${venue}`;
+  setlistModalImg.src = `https://www.setlist.fm/widgets/setlist-image-v1?id=${setlistId}`;
+  setlistModalImg.alt = `${artist} setlist, ${venue}`;
+  setlistModalOverlay.hidden = false;
+  setlistModalKeydownHandler = e => { if (e.key === "Escape") closeSetlistModal(); };
+  document.addEventListener("keydown", setlistModalKeydownHandler);
+}
+
+function closeSetlistModal() {
+  setlistModalOverlay.hidden = true;
+  setlistModalImg.src = "";
+  document.removeEventListener("keydown", setlistModalKeydownHandler);
+  setlistModalKeydownHandler = null;
+}
+
+function handleSetlistChipClick(e) {
+  const chip = e.target.closest(".setlist-chip");
+  if (!chip) return;
+  openSetlistModal(chip.dataset.artist, chip.dataset.venue, chip.dataset.setlistId);
+}
+
+document.getElementById("tbody").addEventListener("click", handleSetlistChipClick);
+setlistModalOverlay.addEventListener("click", closeSetlistModal);
+document.getElementById("setlist-modal").addEventListener("click", e => e.stopPropagation());
+document.getElementById("setlist-modal-close").addEventListener("click", closeSetlistModal);
 
 document.querySelectorAll(".table-scroll thead th").forEach(th => {
   th.addEventListener("click", () => {
