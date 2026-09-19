@@ -20,8 +20,10 @@ import path from "node:path";
 import { buildAppEmbed } from "../../lib/embed-app.mjs";
 import { parseGigHistory } from "../../lib/gig-history.mjs";
 import { parseLocations, findLocation } from "../../lib/locations.mjs";
+import { parseGigReviews, findReviewUrl } from "../../lib/gig-reviews.mjs";
 
 const APP_DIR = path.join(import.meta.dirname, "..", "GigTracker");
+const GIGS_POSTS_DIR = path.join(import.meta.dirname, "..", "posts", "gigs");
 const SCOPE = ".gig-tracker";
 const GIGS_ASSIGNMENT = /let GIGS = \[.*\];/;
 
@@ -48,6 +50,8 @@ const PALETTE = {
   "--muted": "var(--color-muted)",
   "--accent": "var(--color-accent)",
   "--accent-venue": "var(--color-accent-venue)",
+  "--modal-overlay": "var(--color-modal-overlay)",
+  "--modal-shadow": "var(--color-modal-shadow)",
   /*
     Rows sit on --panel, so the stripe and the hover both have to read as a
     shift away from it. --color-bg-bottom is the site's other surface colour
@@ -119,11 +123,27 @@ function withCoordinates (gigs, locations) {
   });
 }
 
+/**
+ * Attaches reviewUrl to every gig sharing a review post's date — a review
+ * post covers a whole show, so it can match more than one gig-history row
+ * (see lib/gig-reviews.mjs).
+ */
+function withReviewUrls (gigs, reviews) {
+  return gigs.map((gig) => ({ ...gig, reviewUrl: findReviewUrl(reviews, gig.date) }));
+}
+
 export default function () {
   const locations = parseLocations(fs.readFileSync(path.join(APP_DIR, "Locations.md"), "utf8"));
-  const gigs = withCoordinates(
-    parseGigHistory(fs.readFileSync(path.join(APP_DIR, "gig-history.md"), "utf8")),
-    locations
+  const reviewFiles = fs.readdirSync(GIGS_POSTS_DIR)
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => ({ name, content: fs.readFileSync(path.join(GIGS_POSTS_DIR, name), "utf8") }));
+  const reviews = parseGigReviews(reviewFiles);
+  const gigs = withReviewUrls(
+    withCoordinates(
+      parseGigHistory(fs.readFileSync(path.join(APP_DIR, "gig-history.md"), "utf8")),
+      locations
+    ),
+    reviews
   );
   const html = fs.readFileSync(path.join(APP_DIR, "gig-history.html"), "utf8")
     .replace(GIGS_ASSIGNMENT, `let GIGS = ${JSON.stringify(gigs)};`);

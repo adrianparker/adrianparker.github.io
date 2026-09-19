@@ -119,6 +119,12 @@
   --color-accent-venue: #262626;
   --color-accent-venue: light-dark(#1c4f8c, #262626);
 
+  /* The Gig Tracker's setlist lightbox scrim and drop shadow. Both are dark
+     translucent overlays sitting on top of the whole page, so unlike the
+     tokens above they don't need a light-mode counterpart. */
+  --color-modal-overlay: rgba(10, 10, 14, 0.62);
+  --color-modal-shadow: rgba(0, 0, 0, 0.4);
+
   /* The grid line colours for the light theme's graph-paper background
      (see the body rule below). Referenced only from light-scoped rules,
      so — unlike the tokens above — these don't need a dark counterpart. */
