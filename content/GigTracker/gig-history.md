@@ -29,7 +29,7 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2025-08-19 | Mamma Mia | Theatre | Wellington | New Zealand | St James Theatre | Starring Gemma Hoskins, Rachel McSweeney. Directed by Maya Handa Naff | | |
 | 2025-05-09 | The Addams Family: A New Musical | Theatre | Paraparaumu | New Zealand | Te Raukura ki Kapiti | Starring Hover Waterworth, Eleanor Parker | | |
 | 2025-03-23 | Kristin Hersh, Jon Muq | Music | Wellington | New Zealand | Old St Paul's | | | Kristin Hersh:3582927, Jon Muq:5358237d |
-| 2025-03-16 | Shihad, The Boondocks | Music | Wellington | New Zealand | Meow Nui | | Jon Toogood | Shihad:2358f4bb |
+| 2025-03-16 | Shihad, Shepherd's Reign, The Boondocks | Music | Wellington | New Zealand | Meow Nui | Loud Forever | Jon Toogood | Shihad:2358f4bb |
 | 2025-02-02 | Kurtis Conner | Comedy | Wellington | New Zealand | The Opera House | The Goodfellow World Tour | | |
 | 2024-12-29 | Shihad, Sublime, Home Brew, Ladyhawke, Elemeno P | Music | New Plymouth | New Zealand | Bowl of Brooklands | Rock The Bowl 2024 | Jon Toogood | Shihad:135c3de5, Ladyhawke:2b5c30ee, Elemeno P:335c3021 |
 | 2024-07-07 | Sense and Sensibility | Theatre | Wellington | New Zealand | Circa | Directed by Penny Ashton | | |
