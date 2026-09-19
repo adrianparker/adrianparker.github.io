@@ -59,6 +59,7 @@ layout: base-layout.njk
         {{ content | safe }}
 
         {% if photos %}
+        <h2>Photos from the gig</h2>
         {% slideshow photos, title %}
         {% endif %}
 
