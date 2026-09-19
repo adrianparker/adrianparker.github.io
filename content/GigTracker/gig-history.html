@@ -1001,7 +1001,12 @@ function openSetlistModal(artist, venue, setlistId) {
   setlistModalImg.src = `https://www.setlist.fm/widgets/setlist-image-v1?id=${setlistId}`;
   setlistModalImg.alt = `${artist} setlist, ${venue}`;
   setlistModalOverlay.hidden = false;
-  setlistModalKeydownHandler = e => { if (e.key === "Escape") closeSetlistModal(); };
+  setlistModalKeydownHandler = e => {
+    if (e.key !== "Escape") return;
+    e.preventDefault();
+    e.stopPropagation();
+    closeSetlistModal();
+  };
   document.addEventListener("keydown", setlistModalKeydownHandler);
 }
 
