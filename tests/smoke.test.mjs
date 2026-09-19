@@ -171,9 +171,14 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect(slideshow.find('.slideshow-prev, .slideshow-next')).to.have.lengthOf(2);
     expect($('script[src="/slideshow.js"]'), 'enhancement script').to.have.lengthOf(1);
     expect(fs.existsSync(sitePath('slideshow.js')), 'slideshow.js is served').to.be.true;
+  });
 
-    // The Flickr embed this replaced is gone from this gig
-    expect($('[data-flickr-embed]')).to.have.lengthOf(0);
+  it('should render the Tangalooma Wrecks dive video from the media host', function () {
+    const $ = load('posts', 'Tangalooma-Wrecks', 'index.html');
+    const source = $('.video-wrapper video source');
+    expect(source, 'video source').to.have.lengthOf(1);
+    expect(source.attr('src')).to.match(new RegExp(`^${MEDIA_URL}/.+\\.mp4$`));
+    expect($('.video-label').text()).to.contain('Tangalooma');
   });
 
   it('should list the gig post on the gigs index, linked to its own URL', function () {
@@ -675,4 +680,20 @@ describe('Smoke Tests - Internal links', function () {
 
     expect(escaping, `links escaping the site root:\n  ${escaping.join('\n  ')}`).to.be.empty;
   });
+
+  it('should load nothing from Flickr anywhere on the site', function () {
+    // Photos and video moved to the media bucket; the only Flickr reference
+    // left is the plain link to Adrian's albums in the Elsewhere list.
+    const offenders = [];
+    for (const page of allPages()) {
+      const html = fs.readFileSync(page, 'utf8');
+      const $ = cheerio.load(html);
+      if ($('[data-flickr-embed]').length) offenders.push(`${page}: embed anchor`);
+      if (/staticflickr\.com|embedr\.flickr\.com/.test(html)) offenders.push(`${page}: flickr asset host`);
+      const csp = $('meta[http-equiv="Content-Security-Policy"]').attr('content') || '';
+      if (/flickr/.test(csp)) offenders.push(`${page}: flickr in CSP`);
+    }
+    expect(offenders, offenders.join('\n')).to.be.empty;
+  });
+
 });

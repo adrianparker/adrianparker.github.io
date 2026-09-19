@@ -41,7 +41,7 @@ Three content types:
 | **Gigs** | `content/posts/gigs/*.md` | `/posts/gigs/<Slug>/` |
 | **Apps** | `content/<AppName>/index.njk` | `/<AppName>/` |
 
-Gigs are a specialised post: a concert, usually with a setlist.fm link, sometimes a Spotify playlist and a Flickr album.
+Gigs are a specialised post: a concert, usually with a setlist.fm link, sometimes a Spotify playlist and a set of photos shown as a slideshow.
 
 ---
 
@@ -70,7 +70,7 @@ visual suite before anything touching CSS or templates.
 - **Never edit anything in `_site/`.** It is build output and is regenerated on every build. Edit the source instead.
 - **The stylesheet is `static/index.css`**, not `_site/index.css`. There is exactly one stylesheet for the whole blog.
 - `static/` is passthrough-copied to the site root, so `static/foo.css` is served at `/foo.css`.
-- Photos live in an S3 bucket behind CloudFront, not in the repo — see README → Photos. `img/` holds the few source-resolution photos not yet migrated; the `image` shortcode still resizes those at build time into `_site/img/`. Do not add to `img/`; publish a set instead.
+- Photos and video live in an S3 bucket behind CloudFront, not in the repo — see README → Photos. Never add photos to the repo; publish a set with `npm run photos` and reference it.
 - The build input directory is `content/`, set via `dir.input` in the config.
 - Node 22+ is required (`@11ty/eleventy-img` v7). See `.nvmrc`.
 
@@ -128,14 +128,13 @@ city: 'City'
 country: 'New Zealand'
 setlistfm: 'https://www.setlist.fm/...'
 spotify: 'https://open.spotify.com/embed/playlist/...'
-flickr: 'https://www.flickr.com/photos/adrianparker/albums/...'
-flickrThumbnail: 'https://live.staticflickr.com/...'
+photos: '20260523-Artist-Venue-City'
 ---
 ```
 
 `navtitle` convention for gigs is `'<year> <Artist>'`. Everything from `supportArtists` down is optional — the layout guards each with `{% if %}`.
 
-Photos: prefer `photos: '<gig file stem>'` naming a set published with `npm run photos` (README → Photos); the layout renders it as a slideshow. `flickr` + `flickrThumbnail` is the legacy Flickr embed, still supported while existing gigs migrate off it — do not use it for new gigs.
+`photos` names a set published with `npm run photos` (README → Photos), conventionally the gig's own file stem; the layout renders it as a slideshow after the review.
 
 ### Shortcodes
 
@@ -144,7 +143,7 @@ Photos: prefer `photos: '<gig file stem>'` naming a set published with `npm run 
 {% video "https://d200vq1iaq5hh.cloudfront.net/clip.mp4" %}
 ```
 
-`image` takes a `<set-id>/<name>` reference to a photo already published with `npm run photos` (README → Photos) and emits webp + jpeg at 400px and 800px from CloudFront. The build fails on an unknown set or name. Note the alt text is *also* rendered as the `<figcaption>`, so write it to work as a visible caption. A first argument beginning `img/` is the legacy build-time-resize route for photos still in the repo.
+`image` takes a `<set-id>/<name>` reference to a photo already published with `npm run photos` (README → Photos) and emits webp + jpeg at 400px and 800px from CloudFront. The build fails on an unknown set or name. Note the alt text is *also* rendered as the `<figcaption>`, so write it to work as a visible caption.
 
 ```njk
 {% slideshow "Gig-File-Stem", "Label for screen readers" %}

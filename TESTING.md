@@ -117,12 +117,14 @@ observed flake, not speculatively:
    image has not requested its fetch yet, and `complete` only means bytes
    arrived, not that the frame is paintable.
 2. **Every image must report `complete`.** Without this a gig post compared
-   clean alone but differed by ~5,000 pixels inside a full run, because its
-   Flickr thumbnail had not arrived.
+   clean alone but differed by ~5,000 pixels inside a full run, because a
+   remote image (at the time, its Flickr thumbnail) had not arrived. Photos
+   now come from the media bucket, which is still a remote host.
 3. **Third-party scripts are blocked.** Dropped is remote JavaScript that
-   rewrites the DOM after load — specifically the Flickr embed script, which
-   enhances gig markup client-side and had not reliably finished by capture
-   time.
+   rewrites the DOM after load. The case that prompted it was the Flickr
+   embed script gig posts used to carry, which enhanced gig markup
+   client-side and had not reliably finished by capture time; the rule
+   stays because the analytics script is remote too.
 4. **Third-party media is blocked.** The video post embeds a remote MP4 with
    `preload="metadata"`, whose load state is not deterministic. Costs nothing
    in layout terms: `.video-wrapper` has a fixed 16/9 aspect-ratio box, so the
