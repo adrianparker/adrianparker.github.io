@@ -46,6 +46,8 @@ describe('Gig Tracker statistics chart hover', function () {
   }
 
   async function hoverGroup(page, month) {
+    const hitArea = page.locator(`.stats-bar-group[data-month="${month}"] .stats-hit-area`);
+    await hitArea.scrollIntoViewIfNeeded();
     const box = await page.evaluate((m) => {
       const group = document.querySelector(`.stats-bar-group[data-month="${m}"] .stats-hit-area`);
       const rect = group.getBoundingClientRect();
