@@ -4,9 +4,9 @@ Guidance for Claude Code working in this repo.
 
 ---
 
-## Adopt Karpathy's approach to Claude Code
+## Adopt specific coding standards in linked CLAUDE-code.md file
 
-First read CLAUDE-k.md and adopt all instructions therein.
+First read .\CLAUDE-code.md and adopt all instructions therein.
 
 ## Working agreement — read first
 
@@ -41,7 +41,7 @@ Three content types:
 | **Gigs** | `content/posts/gigs/*.md` | `/posts/gigs/<Slug>/` |
 | **Apps** | `content/<AppName>/index.njk` | `/<AppName>/` |
 
-Gigs are a specialised post: a concert, usually with a setlist.fm link, sometimes a Spotify playlist and a set of photos shown as a slideshow.
+Gigs are a specialised post: a concert, sometimes with setlist.fm links, sometimes Spotify playlist links, sometimes a set of photos shown as a slideshow, etc.
 
 ---
 
