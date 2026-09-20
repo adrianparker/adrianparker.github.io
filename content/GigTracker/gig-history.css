@@ -28,9 +28,10 @@ body {
   padding: 24px;
 }
 h1 {
+  font-family: 'Bebas Neue', serif;
   font-size: 1.4rem;
   margin: 0 0 4px 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 .subtitle {
   color: var(--muted);
