@@ -52,12 +52,19 @@ wrong number of columns — too few or too many — fails the build rather than
 being silently dropped, so a mistyped row can't make a gig quietly vanish
 from the site.
 
-`Setlist.fm ID` is data only — the setlist.fm ID for the gig, where one
-exists. It is parsed into each gig object as `setlistfmId` but the app
-deliberately never reads that field: it has no `<th>`, isn't part of the
-`applyFilters`/search key lists, and isn't rendered in any row. Leave it
-blank for gigs that don't have one; adding a value never changes anything a
-visitor sees.
+`Setlist.fm ID` holds one `Artist Name:id` pair per performer who has a
+setlist for that specific show, comma-separated the same way as
+`Association` — blank when no performer has one. It is parsed into each gig
+object as `setlistfmId` and rendered as a "Setlist" chip next to that
+performer's name; clicking it shows the setlist.fm setlist image. It has no
+`<th>` and isn't part of the `applyFilters`/search key lists — it only drives
+the chip.
+
+An id may carry a trailing `:empty` suffix (e.g. `34b29cb:empty`), meaning
+the setlist.fm setlist exists but has no songs listed yet. The chip is
+suppressed for an `:empty` id so visitors aren't sent to a page with nothing
+to see, but the link itself stays in the data — remove the `:empty` suffix
+once setlist.fm has songs for it, rather than re-adding the id from scratch.
 
 ## The map view's location lookup
 

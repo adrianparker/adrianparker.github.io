@@ -319,15 +319,23 @@ function escapeAttr(str) {
 // Show/Association (see splitPerformers above) — blank when no performer has
 // one. A name is matched by exact string equality against g.performer's own
 // split names, so a typo'd artist name here just means no chip, not a build
-// failure.
+// failure. An id may carry a trailing ":empty" (e.g. "34b29cb:empty"),
+// meaning the setlist.fm page exists but has no songs listed yet — the link
+// is kept in the data so it starts working the moment songs are added, but
+// performerLinksHtml skips the chip for it below.
 function splitSetlistIds(str) {
   const ids = new Map();
   splitPerformers(str).forEach(entry => {
     const sep = entry.indexOf(":");
     if (sep === -1) return;
     const name = entry.slice(0, sep).trim();
-    const id = entry.slice(sep + 1).trim();
-    if (name && id) ids.set(name, id);
+    let id = entry.slice(sep + 1).trim();
+    let empty = false;
+    if (id.endsWith(":empty")) {
+      empty = true;
+      id = id.slice(0, -":empty".length).trim();
+    }
+    if (name && id) ids.set(name, { id, empty });
   });
   return ids;
 }
@@ -342,8 +350,8 @@ function performerLinksHtml(performer, setlistIds, venue) {
   return artists
     .map(a => {
       const link = `<a href="#" class="performer-link" data-artist="${escapeAttr(a)}">${escapeHtml(a)}</a>`;
-      const id = setlistIds.get(a);
-      return id ? link + setlistChipHtml(a, id, venue) : link;
+      const entry = setlistIds.get(a);
+      return entry && !entry.empty ? link + setlistChipHtml(a, entry.id, venue) : link;
     })
     .join('<span class="performer-sep">, </span>');
 }
