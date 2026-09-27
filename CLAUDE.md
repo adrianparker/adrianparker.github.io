@@ -58,10 +58,16 @@ npm run test:visual    # build + visual regression (slow, needs Playwright)
 npm test               # unit + smoke + theme + analytics + visual, everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 npm run photos -- <set-id> <folder> --upload  # publish a set of photos, see README → Photos
+npm run certs           # (re)generate a trusted https cert for localhost, see README
 ```
 
 Run `npm run test:unit` constantly; it takes well under a second. Run the
 visual suite before anything touching CSS or templates.
+
+`npm run serve` serves over https automatically once `.certs/` exists (gitignored,
+generated with `npm run certs` via mkcert — one-time `brew install mkcert && mkcert -install`,
+then re-run `npm run certs` roughly every 2 years when the cert expires). Without
+`.certs/`, e.g. in CI or a fresh clone, it falls back to plain http.
 
 ---
 
