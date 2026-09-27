@@ -9,6 +9,10 @@ layout: base-layout.njk
         {{ summary | safe }}
         </p>
 
+        {% set setlistIds = setlistfm | setlistIds %}
+        {% set allPerformers = [headlineArtist].concat(supportArtists or []) %}
+        {% set hasSetlistChips = setlistIds | anySetlistChip(allPerformers) %}
+
         <div class="gig-metadata">
             <table class="gig-metadata-table">
                 <tbody>
@@ -18,14 +22,25 @@ layout: base-layout.njk
                     </tr>
                     <tr>
                         <th>Headline</th>
-                        <td>{{ headlineArtist }}</td>
+                        <td>
+                            {{ headlineArtist }}
+                            {% set entry = setlistIds.get(headlineArtist) %}
+                            {% if entry and not entry.empty %}
+                            <button type="button" class="setlist-chip" data-artist="{{ headlineArtist }}" data-setlist-id="{{ entry.id }}" data-venue="{{ venue }}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>
+                            {% endif %}
+                        </td>
                     </tr>
                     {% if supportArtists and supportArtists.length %}
                     <tr>
                         <th>Support</th>
                         <td>
                             {% for artist in supportArtists %}
-                            {{ artist }}{% if not loop.last %}, {% endif %}
+                            {{ artist }}
+                            {% set entry = setlistIds.get(artist) %}
+                            {% if entry and not entry.empty %}
+                            <button type="button" class="setlist-chip" data-artist="{{ artist }}" data-setlist-id="{{ entry.id }}" data-venue="{{ venue }}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>
+                            {% endif %}
+                            {% if not loop.last %}, {% endif %}
                             {% endfor %}
                         </td>
                     </tr>
@@ -38,20 +53,6 @@ layout: base-layout.njk
                         <th>Location</th>
                         <td>{{ city }}, {{ country }}</td>
                     </tr>
-                    {% if setlistfm or spotify %}
-                    <tr>
-                        <th></th>
-                        <td>
-                            {% if setlistfm %}
-                            <a href="{{ setlistfm }}" target="_blank" rel="nofollow" class="external-link">setlist.fm<span class="external-link-icon" aria-hidden="true"></span></a>
-                            {% endif %}
-                            {% if setlistfm and spotify %}&nbsp;&nbsp;{% endif %}
-                            {% if spotify %}
-                            <a href="{{ spotify }}" target="_blank" rel="nofollow" class="external-link">Spotify<span class="external-link-icon" aria-hidden="true"></span></a>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endif %}
                 </tbody>
             </table>
         </div>
@@ -65,3 +66,60 @@ layout: base-layout.njk
 
     </article>
 </div>
+
+{% if hasSetlistChips %}
+<div class="setlist-modal-overlay" id="setlist-modal-overlay" hidden>
+    <div class="setlist-modal" id="setlist-modal">
+        <button type="button" class="setlist-modal-close" id="setlist-modal-close" aria-label="Close">&times;</button>
+        <div class="setlist-modal-label">Setlist</div>
+        <div class="setlist-modal-title" id="setlist-modal-title"></div>
+        <img class="setlist-modal-img" id="setlist-modal-img" src="data:," alt="">
+        <div class="setlist-modal-hint">Press Esc, or tap outside, to close.</div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var overlay = document.getElementById("setlist-modal-overlay");
+    var title = document.getElementById("setlist-modal-title");
+    var img = document.getElementById("setlist-modal-img");
+    var modal = document.getElementById("setlist-modal");
+    var closeBtn = document.getElementById("setlist-modal-close");
+    if (!overlay || !title || !img || !modal || !closeBtn) return;
+
+    var keydownHandler = null;
+
+    function openModal(artist, venue, setlistId) {
+        title.textContent = artist + " — " + venue;
+        img.src = "https://www.setlist.fm/widgets/setlist-image-v1?id=" + setlistId;
+        img.alt = artist + " setlist, " + venue;
+        overlay.hidden = false;
+        keydownHandler = function (e) {
+            if (e.key !== "Escape") return;
+            e.preventDefault();
+            closeModal();
+        };
+        document.addEventListener("keydown", keydownHandler);
+    }
+
+    function closeModal() {
+        overlay.hidden = true;
+        img.src = "";
+        if (keydownHandler) {
+            document.removeEventListener("keydown", keydownHandler);
+            keydownHandler = null;
+        }
+    }
+
+    document.querySelectorAll(".setlist-chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+            openModal(chip.dataset.artist, chip.dataset.venue, chip.dataset.setlistId);
+        });
+    });
+
+    overlay.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) { e.stopPropagation(); });
+    closeBtn.addEventListener("click", closeModal);
+})();
+</script>
+{% endif %}
