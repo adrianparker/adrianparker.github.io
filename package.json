@@ -13,6 +13,7 @@
     "build": "npx eleventy",
     "photos": "node scripts/publish-photos.mjs",
     "serve": "npx eleventy --serve",
+    "start": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
     "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",
     "test:analytics": "npm run build && mocha tests/analytics.test.mjs --timeout 60000",

@@ -50,6 +50,7 @@ Gigs are a specialised post: a concert, sometimes with setlist.fm links, sometim
 ```bash
 npm run build          # eleventy build into _site/
 npm run serve          # local dev server, live reload, usually :8080
+npm start              # same as npm run serve
 npm run test:unit      # unit tests + coverage gate. No build, no browser — fast
 npm run test:smoke     # build + smoke tests
 npm run test:theme     # build + light/dark theme behaviour
