@@ -70,10 +70,9 @@ describe('Gig Tracker "Songs heard live" statistics card', function () {
       }
     }
 
-    // "You Again" and "Home Again" are two of the songs played across most
-    // of Shihad's setlisted shows in gig-history.md, so the top row should
-    // be one of the two.
-    expect(['You Again', 'Home Again']).to.include(rows[0].song);
+    // The data is deterministic: "You Again" is played at more of Shihad's
+    // setlisted shows in gig-history.md than any other song.
+    expect(rows[0].song).to.equal('You Again');
   });
 
   it('is hidden with no placeholder text when the selected performer has no setlist songs', async function () {
