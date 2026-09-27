@@ -4,6 +4,8 @@ import {
   stripNunjucks,
   stripHtml,
   stripUrls,
+  normalizeApostrophes,
+  stripHtmlEntities,
   extractSpellcheckText
 } from "../../lib/spellcheck-targets.mjs";
 
@@ -70,6 +72,47 @@ describe("spellcheck-targets — stripUrls", () => {
   });
 });
 
+describe("spellcheck-targets — normalizeApostrophes", () => {
+  it("replaces a right single quotation mark with a straight apostrophe", () => {
+    expect(normalizeApostrophes("wasn’t")).to.equal("wasn't");
+  });
+
+  it("replaces a left single quotation mark with a straight apostrophe", () => {
+    expect(normalizeApostrophes("‘quoted’")).to.equal("'quoted'");
+  });
+
+  it("leaves text with straight apostrophes unchanged", () => {
+    expect(normalizeApostrophes("wasn't")).to.equal("wasn't");
+  });
+});
+
+describe("spellcheck-targets — stripHtmlEntities", () => {
+  it("decodes a known named entity", () => {
+    expect(stripHtmlEntities("Fish &amp; chips")).to.equal("Fish & chips");
+  });
+
+  it("decodes &nbsp; to a space", () => {
+    expect(stripHtmlEntities("a&nbsp;b")).to.equal("a b");
+  });
+
+  it("decodes a decimal numeric entity", () => {
+    expect(stripHtmlEntities("It&#39;s")).to.equal("It's");
+  });
+
+  it("decodes a hex numeric entity", () => {
+    expect(stripHtmlEntities("It&#x27;s")).to.equal("It's");
+  });
+
+  it("blanks an unknown named entity rather than leaking it as a word", () => {
+    expect(stripHtmlEntities("a&unknownentity;b").replace(/\s+/g, " ")).to.equal("a b");
+    expect(stripHtmlEntities("a&unknownentity;b")).to.not.include("unknownentity");
+  });
+
+  it("leaves plain text unchanged", () => {
+    expect(stripHtmlEntities("Plain text.")).to.equal("Plain text.");
+  });
+});
+
 describe("spellcheck-targets — extractSpellcheckText", () => {
   it("strips front matter, Nunjucks, HTML, and URLs together", () => {
     const markdown = [
@@ -80,6 +123,7 @@ describe("spellcheck-targets — extractSpellcheckText", () => {
       "",
       "Some <b>bold</b> text with a {% image \"Foo/bar\", \"Alt\" %} shortcode",
       "and a link https://example.com/path and a <!-- excerpt --> marker.",
+      "It wasn’t Fish &amp; chips&nbsp;&mdash;it wasn't.",
       "<!-- cspell:words Tangalooma -->"
     ].join("\n");
 
@@ -89,8 +133,10 @@ describe("spellcheck-targets — extractSpellcheckText", () => {
     expect(result).to.not.include("{%");
     expect(result).to.not.include("<b>");
     expect(result).to.not.include("https://");
+    expect(result).to.not.include("mdash");
     expect(result).to.include("## Heading");
     expect(result).to.include("Some");
+    expect(result).to.include("wasn't Fish & chips");
     expect(result).to.include("<!-- cspell:words Tangalooma -->");
   });
 });
