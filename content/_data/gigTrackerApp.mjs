@@ -21,11 +21,13 @@ import { buildAppEmbed } from "../../lib/embed-app.mjs";
 import { parseGigHistory } from "../../lib/gig-history.mjs";
 import { parseLocations, findLocation } from "../../lib/locations.mjs";
 import { parseGigReviews, findReviewUrl } from "../../lib/gig-reviews.mjs";
+import { parseSetlistSongs } from "../../lib/setlist-songs.mjs";
 
 const APP_DIR = path.join(import.meta.dirname, "..", "GigTracker");
 const GIGS_POSTS_DIR = path.join(import.meta.dirname, "..", "posts", "gigs");
 const SCOPE = ".gig-tracker";
 const GIGS_ASSIGNMENT = /let GIGS = \[.*\];/;
+const SETLIST_SONGS_ASSIGNMENT = /let SETLIST_SONGS = \[.*\];/;
 
 /*
   The reload controls re-read gig-history.md off disk, which is how the app
@@ -147,8 +149,13 @@ export default function () {
     ),
     reviews
   );
+  const setlistSongs = parseSetlistSongs(
+    fs.readFileSync(path.join(APP_DIR, "setlist-songs.md"), "utf8")
+  );
+
   const html = fs.readFileSync(path.join(APP_DIR, "gig-history.html"), "utf8")
-    .replace(GIGS_ASSIGNMENT, `let GIGS = ${JSON.stringify(gigs)};`);
+    .replace(GIGS_ASSIGNMENT, `let GIGS = ${JSON.stringify(gigs)};`)
+    .replace(SETLIST_SONGS_ASSIGNMENT, `let SETLIST_SONGS = ${JSON.stringify(setlistSongs)};`);
 
   const embed = buildAppEmbed({
     html,
