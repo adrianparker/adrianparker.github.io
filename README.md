@@ -31,6 +31,8 @@ npm run serve
 ```
 You should see output showing you the site is now being served, most likely at localhost:8080. Ctrl-C to terminate the server. It will live reload on file changes.
 
+`npm start` does the same thing.
+
 #### Trusted https on localhost (optional, one-time)
 
 By default the dev server is plain http. To serve it over https without a

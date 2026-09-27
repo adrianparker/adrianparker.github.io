@@ -9,7 +9,7 @@ headlineArtist: 'Prince'
 venue: 'O2 Arena'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/prince/2007/the-o2-arena-london-england-5bd70bdc.html'
+setlistfm: 'Prince:5bd70bdc'
 photos: '20070817-Prince-O2-Arena-London'
 ---
 

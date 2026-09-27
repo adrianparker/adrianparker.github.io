@@ -68,18 +68,26 @@ once setlist.fm has songs for it, rather than re-adding the id from scratch.
 
 ## The map view's location lookup
 
-The Statistics panel shows a map (Leaflet + OpenStreetMap tiles — no API key,
-so no secret to protect on this public static site) whenever a Country or
-City filter is active. It needs `lat, lng` for each gig, which
+The Statistics panel always shows a map (Leaflet + OpenStreetMap tiles — no
+API key, so no secret to protect on this public static site), at one of
+three zoom levels depending on the active filters: country-level pins (one
+per country) when no Country, City or Venue filter is active; city-level
+pins when a Country filter is active but no City or Venue; venue-level pins
+once a City or Venue filter narrows things further. All three pin styles are
+identical — clicking a pin sets the corresponding Country, City or Venue
+filter. It needs `lat, lng` for each gig at each level, which
 `content/_data/gigTrackerApp.mjs` resolves per row via `lib/locations.mjs`:
 
 1. an exact Country/City/Venue match in `Locations.md` with numeric
-   coordinates — used as-is.
-2. failing that, that Country/City's own blank-Venue row (the city-centre
-   pin) — used as a fallback.
-3. failing that, the gig is skipped from the map and the build prints a
-   warning naming the missing Country/City/Venue, so a stale `Locations.md`
-   is caught rather than silently wrong.
+   coordinates — used as-is, for the venue-level pin.
+2. that Country/City's own blank-Venue row (the city-centre pin) — used for
+   the city-level pin, and as the venue-level fallback when there's no exact
+   match.
+3. that Country's own blank-City, blank-Venue row (the country's own
+   coordinates) — used for the country-level pin.
+4. failing all of the above, the gig is skipped from the map and the build
+   prints a warning naming the missing Country/City/Venue, so a stale
+   `Locations.md` is caught rather than silently wrong.
 
 Adding a gig at a venue with no row in `Locations.md` still builds fine — it
 just falls back to step 2, or drops out of the map entirely if the city

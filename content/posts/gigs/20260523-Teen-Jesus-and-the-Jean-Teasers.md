@@ -10,8 +10,7 @@ supportArtists: ['Ivy']
 venue: 'San Fran'
 city: 'Wellington'
 country: 'New Zealand'
-setlistfm: 'https://www.setlist.fm/setlist/teen-jesus-and-the-jean-teasers/2026/san-fran-wellington-new-zealand-434eefd3.html'
-spotify: 'https://open.spotify.com/embed/playlist/49WV6GpV5RFkmT5WoiKHy9'
+setlistfm: 'Teen Jesus & the Jean Teasers:434eefd3'
 photos: '20260523-Teen-Jesus-and-the-Jean-Teasers'
 ---
 Aussie rockers Teen Jesus and the Jean Teasers played their last Glory tour date at San Fran in Wellington.

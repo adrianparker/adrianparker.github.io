@@ -1,8 +1,10 @@
 /**
  * Behavioural tests for the Gig Tracker statistics map view (#139): it is
  * always visible (#149) and shows one marker per resolved location with the
- * gig count on it, switching between city-level and venue-level pins (#148)
- * depending on which filters are active.
+ * gig count on it, at one of three zoom levels — country (#195), city (#148)
+ * or venue (#192) — depending on which filters are active. All three levels
+ * share one marker style, and clicking a marker at any level sets the
+ * corresponding filter (#192).
  *
  * OpenStreetMap tile requests are intercepted rather than hitting the real
  * network — the first thing in this suite to make an external HTTP call, so
@@ -39,6 +41,17 @@ describe('Gig Tracker statistics map view', function () {
     await stopServer();
   });
 
+  // Markers cluster tightly at low zoom levels and overlap each other, so a
+  // real Playwright mouse click often lands on a sibling marker sitting on
+  // top in z-order rather than the one the selector names. Dispatching a
+  // native .click() through the DOM instead still bubbles up to Leaflet's
+  // own listener (bound to the marker's wrapping element), without needing
+  // the target to be the topmost element at its on-screen position.
+  async function clickMarker(page, selector) {
+    await page.waitForSelector(selector);
+    await page.$eval(selector, (el) => el.click());
+  }
+
   async function openPage({ colorScheme } = {}) {
     const context = await browser.newContext({ viewport: { width: 1200, height: 900 }, colorScheme });
     const page = await context.newPage();
@@ -50,19 +63,48 @@ describe('Gig Tracker statistics map view', function () {
     return { context, page };
   }
 
-  it('stays visible at city level with no country, city, or venue filter active', async function () {
+  it('shows one country-level marker per country with no country, city, or venue filter active', async function () {
+    const { context, page } = await openPage();
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+
+    const countryOptionCount = await page.$$eval('#f-country option', (els) => els.length - 1); // drop "All"
+    const markerCount = await page.$$eval('.gig-map-marker', (els) => els.length);
+    expect(markerCount, 'expected one marker per country').to.equal(countryOptionCount);
+    await context.close();
+  });
+
+  it('stays at country level with only a performer filter active', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-performer', { index: 1 });
     await page.waitForTimeout(100);
     const hidden = await page.getAttribute('#stats-map-wrap', 'hidden');
     expect(hidden).to.equal(null);
     await page.waitForSelector('.gig-map-marker');
-    const venueMarkers = await page.$$('.gig-map-marker--venue');
-    expect(venueMarkers.length, 'expected only city-level markers').to.equal(0);
+    // Whichever performer index 1 happens to be, their gigs are all in one
+    // of the countries in Locations.md — any single country-level marker is
+    // proof the map stayed at country level rather than switching to city.
+    const titles = await page.$$eval('.gig-map-marker', (els) => els.map((el) => el.title));
+    const countries = ['Australia', 'France', 'New Zealand', 'The Netherlands', 'United Kingdom', 'United States of America'];
+    expect(titles.every((title) => countries.includes(title)), `expected only country titles, got ${titles}`).to.be.true;
     await context.close();
   });
 
-  it('shows a venue-coloured marker per venue when filtered by city', async function () {
+  it('sets the country filter and switches to city-level pins when a country marker is clicked', async function () {
+    const { context, page } = await openPage();
+    await clickMarker(page, '.gig-map-marker[title="United Kingdom"]');
+    await page.waitForFunction(() => document.getElementById('f-country').value === 'United Kingdom');
+
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await page.waitForSelector('.gig-map-marker');
+    const markerCounts = await page.$$eval('.gig-map-marker', (els) => els.map((el) => Number(el.textContent)));
+    expect(markerCounts.length).to.be.greaterThan(1); // several UK cities in the data
+    const londonMarker = await page.$('.gig-map-marker[title="London"]');
+    expect(londonMarker, 'expected a city-level London marker').to.exist;
+    await context.close();
+  });
+
+  it('shows a marker per venue when filtered by city', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
@@ -79,9 +121,6 @@ describe('Gig Tracker statistics map view', function () {
     // Every Wellington gig has a resolvable location, so marker counts should
     // sum to the full filtered row count.
     expect(total).to.equal(rowCount);
-
-    const nonVenueMarkers = await page.$$('.gig-map-marker:not(.gig-map-marker--venue)');
-    expect(nonVenueMarkers.length, 'expected every marker to be venue-level when filtered by city').to.equal(0);
     await context.close();
   });
 
@@ -89,41 +128,40 @@ describe('Gig Tracker statistics map view', function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-venue', { index: 1 });
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
-    await page.waitForSelector('.gig-map-marker--venue');
+    await page.waitForSelector('.gig-map-marker');
     await context.close();
   });
 
-  it('outlines venue markers in the city-marker navy, unfilled, in light mode (#152)', async function () {
-    const { context, page } = await openPage({ colorScheme: 'light' });
-    await page.selectOption('#f-venue', { index: 1 });
+  it('sets the venue filter when a venue marker is clicked', async function () {
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Wellington');
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
-    await page.waitForSelector('.gig-map-marker--venue');
-    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
-      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+    await clickMarker(page, '.gig-map-marker[title="Michael Fowler Centre, Wellington"]');
+    await page.waitForFunction(() => document.getElementById('f-venue').value === 'Michael Fowler Centre');
+    await context.close();
+  });
+
+  it('uses the same marker style at every level (#192)', async function () {
+    const { context, page } = await openPage();
+    await page.waitForSelector('.gig-map-marker');
+    const countryStyle = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker'));
       return [style.backgroundColor, style.borderColor, style.color];
     });
-    expect(venueFill, 'expected the marker to stay unfilled').to.equal('rgba(0, 0, 0, 0)');
-    expect(venueBorder, 'expected the same navy as city-level markers').to.equal('rgb(28, 79, 140)');
-    expect(venueText, 'expected the count text to match the border').to.equal('rgb(28, 79, 140)');
-    await context.close();
-  });
 
-  it('leaves venue markers unchanged in dark mode (#152)', async function () {
-    const { context, page } = await openPage({ colorScheme: 'dark' });
-    await page.selectOption('#f-venue', { index: 1 });
+    await page.selectOption('#f-city', 'Wellington');
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
-    await page.waitForSelector('.gig-map-marker--venue');
-    const [venueFill, venueBorder, venueText] = await page.evaluate(() => {
-      const style = getComputedStyle(document.querySelector('.gig-map-marker--venue'));
+    await page.waitForSelector('.gig-map-marker');
+    const venueStyle = await page.evaluate(() => {
+      const style = getComputedStyle(document.querySelector('.gig-map-marker'));
       return [style.backgroundColor, style.borderColor, style.color];
     });
-    expect(venueFill).to.equal('rgba(0, 0, 0, 0)');
-    expect(venueBorder).to.equal('rgb(38, 38, 38)');
-    expect(venueText).to.equal('rgb(38, 38, 38)');
+
+    expect(venueStyle).to.deep.equal(countryStyle);
     await context.close();
   });
 
-  it('falls back to city-level pins when filtered by country only', async function () {
+  it('shows city-level pins when filtered by country only', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-country', 'United Kingdom');
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
@@ -131,9 +169,6 @@ describe('Gig Tracker statistics map view', function () {
 
     const markerCounts = await page.$$eval('.gig-map-marker', (els) => els.map((el) => Number(el.textContent)));
     expect(markerCounts.length).to.be.greaterThan(1); // several UK cities in the data
-
-    const venueMarkers = await page.$$('.gig-map-marker--venue');
-    expect(venueMarkers.length, 'expected city-level markers with only a country filter').to.equal(0);
     await context.close();
   });
 
@@ -174,6 +209,16 @@ describe('Gig Tracker statistics map view', function () {
     const marker = await page.$('.gig-map-marker[title="Unknown address, Glasgow"]');
     expect(marker, 'expected an "Unknown address, Glasgow" marker').to.exist;
     expect(Number(await marker.textContent())).to.equal(1);
+    await context.close();
+  });
+
+  it('sets the city filter, not a venue filter, when an "Unknown address" marker is clicked', async function () {
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Glasgow');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await clickMarker(page, '.gig-map-marker[title="Unknown address, Glasgow"]');
+    await page.waitForFunction(() => document.getElementById('f-city').value === 'Glasgow');
+    expect(await page.$eval('#f-venue', (el) => el.value)).to.equal('');
     await context.close();
   });
 
@@ -225,15 +270,25 @@ describe('Gig Tracker statistics map view', function () {
     await context.close();
   });
 
-  it('falls back to city-level pins when filters are cleared', async function () {
+  it('selects the alphabetically first alias when a co-located venue marker is clicked (#158)', async function () {
     const { context, page } = await openPage();
     await page.selectOption('#f-city', 'Wellington');
-    await page.waitForSelector('.gig-map-marker--venue');
+    await page.waitForSelector('#stats-map-wrap:not([hidden])');
+    await clickMarker(page, '.gig-map-marker[title*="San Fran"]');
+    // Indigo, San Fran, Stax — Indigo sorts first alphabetically.
+    await page.waitForFunction(() => document.getElementById('f-venue').value === 'Indigo');
+    await context.close();
+  });
+
+  it('falls back to country-level pins when filters are cleared', async function () {
+    const { context, page } = await openPage();
+    await page.selectOption('#f-city', 'Wellington');
+    await page.waitForSelector('.gig-map-marker');
     await page.click('#reset');
     await page.waitForSelector('#stats-map-wrap:not([hidden])');
     await page.waitForSelector('.gig-map-marker');
-    const venueMarkers = await page.$$('.gig-map-marker--venue');
-    expect(venueMarkers.length, 'expected city-level markers after reset').to.equal(0);
+    const marker = await page.$('.gig-map-marker[title="New Zealand"]');
+    expect(marker, 'expected a country-level marker after reset').to.exist;
     await context.close();
   });
 });

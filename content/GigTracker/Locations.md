@@ -8,8 +8,16 @@ Some entries are historic/defunct venues (many small Wellington and London bars/
 
 Every Country/City combination also has its own row with a blank Venue, giving the conventional city-centre coordinates for that city as a whole (i.e. what you'd get pinning just "City, Country" on Google Maps) — useful for a city-level overview pin. Three of these rows already existed as genuine blank-venue entries carried over from gig-history.md (Wellington, Woodville, London); the other 29 are new rows added purely for this purpose.
 
+Every Country also has its own row with a blank City and a blank Venue, giving that country's own geographic coordinates (the ones shown in the Coordinates line of its Wikipedia infobox) — used for the map's country-level overview pin.
+
 | Country | City | Venue | Location |
 |---|---|---|---|
+| Australia | | | -25, 133 |
+| France | | | 47, 2 |
+| New Zealand | | | -42, 173 |
+| The Netherlands | | | 52, 6 |
+| United Kingdom | | | 55, -3 |
+| United States of America | | | 40, -100 |
 | Australia | Sydney | | -33.8688, 151.2093 |
 | Australia | Sydney | Olympic Park | -33.84891, 151.06772 |
 | France | Nimes | | 43.8367, 4.3601 |

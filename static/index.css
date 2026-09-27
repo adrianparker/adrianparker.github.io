@@ -111,14 +111,6 @@
   --color-cat-other: #7a8290;
   --color-cat-other: light-dark(#5c6270, #7a8290);
 
-  /* Border colour for the Gig Tracker map's venue-level markers, which are
-     unfilled (like dark mode's already are). Light mode needs the border in
-     the same navy as --color-accent's light half to be legible against the
-     basemap — see #152. Dark mode keeps --color-bg-top's dark half, matching
-     the border colour the markers already had (--panel) before #152. */
-  --color-accent-venue: #262626;
-  --color-accent-venue: light-dark(#1c4f8c, #262626);
-
   /* The Gig Tracker's setlist lightbox scrim and drop shadow. Both are dark
      translucent overlays sitting on top of the whole page, so unlike the
      tokens above they don't need a light-mode counterpart. */
@@ -1276,6 +1268,102 @@ html.js .app-nav-collapse {
 .gig-metadata-table tr + tr th,
 .gig-metadata-table tr + tr td {
   border-top: 1px solid var(--color-hairline);
+}
+
+/* Setlist chip and modal — same look as the Gig Tracker's own (see
+   content/GigTracker/gig-history.css .setlist-chip/.setlist-modal*), but
+   built from the site's own theme tokens rather than the app's, since this
+   markup lives directly on the page rather than inside the scoped
+   .gig-tracker embed. Scoped to .gig-metadata / .gig-setlist-modal so these
+   rules don't also restyle the embedded Gig Tracker's own chips and modal,
+   which share the class names. */
+.gig-metadata .setlist-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 0.4em;
+  padding: 2px 9px;
+  min-height: 22px;
+  line-height: 1.7;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-rule);
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.gig-metadata .setlist-chip:hover {
+  background: var(--color-hairline);
+}
+
+.gig-metadata .setlist-chip-arrow {
+  font-size: 0.63rem;
+}
+
+.setlist-modal-overlay.gig-setlist-modal {
+  position: fixed;
+  inset: 0;
+  background: var(--color-modal-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.gig-setlist-modal .setlist-modal {
+  position: relative;
+  background: var(--color-bg-top);
+  border: 1px solid var(--color-rule);
+  border-radius: 12px;
+  padding: 22px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 60px var(--color-modal-shadow);
+}
+
+.gig-setlist-modal .setlist-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gig-setlist-modal .setlist-modal-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+.gig-setlist-modal .setlist-modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 2px 0 14px;
+  color: var(--color-text);
+}
+
+.gig-setlist-modal .setlist-modal-img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.gig-setlist-modal .setlist-modal-hint {
+  margin-top: 12px;
+  font-size: 0.68rem;
+  color: var(--color-muted);
 }
 
 /* Video embedding - responsive container */

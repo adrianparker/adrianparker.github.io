@@ -41,7 +41,7 @@ Three content types:
 | **Gigs** | `content/posts/gigs/*.md` | `/posts/gigs/<Slug>/` |
 | **Apps** | `content/<AppName>/index.njk` | `/<AppName>/` |
 
-Gigs are a specialised post: a concert, sometimes with setlist.fm links, sometimes Spotify playlist links, sometimes a set of photos shown as a slideshow, etc.
+Gigs are a specialised post: a concert, sometimes with a setlist.fm setlist chip for one or more performers, sometimes a set of photos shown as a slideshow, etc.
 
 ---
 
@@ -50,6 +50,7 @@ Gigs are a specialised post: a concert, sometimes with setlist.fm links, sometim
 ```bash
 npm run build          # eleventy build into _site/
 npm run serve          # local dev server, live reload, usually :8080
+npm start              # same as npm run serve
 npm run test:unit      # unit tests + coverage gate. No build, no browser — fast
 npm run test:smoke     # build + smoke tests
 npm run test:theme     # build + light/dark theme behaviour
@@ -132,13 +133,14 @@ supportArtists: ['Support One']
 venue: 'Venue'
 city: 'City'
 country: 'New Zealand'
-setlistfm: 'https://www.setlist.fm/...'
-spotify: 'https://open.spotify.com/embed/playlist/...'
+setlistfm: 'Artist:73d6de39, Support One:83d6de3a'
 photos: '20260523-Artist-Venue-City'
 ---
 ```
 
 `navtitle` convention for gigs is `'<year> <Artist>'`. Everything from `supportArtists` down is optional — the layout guards each with `{% if %}`.
+
+`setlistfm` holds one `Performer Name:id` pair per performer who has a setlist for that specific show, comma-separated — the same format as the `Setlist.fm ID` column in `content/GigTracker/gig-history.md` (see its README), so a gig review post and its GigTracker row present a setlist the same way. A literal comma in a name is escaped as `\,`, and an id may carry a trailing `:empty` suffix (setlist exists but has no songs listed yet), which suppresses that performer's chip. The layout renders a "Setlist" chip next to each performer's name whose id resolves; clicking it opens a modal showing the setlist.fm setlist image.
 
 `photos` names a set published with `npm run photos` (README → Photos), conventionally the gig's own file stem; the layout renders it as a slideshow after the review.
 

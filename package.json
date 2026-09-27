@@ -13,6 +13,7 @@
     "build": "npx eleventy",
     "photos": "node scripts/publish-photos.mjs",
     "serve": "npx eleventy --serve",
+    "start": "npx eleventy --serve",
     "certs": "mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
     "debug": "DEBUG=* npx eleventy",
     "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",
@@ -23,7 +24,8 @@
     "test:gigtracker-filter-adaptation": "npm run build && mocha tests/gig-tracker-filter-adaptation.test.mjs --timeout 60000",
     "test:gigtracker-stats-chart": "npm run build && mocha tests/gig-tracker-stats-chart.test.mjs --timeout 60000",
     "test:gigtracker-stats-map": "npm run build && mocha tests/gig-tracker-stats-map.test.mjs --timeout 60000",
-    "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000"
+    "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000",
+    "test:gig-post-setlist": "npm run build && mocha tests/gig-post-setlist.test.mjs --timeout 60000"
   },
   "repository": {
     "type": "git",

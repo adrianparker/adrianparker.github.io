@@ -49,7 +49,6 @@ const PALETTE = {
   "--text": "var(--color-text)",
   "--muted": "var(--color-muted)",
   "--accent": "var(--color-accent)",
-  "--accent-venue": "var(--color-accent-venue)",
   "--modal-overlay": "var(--color-modal-overlay)",
   "--modal-shadow": "var(--color-modal-shadow)",
   /*
@@ -86,11 +85,12 @@ const LITERAL_COLOURS = {
 };
 
 /**
- * Attaches both venue-level (lat/lng) and city-level (cityLat/cityLng)
- * coordinates to each gig, resolved against Locations.md (see
- * lib/locations.mjs). The map view needs both: venue precision when a City
- * filter narrows to one city, city-level aggregation when only Country is
- * active (see renderStatsMap in gig-history.html). A Country/City/Venue
+ * Attaches venue-level (lat/lng), city-level (cityLat/cityLng) and
+ * country-level (countryLat/countryLng) coordinates to each gig, resolved
+ * against Locations.md (see lib/locations.mjs). The map view needs all
+ * three: venue precision when a City or Venue filter is active, city-level
+ * aggregation when only Country is active, and country-level aggregation
+ * otherwise (see renderStatsMap in gig-history.html). A Country/City/Venue
  * combination with no usable coordinates at all — the fallback chain has
  * nowhere left to go — is warned about once rather than failing the build,
  * since a gap here means Locations.md is stale, not that the gig data is
@@ -106,6 +106,7 @@ function withCoordinates (gigs, locations) {
   return gigs.map((gig) => {
     const exact = findLocation(locations, gig);
     const cityLevel = findLocation(locations, { ...gig, venue: "" });
+    const countryLevel = findLocation(locations, { ...gig, city: "", venue: "" });
     const resolved = exact || cityLevel;
     if (!resolved) {
       const key = `${gig.country} / ${gig.city} / ${gig.venue}`;
@@ -118,7 +119,8 @@ function withCoordinates (gigs, locations) {
       ...gig,
       hasVenueLocation: Boolean(exact),
       ...(resolved ? { lat: resolved.lat, lng: resolved.lng } : {}),
-      ...(cityLevel ? { cityLat: cityLevel.lat, cityLng: cityLevel.lng } : {})
+      ...(cityLevel ? { cityLat: cityLevel.lat, cityLng: cityLevel.lng } : {}),
+      ...(countryLevel ? { countryLat: countryLevel.lat, countryLng: countryLevel.lng } : {})
     };
   });
 }

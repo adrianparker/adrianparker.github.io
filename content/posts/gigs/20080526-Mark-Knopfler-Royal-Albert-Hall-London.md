@@ -6,10 +6,11 @@ metadesc: 'Concert review of Mark Knopfler at Royal Albert Hall, London, 26 May 
 date: 2008-05-26
 readingtime: '1 minute'
 headlineArtist: 'Mark Knopfler'
+supportArtists: ['Bap Kennedy']
 venue: 'Royal Albert Hall'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/mark-knopfler/2008/royal-albert-hall-london-england-3dca1cf.html'
+setlistfm: 'Mark Knopfler:3dca1cf'
 photos: '20080526-Mark-Knopfler-Royal-Albert-Hall-London'
 ---
 The maestro delivers an intimate masterclass in a world class iconic venue.

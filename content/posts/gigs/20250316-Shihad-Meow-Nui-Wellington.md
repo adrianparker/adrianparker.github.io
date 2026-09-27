@@ -10,7 +10,7 @@ supportArtists: ['Shepherd''s Reign, The Boondocks']
 venue: 'Meow Nui'
 city: 'Wellington'
 country: 'New Zealand'
-setlistfm: 'https://www.setlist.fm/setlist/shihad/2025/meow-nui-wellington-new-zealand-2358f4bb.html'
+setlistfm: 'Shihad:2358f4bb'
 photos: '20250316-Shihad-Meow-Nui-Wellington'
 ---
 

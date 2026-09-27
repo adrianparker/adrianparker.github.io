@@ -9,7 +9,7 @@ headlineArtist: 'Portishead'
 venue: 'Hammersmith Apollo'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/portishead/2008/hammersmith-apollo-london-england-63d72643.html'
+setlistfm: 'Portishead:63d72643'
 photos: '20080410-Portishead-Hammersmith-London'
 ---
 

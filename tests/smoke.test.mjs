@@ -21,6 +21,8 @@ const load = (...parts) => cheerio.load(read(...parts));
 
 const VIDEO_POST = ['posts', 'Last-Ever-Last-Ever', 'index.html'];
 const GIG_POST = ['posts', 'gigs', '20090218-Datsuns-Astoria-London', 'index.html'];
+// A gig post with visible setlist chips for both the headline and support act.
+const GIG_POST_WITH_CHIPS = ['posts', 'gigs', '20260911-WASP-Wiltern-Los-Angeles', 'index.html'];
 // A post whose photos have been published to the media bucket (README → Photos).
 const PHOTO_POST = ['posts', 'Wine-Cork-Notice-Board-How-To', 'index.html'];
 const MEDIA_URL = JSON.parse(fs.readFileSync('content/_data/site.json', 'utf8')).mediaUrl;
@@ -145,6 +147,43 @@ describe('Smoke Tests - Gig Post Type', function () {
     const cardClass = $('.gig-metadata').attr('class');
     expect(cardClass).to.be.a('string');
     expect(read('index.css')).to.include(`.${cardClass.split(/\s+/)[0]}`);
+  });
+
+  it('should not render a setlist.fm or Spotify link row on a gig post', function () {
+    const $ = load(...GIG_POST_WITH_CHIPS);
+    expect($('.gig-metadata a.external-link'), 'external-link row').to.have.lengthOf(0);
+    expect($('.gig-metadata').text()).to.not.contain('setlist.fm');
+    expect($('.gig-metadata').text()).to.not.contain('Spotify');
+  });
+
+  it('should render a setlist chip next to the headline and each support artist that has an id', function () {
+    const $ = load(...GIG_POST_WITH_CHIPS);
+    const chips = $('.gig-metadata .setlist-chip');
+    expect(chips, 'setlist chips').to.have.lengthOf(2);
+
+    const byArtist = chips.map((_, el) => $(el).attr('data-artist')).get();
+    expect(byArtist).to.include.members(['W.A.S.P.', "KK's Priest"]);
+
+    chips.each((_, el) => {
+      const $chip = $(el);
+      expect($chip.attr('type'), 'chip is a real button, not a submit').to.equal('button');
+      expect($chip.attr('data-setlist-id')).to.be.a('string').and.not.empty;
+      expect($chip.attr('data-venue')).to.equal('The Wiltern');
+    });
+  });
+
+  it('should not render a setlist chip for a performer whose id is marked :empty', function () {
+    const $ = load(...GIG_POST);
+    expect($('.gig-metadata .setlist-chip'), 'suppressed chip').to.have.lengthOf(0);
+  });
+
+  it('should only render the setlist modal markup on a gig post that has a visible chip', function () {
+    const withChips = load(...GIG_POST_WITH_CHIPS);
+    expect(withChips('#setlist-modal-overlay'), 'modal on a post with chips').to.have.lengthOf(1);
+    expect(withChips('#setlist-modal-img').attr('src')).to.equal('data:,');
+
+    const withoutChips = load(...GIG_POST);
+    expect(withoutChips('#setlist-modal-overlay'), 'modal on a post with no visible chips').to.have.lengthOf(0);
   });
 
   it('should render the gig\'s photo set as a slideshow, one slide per manifest entry', function () {
