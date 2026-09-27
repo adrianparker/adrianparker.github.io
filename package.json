@@ -14,6 +14,7 @@
     "photos": "node scripts/publish-photos.mjs",
     "serve": "npx eleventy --serve",
     "start": "npx eleventy --serve",
+    "certs": "mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
     "debug": "DEBUG=* npx eleventy",
     "test:theme": "npm run build && mocha tests/theme.test.mjs --timeout 60000",
     "test:analytics": "npm run build && mocha tests/analytics.test.mjs --timeout 60000",

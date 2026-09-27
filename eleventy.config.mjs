@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
 import { markdownLibrary, renderMarkdown, readableDate, isoDate, limit } from "./lib/filters.mjs";
@@ -12,6 +14,20 @@ import site from "./content/_data/site.json" with { type: "json" };
 export default function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  /*
+    Serve the dev server over https so Safari doesn't warn on localhost (#186).
+    Certs are generated locally with `npm run certs` (mkcert) into the
+    gitignored .certs/ dir; when they're absent (CI, fresh clone) the dev
+    server falls back to its default plain http.
+  */
+  const httpsKey = ".certs/localhost-key.pem";
+  const httpsCert = ".certs/localhost.pem";
+  if (existsSync(httpsKey) && existsSync(httpsCert)) {
+    eleventyConfig.setServerOptions({
+      https: { key: httpsKey, cert: httpsCert }
+    });
+  }
 
   // output everything from the static folder at root of output
   eleventyConfig.addPassthroughCopy({ static: "/" });

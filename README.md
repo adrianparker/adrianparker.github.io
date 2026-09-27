@@ -33,6 +33,22 @@ You should see output showing you the site is now being served, most likely at l
 
 `npm start` does the same thing.
 
+#### Trusted https on localhost (optional, one-time)
+
+By default the dev server is plain http. To serve it over https without a
+browser warning (Safari warns on a plain http localhost too), generate a
+locally-trusted certificate with [mkcert](https://github.com/FiloSottile/mkcert):
+
+```
+brew install mkcert
+mkcert -install       # once per machine — adds mkcert's CA to your trust store
+npm run certs          # generates .certs/localhost.pem + .certs/localhost-key.pem
+```
+
+`npm run serve` then automatically serves over https once those files exist.
+The certificate is valid for about 27 months (Apple caps locally-trusted
+certs at 825 days) — re-run `npm run certs` when it expires.
+
 ### Run tests
 
 Automated tests validate the build and design:

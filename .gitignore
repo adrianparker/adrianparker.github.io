@@ -10,3 +10,4 @@ tests/screenshots-actual/
 coverage/
 content/GigTracker/claude-cowork
 .photos/
+.certs/
