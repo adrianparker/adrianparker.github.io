@@ -1282,8 +1282,10 @@ html.js .app-nav-collapse {
    content/GigTracker/gig-history.css .setlist-chip/.setlist-modal*), but
    built from the site's own theme tokens rather than the app's, since this
    markup lives directly on the page rather than inside the scoped
-   .gig-tracker embed. */
-.setlist-chip {
+   .gig-tracker embed. Scoped to .gig-metadata / .gig-setlist-modal so these
+   rules don't also restyle the embedded Gig Tracker's own chips and modal,
+   which share the class names. */
+.gig-metadata .setlist-chip {
   display: inline-flex;
   align-items: center;
   gap: 3px;
@@ -1301,15 +1303,15 @@ html.js .app-nav-collapse {
   cursor: pointer;
 }
 
-.setlist-chip:hover {
+.gig-metadata .setlist-chip:hover {
   background: var(--color-hairline);
 }
 
-.setlist-chip-arrow {
+.gig-metadata .setlist-chip-arrow {
   font-size: 0.63rem;
 }
 
-.setlist-modal-overlay {
+.setlist-modal-overlay.gig-setlist-modal {
   position: fixed;
   inset: 0;
   background: var(--color-modal-overlay);
@@ -1320,7 +1322,7 @@ html.js .app-nav-collapse {
   z-index: 1000;
 }
 
-.setlist-modal {
+.gig-setlist-modal .setlist-modal {
   position: relative;
   background: var(--color-bg-top);
   border: 1px solid var(--color-rule);
@@ -1331,7 +1333,7 @@ html.js .app-nav-collapse {
   box-shadow: 0 20px 60px var(--color-modal-shadow);
 }
 
-.setlist-modal-close {
+.gig-setlist-modal .setlist-modal-close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -1346,27 +1348,27 @@ html.js .app-nav-collapse {
   cursor: pointer;
 }
 
-.setlist-modal-label {
+.gig-setlist-modal .setlist-modal-label {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-muted);
 }
 
-.setlist-modal-title {
+.gig-setlist-modal .setlist-modal-title {
   font-size: 1rem;
   font-weight: 700;
   margin: 2px 0 14px;
   color: var(--color-text);
 }
 
-.setlist-modal-img {
+.gig-setlist-modal .setlist-modal-img {
   width: 100%;
   display: block;
   border-radius: 8px;
 }
 
-.setlist-modal-hint {
+.gig-setlist-modal .setlist-modal-hint {
   margin-top: 12px;
   font-size: 0.68rem;
   color: var(--color-muted);
