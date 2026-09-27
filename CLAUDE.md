@@ -60,6 +60,7 @@ npm test               # unit + smoke + theme + analytics + visual, everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 npm run photos -- <set-id> <folder> --upload  # publish a set of photos, see README → Photos
 npm run certs           # (re)generate a trusted https cert for localhost, see README
+npm run spellcheck     # cspell over all posts/gigs, see README → Spell checking
 ```
 
 Run `npm run test:unit` constantly; it takes well under a second. Run the
