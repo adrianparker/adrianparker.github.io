@@ -9,7 +9,7 @@ headlineArtist: 'The Black Crowes'
 venue: 'Brixton Academy'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/the-black-crowes/2008/carling-academy-brixton-london-england-73d6de39.html'
+setlistfm: 'The Black Crowes:73d6de39'
 photos: '20080409-Black-Crowes-Brixton-Academy-London'
 ---
 

@@ -9,7 +9,7 @@ headlineArtist: 'Hollie Smith'
 venue: '12 Acklam Rd (Neighbourhood)'
 city: 'London'
 country: 'United Kingdon'
-setlistfm: 'https://www.setlist.fm/setlist/hollie-smith/2008/neighbourhood-london-england-b776dce.html'
+setlistfm: 'Hollie Smith:b776dce:empty'
 photos: '20080414-Hollie-Smith-London'
 ---
 

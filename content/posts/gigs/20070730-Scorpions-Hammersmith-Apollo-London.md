@@ -10,7 +10,7 @@ supportArtists: ['Michael Schenker Group (MSG)']
 venue: 'Hammersmith Apollo'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/scorpions/2007/hammersmith-apollo-london-england-bd7453e.html'
+setlistfm: 'Scorpions:bd7453e, Michael Schenker Group (MSG):23d7587b'
 photos: '20070730-Scorpions-Hammersmith-Apollo-London'
 ---
 

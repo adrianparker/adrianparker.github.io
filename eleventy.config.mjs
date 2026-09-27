@@ -5,6 +5,7 @@ import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
 import { photoShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 import { slideshowShortcode } from "./lib/slideshow.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
+import { parseSetlistIds, anyVisibleChip } from "./lib/setlist-ids.mjs";
 
 import site from "./content/_data/site.json" with { type: "json" };
 
@@ -82,6 +83,14 @@ export default function (eleventyConfig) {
 
   // truncate a collection — the home page and feed are both capped
   eleventyConfig.addFilter("limit", limit);
+
+  // parses a gig post's `setlistfm` front matter into a Map of performer
+  // name -> { id, empty }, for the setlist chip next to each performer name
+  eleventyConfig.addFilter("setlistIds", parseSetlistIds);
+
+  // true if any of the given performer names has a visible (non-:empty)
+  // setlist chip — gates whether a gig post needs the modal markup at all
+  eleventyConfig.addFilter("anySetlistChip", anyVisibleChip);
 
   // enable RSS
   eleventyConfig.addPlugin(pluginRss);

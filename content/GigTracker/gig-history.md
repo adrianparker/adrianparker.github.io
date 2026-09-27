@@ -338,9 +338,9 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2008-05-17 | The Trailer Boat Ride | Music | London | United Kingdom | | | | |
 | 2008-04-16 | The Breeders | Music | London | United Kingdom | KOKO | | | The Breeders:5bd0c34c |
 | 2008-04-14 | Hollie Smith | Music | London | United Kingdom | 12 Acklam Rd | | | Hollie Smith:b776dce:empty |
-| 2008-04-11 | Jose Gonzalez | Music | London | United Kingdom | Shepherd's Bush Empire | | | |
+| 2008-04-11 | Jose Gonzalez | Music | London | United Kingdom | Shepherd's Bush Empire | | | Jose Gonzalez:53d583b9 |
 | 2008-04-10 | Portishead | Music | London | United Kingdom | Hammersmith Apollo | | | Portishead:63d72643 |
-| 2008-04-09 | Black Crowes | Music | London | United Kingdom | Brixton Academy | | | Black Crowes:73d6de39 |
+| 2008-04-09 | The Black Crowes | Music | London | United Kingdom | Brixton Academy | | | The Black Crowes:73d6de39 |
 | 2008-04-08 | English National Opera | Opera | London | United Kingdom | Young Vic | David Lynch's Lost Highway | | |
 | 2008-03-20 | The Cure, 65 Days of Static | Music | London | United Kingdom | Wembley Arena | | | The Cure:53d7b765, 65 Days of Static:bd9c1c2:empty |
 | 2008-03-15 | Neil Young | Music | London | United Kingdom | Hammersmith Apollo | | | Neil Young:2bd6bc22 |
