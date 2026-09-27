@@ -22,7 +22,8 @@
     "test:gigtracker-filter-adaptation": "npm run build && mocha tests/gig-tracker-filter-adaptation.test.mjs --timeout 60000",
     "test:gigtracker-stats-chart": "npm run build && mocha tests/gig-tracker-stats-chart.test.mjs --timeout 60000",
     "test:gigtracker-stats-map": "npm run build && mocha tests/gig-tracker-stats-map.test.mjs --timeout 60000",
-    "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000"
+    "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000",
+    "test:gig-post-setlist": "npm run build && mocha tests/gig-post-setlist.test.mjs --timeout 60000"
   },
   "repository": {
     "type": "git",
