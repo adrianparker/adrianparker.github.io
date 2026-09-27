@@ -9,7 +9,7 @@ headlineArtist: 'The Breeders'
 venue: 'Koko'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/the-breeders/2008/koko-london-england-5bd0c34c.html'
+setlistfm: 'The Breeders:5bd0c34c'
 photos: '20080416-Breeders-Koko-London'
 ---
 

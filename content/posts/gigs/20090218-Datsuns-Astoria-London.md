@@ -9,7 +9,7 @@ headlineArtist: 'The Datsuns'
 venue: 'Underworld'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/the-datsuns/2009/the-underworld-london-england-7377721d.html'
+setlistfm: 'The Datsuns:7377721d:empty'
 photos: '20090218-Datsuns-Astoria-London'
 ---
 The Datsuns have always been a band that sounds better loud.

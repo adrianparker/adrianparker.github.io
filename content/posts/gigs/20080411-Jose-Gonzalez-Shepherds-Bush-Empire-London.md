@@ -9,7 +9,7 @@ headlineArtist: 'Jose Gonzalez'
 venue: 'Shepherd''s Bush Empire'
 city: 'London'
 country: 'United Kingdom'
-setlistfm: 'https://www.setlist.fm/setlist/jose-gonzalez/2008/shepherds-bush-empire-london-england-53d583b9.html'
+setlistfm: 'Jose Gonzalez:53d583b9'
 photos: '20080411-Jose-Gonzalez-Shepherds-Bush-Empire-London'
 ---
 

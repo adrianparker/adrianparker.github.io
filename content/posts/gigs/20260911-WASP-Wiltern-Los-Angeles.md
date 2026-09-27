@@ -12,7 +12,7 @@ supportArtists: ['KK''s Priest']
 venue: 'The Wiltern'
 city: 'Los Angeles'
 country: 'United States'
-setlistfm: 'https://www.setlist.fm/setlist/wasp/2026/wiltern-theatre-los-angeles-ca-34b29cb.html'
+setlistfm: "W.A.S.P.:34b29cb, KK's Priest:234b28ef"
 photos: '20260911-WASP-Wiltern-Los-Angeles'
 ---
 <!-- excerpt -->
