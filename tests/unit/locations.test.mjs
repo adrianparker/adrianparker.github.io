@@ -12,7 +12,8 @@ const TABLE = [
   "| New Zealand | Wellington | Michael Fowler Centre | -41.2862, 174.7768 |",
   "| New Zealand | Wellington | Bar Bodega | 101 Ghuznee Street, Te Aro, Wellington 6011, New Zealand |",
   "| New Zealand | Lower Hutt | Lucky Jacks | |",
-  "| New Zealand | Grenada North | | |"
+  "| New Zealand | Grenada North | | |",
+  "| New Zealand | | | -42, 173 |"
 ].join("\n");
 
 describe("locations — parseLocations", () => {
@@ -55,9 +56,20 @@ describe("locations — parseLocations", () => {
     });
   });
 
+  it("parses a blank-city, blank-venue row as the country-level entry", () => {
+    const rows = parseLocations(TABLE);
+    expect(rows[5]).to.deep.equal({
+      country: "New Zealand",
+      city: "",
+      venue: "",
+      lat: -42,
+      lng: 173
+    });
+  });
+
   it("stops at the first line after the table that is not a row", () => {
     const withTrailer = `${TABLE}\n\nSome trailing note.\n`;
-    expect(parseLocations(withTrailer)).to.have.lengthOf(5);
+    expect(parseLocations(withTrailer)).to.have.lengthOf(6);
   });
 
   it("returns an empty array when there is no header row", () => {
@@ -121,6 +133,18 @@ describe("locations — findLocation", () => {
   it("returns null when the venue isn't in the table at all", () => {
     expect(findLocation(rows, {
       country: "New Zealand", city: "Wellington", venue: "Some New Venue"
+    })).to.be.null;
+  });
+
+  it("returns coordinates for a blank-city, blank-venue country-level match", () => {
+    expect(findLocation(rows, {
+      country: "New Zealand", city: "", venue: ""
+    })).to.deep.equal({ lat: -42, lng: 173 });
+  });
+
+  it("returns null for a country with no country-level row", () => {
+    expect(findLocation(rows, {
+      country: "Australia", city: "", venue: ""
     })).to.be.null;
   });
 });

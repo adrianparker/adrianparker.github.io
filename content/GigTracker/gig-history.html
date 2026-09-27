@@ -735,22 +735,24 @@ let statsMapMarkers = null;
  * with no resolved location (see gigTrackerApp.mjs's build-time warning) are
  * silently excluded — there is nowhere on the map to put them.
  *
- * With a City or Venue filter active, markers sit at venue precision
- * (row.lat/lng) and render in the venue accent colour. Otherwise every gig
- * collapses onto its city's pin (row.cityLat/cityLng) in the default accent
- * colour — two gigs at different venues in the same city should read as one
+ * The map has three zoom levels, all sharing one marker style (#192) so
+ * there's nothing for a first-time user to learn between them: country-level
+ * (row.countryLat/countryLng) when no Country, City or Venue filter is
+ * active, city-level (row.cityLat/cityLng) once a Country filter narrows
+ * things, and venue-level (row.lat/lng) once a City or Venue filter narrows
+ * further (#195). Two gigs collapsing onto the same point read as one
  * marker showing "2", not two separate pins.
  */
 function renderStatsMap(rows) {
-  const cityLevel = !filters.city && !filters.venue;
+  const level = (filters.city || filters.venue) ? "venue" : filters.country ? "city" : "country";
   const byLocation = new Map();
   for (const row of rows) {
-    const lat = cityLevel ? row.cityLat : row.lat;
-    const lng = cityLevel ? row.cityLng : row.lng;
+    const lat = level === "venue" ? row.lat : level === "city" ? row.cityLat : row.countryLat;
+    const lng = level === "venue" ? row.lng : level === "city" ? row.cityLng : row.countryLng;
     if (typeof lat !== "number" || typeof lng !== "number") continue;
     const key = `${lat},${lng}`;
     if (!byLocation.has(key)) {
-      byLocation.set(key, { lat, lng, venue: row.venue, city: row.city, gigs: [] });
+      byLocation.set(key, { lat, lng, venue: row.venue, city: row.city, country: row.country, gigs: [] });
     }
     byLocation.get(key).gigs.push(row);
   }
@@ -776,51 +778,65 @@ function renderStatsMap(rows) {
 
   statsMapMarkers.clearLayers();
   for (const location of byLocation.values()) {
-    // In venue-precision mode, a gig with no coordinates of its own falls
-    // back to the city point (see hasVenueLocation in gigTrackerApp.mjs) and
-    // lands in the same group as any other gig doing the same — location.venue
-    // is then just whichever gig happened to be pushed first, so it can't be
-    // trusted as the marker's label.
-    const hasFallback = !cityLevel && location.gigs.some((gig) => !gig.hasVenueLocation);
+    // At venue precision, a gig with no coordinates of its own falls back to
+    // the city point (see hasVenueLocation in gigTrackerApp.mjs) and lands
+    // in the same group as any other gig doing the same — location.venue is
+    // then just whichever gig happened to be pushed first, so it can't be
+    // trusted as the marker's label, and clicking it selects the city
+    // instead of guessing at a venue.
+    const hasFallback = level === "venue" && location.gigs.some((gig) => !gig.hasVenueLocation);
     let label = location.city;
-    if (hasFallback) {
+    let primaryVenue = null;
+    if (level === "country") {
+      label = location.country;
+    } else if (hasFallback) {
       label = `Unknown address, ${location.city}`;
-    } else if (!cityLevel && location.venue) {
+    } else if (level === "venue" && location.venue) {
       // Co-located venues (#158) — several names sharing this address over
-      // time — get a breakdown instead of one arbitrary name.
+      // time — get a breakdown instead of one arbitrary name; clicking
+      // always selects the alphabetically first alias, since
+      // matchesFilterKey expands it back out to every alias anyway.
       const nameCounts = new Map();
       location.gigs.forEach(g => {
         if (g.venue) nameCounts.set(g.venue, (nameCounts.get(g.venue) || 0) + 1);
       });
-      label = nameCounts.size > 1
-        ? Array.from(nameCounts.entries())
-            .sort((a, b) => a[0].localeCompare(b[0]))
-            .map(([name, count]) => `${name} (${count})`)
-            .join(", ")
+      const sortedNames = Array.from(nameCounts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+      primaryVenue = sortedNames[0][0];
+      label = sortedNames.length > 1
+        ? sortedNames.map(([name, count]) => `${name} (${count})`).join(", ")
         : `${location.venue}, ${location.city}`;
     }
     const icon = L.divIcon({
       className: "gig-map-marker-wrap",
       // title gives a native hover tooltip and a hook for tests — Leaflet's
       // own bindTooltip below isn't in the DOM until actually shown.
-      html: `<span class="gig-map-marker${cityLevel ? "" : " gig-map-marker--venue"}" title="${escapeAttr(label)}">${location.gigs.length}</span>`,
+      html: `<span class="gig-map-marker" title="${escapeAttr(label)}">${location.gigs.length}</span>`,
       iconSize: [28, 28]
     });
     const gigsLabel = `${location.gigs.length} gig${location.gigs.length === 1 ? "" : "s"}`;
-    // Only city-level markers are clickable — at venue precision the label
-    // is "Venue, City", not a clean "click the city" target. The city name
-    // is styled like a link for the affordance, but the click target is the
-    // marker itself: Leaflet closes the tooltip as soon as the mouse leaves
-    // the marker, which happens before the cursor can reach text inside it.
-    const tooltipContent = cityLevel
-      ? `<span class="gig-map-city-label">${escapeHtml(location.city)}</span> — ${gigsLabel}`
-      : `${label} — ${gigsLabel}`;
+    // Every level is clickable, and the label is styled like a link for the
+    // affordance, but the click target is the marker itself: Leaflet closes
+    // the tooltip as soon as the mouse leaves the marker, which happens
+    // before the cursor can reach text inside it.
+    const tooltipContent = `<span class="gig-map-city-label">${escapeHtml(label)}</span> — ${gigsLabel}`;
     const marker = L.marker([location.lat, location.lng], { icon })
       .bindTooltip(tooltipContent)
       .addTo(statsMapMarkers);
-    if (cityLevel) marker.on("click", () => selectFilter("city", location.city));
+    if (level === "country") {
+      marker.on("click", () => selectFilter("country", location.country));
+    } else if (level === "city") {
+      marker.on("click", () => selectFilter("city", location.city));
+    } else if (hasFallback || !location.venue) {
+      marker.on("click", () => selectFilter("city", location.city));
+    } else {
+      marker.on("click", () => selectFilter("venue", primaryVenue));
+    }
   }
-  statsMap.fitBounds(statsMapMarkers.getBounds(), { padding: [24, 24], maxZoom: 15 });
+  // A country-level view can be a single pin at world scale — cap the zoom
+  // well below street level so fitBounds doesn't zoom in on it as if it were
+  // one precise address.
+  const maxZoom = level === "country" ? 5 : 15;
+  statsMap.fitBounds(statsMapMarkers.getBounds(), { padding: [24, 24], maxZoom });
 }
 
 function renderStats(filteredRows) {
