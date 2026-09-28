@@ -628,6 +628,9 @@ describe('Smoke Tests - Discoverability', function () {
           if (entry.name === 'dist') continue; // vendored artifact, see #45
           walk(full);
         } else if (entry.name === 'index.html') {
+          // A redirect stub left at an old URL after a rename — deliberately
+          // kept out of the sitemap (noindex, canonical points elsewhere).
+          if (fs.readFileSync(full, 'utf8').includes('http-equiv="refresh"')) continue;
           const url = '/' + path.relative(SITE, path.dirname(full)).replace(/\\/g, '/');
           const normalised = url === '/.' ? '/' : url + '/';
           if (!listed.has(normalised === '//' ? '/' : normalised)) missing.push(normalised);
@@ -637,6 +640,35 @@ describe('Smoke Tests - Discoverability', function () {
     walk(SITE);
 
     expect(missing, `pages built but absent from sitemap:\n  ${missing.join('\n  ')}`).to.be.empty;
+  });
+});
+
+describe('Smoke Tests - Renamed gig redirect stubs', function () {
+  this.timeout(30000);
+
+  // A gig post renamed to the date-headline-venue-city convention, leaving
+  // a redirect stub at its old URL so existing bookmarks keep working.
+  const OLD_URL = ['posts', 'gigs', '20260523-Teen-Jesus-and-the-Jean-Teasers', 'index.html'];
+  const NEW_URL = '/posts/gigs/20260523-Teen-Jesus-and-the-Jean-Teasers-San-Fran-Wellington/';
+
+  it('should send the old URL to the new one via meta refresh', function () {
+    const $ = load(...OLD_URL);
+    expect($('meta[http-equiv="refresh"]').attr('content')).to.equal(`0; url=${NEW_URL}`);
+  });
+
+  it('should point the canonical link at the new URL', function () {
+    const $ = load(...OLD_URL);
+    expect($('link[rel="canonical"]').attr('href')).to.equal(NEW_URL);
+  });
+
+  it('should keep the old URL out of search results', function () {
+    const $ = load(...OLD_URL);
+    expect($('meta[name="robots"]').attr('content')).to.equal('noindex');
+  });
+
+  it('should give a no-JS reader a working link to follow', function () {
+    const $ = load(...OLD_URL);
+    expect($(`a[href="${NEW_URL}"]`)).to.have.lengthOf(1);
   });
 });
 
