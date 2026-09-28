@@ -23,7 +23,7 @@ So when Beastwars tickets go on sale, I'm usually in, Meow Nui is a lovely venue
 
 First band were Pull Down The Sun, from Whanganui. I saw them alone, my dates hadn't shown up yet, and the played to a slowly filling room - a real shame as this three piece laid down a great set of really tight, Maori infused metal. Pays to do your research, and I was very happy to have checked Pull Down The Sun out beforehand, and knew coming in early to see them would be worth the effort. They did not disappoint and I would go see them again no question.
 
-Second act was Soft Bait. They were looser, and far less metal, but had the advantage of a much fuller room so got more back from the crowd. They were good, but unremarkable, a bit 'by the numbers' noise rock and nothign really landed. 
+Second act was Soft Bait. They were looser, and far less metal, but had the advantage of a much fuller room so got more back from the crowd. They were good, but unremarkable, a bit 'by the numbers' noise rock and nothing really landed. 
 
 Then it was time for the riff. Beastwars bestrode the stage like a colossus. 
 
