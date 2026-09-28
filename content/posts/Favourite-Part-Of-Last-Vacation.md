@@ -7,7 +7,7 @@ date: 2024-02-17
 readingtime: '1 minute'
 tags: ['rands_writing_prompt']
 ---
-## What was your favorite part of your last vacation?
+## What was your favourite part of your last vacation?
 
 My favourite part of my last vacation[^1] was going on a diving trip to the Mercury Islands, off the coast of Whitianga. 
 
