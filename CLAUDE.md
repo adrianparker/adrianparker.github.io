@@ -6,7 +6,7 @@ Guidance for Claude Code working in this repo.
 
 ## Adopt specific coding standards in linked CLAUDE-code.md file
 
-First read .\CLAUDE-code.md and adopt all instructions therein.
+First read `.\CLAUDE-code.md` and adopt all instructions therein. Tell the user at the start of the session the success or otherwise of ingesting the content of that `.\CLAUDE-code.md`. The user needs succinct confirmation that information has been adopted.
 
 ## Working agreement — read first
 

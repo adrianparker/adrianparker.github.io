@@ -13,7 +13,8 @@ Before implementing:
 - If multiple interpretations exist, present them - don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
-- ALWAYS ask things one item at a time, waiting for an answer each time.
+- ALWAYS ask one item at a time, waiting for an answer each time.
+- If possible, ask all questions before beginning the task implementation.
 
 ## 2. Simplicity First
 
