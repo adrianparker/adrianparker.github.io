@@ -491,6 +491,7 @@ describe('Smoke Tests - Apps', function () {
     // Eleventy treats a stray .html or .md file as a template, which would put
     // orphaned, unstyled pages at their own URLs — see #45.
     expect(fs.existsSync(sitePath('GigTracker', 'gig-history')), 'orphaned app copy').to.be.false;
+    expect(fs.existsSync(sitePath('GigTracker', 'setlist-songs')), 'orphaned setlist songs data').to.be.false;
     expect(fs.existsSync(sitePath('GigTracker', 'README')), 'orphaned contract doc').to.be.false;
   });
 

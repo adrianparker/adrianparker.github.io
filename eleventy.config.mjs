@@ -69,10 +69,12 @@ export default function (eleventyConfig) {
     The Gig Tracker's source files and their contract doc. gig-history.html is
     a standalone document written by a separate agent, gig-history.md is the
     gig data Adrian edits by hand, Locations.md is the venue coordinate lookup
-    the map view joins against, and Eleventy would otherwise treat all four
-    markdown/HTML files — and the README — as templates, publishing orphaned,
-    unlinked pages at /GigTracker/gig-history/, /GigTracker/Locations/ and
-    /GigTracker/README/. Same trap as the EXIF Viewer's own shell above (#45).
+    the map view joins against, setlist-songs.md is the per-song data behind
+    the "Songs heard live" stats card, and Eleventy would otherwise treat all
+    five markdown/HTML files — and the README — as templates, publishing
+    orphaned, unlinked pages at /GigTracker/gig-history/, /GigTracker/Locations/,
+    /GigTracker/setlist-songs/ and /GigTracker/README/. Same trap as the EXIF
+    Viewer's own shell above (#45).
 
     The sources are not passthrough-copied either: content/_data/gigTrackerApp.mjs
     reads them at build time and embeds the result into the page, so nothing
@@ -82,11 +84,13 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("content/GigTracker/gig-history.html");
   eleventyConfig.ignores.add("content/GigTracker/gig-history.md");
   eleventyConfig.ignores.add("content/GigTracker/Locations.md");
+  eleventyConfig.ignores.add("content/GigTracker/setlist-songs.md");
   eleventyConfig.ignores.add("content/GigTracker/README.md");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.html");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.css");
   eleventyConfig.addWatchTarget("content/GigTracker/gig-history.md");
   eleventyConfig.addWatchTarget("content/GigTracker/Locations.md");
+  eleventyConfig.addWatchTarget("content/GigTracker/setlist-songs.md");
 
   // render a markdown string as HTML in place
   eleventyConfig.addFilter("md", renderMarkdown);

@@ -1,6 +1,6 @@
 # Gig Tracker — source file contract
 
-Four files in this directory feed the Gig Tracker page, each with a
+Five files in this directory feed the Gig Tracker page, each with a
 different owner:
 
 - **`gig-history.md`** — the gig data, one row per gig. **Edited by hand by
@@ -11,14 +11,20 @@ different owner:
   Statistics map view joins against. **Edited by hand by Adrian** when a new
   venue needs a pin; see "The map view's location lookup" below for the join
   rules.
+- **`setlist-songs.md`** — every song played at a gig with a setlist.fm
+  setlist, one row per song. **Built by asking Claude to "refresh setlist
+  songs"** (via the setlist MCP tool) rather than edited by hand; see
+  "Setlist songs" below.
 - **`gig-history.html`** / **`gig-history.css`** — the app shell (filters,
   table, sort/search JS, styling, and the map view). **Written by the Gig
   Tracker agent, not by hand**, and only touched when the UI itself changes.
   Their embedded `let GIGS = [...]` line is a placeholder — it is overwritten
   at every build with data parsed fresh from `gig-history.md` and joined
-  against `Locations.md`, so it does not need to be kept in sync.
+  against `Locations.md`, so it does not need to be kept in sync. The
+  `let SETLIST_SONGS = [...]` line just below it is the same kind of
+  placeholder, overwritten at every build from `setlist-songs.md`.
 
-adrianparker.com rebuilds the page at `/GigTracker/` from all four on every
+adrianparker.com rebuilds the page at `/GigTracker/` from all five on every
 build, so whatever they say at build time is what gets published.
 
 `index.njk` is the site's own wrapper and is **not** agent-owned — don't write
@@ -102,6 +108,49 @@ of that, the map view only renders when the page is actually served
 (`npm run serve` or the built site) — opening `gig-history.html` via a bare
 `file://` double-click won't resolve `/vendor/leaflet.js`, the same
 limitation the Reload button's `fetch()` already has.
+
+## Setlist songs
+
+`setlist-songs.md` is a markdown table — one row per song — sourced from the
+setlist.fm setlists that `gig-history.md`'s `Setlist.fm ID` column points at
+(see "The data file format" above). It powers the "Songs heard live"
+statistics card: with the Statistics panel open and the Show filter narrowed
+to a single performer, the card lists every song from that performer's
+visible gigs' setlists, with how many of those gigs included it, sorted by
+count then title. The card is hidden entirely — no "no song information"
+placeholder — when that performer's visible gigs have no setlist songs at
+all, and it never shows when more than one performer (or none) is selected,
+since there is no single performer's setlists to count against.
+
+```
+| Setlist.fm ID | Performer | Date | Song |
+|---|---|---|---|
+| 2358f4bb | Shihad | 2025-03-16 | Factory |
+```
+
+A literal `|` in a song or performer title is escaped as `\|`, the same
+convention `gig-history.md`'s `Setlist.fm ID` column uses for a literal comma
+in a name. An id that was looked up and returned zero songs is still kept as
+a row with a blank Song cell, so a refresh knows not to re-fetch it; add rows
+by hand only to correct a bad title, never to fabricate a setlist.fm id.
+
+**Refreshing:** ask Claude to "refresh setlist songs". It reads
+`gig-history.md`'s `Setlist.fm ID` column, finds every id not already
+present in `setlist-songs.md` (so a partial file just picks up where it left
+off), looks each one up via the setlist MCP tool, and appends the new rows.
+This is a data-collection step done by Claude directly, at your request —
+the site's own build never calls out to setlist.fm, so publishing the blog
+never depends on that service being up.
+
+`lib/setlist-songs.mjs` parses this file and turns it, together with the
+currently visible gig rows for a performer, into the songs/counts the card
+renders — see its own header comment for the exact matching rules (a gig's
+`Setlist.fm ID` can hold one id per performer on the bill; only the id for
+the performer currently selected counts). `gig-history.html` mirrors that
+same logic inline (see `songsHeardLive` there) rather than importing the lib
+module, the same way it already mirrors `lib/setlist-ids.mjs`'s
+`parseSetlistIds` as `splitSetlistIds` for the chip — this is a standalone
+single-file app with no bundler to import lib code with at runtime.
 
 ## How the embed works
 

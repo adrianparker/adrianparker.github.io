@@ -563,6 +563,48 @@ tbody tr:last-child td {
 #stats-performer-tbody .stats-swatch {
   margin-right: 6px;
 }
+.stats-songs {
+  margin-top: 16px;
+}
+.stats-songs-title {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.stats-songs-table-wrap {
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Same reasoning as .stats-performer-table-wrap above: the border and
+     sticky-header ancestor live here, not on the table itself. */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.stats-songs-table-wrap table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.stats-songs-table-wrap thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+/* Same reasoning as #stats-performer-table above: shrink the count column
+   to its content and let the trailing spacer column absorb the rest of the
+   table's width, so the song title isn't stretched away from its count. */
+#stats-songs-table th:nth-child(2),
+#stats-songs-table td:nth-child(2) {
+  width: 1%;
+  white-space: nowrap;
+}
+.stats-songs-table-spacer {
+  cursor: default;
+}
 @media (max-width: 47.999em) {
   .stats-legend {
     justify-content: flex-start;
