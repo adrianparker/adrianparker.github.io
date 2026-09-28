@@ -17,6 +17,6 @@ The maestro delivers an intimate masterclass in a world class iconic venue.
 
 <!-- excerpt -->
 
-My first live concert was Dire Straits. I was raised on their albums, and the opportunity to see the lead player, Mark Knopfler, at the iconic Royal Albert Hall in Lnndon, was too good to ignore.
+My first live concert was Dire Straits. I was raised on their albums, and the opportunity to see the lead player, Mark Knopfler, at the iconic Royal Albert Hall in London, was too good to ignore.
 
 This was a 6 night residency - testament to his stature in the music world - and he delivered a classy set of solo work mixed with Dire Straits classics. A couple of the other Dire Straits players joined him on stage for a song or two as well, as did renowned British musician Joe Brown (who I have to admit I'd never heard of). Pure magic.
