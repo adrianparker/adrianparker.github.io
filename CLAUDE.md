@@ -17,8 +17,6 @@ First read .\CLAUDE-code.md and adopt all instructions therein.
 - A push to `master` publishes to production immediately (see Deploy below) — that is why this rule exists.
 - This is enforced by a `PreToolUse` hook in `.claude/settings.json`, not just by convention. If the hook blocks you, that is working as intended — do not try to route around it.
 
-This rule is provisional and up for review around **February 2027** (tracked as a GitHub issue in the "Later" milestone).
-
 ### Pull request rules
 
 - Every PR must have passing tests.
