@@ -96,6 +96,25 @@ tags: ['post']
 Post content in markdown...
 ```
 
+### Creating a gig post
+
+Gig reviews live in `content/posts/gigs/`. When the gig already has a row in
+`content/GigTracker/gig-history.md`, scaffold the post from that row rather
+than typing the front matter by hand:
+
+```bash
+npm run new-gig -- <artist>                                   # list matching rows
+npm run new-gig -- <artist> <YYYY-MM-DD> --summary '...'      # write the stub
+npm run new-gig -- <artist> <YYYY-MM-DD> --summary '...' --photos
+```
+
+The stub is written to `content/posts/gigs/<stem>.md`, where the stem is
+`YYYYMMDD-Artist-Venue-City` (printed after writing). Venue, city, country,
+support artists, and setlist.fm ids all come from the row. `--photos` sets
+`photos: '<stem>'`, so publish the set under that stem first (see
+[Photos](#photos) below). The script refuses to overwrite an existing file,
+or to write a second post for a date that already has one.
+
 ## Photos
 
 Photos in posts are served from an S3 bucket behind CloudFront

@@ -59,6 +59,7 @@ npm run test:visual    # build + visual regression (slow, needs Playwright)
 npm test               # unit + smoke + theme + analytics + visual, everything
 npm run test:headless  # build + smoke only — what the deploy workflow runs
 npm run photos -- <set-id> <folder> --upload  # publish a set of photos, see README → Photos
+npm run new-gig -- <artist> [<YYYY-MM-DD>] [--summary '...'] [--photos]  # scaffold a gig post from gig-history.md, see new-gig skill
 npm run certs           # (re)generate a trusted https cert for localhost, see README
 npm run spellcheck     # cspell over all posts/gigs, see README → Spell checking
 ```
@@ -139,7 +140,9 @@ photos: '20260523-Artist-Venue-City'
 ---
 ```
 
-`navtitle` convention for gigs is `'<year> <Artist>'`. Everything from `supportArtists` down is optional — the layout guards each with `{% if %}`.
+`navtitle` convention for gigs is `'<year> <Artist>'`. Everything from `supportArtists` down is optional — the layout guards each with `{% if %}`. `layout` and `tags` are actually set for the whole directory by `content/posts/gigs/gigs.11tydata.json`, so real gig posts omit both.
+
+When the gig is already a row in `content/GigTracker/gig-history.md`, `npm run new-gig -- <artist> <YYYY-MM-DD>` scaffolds this file from that row instead of typing it by hand — see the `new-gig` skill.
 
 `setlistfm` holds one `Performer Name:id` pair per performer who has a setlist for that specific show, comma-separated — the same format as the `Setlist.fm ID` column in `content/GigTracker/gig-history.md` (see its README), so a gig review post and its GigTracker row present a setlist the same way. A literal comma in a name is escaped as `\,`, and an id may carry a trailing `:empty` suffix (setlist exists but has no songs listed yet), which suppresses that performer's chip. The layout renders a "Setlist" chip next to each performer's name whose id resolves; clicking it opens a modal showing the setlist.fm setlist image.
 

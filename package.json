@@ -12,6 +12,7 @@
     "lint:html": "html-validate $(find _site -name '*.html' -not -path '*/dist/*')",
     "build": "npx eleventy",
     "photos": "node scripts/publish-photos.mjs",
+    "new-gig": "node scripts/new-gig.mjs",
     "spellcheck": "node scripts/spellcheck.mjs",
     "prepare": "git config core.hooksPath .githooks",
     "serve": "npx eleventy --serve",
