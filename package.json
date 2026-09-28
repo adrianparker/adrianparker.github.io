@@ -12,6 +12,8 @@
     "lint:html": "html-validate $(find _site -name '*.html' -not -path '*/dist/*')",
     "build": "npx eleventy",
     "photos": "node scripts/publish-photos.mjs",
+    "spellcheck": "node scripts/spellcheck.mjs",
+    "prepare": "git config core.hooksPath .githooks",
     "serve": "npx eleventy --serve",
     "start": "npx eleventy --serve",
     "certs": "mkdir -p .certs && mkcert -cert-file .certs/localhost.pem -key-file .certs/localhost-key.pem localhost 127.0.0.1 ::1",
@@ -58,9 +60,12 @@
     "nanoid": "^3.3.18"
   },
   "devDependencies": {
+    "@cspell/dict-en-gb": "^5.0.34",
     "c8": "^12.0.0",
     "chai": "^6.2.2",
     "cheerio": "^1.2.0",
+    "cspell": "^9.8.0",
+    "cspell-lib": "^9.8.0",
     "html-validate": "^11.16.0",
     "mocha": "^12.0.2",
     "pixelmatch": "^7.2.0",

@@ -58,6 +58,19 @@ npm test
 
 This runs smoke tests (build validation) and visual regression tests (screenshot comparisons). See [TESTING.md](./TESTING.md) for detailed testing documentation, including how to run tests individually and update baselines.
 
+### Spell checking
+
+Posts and gigs are spell checked with [cspell](https://cspell.org/) (`en-GB`). Run it over every post:
+```
+npm run spellcheck
+```
+
+A `pre-push` git hook (`.githooks/pre-push`, installed via the `prepare` npm script) also spell checks any post or gig markdown files changed by the commits being pushed, and blocks the push on any misspelling.
+
+Only rendered content is checked — front matter, Nunjucks tags/shortcodes, HTML tags/comments, and URLs are stripped first. Accepted words that aren't real misspellings can be allow-listed two ways:
+- **Project-wide**: add the word to the `words` list in `cspell.json`.
+- **Per-file**: add a `<!-- cspell:words WordOne WordTwo -->` comment anywhere in that file's markdown.
+
 ## Creating Posts
 
 Blog posts are written in markdown and placed in `content/posts/`. Each file:

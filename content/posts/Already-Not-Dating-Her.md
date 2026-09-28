@@ -65,7 +65,7 @@ We don't have the outcome we desire.
 
 If we don't try to get the outcome, we keep not having the outcome. Nothing changes through inaction.
 
-If we do try to get the outcome, but we fail, we keep not having the outcome. Nothiing changes through faiilure. (Except, more than likely, we move on to desiring a new outcome we may be able to succeed with)
+If we do try to get the outcome, but we fail, we keep not having the outcome. Nothing changes through failure. (Except, more than likely, we move on to desiring a new outcome we may be able to succeed with)
 
 The sense of loss we experience, that we might not get the outcome we want if we but try, is generally *not rational* - we won't get that outcome if we *don't try*, either. 
 

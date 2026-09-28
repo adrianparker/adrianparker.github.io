@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Spell checks any content/posts/**.md files changed by the commits being
+# pushed. Installed via `git config core.hooksPath .githooks` (see the
+# `prepare` npm script). See README.md → Spell checking.
+set -euo pipefail
+
+ZERO_SHA="0000000000000000000000000000000000000000"
+CHANGED_FILES=""
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$local_sha" = "$ZERO_SHA" ]; then
+    # Deleting a branch — nothing to check.
+    continue
+  fi
+
+  if [ "$remote_sha" = "$ZERO_SHA" ]; then
+    # New branch/ref on the remote — diff against origin/master.
+    range="origin/master...$local_sha"
+  else
+    range="$remote_sha..$local_sha"
+  fi
+
+  files=$(git diff --name-only --diff-filter=ACMR "$range" -- 'content/posts/*.md' 'content/posts/gigs/*.md' 2>/dev/null || true)
+  CHANGED_FILES="$CHANGED_FILES
+$files"
+done
+
+CHANGED_FILES=$(echo "$CHANGED_FILES" | grep -v '^$' | sort -u || true)
+
+if [ -z "$CHANGED_FILES" ]; then
+  exit 0
+fi
+
+echo "Spell checking changed posts before push:"
+echo "$CHANGED_FILES"
+
+# shellcheck disable=SC2086
+node scripts/spellcheck.mjs $CHANGED_FILES
