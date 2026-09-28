@@ -5,6 +5,7 @@ import {
   findGigs,
   gigFrontMatter,
   gigStem,
+  parseNewGigArgs,
   renderGigStub
 } from "../../lib/gig-stub.mjs";
 
@@ -219,5 +220,33 @@ describe("gig-stub — renderGigStub", () => {
     expect(rendered).to.not.include("supportArtists:");
     expect(rendered).to.not.include("setlistfm:");
     expect(rendered).to.not.include("photos:");
+  });
+});
+
+describe("parseNewGigArgs", () => {
+  it("reads the artist alone (listing mode) when there is no --summary", () => {
+    expect(parseNewGigArgs(["Beastwars"])).to.deep.equal({
+      artist: "Beastwars", date: undefined, summary: undefined, withPhotos: false
+    });
+  });
+
+  it("reads artist and date without --summary", () => {
+    const parsed = parseNewGigArgs(["Beastwars", "2025-11-22"]);
+    expect(parsed.artist).to.equal("Beastwars");
+    expect(parsed.date).to.equal("2025-11-22");
+  });
+
+  it("takes the argument after --summary as the summary, wherever it appears", () => {
+    expect(parseNewGigArgs(["--summary", "Loud.", "Beastwars", "2025-11-22", "--photos"])).to.deep.equal({
+      artist: "Beastwars", date: "2025-11-22", summary: "Loud.", withPhotos: true
+    });
+    expect(parseNewGigArgs(["Beastwars", "2025-11-22", "--summary", "Loud."])).to.deep.equal({
+      artist: "Beastwars", date: "2025-11-22", summary: "Loud.", withPhotos: false
+    });
+  });
+
+  it("leaves artist undefined when no positional arguments are given", () => {
+    expect(parseNewGigArgs(["--photos"]).artist).to.equal(undefined);
+    expect(parseNewGigArgs([]).artist).to.equal(undefined);
   });
 });

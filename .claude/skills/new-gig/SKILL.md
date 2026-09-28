@@ -108,7 +108,7 @@ npm run build
 
 Check `_site/posts/gigs/<stem>/index.html` — confirm the metadata card renders, that a "Setlist" chip appears next to any performer with an id, and that the slideshow appears (one `figure.slideshow-slide` per photo) if photos were set. An unknown set name fails the build. Then confirm it shows on `_site/gigs/index.html` and the home page.
 
-If the gig had a gig-history row, also check `_site/GigTracker/index.html`'s embedded gig data — that row's date should now resolve to a `reviewUrl` of `/posts/gigs/<stem>/` (the "Read the review" link).
+If the gig had a gig-history row, also check `_site/Gig-History/index.html`'s embedded gig data — that row's date should now resolve to a `reviewUrl` of `/posts/gigs/<stem>/` (the "Read the review" link).
 
 ## 6. Ship it
 

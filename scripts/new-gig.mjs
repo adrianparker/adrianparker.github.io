@@ -17,18 +17,13 @@ import path from "node:path";
 
 import { parseGigHistory } from "../lib/gig-history.mjs";
 import { parseGigReviews, findReviewUrl } from "../lib/gig-reviews.mjs";
-import { findGigs, gigFrontMatter, gigStem, renderGigStub } from "../lib/gig-stub.mjs";
+import { findGigs, gigFrontMatter, gigStem, parseNewGigArgs, renderGigStub } from "../lib/gig-stub.mjs";
 import { PHOTO_SETS_DIR } from "../lib/photo-sets.mjs";
 
 const GIG_HISTORY_FILE = "content/GigTracker/gig-history.md";
 const GIGS_DIR = "content/posts/gigs";
 
-const args = process.argv.slice(2);
-const summaryIndex = args.indexOf("--summary");
-const summary = summaryIndex === -1 ? undefined : args[summaryIndex + 1];
-const withPhotos = args.includes("--photos");
-const positional = args.filter((arg, i) => arg !== "--photos" && i !== summaryIndex && i !== summaryIndex + 1);
-const [artist, date] = positional;
+const { artist, date, summary, withPhotos } = parseNewGigArgs(process.argv.slice(2));
 
 if (!artist) {
   console.error("Usage: npm run new-gig -- <artist> [<YYYY-MM-DD>] [--summary '...'] [--photos]");
