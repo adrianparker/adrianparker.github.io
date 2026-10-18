@@ -36,7 +36,7 @@ layout: base-layout.njk
                         <td>
                             {% for artist in supportArtists %}
                             {{ artist }}
-                            {% set entry = setlistIds.get(artist) %}
+                            {% set entry = setlistIds.get(artist) or false %}
                             {% if entry and not entry.empty %}
                             <button type="button" class="setlist-chip" data-artist="{{ artist }}" data-setlist-id="{{ entry.id }}" data-venue="{{ venue }}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>
                             {% endif %}
