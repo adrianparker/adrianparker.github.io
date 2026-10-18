@@ -61,16 +61,16 @@
     "nanoid": "^3.3.18"
   },
   "devDependencies": {
-    "@cspell/dict-en-gb": "^5.0.34",
+    "@cspell/dict-en-gb": "^5.0.35",
     "c8": "^12.0.0",
-    "chai": "^6.2.2",
+    "chai": "^6.3.0",
     "cheerio": "^1.2.0",
-    "cspell": "^9.8.0",
-    "cspell-lib": "^9.8.0",
-    "html-validate": "^11.16.0",
-    "mocha": "^12.0.2",
-    "pixelmatch": "^7.2.0",
-    "playwright": "^1.63.0",
+    "cspell": "^10.3.6",
+    "cspell-lib": "^10.3.6",
+    "html-validate": "^11.16.2",
+    "mocha": "^12.0.3",
+    "pixelmatch": "^8.0.0",
+    "playwright": "^1.64.0",
     "pngjs": "^7.0.0"
   },
   "allowScripts": {
