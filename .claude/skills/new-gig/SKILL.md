@@ -191,12 +191,12 @@ git checkout -b gig/<stem>
 git add content/posts/gigs/<stem>.md content/_data/photoSets/<stem>.json   # the manifest only if photos were published
 git commit -m "Add gig review for <Artist> @ <Venue>, <City>"
 git push -u origin gig/<stem>
-gh pr create --draft --title "..." --body "..."
+gh pr create --title "..." --body "..."
 ```
 
 Run `git checkout -b` and the commit in a separate Bash call from `git push`: the master-push hook checks the branch before the command runs, so a combined call is blocked.
 
-Open it as a **draft** PR — Adrian reads the drafted review and edits it on the branch before it's ready. No AI attribution in the commit message or PR body. Never push to `master`, never merge.
+Open it **ready for review**, never as a draft (`--draft`) — Adrian has asked for this explicitly. No AI attribution in the commit message or PR body. Never push to `master`, never merge.
 
 ### Visual baselines
 
