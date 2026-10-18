@@ -14,7 +14,7 @@ setlistfm: 'The Datsuns:134db981'
 photos: '20260320-The-Datsuns-San-Fran-Wellington'
 ---
 
-I fancy a gig from The Datsuns. This was my eighth, and by now I know what I'm getting: it says rock and roll on the tin, and they never disappoint. They were also back at San Fran, where I last caught them in 2014, and it suited them then too. Had they changed in the 12 years since I last saw them? No. And that's just the way I like it.
+I fancy a gig by The Datsuns. This was my seventh, and by now I know what I'm getting: it says rock and roll on the tin, there won't be any ballads, and they never disappoint. They were also back at San Fran, the venue I last saw them at in 2014, and the intimate setting suited them then. Had anything changed in the 12 years since I last saw them? Nope. That's just the way I like it.
 
 <!-- excerpt -->
 
