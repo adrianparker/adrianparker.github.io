@@ -13,7 +13,7 @@ setlistfm: 'Fat Freddy''s Drop:2b4e341a'
 photos: '20260501-Fat-Freddys-Drop-Michael-Fowler-Centre-Wellington'
 ---
 
-Fat Freddy's Drop are like a old well worn pair of audio slippers you just slip on and while away the afternon in. 
+Fat Freddy's Drop are like a old well worn pair of audio slippers you just slip on and while away the afternoon in. 
 
 They're named after a stronger than usual batch of LSD doing the rounds in Wellington around the time they formed. Nothing is more Wellington than an inside joke for a band name. The tunes though - no laughing matter indeed - you'd be tripping to not love this soul funk jam band spectacular.
 Wellington was ready to skank.
