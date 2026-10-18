@@ -111,10 +111,11 @@ What to carry over (check these against the posts again each time rather than tr
 
 ### Review loop
 
-1. Show the draft in chat as a full candidate post body (not a diff) with the proposed `summary`, `readingtime`, and a short list at the end headed "Points covered" mapping each of Adrian's notes to where it landed, plus any review-sourced facts you added. That lets him see nothing was dropped.
-2. Ask what to change. Iterate until he approves. Rewrite the whole body each round; don't leave him merging fragments.
-3. When approved, write it into `content/posts/gigs/<stem>.md` in place of the placeholder body, and update the front matter: `summary` (a single line, in his style), `readingtime` (word count ÷ 200, rounded up, minimum `'1 minute'`). Leave the front matter key order alone.
-4. Run `npm run spellcheck` and fix real typos (not proper nouns — see README → Spell checking for adding words).
+1. As soon as the draft is ready, write it into `content/posts/gigs/<stem>.md` in place of the placeholder body (no approval needed first — it is only a working-tree edit), and update the front matter: `summary` (a single line, in his style), `readingtime` (word count ÷ 200, rounded up, minimum `'1 minute'`). Leave the front matter key order alone.
+2. Serve it locally so Adrian can see how it looks, following "9. Serve it locally": reuse or start the dev server, load the post to confirm it renders, and open it in the built-in browser pane (`preview_start` / `navigate`) as well as giving the clickable URL.
+3. Show the draft in chat as a full candidate post body (not a diff) with the proposed `summary`, `readingtime`, and a short list at the end headed "Points covered" mapping each of Adrian's notes to where it landed, plus any review-sourced facts you added. That lets him see nothing was dropped. Include the localhost URL.
+4. Ask what to change. Iterate until he approves. Each round, rewrite the whole body in the file (don't leave him merging fragments) and reload the page so the preview matches.
+5. When approved, run `npm run spellcheck` and fix real typos. Proper nouns and his own words (a place name, a song title, a coined word) are not typos: allow-list them with a per-file `<!-- cspell:words Word1 Word2 -->` comment (README → Spell checking) rather than editing `cspell.json`.
 
 ## 6. Fallback: no gig-history row
 
@@ -193,13 +194,25 @@ git push -u origin gig/<stem>
 gh pr create --draft --title "..." --body "..."
 ```
 
+Run `git checkout -b` and the commit in a separate Bash call from `git push`: the master-push hook checks the branch before the command runs, so a combined call is blocked.
+
 Open it as a **draft** PR — Adrian reads the drafted review and edits it on the branch before it's ready. No AI attribution in the commit message or PR body. Never push to `master`, never merge.
 
-## 9. Serve it locally — always the last step
+### Visual baselines
 
-Finish by giving Adrian a link to the post running on localhost. Do this while the gig branch is still checked out, so the server is serving the new post.
+Once the PR is open, run `npm run test:visual`. A new gig post routinely changes exactly four baselines: `gig-index` and `gigtracker-app`, each at desktop and mobile (the gig list gains an entry, the tracker row gains a "Read the review" link).
+
+- **Only those four fail** → regenerate them straight away, without asking. Follow the `update-baselines` skill, but keep just those four: after copying actuals over, `git checkout --` any other baseline it touched (passing tests also get rewritten). Commit them separately (`Update visual baselines for <Artist> gig post`), push to the branch, and re-run `npm run test:visual` to confirm it's green.
+- **Any other test fails**, or one of the four fails for a reason that doesn't fit a new gig post → stop, tell Adrian which tests failed, and wait for instruction. Do not regenerate.
+- Everything passes → nothing to do.
+
+Mention in the final summary that baselines were regenerated.
+
+## 9. Serve it locally
+
+Do this as soon as the draft is written into the post (Review loop, step 2) and again as the last step. Give Adrian a link to the post running on localhost, and open it in the built-in browser pane so he can see it. Serve while the post's content is in the working tree (or its branch is checked out), so the server is serving the new post.
 
 1. If a dev server for this repo is already running (`preview_list`, or `lsof -nP -iTCP:8080 -sTCP:LISTEN`), reuse it — don't start a second one. Otherwise start it with `preview_start` using the `serve` configuration from `.claude/launch.json` (`npm run serve`, port 8080).
 2. Build the URL from the stem: `https://localhost:8080/posts/gigs/<stem>/`. It is `https` when `.certs/` exists and plain `http` when it doesn't — use whichever scheme the started server reports.
-3. Load it once to confirm it renders (the slideshow and "Setlist" chip appear if the gig has photos and setlist ids).
+3. Load it in the built-in browser pane to confirm it renders (the slideshow and "Setlist" chip appear if the gig has photos and setlist ids), leaving it open for Adrian.
 4. End the session's output with the clickable URL, on its own line, as the final thing you say.
