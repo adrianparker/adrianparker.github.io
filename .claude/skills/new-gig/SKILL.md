@@ -194,3 +194,12 @@ gh pr create --draft --title "..." --body "..."
 ```
 
 Open it as a **draft** PR — Adrian reads the drafted review and edits it on the branch before it's ready. No AI attribution in the commit message or PR body. Never push to `master`, never merge.
+
+## 9. Serve it locally — always the last step
+
+Finish by giving Adrian a link to the post running on localhost. Do this while the gig branch is still checked out, so the server is serving the new post.
+
+1. If a dev server for this repo is already running (`preview_list`, or `lsof -nP -iTCP:8080 -sTCP:LISTEN`), reuse it — don't start a second one. Otherwise start it with `preview_start` using the `serve` configuration from `.claude/launch.json` (`npm run serve`, port 8080).
+2. Build the URL from the stem: `https://localhost:8080/posts/gigs/<stem>/`. It is `https` when `.certs/` exists and plain `http` when it doesn't — use whichever scheme the started server reports.
+3. Load it once to confirm it renders (the slideshow and "Setlist" chip appear if the gig has photos and setlist ids).
+4. End the session's output with the clickable URL, on its own line, as the final thing you say.
