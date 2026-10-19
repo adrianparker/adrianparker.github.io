@@ -130,4 +130,22 @@ describe('Slideshow', function () {
     await expectStatus(page, '6 / 14');
     await context.close();
   });
+
+  it('wraps round on a swipe past either end, like the buttons', async function () {
+    const { context, page } = await open({ reducedMotion: 'reduce' });
+    const swipe = (dx) => page.evaluate((delta) => {
+      const track = document.querySelector('.slideshow-track');
+      const touch = (x) => new Touch({ identifier: 1, target: track, clientX: x, clientY: 100 });
+      const fire = (type, x, list) => track.dispatchEvent(new TouchEvent(type, {
+        bubbles: true, touches: list ? [touch(x)] : [], changedTouches: [touch(x)]
+      }));
+      fire('touchstart', 200, true);
+      fire('touchend', 200 + delta, false);
+    }, dx);
+    await swipe(120);
+    await expectStatus(page, '14 / 14');
+    await swipe(-120);
+    await expectStatus(page, '1 / 14');
+    await context.close();
+  });
 });

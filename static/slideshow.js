@@ -61,6 +61,32 @@
             if (event.key === 'ArrowRight') { event.preventDefault(); step(1); }
         });
 
+        // Native scroll stops dead at the first and last photo, so a swipe
+        // past either end does nothing on its own. Catch it ourselves and wrap
+        // the way the buttons do. Only a swipe that began at an end and left
+        // the strip where it was counts; anywhere else the browser scrolls
+        // and the counter follows.
+        var touchStart = null;
+        track.addEventListener('touchstart', function (event) {
+            var touch = event.touches[0];
+            touchStart = event.touches.length === 1
+                ? { x: touch.clientX, y: touch.clientY, left: track.scrollLeft }
+                : null;
+        }, { passive: true });
+        track.addEventListener('touchend', function (event) {
+            var start = touchStart;
+            touchStart = null;
+            if (!start || total < 2 || target !== null) { return; }
+            var touch = event.changedTouches[0];
+            var dx = touch.clientX - start.x;
+            var dy = touch.clientY - start.y;
+            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) || Math.abs(track.scrollLeft - start.left) > 1) { return; }
+            var atStart = start.left < 1;
+            var atEnd = start.left > track.scrollWidth - track.clientWidth - 1;
+            if (dx > 0 && atStart) { step(-1); }
+            if (dx < 0 && atEnd) { step(1); }
+        }, { passive: true });
+
         var queued = false;
         track.addEventListener('scroll', function () {
             if (queued) { return; }
