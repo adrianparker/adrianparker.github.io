@@ -180,7 +180,7 @@ describe('Smoke Tests - Gig Post Type', function () {
   it('should only render the setlist modal markup on a gig post that has a visible chip', function () {
     const withChips = load(...GIG_POST_WITH_CHIPS);
     expect(withChips('#setlist-modal-overlay'), 'modal on a post with chips').to.have.lengthOf(1);
-    expect(withChips('#setlist-modal-img').attr('src'), 'no placeholder src: a data: URL is blocked by the CSP').to.equal(undefined);
+    expect(withChips('#setlist-modal-img').attr('src'), 'same-origin placeholder: a data: URL is blocked by the CSP').to.equal('/blank.gif');
 
     const withoutChips = load(...GIG_POST);
     expect(withoutChips('#setlist-modal-overlay'), 'modal on a post with no visible chips').to.have.lengthOf(0);
