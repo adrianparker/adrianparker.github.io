@@ -148,4 +148,19 @@ describe('Slideshow', function () {
     await expectStatus(page, '1 / 14');
     await context.close();
   });
+
+  it('wraps on a swipe past the end even when the strip rubber-bands under the finger', async function () {
+    const { context, page } = await open({ reducedMotion: 'reduce' });
+    await page.evaluate(() => {
+      const track = document.querySelector('.slideshow-track');
+      const touch = (x) => new Touch({ identifier: 1, target: track, clientX: x, clientY: 100 });
+      track.dispatchEvent(new TouchEvent('touchstart', { bubbles: true, touches: [touch(200)], changedTouches: [touch(200)] }));
+      // iOS lets the strip stretch past its end while the finger drags.
+      track.style.scrollSnapType = 'none';
+      track.scrollLeft = 25;
+      track.dispatchEvent(new TouchEvent('touchend', { bubbles: true, touches: [], changedTouches: [touch(320)] }));
+    });
+    await expectStatus(page, '14 / 14');
+    await context.close();
+  });
 });
