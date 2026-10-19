@@ -63,9 +63,11 @@
 
         // Native scroll stops dead at the first and last photo, so a swipe
         // past either end does nothing on its own. Catch it ourselves and wrap
-        // the way the buttons do. Only a swipe that began at an end and left
-        // the strip where it was counts; anywhere else the browser scrolls
-        // and the counter follows.
+        // the way the buttons do. Only a swipe that began at an end counts;
+        // anywhere else the browser scrolls and the counter follows. The strip
+        // may not have stayed put: iOS rubber-bands past the ends, so
+        // scrollLeft cannot be used to tell a swipe from a scroll. A swipe the
+        // browser cancels is treated like one that ended.
         var touchStart = null;
         track.addEventListener('touchstart', function (event) {
             var touch = event.touches[0];
@@ -73,19 +75,45 @@
                 ? { x: touch.clientX, y: touch.clientY, left: track.scrollLeft }
                 : null;
         }, { passive: true });
-        track.addEventListener('touchend', function (event) {
+        function swipeEnd(event) {
             var start = touchStart;
             touchStart = null;
             if (!start || total < 2 || target !== null) { return; }
             var touch = event.changedTouches[0];
             var dx = touch.clientX - start.x;
             var dy = touch.clientY - start.y;
-            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) || Math.abs(track.scrollLeft - start.left) > 1) { return; }
+            if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) { return; }
             var atStart = start.left < 1;
             var atEnd = start.left > track.scrollWidth - track.clientWidth - 1;
             if (dx > 0 && atStart) { step(-1); }
             if (dx < 0 && atEnd) { step(1); }
-        }, { passive: true });
+        }
+        track.addEventListener('touchend', swipeEnd, { passive: true });
+        track.addEventListener('touchcancel', swipeEnd, { passive: true });
+
+        // A trackpad swipe (desktop Safari, and its iPhone emulation) arrives
+        // as wheel events, not touch events. The same rule applies: a swipe
+        // past either end wraps. A trackpad keeps sending momentum events for
+        // about a second after the fingers lift, so one gesture would wrap
+        // over and over, and then carry on scrolling through the photos it
+        // wrapped to. Once it wraps, swallow wheel events until they stop.
+        var wheelDistance = 0;
+        var wheelQuiet = null;
+        var wheelSpent = false;
+        track.addEventListener('wheel', function (event) {
+            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) { return; }
+            clearTimeout(wheelQuiet);
+            wheelQuiet = setTimeout(function () { wheelDistance = 0; wheelSpent = false; }, 200);
+            if (wheelSpent) { event.preventDefault(); return; }
+            var atStart = track.scrollLeft < 1 && event.deltaX < 0;
+            var atEnd = track.scrollLeft > track.scrollWidth - track.clientWidth - 1 && event.deltaX > 0;
+            if (total < 2 || target !== null || !(atStart || atEnd)) { wheelDistance = 0; return; }
+            event.preventDefault();
+            wheelDistance += event.deltaX;
+            if (Math.abs(wheelDistance) < 30) { return; }
+            wheelSpent = true;
+            step(atStart ? -1 : 1);
+        }, { passive: false });
 
         var queued = false;
         track.addEventListener('scroll', function () {
