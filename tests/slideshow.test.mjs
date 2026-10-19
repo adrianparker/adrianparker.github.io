@@ -163,4 +163,30 @@ describe('Slideshow', function () {
     await expectStatus(page, '14 / 14');
     await context.close();
   });
+
+  it('wraps on a trackpad swipe past either end, once per gesture', async function () {
+    const { context, page } = await open({ reducedMotion: 'reduce' });
+    await page.locator('.slideshow-track').hover();
+    await page.mouse.wheel(-40, 0);
+    await expectStatus(page, '14 / 14');
+    // Momentum from the same gesture must not scroll on through the photos.
+    await page.mouse.wheel(-40, 0);
+    await page.mouse.wheel(-40, 0);
+    await page.waitForTimeout(100);
+    await expectStatus(page, '14 / 14');
+    await page.waitForTimeout(300);
+    await page.mouse.wheel(40, 0);
+    await expectStatus(page, '1 / 14');
+    await context.close();
+  });
+
+  it('leaves a trackpad swipe between photos alone', async function () {
+    const { context, page } = await open({ reducedMotion: 'reduce' });
+    await page.locator('.slideshow-next').click();
+    await page.locator('.slideshow-track').hover();
+    await page.mouse.wheel(-40, 0);
+    await page.waitForTimeout(300);
+    await expectStatus(page, '2 / 14');
+    await context.close();
+  });
 });

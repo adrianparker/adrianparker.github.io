@@ -91,6 +91,30 @@
         track.addEventListener('touchend', swipeEnd, { passive: true });
         track.addEventListener('touchcancel', swipeEnd, { passive: true });
 
+        // A trackpad swipe (desktop Safari, and its iPhone emulation) arrives
+        // as wheel events, not touch events. The same rule applies: a swipe
+        // past either end wraps. A trackpad keeps sending momentum events for
+        // about a second after the fingers lift, so one gesture would wrap
+        // over and over, and then carry on scrolling through the photos it
+        // wrapped to. Once it wraps, swallow wheel events until they stop.
+        var wheelDistance = 0;
+        var wheelQuiet = null;
+        var wheelSpent = false;
+        track.addEventListener('wheel', function (event) {
+            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) { return; }
+            clearTimeout(wheelQuiet);
+            wheelQuiet = setTimeout(function () { wheelDistance = 0; wheelSpent = false; }, 200);
+            if (wheelSpent) { event.preventDefault(); return; }
+            var atStart = track.scrollLeft < 1 && event.deltaX < 0;
+            var atEnd = track.scrollLeft > track.scrollWidth - track.clientWidth - 1 && event.deltaX > 0;
+            if (total < 2 || target !== null || !(atStart || atEnd)) { wheelDistance = 0; return; }
+            event.preventDefault();
+            wheelDistance += event.deltaX;
+            if (Math.abs(wheelDistance) < 30) { return; }
+            wheelSpent = true;
+            step(atStart ? -1 : 1);
+        }, { passive: false });
+
         var queued = false;
         track.addEventListener('scroll', function () {
             if (queued) { return; }
