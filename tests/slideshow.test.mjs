@@ -12,7 +12,7 @@ import { startServer, stopServer } from './utils/http-server.mjs';
 // Its own port: the visual suite holds 3000, theme 3001, analytics 3002.
 const PORT = 3003;
 const BASE = `http://localhost:${PORT}`;
-const GIG = '/posts/gigs/20090218-Datsuns-Astoria-London/';
+const GIG = '/posts/gigs/20090218-Datsuns-Underworld-London/';
 const LABEL = ' - The Datsuns @ Underworld, London';
 
 describe('Slideshow', function () {

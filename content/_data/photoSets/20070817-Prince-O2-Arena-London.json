@@ -3,22 +3,26 @@
     {
       "name": "Prince-01",
       "width": 800,
-      "height": 912
+      "height": 912,
+      "caption": "Prince at O2 Arena, London on August 17 2007"
     },
     {
       "name": "Prince-02",
       "width": 800,
-      "height": 515
+      "height": 515,
+      "caption": "Prince at O2 Arena, London on August 17 2007"
     },
     {
       "name": "Prince-03",
       "width": 699,
-      "height": 750
+      "height": 750,
+      "caption": "Prince at O2 Arena, London on August 17 2007"
     },
     {
       "name": "Prince-04",
       "width": 800,
-      "height": 627
+      "height": 627,
+      "caption": "Prince at O2 Arena, London on August 17 2007"
     }
   ]
 }

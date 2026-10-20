@@ -20,7 +20,7 @@ const read = (...parts) => fs.readFileSync(sitePath(...parts), 'utf8');
 const load = (...parts) => cheerio.load(read(...parts));
 
 const VIDEO_POST = ['posts', 'Last-Ever-Last-Ever', 'index.html'];
-const GIG_POST = ['posts', 'gigs', '20090218-Datsuns-Astoria-London', 'index.html'];
+const GIG_POST = ['posts', 'gigs', '20090218-Datsuns-Underworld-London', 'index.html'];
 // A gig post with visible setlist chips for both the headline and support act.
 const GIG_POST_WITH_CHIPS = ['posts', 'gigs', '20260911-WASP-Wiltern-Los-Angeles', 'index.html'];
 // A post whose photos have been published to the media bucket (README → Photos).
@@ -188,7 +188,7 @@ describe('Smoke Tests - Gig Post Type', function () {
 
   it('should render the gig\'s photo set as a slideshow, one slide per manifest entry', function () {
     const $ = load(...GIG_POST);
-    const setId = '20090218-Datsuns-Astoria-London';
+    const setId = '20090218-Datsuns-Underworld-London';
     const manifest = JSON.parse(fs.readFileSync(`content/_data/photoSets/${setId}.json`, 'utf8'));
 
     const slideshow = $('.slideshow[data-slideshow]');
@@ -229,7 +229,7 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect(section, 'gigs index section for the gig').to.have.lengthOf(1);
 
     expect(section.find('a').attr('href'))
-      .to.equal('/posts/gigs/20090218-Datsuns-Astoria-London/');
+      .to.equal('/posts/gigs/20090218-Datsuns-Underworld-London/');
   });
 
   it('should interleave gigs with posts on the home page', function () {
@@ -283,7 +283,7 @@ describe('Smoke Tests - Structure and accessibility', function () {
     ['apps', 'index.html'],
     ['404.html'],
     ['posts', 'Last-Ever-Last-Ever', 'index.html'],
-    ['posts', 'gigs', '20090218-Datsuns-Astoria-London', 'index.html']
+    ['posts', 'gigs', '20090218-Datsuns-Underworld-London', 'index.html']
   ];
 
   it('should provide landmarks on every page', function () {
