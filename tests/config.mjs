@@ -36,7 +36,7 @@ export default {
     'apps-index': '/apps/index.html',
     'posts-index': '/posts/index.html',
     'video-post': '/posts/Last-Ever-Last-Ever/index.html',
-    'gig-post': '/posts/gigs/20090218-Datsuns-Astoria-London/index.html',
+    'gig-post': '/posts/gigs/20090218-Datsuns-Underworld-London/index.html',
     'gig-index': '/gigs/index.html',
     'exif-app': '/ExifCmdLine/index.html',
     // The bundle-less app page. Its .app-shell/.app-panel styling lives only
