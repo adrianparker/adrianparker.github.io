@@ -1442,22 +1442,20 @@ html.js .app-nav-collapse {
   margin: 1.5em 0;
 }
 
+/* A size container so the prev/next buttons can centre on the photo area
+   (whose height is a fixed share of the width) rather than on photo plus
+   caption. */
 .slideshow-frame {
   position: relative;
-  border: 1px solid var(--color-rule);
-  border-radius: 8px;
-  overflow: hidden;
-  /* Photos letterbox against a dark canvas in either theme, like the video. */
-  background: #111111;
+  container-type: inline-size;
 }
 
 /* The scroller. Native scroll-snap does the slideshow mechanics: a swipe,
    a trackpad drag, shift+wheel or the arrow keys (once focused) all land on
-   a whole photo. A fixed aspect ratio keeps the frame the same height for
-   every photo, portrait or landscape, so the page never jumps mid-swipe. */
+   a whole photo. Slides stretch to the tallest one, so the track is always
+   photo height plus the set's longest caption and never jumps mid-swipe. */
 .slideshow-track {
   display: flex;
-  aspect-ratio: 4 / 3;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -1493,30 +1491,33 @@ html.js .slideshow-track::-webkit-scrollbar {
   scroll-snap-stop: always;
 }
 
-.slideshow-slide picture,
+/* A fixed aspect ratio keeps the photo area the same size for every photo,
+   portrait or landscape. Photos letterbox against a dark canvas in either
+   theme, like the video. */
+.slideshow-slide picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  box-sizing: border-box;
+  border: 1px solid var(--color-rule);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111111;
+}
+
 .slideshow-slide img {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.slideshow-slide img {
   object-fit: contain;
 }
 
-/* A caption, when the manifest has one, overlays the foot of its photo
-   rather than sitting below the frame, so the frame height stays constant
-   across captioned and uncaptioned slides. */
+/* A caption, when the manifest has one, sits below its photo rather than
+   over it, so it never hides part of the picture. Styled like the image
+   shortcode's figcaptions. */
 .slideshow-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0;
-  padding: 0.5em 0.9em;
-  background: rgba(0, 0, 0, 0.65);
-  color: #ffffff;
-  font-size: 0.9em;
+  padding: 0.5em 0 0;
 }
 
 /* The badge carries the post title after the count. A long title on a
@@ -1543,7 +1544,8 @@ html.js .slideshow-next {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  /* Half the 4:3 photo area's height, which is 3/4 of the frame width. */
+  top: 37.5cqw;
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
