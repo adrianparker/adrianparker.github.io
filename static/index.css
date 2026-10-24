@@ -555,6 +555,34 @@ h2 {
   margin-bottom: 0;
 }
 
+/* Quiet provenance note under the date line on posts moved over from the
+   old Blogspot blog. Text colour at reduced opacity rather than
+   --color-muted, which is too faint for small text on the dark theme. */
+/* Quoted text (the scam emails) styled like a Slack / Teams quote: tinted
+   panel, accent bar on the left, rounded on the right. */
+.blog-post blockquote {
+  margin: 1.25em 0;
+  padding: 0.75em 1.1em;
+  background: var(--color-hairline);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 6px 6px 0;
+  overflow-wrap: anywhere;
+}
+
+.blog-post blockquote > :first-child {
+  margin-top: 0;
+}
+
+.blog-post blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.originally-published {
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin-top: 0.25em;
+}
+
 p, label, th, td, section>a, .blog-post>ul {
   font-size: 1.2em;
   line-height: 1.5em;

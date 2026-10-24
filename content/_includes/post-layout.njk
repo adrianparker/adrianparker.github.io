@@ -5,6 +5,7 @@ layout: base-layout.njk
     <article class="blog-post">
 		<h1>{{ title }}</h1>
 		<p class="entry-meta">{{ date | readableDate }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading time:&nbsp;{{ readingtime }}</p>
+		{% if originallyPublished %}<p class="originally-published">Originally published on <a href="{{ originallyPublished }}">my old blog</a>.</p>{% endif %}
 		<p class="blog-post-summary">
         {{ summary | safe }}
 		</p>
