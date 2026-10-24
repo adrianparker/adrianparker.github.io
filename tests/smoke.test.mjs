@@ -259,8 +259,10 @@ describe('Smoke Tests - Gig Post Type', function () {
   it('should include gig post in RSS feed', function () {
     const feed = read('feed.xml');
     const $ = cheerio.load(feed, { xmlMode: true });
-    const titles = $('entry > title').map((_, t) => $(t).text()).get();
-    expect(titles.join(' | ')).to.contain('The Datsuns @ Underworld');
+    // The feed is capped at the 20 newest entries, so assert on any gig
+    // rather than one specific, ageing-out gig.
+    const links = $('entry > link').map((_, l) => $(l).attr('href')).get();
+    expect(links.some((href) => href.includes('/posts/gigs/')), 'a gig entry').to.equal(true);
   });
 
   it('should produce a well-formed feed with entries', function () {
