@@ -377,11 +377,11 @@ Data has been manually improved, validated and some gigs identified in gigs-miss
 | 2007-08-21 | Tool | Music | London | United Kingdom | Brixton Academy | | | Tool:13d6a50d |
 | 2007-08-17 | Prince | Music | London | United Kingdom | The O2 Arena | 21 Nights in London: The Earth Tour | | Prince:5bd70bdc |
 | 2007-08-13 | The Merchant Of Venice | Theatre | London | United Kingdom | Shakespeare's Globe | Starring John McEnery, Kirsty Besterman, Phil Cumbus, Dale Rapley. Directed by Rebecca Gatward | | |
-| 2007-08-09 | BBC Concert Orchestra | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | | |
+| 2007-08-09 | BBC National Orchestra of Wales | Orchestra | London | United Kingdom | Royal Albert Hall | BBC Proms 36 | | |
 | 2007-07-30 | Scorpions, Michael Schenker Group (MSG) | Music | London | United Kingdom | Hammersmith Apollo | | | Scorpions:bd7453e, Michael Schenker Group (MSG):23d7587b |
 | 2007-07-15 | Frank Black | Music | London | United Kingdom | Shepherd's Bush Empire | | | Frank Black:63c87a3f:empty |
 | 2007-07-14 | Bert Jansch, Beth Orton, Bernard Butler | Music | London | United Kingdom | Somerset House | | | |
-| 2007-07-08 | Metallica, Bullet For My Valentine, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium | | | Metallica:53d6e771, Mastodon:23d64c83, H.I.M.:3d7416f |
+| 2007-07-08 | Metallica, Machine Head, Mastodon, H.I.M. | Music | London | United Kingdom | Wembley Stadium | | | Metallica:53d6e771, Mastodon:23d64c83, H.I.M.:3d7416f |
 | 2007-07-07 | Madonna, Red Hot Chili Peppers, Genesis, Duran Duran, Metallica, Foo Fighters, Beastie Boys, Snow Patrol, Keane, Black Eyed Peas, John Legend, David Gray, Damien Rice, Corinne Bailey Rae, James Blunt, Kasabian, Bloc Party, Paolo Nutini, Pussycat Dolls | Music | London | United Kingdom | Wembley Stadium | Live Earth | | Madonna:13d09d59, Red Hot Chili Peppers:53d6a771, Genesis:6bd2d6fe, Duran Duran:3bd0fc0c, Metallica:43d6dfdb, Foo Fighters:43d5effb, Beastie Boys:53d5eff1, Snow Patrol:1bd09d64, Keane:53d5effd, Black Eyed Peas:23d0fc03, John Legend:2bd0fc02, David Gray:5bd79fd8:empty, Damien Rice:3bd0fc14, Corinne Bailey Rae:33d0fc01, James Blunt:7bd65a60, Kasabian:53d5ef35, Bloc Party:4bd5ef2a, Paolo Nutini:23d0fc0f, Pussycat Dolls:1bd09d58 |
 | 2007-07-06 | Seal | Music | London | United Kingdom | Tower of London | | | Seal:33fb1839:empty |
 | 2007-07-04 | Tori Amos | Music | London | United Kingdom | Hammersmith Apollo | | | Tori Amos:7bd72644 |

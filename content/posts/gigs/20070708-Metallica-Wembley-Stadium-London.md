@@ -7,7 +7,7 @@ date: 2007-07-08
 readingtime: '1 minute'
 originallyPublished: 'https://iceknife.blogspot.com/2007/07/metallica.html'
 headlineArtist: 'Metallica'
-supportArtists: ['Machine Head', 'Bullet For My Valentine', 'Mastodon', 'H.I.M.']
+supportArtists: ['Machine Head', 'Mastodon', 'H.I.M.']
 venue: 'Wembley Stadium'
 city: 'London'
 country: 'United Kingdom'
