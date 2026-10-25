@@ -5,7 +5,6 @@ summary: 'All you have to lose is the knowledge you never tried'
 metadesc: 'When you are scared to try something for fear you might not achieve what you want, remember that you already do not have that thing. There is nothing to lose. There is only the possibility of success.'
 date: 2023-07-12
 readingtime: '6 minutes'
-tags: ['popular']
 ---
 ## The Wisdom of Dave Navarro
 
