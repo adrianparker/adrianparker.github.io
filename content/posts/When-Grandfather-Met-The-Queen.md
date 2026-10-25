@@ -4,7 +4,7 @@ navtitle: 'When Grandfather Met the Queen'
 summary: 'It was going to be a busy day at the office. He was about to meet the Queen.'
 metadesc: 'My grandfather Walter Parker, Sheriff of the Supreme Court in Wellington, led the judges into Parliament when Queen Elizabeth II opened it in 1954.'
 date: 2026-10-25
-readingtime: '12 minutes'
+readingtime: '13 minutes'
 tags: ['popular']
 ---
 ## A busy day at the office
@@ -109,17 +109,27 @@ Walter went straight back to clerking. In April 1920 the Government Gazette appo
 
 Somewhere in among all that, he met Gertrude Limbrick.
 
-The Limbricks were a Waipawa family, in Central Hawke's Bay. They ran the Limbrick stables, one of the family was mayor of Waipawa at one point, as legend has it, and there's still a Limbrick Street in downtown Waipawa today, on the hill to the west of the main road.
+The Limbricks were a Waipawa family, in Central Hawke's Bay, and in Waipawa they were something of a big deal.
 
-{% image "When-Grandfather-Met-The-Queen/Walter_Gertrude_Parker_Wedding", "Walter and Gertrude on their wedding day, early 1920s" %}
+Gertrude's father, Harry Limbrick, ran the Dominion Livery and Bait Stables. Gigs, buggies, waggonettes and saddle horses for hire, a well appointed hearse, and "Up-to-date Turn-outs for Weddings, Picnics, etc." In the days before everyone had a motor car, Harry met every train with his hackney carriage with "clockwork regularity", and the local paper reckoned it was one of the institutions of old Waipawa.[^7]
 
-That's them on their wedding day, early 1920s. Gertrude with an armful of flowers and a veil to the floor, Walter looking every bit as serious as he does thirty years later in the wig. I hope he said something at the reception!
+Harry's big brother, William Isaac Limbrick, ran the town. When Waipawa became a borough in 1908, William was elected its first mayor, and he held the job for 13 years. In his first year he raised £21,100 in loans for sewerage, gasworks, water and borough buildings, and he went on to build the Municipal Theatre and secure Coronation Park. He retired to Plimmerton in 1921, couldn't stay away, and in 1928 came back to finish the term after the sitting mayor was killed in an accident.[^8]
+
+{% image "When-Grandfather-Met-The-Queen/Waipawa_Gasworks_1910", "A go-ahead borough: the new Waipawa gasworks, opened by Mayor Limbrick, in the Auckland Weekly News, 17 November 1910" %}
+
+That's his new gasworks, with half the town out in their Sunday best for the opening.[^9] Limbrick Street, on the hill to the west of the main road, is named after him, and it's still there on the Waipawa heritage walk map today.[^10]
+
+Walter and Gertrude were married at St Peter's Church in Waipawa, around New Year 1925. Gertrude Adelia was Harry's elder daughter, and he gave her away. Walter's sister Jean and Gertrude's sister Rita were the bridesmaids, and Gertrude's brother was best man. Afterwards the happy couple "left by motor on their honeymoon trip". I like to think Harry supplied the car.[^11]
+
+{% image "When-Grandfather-Met-The-Queen/Walter_Gertrude_Parker_Wedding", "Walter and Gertrude on their wedding day, Waipawa, around New Year 1925" %}
+
+That's them on their wedding day. Gertrude with an armful of flowers and a veil to the floor, Walter looking every bit as serious as he does thirty years later in the wig. I hope he said something at the reception!
 
 ## A courthouse in every town
 
 From there Walter and Gertrude moved, and moved, and moved again. That's the life of a court clerk. Wherever there was a courthouse, the Department needed someone to run it.
 
-In 1939 they were in Nelson, where the Gazette made Walter the Registrar of the Supreme Court and Sheriff for the District of Nelson. Plus, because it was Nelson and someone had to, Clerk of the Magistrate's Court, Clerk of the Warden's Court, Mining Registrar for the Karamea mining district, Official Assignee in bankruptcy, Clerk to the Licensing Committee, Local Patent Officer, and Marshal of the Supreme Court for its admiralty jurisdiction.[^7]
+By 1932 they were in Christchurch.[^7] In 1939 they were in Nelson, where the Gazette made Walter the Registrar of the Supreme Court and Sheriff for the District of Nelson. Plus, because it was Nelson and someone had to, Clerk of the Magistrate's Court, Clerk of the Warden's Court, Mining Registrar for the Karamea mining district, Official Assignee in bankruptcy, Clerk to the Licensing Committee, Local Patent Officer, and Marshal of the Supreme Court for its admiralty jurisdiction.[^12]
 
 I'd love to have seen his business card.
 
@@ -135,7 +145,7 @@ That's him, heading off. Lemon squeezer hat, rifle, kitbag, a cigarette, and a g
 
 He was no longer a rifleman this time round. Over the next few months he did a rifle course at Riccarton, officer training at Burnham, and came out a sergeant.
 
-Back in civilian life, the moves kept coming. The family was in Wanganui by 1943, the year my father Graeme was born, and Walter's Army file lists his address as the Courthouse, Wanganui. In March 1947 he went back to Christchurch as Registrar of the Supreme Court and Sheriff for the District of Canterbury.[^8]
+Back in civilian life, the moves kept coming. The family was in Wanganui by 1943, the year my father Graeme was born, and Walter's Army file lists his address as the Courthouse, Wanganui. In March 1947 he went back to Christchurch as Registrar of the Supreme Court and Sheriff for the District of Canterbury.[^13]
 
 And then, around 1950, Wellington. The top job.
 
@@ -155,7 +165,7 @@ He was wounded at Ypres, married a girl from Waipawa, moved from courthouse to c
 
 Sorry Walter. I'm making a fuss.
 
-I wish I'd known you, but learning a little about your achievements 50 years after your passing is the next best thing. And now I get to tell people my grandfather met the queen! Because, well... you possibly did.
+I wish I'd known you, but learning a little about your life 50 years after your passing is the next best thing. And now I get to tell people my grandfather met the queen! Because, well... maybe you did... and I bet you didn't say much.
 
 [^1]: <a target="_blank" href="https://www3.parliament.nz/mi/get-involved/features/on-this-day-in-1954-queen-elizabeth-ii-opens-new-zealand-parliament/">On this day in 1954: Queen Elizabeth II opens New Zealand Parliament</a>, NZ Parliament
 [^2]: <a target="_blank" href="https://www.courtsofnz.govt.nz/about-the-judiciary/role-of-courts/opening-of-parliament">Opening of Parliament</a>, Courts of New Zealand
@@ -163,7 +173,12 @@ I wish I'd known you, but learning a little about your achievements 50 years aft
 [^4]: <a target="_blank" href="https://d200vq1iaq5hh.cloudfront.net/photos/When-Grandfather-Met-The-Queen/Walter_Parker_Military_Records.pdf">Walter's WW1 and WW2 military personnel files</a> (PDF, 3.3MB), Archives New Zealand
 [^5]: <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/ST19170828.2.5">Southland Times, 28 August 1917</a>, Papers Past
 [^6]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1920/issue/44/page/1382">New Zealand Gazette, 1920, p.1382</a>
-[^7]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1939/issue/37/page/1546">New Zealand Gazette, 1939, p.1546</a>
-[^8]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1947/issue/18/page/412">New Zealand Gazette, 1947, p.412</a>
+[^7]: <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/WAIPM19321216.2.15">Obituary, Mr H. D. Limbrick</a>, Waipawa Mail, 16 December 1932, and <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/WAIPM19241008.2.32.2">Dominion Livery advertisement</a>, Waipawa Mail, 8 October 1924, Papers Past
+[^8]: <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/WAIPM19401009.2.13">A Notable Figure: Death of Mr W. I. Limbrick</a>, Waipawa Mail, 9 October 1940, and <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/HBHETR19401008.2.104">Death of Waipawa Citizen</a>, Hawke's Bay Herald-Tribune, 8 October 1940, Papers Past
+[^9]: <a target="_blank" href="https://kura.aucklandlibraries.govt.nz/digital/collection/photos/id/194584">A Go-Ahead Borough</a>, Auckland Weekly News, 17 November 1910, photo by W. Golder. Auckland Libraries Heritage Collections, no known copyright restrictions
+[^10]: <a target="_blank" href="https://d200vq1iaq5hh.cloudfront.net/photos/When-Grandfather-Met-The-Queen/Waipawa_Pavement_Walk.pdf">Waipawa Pavement Walk</a> (PDF, 2.6MB). Originally published by <a target="_blank" href="https://members.hawkesbaynz.com/assets/Waipawa-Pavement-Walk-2022-2.pdf">Hawke's Bay Tourism</a>
+[^11]: <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/HBTRIB19250103.2.67">Waipawa News: A Popular Wedding</a>, Hawke's Bay Tribune, 3 January 1925, and <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/ST19250124.2.104">Parker–Limbrick</a>, Southland Times, 24 January 1925, Papers Past
+[^12]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1939/issue/37/page/1546">New Zealand Gazette, 1939, p.1546</a>
+[^13]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1947/issue/18/page/412">New Zealand Gazette, 1947, p.412</a>
 
-<!-- cspell:words Messines Brydone Limbrick Limbricks Waipawa Warneton Riccarton Naseby Akaroa Brockenhurst Karamea Marama Avonmouth downtown -->
+<!-- cspell:words Messines Brydone Limbrick Limbricks Waipawa Warneton Riccarton Naseby Akaroa Brockenhurst Karamea Marama Avonmouth downtown Adelia -->
