@@ -1,6 +1,6 @@
 ---
 name: new-gig
-description: Scaffold a new gig (concert) post for adrianparker.com, interview Adrian about each act and the night, research other reviews of the show, then draft the review in his voice. Defaults metadata from the matching content/GigTracker/gig-history.md row when one exists. Use when Adrian asks to write up a concert, show, or gig he went to.
+description: Scaffold a new gig (concert) post for adrianparker.com, interview Adrian about each act and the night, research other reviews of the show, then draft the review in his voice. Defaults metadata from the matching content/GigHistory/gig-history.md row when one exists. Use when Adrian asks to write up a concert, show, or gig he went to.
 ---
 
 # New gig post
@@ -9,7 +9,7 @@ A gig is a specialised post covering a concert. It lives in `content/posts/gigs/
 
 The skill's job is not just the stub: after scaffolding, it interviews Adrian about what he remembers, researches other reviews of the show, and drafts the review so it reads like one of his.
 
-Most gigs already have a row in `content/GigTracker/gig-history.md` (Adrian's hand-maintained gig log). When one exists, `npm run new-gig` scaffolds the post from it — venue, city, country, performers, and any setlist.fm ids are already there, so there's much less to ask for.
+Most gigs already have a row in `content/GigHistory/gig-history.md` (Adrian's hand-maintained gig log). When one exists, `npm run new-gig` scaffolds the post from it — venue, city, country, performers, and any setlist.fm ids are already there, so there's much less to ask for.
 
 ## 1. Find the gig-history row
 
@@ -29,7 +29,7 @@ The row gives headline artist, support artists, venue, city, country, date, and 
 
 - **Photos** — a folder of photos from the gig, if there is one.
 
-Don't ask for the **summary** yet — it is written after the draft (step 5), when there is something to summarise. If the row's Notes column has text, remember it (check `content/GigTracker/gig-history.md` directly; `npm run new-gig` doesn't show Notes) and treat it as the first thing Adrian has told you about the gig.
+Don't ask for the **summary** yet — it is written after the draft (step 5), when there is something to summarise. If the row's Notes column has text, remember it (check `content/GigHistory/gig-history.md` directly; `npm run new-gig` doesn't show Notes) and treat it as the first thing Adrian has told you about the gig.
 
 ## 3. Write the stub
 
@@ -168,7 +168,7 @@ Conventions:
 - `title` — always `Artist @ Venue, City`.
 - `navtitle` — always `<year> <Artist>`, e.g. `2026 Teen Jesus`. Shorten long artist names; this appears in a 170px sidebar.
 - `metadesc` — always `Concert review of <Artist> at <Venue>, <City>, <D Month YYYY>.`
-- `setlistfm` — one `Performer Name:id` pair per performer with a setlist, comma-separated (`\,` escapes a literal comma in a name, an optional `:empty` suffix suppresses that performer's chip) — the exact same format as the `Setlist.fm ID` column in `content/GigTracker/gig-history.md`. The performer name must match `headlineArtist` or the relevant `supportArtists` entry exactly, or its chip won't render.
+- `setlistfm` — one `Performer Name:id` pair per performer with a setlist, comma-separated (`\,` escapes a literal comma in a name, an optional `:empty` suffix suppresses that performer's chip) — the exact same format as the `Setlist.fm ID` column in `content/GigHistory/gig-history.md`. The performer name must match `headlineArtist` or the relevant `supportArtists` entry exactly, or its chip won't render.
 - **Omit optional keys entirely rather than leaving them as empty strings.** The layout guards each with `{% if %}`, and an empty string is truthy enough to render a broken link.
 - `readingtime` — word count ÷ 200, rounded up. Most gig write-ups are `'1 minute'`.
 
@@ -200,7 +200,7 @@ Open it **ready for review**, never as a draft (`--draft`) — Adrian has asked 
 
 ### Visual baselines
 
-Once the PR is open, run `npm run test:visual`. A new gig post routinely changes exactly four baselines: `gig-index` and `gigtracker-app`, each at desktop and mobile (the gig list gains an entry, the tracker row gains a "Read the review" link).
+Once the PR is open, run `npm run test:visual`. A new gig post routinely changes exactly four baselines: `gig-index` and `gighistory-app`, each at desktop and mobile (the gig list gains an entry, the tracker row gains a "Read the review" link).
 
 - **Only those four fail** → regenerate them straight away, without asking. Follow the `update-baselines` skill, but keep just those four: after copying actuals over, `git checkout --` any other baseline it touched (passing tests also get rewritten). Commit them separately (`Update visual baselines for <Artist> gig post`), push to the branch, and re-run `npm run test:visual` to confirm it's green.
 - **Any other test fails**, or one of the four fails for a reason that doesn't fit a new gig post → stop, tell Adrian which tests failed, and wait for instruction. Do not regenerate.

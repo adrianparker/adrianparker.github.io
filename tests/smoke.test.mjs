@@ -476,9 +476,9 @@ describe('Smoke Tests - Apps', function () {
     expect(fs.existsSync(sitePath('ExifCmdLine', 'index.html'))).to.be.true;
   });
 
-  it('should embed the Gig Tracker from its source files', function () {
+  it('should embed the Gig History from its source files', function () {
     const $ = load('Gig-History', 'index.html');
-    const app = $('.gig-tracker');
+    const app = $('.gig-history-app');
 
     expect(app.length, 'app embedded once').to.equal(1);
     expect(app.find('table thead th').length, 'table headings').to.be.greaterThan(0);
@@ -489,15 +489,15 @@ describe('Smoke Tests - Apps', function () {
     expect(script, 'gig data inlined').to.match(/GIGS\s*=\s*\[\s*\{/);
   });
 
-  it('should not publish the Gig Tracker sources as pages of their own', function () {
+  it('should not publish the Gig History sources as pages of their own', function () {
     // Eleventy treats a stray .html or .md file as a template, which would put
     // orphaned, unstyled pages at their own URLs — see #45.
-    expect(fs.existsSync(sitePath('GigTracker', 'gig-history')), 'orphaned app copy').to.be.false;
-    expect(fs.existsSync(sitePath('GigTracker', 'setlist-songs')), 'orphaned setlist songs data').to.be.false;
-    expect(fs.existsSync(sitePath('GigTracker', 'README')), 'orphaned contract doc').to.be.false;
+    expect(fs.existsSync(sitePath('GigHistory', 'gig-history')), 'orphaned app copy').to.be.false;
+    expect(fs.existsSync(sitePath('GigHistory', 'setlist-songs')), 'orphaned setlist songs data').to.be.false;
+    expect(fs.existsSync(sitePath('GigHistory', 'README')), 'orphaned contract doc').to.be.false;
   });
 
-  it('should make the Gig Tracker reload controls unreachable', function () {
+  it('should make the Gig History reload controls unreachable', function () {
     // They re-read a markdown file off disk that the site does not publish;
     // left live, a visitor clicking Reload lands in a file picker.
     const $ = load('Gig-History', 'index.html');
@@ -527,7 +527,7 @@ describe('Smoke Tests - Apps', function () {
 
     expect(selectors.length, 'rules found').to.be.greaterThan(0);
     selectors.forEach((selector) => {
-      expect(selector, 'scoped to the app').to.match(/^\.gig-tracker\b/);
+      expect(selector, 'scoped to the app').to.match(/^\.gig-history-app\b/);
     });
   });
 

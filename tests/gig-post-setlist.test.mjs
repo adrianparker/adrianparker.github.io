@@ -9,7 +9,7 @@ import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme 3001, analytics 3002, slideshow 3003, gig-tracker
+// Its own port: theme 3001, analytics 3002, slideshow 3003, gig-history
 // suites 3003-3009 (see their own files), visual 3000. See tests/*.test.mjs.
 const PORT = 3010;
 const BASE = `http://localhost:${PORT}`;

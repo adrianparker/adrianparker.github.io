@@ -242,7 +242,7 @@ describe("embed-app — buildAppEmbed", () => {
   const embed = buildAppEmbed({
     html,
     css,
-    scope: ".gig-tracker",
+    scope: ".gig-history-app",
     quarantineIds: ["reload"],
     palette: { "--accent": "var(--color-accent)" },
     colourMap: { "#2a2e38": "var(--color-rule)" }
@@ -260,7 +260,7 @@ describe("embed-app — buildAppEmbed", () => {
   });
 
   it("leads with the generated palette, mapping the app's properties to site tokens", () => {
-    expect(embed.css.startsWith(".gig-tracker {\n  --accent: var(--color-accent);\n}")).to.be.true;
+    expect(embed.css.startsWith(".gig-history-app {\n  --accent: var(--color-accent);\n}")).to.be.true;
   });
 
   it("drops the app's own :root and body rules", () => {
@@ -269,7 +269,7 @@ describe("embed-app — buildAppEmbed", () => {
   });
 
   it("scopes the app's remaining rules", () => {
-    expect(embed.css).to.contain(".gig-tracker .tag {");
+    expect(embed.css).to.contain(".gig-history-app .tag {");
   });
 
   it("remaps literal colours to tokens", () => {

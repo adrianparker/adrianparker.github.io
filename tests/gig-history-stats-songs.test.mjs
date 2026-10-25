@@ -13,7 +13,7 @@ import { startServer, stopServer } from './utils/http-server.mjs';
 const PORT = 3011;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker "Songs heard live" statistics card', function () {
+describe('Gig History "Songs heard live" statistics card', function () {
   this.timeout(60000);
 
   let browser;

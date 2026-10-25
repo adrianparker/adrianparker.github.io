@@ -1,5 +1,5 @@
 /**
- * Behavioural tests for the Gig Tracker filter bar's "active" indicator.
+ * Behavioural tests for the Gig History filter bar's "active" indicator.
  *
  * A filter or the search box gets a persistent outline whenever it has a
  * non-default value, so it's visible which filters are active without
@@ -18,7 +18,7 @@ import { startServer, stopServer } from './utils/http-server.mjs';
 const PORT = 3003;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker filter active indicator', function () {
+describe('Gig History filter active indicator', function () {
   this.timeout(60000);
 
   let browser;

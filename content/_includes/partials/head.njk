@@ -80,13 +80,13 @@
   <script>/<style> blocks, which is why it must stay textually present here
   for the transform to find and replace (#100).
 
-  style-src keeps 'unsafe-inline' on the one page (the embedded Gig Tracker)
+  style-src keeps 'unsafe-inline' on the one page (the embedded Gig History)
   that sets `style="..."` attributes at runtime with colours computed on the
   fly — hash sources cannot cover an attribute value that isn't known ahead
   of time. The transform detects this per page from the rendered HTML, so it
   is not hardcoded to a specific route.
 
-  img-src includes https://*.tile.openstreetmap.org for the Gig Tracker's
+  img-src includes https://*.tile.openstreetmap.org for the Gig History's
   Statistics map view (#139) — Leaflet requests tiles from the a/b/c
   subdomains. Leaflet's own JS/CSS are vendored from node_modules and served
   same-origin (see eleventy.config.mjs), so script-src/style-src need no

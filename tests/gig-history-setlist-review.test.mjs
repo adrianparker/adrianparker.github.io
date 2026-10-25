@@ -1,5 +1,5 @@
 /**
- * Behavioural tests for the Gig Tracker's setlist chip and review link (#182).
+ * Behavioural tests for the Gig History's setlist chip and review link (#182).
  *
  * A "Setlist" chip appears next to a performer's name when gig-history.md's
  * Setlist.fm ID column has an id for that specific performer, and opens a
@@ -13,12 +13,12 @@ import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme 3001, analytics 3002, gig-tracker 3003, filter-adaptation/app-nav 3004,
+// Its own port: theme 3001, analytics 3002, gig-history 3003, filter-adaptation/app-nav 3004,
 // stats-chart 3005, stats-toggle 3006, stats-map 3007.
 const PORT = 3008;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker setlist chip and review link', function () {
+describe('Gig History setlist chip and review link', function () {
   this.timeout(60000);
 
   let browser;

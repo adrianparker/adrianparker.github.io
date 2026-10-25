@@ -41,12 +41,12 @@ export default {
     'exif-app': '/ExifCmdLine/index.html',
     // The bundle-less app page. Its .app-shell/.app-panel styling lives only
     // in static/index.css, so this is the only test that exercises it.
-    'gigtracker-app': '/Gig-History/index.html',
+    'gighistory-app': '/Gig-History/index.html',
     // Same page, but with the City filter set to London and Statistics
     // open — the default capture above never opens the stats panel, so
     // this is the only baseline that renders the bar chart itself. See
     // `testInteractions` below for what drives it into this state.
-    'gigtracker-app-stats-london': '/Gig-History/index.html',
+    'gighistory-app-stats-london': '/Gig-History/index.html',
     'not-found': '/404.html'
   },
 
@@ -57,7 +57,7 @@ export default {
    * wants to capture that state needs an entry here instead.
    */
   testInteractions: {
-    async 'gigtracker-app-stats-london'(page) {
+    async 'gighistory-app-stats-london'(page) {
       // Option values are the bare city name; the visible label carries a
       // "(N)" gig count (#153) that would break an exact label match here.
       await page.selectOption('#f-city', { value: 'London' });

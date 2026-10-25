@@ -99,7 +99,7 @@ Post content in markdown...
 ### Creating a gig post
 
 Gig reviews live in `content/posts/gigs/`. When the gig already has a row in
-`content/GigTracker/gig-history.md`, scaffold the post from that row rather
+`content/GigHistory/gig-history.md`, scaffold the post from that row rather
 than typing the front matter by hand:
 
 ```bash

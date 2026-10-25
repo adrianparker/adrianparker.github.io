@@ -1,5 +1,5 @@
 /*
-  Scaffolds a new gig review post from content/GigTracker/gig-history.md.
+  Scaffolds a new gig review post from content/GigHistory/gig-history.md.
 
     npm run new-gig -- <artist>
       Lists matching gig-history rows (date, show, venue, city, whether a
@@ -20,7 +20,7 @@ import { parseGigReviews, findReviewUrl } from "../lib/gig-reviews.mjs";
 import { findGigs, gigFrontMatter, gigStem, parseNewGigArgs, renderGigStub } from "../lib/gig-stub.mjs";
 import { PHOTO_SETS_DIR } from "../lib/photo-sets.mjs";
 
-const GIG_HISTORY_FILE = "content/GigTracker/gig-history.md";
+const GIG_HISTORY_FILE = "content/GigHistory/gig-history.md";
 const GIGS_DIR = "content/posts/gigs";
 
 const { artist, date, summary, withPhotos } = parseNewGigArgs(process.argv.slice(2));

@@ -1,5 +1,5 @@
 /**
- * Behavioural tests for the Gig Tracker statistics map view (#139): it is
+ * Behavioural tests for the Gig History statistics map view (#139): it is
  * always visible (#149) and shows one marker per resolved location with the
  * gig count on it, at one of three zoom levels — country (#195), city (#148)
  * or venue (#192) — depending on which filters are active. All three levels
@@ -15,8 +15,8 @@ import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme 3001, analytics 3002, gig-tracker 3003, app-nav/filter
-// adaptation 3004, gig-tracker stats chart 3005, stats toggle 3006.
+// Its own port: theme 3001, analytics 3002, gig-history 3003, app-nav/filter
+// adaptation 3004, gig-history stats chart 3005, stats toggle 3006.
 const PORT = 3007;
 const BASE = `http://localhost:${PORT}`;
 
@@ -26,7 +26,7 @@ const BLANK_TILE = Buffer.from(
   'base64'
 );
 
-describe('Gig Tracker statistics map view', function () {
+describe('Gig History statistics map view', function () {
   this.timeout(60000);
 
   let browser;
