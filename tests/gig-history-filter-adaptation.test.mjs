@@ -1,5 +1,5 @@
 /**
- * Behavioural tests for Gig Tracker's mutual dropdown filtering (#118).
+ * Behavioural tests for Gig History's mutual dropdown filtering (#118).
  *
  * When a dropdown filter is active, the *other* dropdowns should only offer
  * values that are actually reachable given the active filter(s) — e.g.
@@ -16,7 +16,7 @@ import { startServer, stopServer } from './utils/http-server.mjs';
 const PORT = 3004;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker adaptive dropdown filters', function () {
+describe('Gig History adaptive dropdown filters', function () {
   this.timeout(60000);
 
   let browser;

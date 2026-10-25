@@ -796,7 +796,7 @@ let statsMapMarkers = null;
  * Groups rows by exact resolved coordinates (two gigs at the same location
  * always share the same lat/lng — no distance-based clustering needed) and
  * drops one marker per location, its divIcon showing the gig count. Rows
- * with no resolved location (see gigTrackerApp.mjs's build-time warning) are
+ * with no resolved location (see gigHistoryApp.mjs's build-time warning) are
  * silently excluded — there is nowhere on the map to put them.
  *
  * The map has three zoom levels, all sharing one marker style (#192) so
@@ -843,7 +843,7 @@ function renderStatsMap(rows) {
   statsMapMarkers.clearLayers();
   for (const location of byLocation.values()) {
     // At venue precision, a gig with no coordinates of its own falls back to
-    // the city point (see hasVenueLocation in gigTrackerApp.mjs) and lands
+    // the city point (see hasVenueLocation in gigHistoryApp.mjs) and lands
     // in the same group as any other gig doing the same — location.venue is
     // then just whichever gig happened to be pushed first, so it can't be
     // trusted as the marker's label, and clicking it selects the city

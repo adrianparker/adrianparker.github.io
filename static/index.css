@@ -88,7 +88,7 @@
   --color-button-text: #cccccc;
   --color-button-text: light-dark(#ffffff, #cccccc);
 
-  /* Category colours for the Gig Tracker's Statistics chart. Each category
+  /* Category colours for the Gig History's Statistics chart. Each category
      needs a colour distinguishable from its neighbours in both themes, so
      unlike most tokens above these aren't reused site colours — dark gets a
      vivid tone, light gets the same hue pulled darker/muted, matching the
@@ -111,7 +111,7 @@
   --color-cat-other: #7a8290;
   --color-cat-other: light-dark(#5c6270, #7a8290);
 
-  /* The Gig Tracker's setlist lightbox scrim and drop shadow. Both are dark
+  /* The Gig History's setlist lightbox scrim and drop shadow. Both are dark
      translucent overlays sitting on top of the whole page, so unlike the
      tokens above they don't need a light-mode counterpart. */
   --color-modal-overlay: rgba(10, 10, 14, 0.62);
@@ -1139,7 +1139,7 @@ html.js .app-nav-collapse {
 }
 .app-page .app-shell,
     .app-page .shell,
-    .app-page .gig-tracker {
+    .app-page .gig-history-app {
       padding-top: 0px;
     }
 /*
@@ -1148,32 +1148,32 @@ html.js .app-nav-collapse {
   --app-content-top do the aligning.
 */
 .app-page .app-shell h1:first-child,
-.app-page .app-shell .gig-tracker h1:first-child,
+.app-page .app-shell .gig-history-app h1:first-child,
 .app-page .shell > .panel > h1:first-child {
   margin-top: 0;
 }
 
 /*
-  Gig Tracker column headings.
+  Gig History column headings.
 
-  gig-history.css sets thead th to --muted, which content/_data/gigTrackerApp.mjs
+  gig-history.css sets thead th to --muted, which content/_data/gigHistoryApp.mjs
   maps to --color-muted — so the headings came out grey while every other
   heading on the site is the accent. The app's stylesheet is scoped to
-  .gig-tracker and inlined after index.css, so this needs the extra class to
+  .gig-history-app and inlined after index.css, so this needs the extra class to
   win. Both themes are handled for free: --color-accent is #ff9900 in dark and
   #1c4f8c in light.
 
   Fixing it here rather than in gig-history.css on purpose — that file is
-  regenerated on every build (see content/GigTracker/README.md).
+  regenerated on every build (see content/GigHistory/README.md).
 */
-.app-page .gig-tracker thead th {
+.app-page .gig-history-app thead th {
   color: var(--color-accent);
 }
 
 /* The headings are sort controls, so they still need a hover state. Underline
    rather than a colour change: dimming an accent heading on hover reads as
    disabling it. */
-.app-page .gig-tracker thead th:hover {
+.app-page .gig-history-app thead th:hover {
   color: var(--color-accent);
   text-decoration: underline;
 }
@@ -1191,7 +1191,7 @@ html.js .app-nav-collapse {
   anonymous internal table box shrinks to content width instead of filling
   100% when the content is narrower than the container.
 */
-.app-page .gig-tracker .table-scroll {
+.app-page .gig-history-app .table-scroll {
   overflow-x: auto;
   max-width: 100%;
   -webkit-overflow-scrolling: touch;
@@ -1241,7 +1241,7 @@ html.js .app-nav-collapse {
 @media (width >= 850px) {
   .app-page .app-shell {
     padding: 2px 0%;
-    /* Gig Tracker (#116) wants the full column width on desktop — the
+    /* Gig History (#116) wants the full column width on desktop — the
        table, stats chart and filter row all benefit from the space, and
        .app-shell has no other consumer to cap for. */
     max-width: none;
@@ -1298,12 +1298,12 @@ html.js .app-nav-collapse {
   border-top: 1px solid var(--color-hairline);
 }
 
-/* Setlist chip and modal — same look as the Gig Tracker's own (see
-   content/GigTracker/gig-history.css .setlist-chip/.setlist-modal*), but
+/* Setlist chip and modal — same look as the Gig History's own (see
+   content/GigHistory/gig-history.css .setlist-chip/.setlist-modal*), but
    built from the site's own theme tokens rather than the app's, since this
    markup lives directly on the page rather than inside the scoped
-   .gig-tracker embed. Scoped to .gig-metadata / .gig-setlist-modal so these
-   rules don't also restyle the embedded Gig Tracker's own chips and modal,
+   .gig-history-app embed. Scoped to .gig-metadata / .gig-setlist-modal so these
+   rules don't also restyle the embedded Gig History's own chips and modal,
    which share the class names. */
 .gig-metadata .setlist-chip {
   display: inline-flex;

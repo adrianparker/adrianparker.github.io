@@ -1,5 +1,5 @@
 /**
- * Behavioural tests for the Gig Tracker statistics bar chart's hover
+ * Behavioural tests for the Gig History statistics bar chart's hover
  * feedback: no tooltip for a month with zero gigs (#122), and a crosshair
  * that tracks the hovered bar (#121).
  */
@@ -8,11 +8,11 @@ import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme 3001, analytics 3002, gig-tracker 3003, app-nav 3004.
+// Its own port: theme 3001, analytics 3002, gig-history 3003, app-nav 3004.
 const PORT = 3005;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker statistics chart hover', function () {
+describe('Gig History statistics chart hover', function () {
   this.timeout(60000);
 
   let browser;

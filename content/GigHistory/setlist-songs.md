@@ -4,8 +4,8 @@ Every song played at a gig with a setlist.fm setlist, one row per song, sourced
 from the setlist.fm setlists referenced by the `Setlist.fm ID` column in
 `gig-history.md` (see its README section). Tape/intro songs (played from a
 recording rather than performed live) are excluded. This file powers the
-"Songs heard live" statistics card in the Gig Tracker app — see
-`content/GigTracker/README.md` for how it is wired in and refreshed.
+"Songs heard live" statistics card in the Gig History app — see
+`content/GigHistory/README.md` for how it is wired in and refreshed.
 
 **Coverage:** the full Setlist.fm ID backlog in `gig-history.md` as of
 2026-09-28. Built incrementally — an id not present here yet simply has not

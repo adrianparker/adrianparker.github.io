@@ -1,22 +1,22 @@
 /**
- * Behavioural test for the Gig Tracker statistics toggle button's active
+ * Behavioural test for the Gig History statistics toggle button's active
  * state (#126). Closing the panel already removes .is-active, but a touch
  * tap (unlike a mouse click) can leave the button matching :focus-visible
  * afterwards, so the shared focus/active outline stayed showing on mobile.
  * The fix blurs the button on close, mirroring how the filter <select>s
- * already behave (see gig-tracker.test.mjs).
+ * already behave (see gig-history.test.mjs).
  */
 
 import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme 3001, analytics 3002, gig-tracker 3003, app-nav/filter
-// adaptation 3004, gig-tracker stats chart 3005.
+// Its own port: theme 3001, analytics 3002, gig-history 3003, app-nav/filter
+// adaptation 3004, gig-history stats chart 3005.
 const PORT = 3006;
 const BASE = `http://localhost:${PORT}`;
 
-describe('Gig Tracker statistics toggle active state', function () {
+describe('Gig History statistics toggle active state', function () {
   this.timeout(60000);
 
   let browser;

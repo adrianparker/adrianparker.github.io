@@ -8,7 +8,7 @@ import { expect } from 'chai';
 import { chromium } from 'playwright';
 import { startServer, stopServer } from './utils/http-server.mjs';
 
-// Its own port: theme holds 3001, analytics 3002, gig-tracker 3003.
+// Its own port: theme holds 3001, analytics 3002, gig-history 3003.
 const PORT = 3004;
 const BASE = `http://localhost:${PORT}`;
 

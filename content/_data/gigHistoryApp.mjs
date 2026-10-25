@@ -1,12 +1,12 @@
 /*
-  Rebuilds the Gig Tracker page from content/GigTracker/gig-history.html and
+  Rebuilds the Gig History page from content/GigHistory/gig-history.html and
   gig-history.css on every build, so whatever those two files currently say is
   what the site publishes. They are written by a separate agent and are not
-  edited here — see content/GigTracker/README.md for the contract they follow.
+  edited here — see content/GigHistory/README.md for the contract they follow.
 
   The gig data itself is not read from the HTML's own `let GIGS = [...]` line
   — that line is replaced below with data parsed fresh from
-  content/GigTracker/gig-history.md on every build, so updating that one
+  content/GigHistory/gig-history.md on every build, so updating that one
   markdown file and rebuilding is enough to publish new gigs, with no need to
   regenerate or hand-copy the HTML/CSS shell.
 
@@ -23,9 +23,9 @@ import { parseLocations, findLocation } from "../../lib/locations.mjs";
 import { parseGigReviews, findReviewUrl } from "../../lib/gig-reviews.mjs";
 import { parseSetlistSongs } from "../../lib/setlist-songs.mjs";
 
-const APP_DIR = path.join(import.meta.dirname, "..", "GigTracker");
+const APP_DIR = path.join(import.meta.dirname, "..", "GigHistory");
 const GIGS_POSTS_DIR = path.join(import.meta.dirname, "..", "posts", "gigs");
-const SCOPE = ".gig-tracker";
+const SCOPE = ".gig-history-app";
 const GIGS_ASSIGNMENT = /let GIGS = \[.*\];/;
 const SETLIST_SONGS_ASSIGNMENT = /let SETLIST_SONGS = \[.*\];/;
 
@@ -114,7 +114,7 @@ function withCoordinates (gigs, locations) {
       const key = `${gig.country} / ${gig.city} / ${gig.venue}`;
       if (!warned.has(key)) {
         warned.add(key);
-        console.warn(`[gig-tracker] no map location resolved for ${key} — add a row to Locations.md`);
+        console.warn(`[gig-history] no map location resolved for ${key} — add a row to Locations.md`);
       }
     }
     return {
@@ -168,7 +168,7 @@ export default function () {
 
   if (embed.rawColours.length > 0) {
     console.warn(
-      `[gig-tracker] ${embed.rawColours.length} literal colour(s) in gig-history.css ` +
+      `[gig-history] ${embed.rawColours.length} literal colour(s) in gig-history.css ` +
       `will not follow the light/dark theme: ${embed.rawColours.join(", ")}`
     );
   }

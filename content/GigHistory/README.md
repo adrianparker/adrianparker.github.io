@@ -1,6 +1,6 @@
-# Gig Tracker — source file contract
+# Gig History — source file contract
 
-Five files in this directory feed the Gig Tracker page, each with a
+Five files in this directory feed the Gig History page, each with a
 different owner:
 
 - **`gig-history.md`** — the gig data, one row per gig. **Edited by hand by
@@ -24,7 +24,7 @@ different owner:
   `let SETLIST_SONGS = [...]` line just below it is the same kind of
   placeholder, overwritten at every build from `setlist-songs.md`.
 
-adrianparker.com rebuilds the page at `/GigTracker/` from all five on every
+adrianparker.com rebuilds the page at `/Gig-History/` from all five on every
 build, so whatever they say at build time is what gets published.
 
 `index.njk` is the site's own wrapper and is **not** agent-owned — don't write
@@ -82,7 +82,7 @@ pins when a Country filter is active but no City or Venue; venue-level pins
 once a City or Venue filter narrows things further. All three pin styles are
 identical — clicking a pin sets the corresponding Country, City or Venue
 filter. It needs `lat, lng` for each gig at each level, which
-`content/_data/gigTrackerApp.mjs` resolves per row via `lib/locations.mjs`:
+`content/_data/gigHistoryApp.mjs` resolves per row via `lib/locations.mjs`:
 
 1. an exact Country/City/Venue match in `Locations.md` with numeric
    coordinates — used as-is, for the venue-level pin.
@@ -154,7 +154,7 @@ single-file app with no bundler to import lib code with at runtime.
 
 ## How the embed works
 
-`content/_data/gigTrackerApp.mjs`:
+`content/_data/gigHistoryApp.mjs`:
 
 1. parses `gig-history.md` via `lib/gig-history.mjs`, resolves each gig's
    coordinates against `Locations.md` via `lib/locations.mjs`, and splices
@@ -166,14 +166,14 @@ single-file app with no bundler to import lib code with at runtime.
       HTML validation requires — you don't need to write it, but it's
       harmless if you do
    4. drops the `:root`, `html` and `body` rules from the CSS
-   5. prefixes every remaining selector with `.gig-tracker`
+   5. prefixes every remaining selector with `.gig-history-app`
    6. re-declares the app's custom properties in terms of the site's theme
       tokens
    7. inlines the result into the page
 
 None of the four source files is served. There is no
-`/GigTracker/gig-history.html`, `/GigTracker/gig-history.md` or
-`/GigTracker/Locations.md`.
+`/GigHistory/gig-history.html`, `/GigHistory/gig-history.md` or
+`/GigHistory/Locations.md`.
 
 ## Rules to follow
 
