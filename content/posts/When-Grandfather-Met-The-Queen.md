@@ -17,7 +17,9 @@ He was about to meet the Queen.<!-- excerpt -->
 
 Well. Sort of. More on that later.
 
-I never knew Walter. He died when I was about one. Everything I know about him comes from family stories, a handful of photos, a jar on the mantelpiece, and a handful of old photos. And those photos tell us a lot about the man.
+I never knew Walter. He died when I was about one. Everything I know about him comes from family stories, a handful of photos, a jar on the mantelpiece, and a handful of old photos. 
+
+Those photos, as it turns out, tell us a lot about the man.
 
 ## A first for New Zealand
 
@@ -45,17 +47,19 @@ Walter isn't in this next photo. But this is the moment all that marching was fo
 
 {% image "When-Grandfather-Met-The-Queen/Opening_Parliament_3", "Prime Minister Sidney Holland hands the Queen her Speech from the Throne, with Prince Philip to her left" %}
 
-That's Queen Elizabeth, on the throne in the Legislative Council Chamber, in her coronation gown. Prime Minister Sidney Holland is bowing at the foot of the steps, handing her a vellum copy of the Speech from the Throne, which she is about to read to formally open Parliament. Prince Philip sits beside her in full naval uniform.
+That's Queen Elizabeth II, on the throne in the Legislative Council Chamber, in her coronation gown. Prime Minister Sidney Holland is bowing at the foot of the steps, handing her a vellum copy of the Speech from the Throne, which she is about to read to formally open Parliament. Prince Philip sits beside her in full naval uniform.
 
 And over on the right, in their wigs, the judges. The ones Walter just delivered. I can't see him in this photo but i imagine he is just off to the right of frame.
 
-So did Walter meet the Queen? I can't honestly say he shook her hand. I don't recall any anecdotes about that. But he was in the room, a few metres away, with a front row seat to history, and he got there by leading the procession. He wasn't known for his chat and it predates the age of a selfie, but who knows? Be a shame not to.
+So did Walter meet the Queen? I can't honestly say he shook her hand. I don't recall any family stories about that. But he was in the room, a few metres away, with a front row seat to history, and he got there by leading the procession. He wasn't known for his chat and it predates the age of selfies, but who knows? 
+
+No one can say for sure that he didn't. That'll do me.
 
 ## Thank you, your Honour
 
 So what sort of man was he, judging from the few sources I could find?
 
-The best answer I have comes from the [New Zealand Law Journal of 6 November 1956](https://library.victoria.ac.nz/databases/nzlawjournal/pubs/1956/1956-20-305.pdf), page 317, which reported on his retirement.[^3] By then his full title was Registrar of the Court of Appeal and of the Supreme Court, as well as Sheriff, in Wellington.
+The best answer I have comes from the [New Zealand Law Journal of 6 November 1956](https://d200vq1iaq5hh.cloudfront.net/photos/When-Grandfather-Met-The-Queen/NZ_Law_Journal_1956-11-06.pdf#page=21), page 317, which reported on his retirement.[^3] By then his full title was Registrar of the Court of Appeal and of the Supreme Court, as well as Sheriff, in Wellington.
 
 The local lawyers threw him a farewell and presented him with a silver tea and coffee service and a cheque. The President of the Wellington District Law Society opened by admitting he'd had some trouble getting Walter to turn up at all. Apparently Walter was appalled at the idea of having to stand up in front of everyone.
 
@@ -155,7 +159,7 @@ I wish I'd known you, but learning a little about your achievements 50 years aft
 
 [^1]: <a target="_blank" href="https://www3.parliament.nz/mi/get-involved/features/on-this-day-in-1954-queen-elizabeth-ii-opens-new-zealand-parliament/">On this day in 1954: Queen Elizabeth II opens New Zealand Parliament</a>, NZ Parliament
 [^2]: <a target="_blank" href="https://www.courtsofnz.govt.nz/about-the-judiciary/role-of-courts/opening-of-parliament">Opening of Parliament</a>, Courts of New Zealand
-[^3]: <a target="_blank" href="https://library.victoria.ac.nz/databases/nzlawjournal/pubs/1956/1956-20-305.pdf">Presentation to Mr Walter Parker</a>, New Zealand Law Journal, 6 November 1956, p.317
+[^3]: <a target="_blank" href="https://d200vq1iaq5hh.cloudfront.net/photos/When-Grandfather-Met-The-Queen/NZ_Law_Journal_1956-11-06.pdf#page=21">Presentation to Mr Walter Parker</a>, New Zealand Law Journal, 6 November 1956, p.317 (PDF, 3.4MB). Originally published by <a target="_blank" href="https://library.victoria.ac.nz/databases/nzlawjournal/pubs/1956/1956-20-305.pdf">Victoria University of Wellington Library</a>
 [^4]: <a target="_blank" href="https://d200vq1iaq5hh.cloudfront.net/photos/When-Grandfather-Met-The-Queen/Walter_Parker_Military_Records.pdf">Walter's WW1 and WW2 military personnel files</a> (PDF, 3.3MB), Archives New Zealand
 [^5]: <a target="_blank" href="https://paperspast.natlib.govt.nz/newspapers/ST19170828.2.5">Southland Times, 28 August 1917</a>, Papers Past
 [^6]: <a target="_blank" href="https://gazette.howison.co.nz/nzg/1920/issue/44/page/1382">New Zealand Gazette, 1920, p.1382</a>
