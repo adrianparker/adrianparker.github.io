@@ -16,14 +16,33 @@
 
   respect_dnt: true
     Honour Do Not Track.
+
+  before_send
+    Tags every event from the owner's own devices with internal_user: true so
+    PostHog can filter them out. A device opts in by visiting any page once
+    with ?internal=1 (stored in localStorage) and out again with ?internal=0.
 #}
 <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    var internalUser = false;
+    try {
+        var flag = /[?&]internal=([01])(?:&|$)/.exec(location.search);
+        if (flag) {
+            if (flag[1] === '1') { localStorage.setItem('internal_user', '1'); }
+            else { localStorage.removeItem('internal_user'); }
+        }
+        internalUser = localStorage.getItem('internal_user') === '1';
+    } catch (e) { /* storage blocked: treated as an ordinary visitor */ }
+
     posthog.init('phc_Wr9RzCL2JbbyOk5VzYaihbLoatWwH1j50OhxmNKQL8R', {
         api_host: 'https://eu.posthog.com',
         persistence: 'localStorage',
         person_profiles: 'identified_only',
-        respect_dnt: true
+        respect_dnt: true,
+        before_send: function (event) {
+            if (internalUser && event) { event.properties = event.properties || {}; event.properties.internal_user = true; }
+            return event;
+        }
     });
 </script>
 

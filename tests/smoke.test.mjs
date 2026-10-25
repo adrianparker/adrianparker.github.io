@@ -674,6 +674,20 @@ describe('Smoke Tests - Renamed gig redirect stubs', function () {
   });
 });
 
+describe('Smoke Tests - Renamed app redirect stubs', function () {
+  this.timeout(30000);
+
+  // The Gig History app's address was once guessed as /GigTracker/, which
+  // 404ed in the analytics. The stub sends those visitors to the real page.
+  it('should send /GigTracker/ to /Gig-History/ via meta refresh', function () {
+    const $ = load('GigTracker', 'index.html');
+    expect($('meta[http-equiv="refresh"]').attr('content')).to.equal('0; url=/Gig-History/');
+    expect($('link[rel="canonical"]').attr('href')).to.equal('/Gig-History/');
+    expect($('meta[name="robots"]').attr('content')).to.equal('noindex');
+    expect($('a[href="/Gig-History/"]')).to.have.lengthOf(1);
+  });
+});
+
 describe('Smoke Tests - Internal links', function () {
   this.timeout(30000);
 

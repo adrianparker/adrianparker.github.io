@@ -91,6 +91,45 @@ describe('Analytics', function () {
         await context.close();
       }
     });
+
+    describe('internal traffic', function () {
+      /** Run the configured before_send hook over an empty event. */
+      const tagged = (page) =>
+        page.evaluate(() => {
+          const config = window.posthog._i[0][1];
+          return config.before_send({ properties: {} }).properties.internal_user;
+        });
+
+      it('leaves ordinary visitors untagged', async function () {
+        const context = await newContext();
+        const page = await context.newPage();
+        await page.goto(`${BASE}/index.html`, { waitUntil: 'domcontentloaded' });
+
+        expect(await tagged(page)).to.be.undefined;
+        await context.close();
+      });
+
+      it('tags every event once a device visits with ?internal=1', async function () {
+        const context = await newContext();
+        const page = await context.newPage();
+        await page.goto(`${BASE}/index.html?internal=1`, { waitUntil: 'domcontentloaded' });
+        expect(await tagged(page), 'on the opt-in visit').to.equal(true);
+
+        await page.goto(`${BASE}/index.html`, { waitUntil: 'domcontentloaded' });
+        expect(await tagged(page), 'on a later visit without the flag').to.equal(true);
+        await context.close();
+      });
+
+      it('stops tagging after ?internal=0', async function () {
+        const context = await newContext();
+        const page = await context.newPage();
+        await page.goto(`${BASE}/index.html?internal=1`, { waitUntil: 'domcontentloaded' });
+        await page.goto(`${BASE}/index.html?internal=0`, { waitUntil: 'domcontentloaded' });
+
+        expect(await tagged(page)).to.be.undefined;
+        await context.close();
+      });
+    });
   });
 
   describe('custom events', function () {
