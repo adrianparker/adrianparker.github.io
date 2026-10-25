@@ -114,6 +114,20 @@ describe("filters — renderMarkdown", () => {
     expect(second.replace(/B|two/g, (m) => (m === "B" ? "A" : "one"))).to.equal(first);
   });
 
+  it("gives repeat footnote references ids without a colon", () => {
+    // html-validate's valid-id rule only allows letters, digits, - and _.
+    const out = renderMarkdown("A[^1] and again[^1]\n\n[^1]: The note.");
+    expect(out).to.contain('id="fnref1"');
+    expect(out).to.contain('id="fnref1-1"');
+    expect(out).not.to.match(/fnref\d+:\d+/);
+  });
+
+  it("points each footnote backref at its repeat reference's dashed id", () => {
+    const out = renderMarkdown("A[^1] and again[^1]\n\n[^1]: The note.");
+    expect(out).to.contain('href="#fnref1"');
+    expect(out).to.contain('href="#fnref1-1"');
+  });
+
   it("exposes the same instance Eleventy uses for .md files", () => {
     expect(markdownLibrary).to.have.property("render").that.is.a("function");
   });
