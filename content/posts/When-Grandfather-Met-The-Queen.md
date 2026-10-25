@@ -17,7 +17,7 @@ He was about to meet the Queen.<!-- excerpt -->
 
 Well. Sort of. More on that later.
 
-I never knew Walter. He died when I was about one. Everything I know about him comes from family stories, a handful of photos, a jar on the mantelpiece, and a handful of old photos. 
+I never knew Walter. He died when I was about one. Everything I know about him comes from family stories, a handful of photos, and a jar on the mantelpiece.
 
 Those photos, as it turns out, tell us a lot about the man.
 
