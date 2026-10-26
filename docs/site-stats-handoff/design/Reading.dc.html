@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Stats: what's read</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.bb{font-family:'Bebas Neue', Impact, sans-serif;font-weight:400;letter-spacing:0.02em}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: {{c.bg}}; color: {{c.text}}; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5">
+<div style="max-width: 1080px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 48px) 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 64px">
+
+<section aria-labelledby="posts-h" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="posts-h" class="bb" style="margin: 0; font-size: clamp(34px, 5vw, 52px); line-height: 1; color: {{c.strong}}">What's being read now, against all time</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<sc-if value="{{noGigs}}" hint-placeholder-val="{{ true }}"><p style="margin: 0; max-width: 680px">Posts ranked by views, gig reviews excluded.</p></sc-if>
+<sc-if value="{{gigs}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; max-width: 680px">Posts ranked by views, gig reviews included.</p></sc-if>
+<label style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid {{c.rule}}; border-radius: 999px; font-size: 14px; cursor: pointer">
+<input type="checkbox" checked="{{gigs}}" onChange="{{toggleGigs}}" style="width: 18px; height: 18px; margin: 0; accent-color: {{c.accent}}">
+Include gig reviews
+</label>
+</div>
+<sc-if value="{{gigs}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; justify-content: center; min-height: 410px; padding: 24px; box-sizing: border-box; border: 1px dashed {{c.rule}}; border-radius: 8px; text-align: center; color: {{c.muted}}; font-size: 14px">[Same slope chart with gig reviews ranked alongside posts. The sample data has no per-gig view counts for these two periods.]</div>
+</sc-if>
+<sc-if value="{{noGigs}}" hint-placeholder-val="{{ true }}">
+<div style="overflow-x: auto">
+<figure style="margin: 0; min-width: 640px">
+<svg viewBox="0 0 780 410" width="100%" role="img" aria-label="Slope chart of post rank all time versus last 90 days" style="display: block; font-family: Arial, Helvetica, sans-serif">
+<text x="310" y="24" text-anchor="end" font-size="13" font-weight="bold" fill="{{c.muted}}">ALL TIME · views</text>
+<text x="470" y="24" font-size="13" font-weight="bold" fill="{{c.muted}}">LAST 90 DAYS · views</text>
+
+<line x1="320" y1="60" x2="460" y2="100" stroke="{{c.quiet}}" stroke-width="2"></line>
+<line x1="320" y1="100" x2="460" y2="180" stroke="{{c.noise}}" stroke-width="3"></line>
+<line x1="320" y1="140" x2="460" y2="340" stroke="{{c.noise}}" stroke-width="3"></line>
+<line x1="320" y1="180" x2="460" y2="60" stroke="{{c.accent}}" stroke-width="4"></line>
+<line x1="320" y1="220" x2="460" y2="140" stroke="{{c.accent}}" stroke-width="4"></line>
+<line x1="320" y1="260" x2="460" y2="380" stroke="{{c.noise}}" stroke-width="3"></line>
+<line x1="320" y1="300" x2="460" y2="260" stroke="{{c.quiet}}" stroke-width="2"></line>
+<line x1="320" y1="340" x2="460" y2="300" stroke="{{c.quiet}}" stroke-width="2"></line>
+<line x1="410" y1="220" x2="460" y2="220" stroke="{{c.quiet}}" stroke-width="2" stroke-dasharray="4 4"></line>
+
+<g fill="{{c.text}}" font-size="14" text-anchor="end">
+<text x="310" y="65">Last Ever Last Ever  <tspan font-weight="bold">81</tspan></text>
+<text x="310" y="105">Wine Cork Notice Board How To  <tspan font-weight="bold">77</tspan></text>
+<text x="310" y="145">Already Not Dating Her  <tspan font-weight="bold">54</tspan></text>
+<text x="310" y="185" fill="{{c.accent}}">Can I Touch Your Feet  <tspan font-weight="bold">46</tspan></text>
+<text x="310" y="225" fill="{{c.accent}}">Tangalooma Wrecks  <tspan font-weight="bold">44</tspan></text>
+<text x="310" y="265">Cognitive Reframing  <tspan font-weight="bold">41</tspan></text>
+<text x="310" y="305">Favourite Part Of Last Vacation  <tspan font-weight="bold">39</tspan></text>
+<text x="310" y="345">Generosity Customer Experience…  <tspan font-weight="bold">30</tspan></text>
+</g>
+<g fill="{{c.text}}" font-size="14">
+<text x="470" y="65" fill="{{c.accent}}"><tspan font-weight="bold">38</tspan>  Can I Touch Your Feet</text>
+<text x="470" y="105"><tspan font-weight="bold">31</tspan>  Last Ever Last Ever</text>
+<text x="470" y="145" fill="{{c.accent}}"><tspan font-weight="bold">22</tspan>  Tangalooma Wrecks</text>
+<text x="470" y="185"><tspan font-weight="bold">7</tspan>  Wine Cork Notice Board How To</text>
+<text x="470" y="225"><tspan font-weight="bold">6</tspan>  When Grandfather Met The Queen  <tspan fill="{{c.muted}}" font-size="12">new</tspan></text>
+<text x="470" y="265"><tspan font-weight="bold">5</tspan>  Favourite Part Of Last Vacation</text>
+<text x="470" y="305"><tspan font-weight="bold">4</tspan>  Generosity Customer Experience…</text>
+<text x="470" y="345"><tspan font-weight="bold">4</tspan>  Already Not Dating Her</text>
+<text x="470" y="385"><tspan font-weight="bold">3</tspan>  Cognitive Reframing</text>
+</g>
+</svg>
+<figcaption style="display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 8px; font-size: 13px; color: {{c.muted}}">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 22px; height: 4px; background: {{c.accent}}"></span>Rising</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 22px; height: 3px; background: {{c.noise}}"></span>Falling 2+ places</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 22px; height: 2px; background: {{c.quiet}}"></span>Roughly steady</span>
+</figcaption>
+</figure>
+</div>
+</sc-if>
+</section>
+
+<section aria-labelledby="land-h" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="land-h" class="bb" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1; color: {{c.strong}}">Where visits start, and where they end</h2><div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+<div style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px">
+<h3 style="margin: 0; font-size: 16px; color: {{c.strong}}">Landing pages <span style="font-weight: normal; font-size: 13px; color: {{c.muted}}">· sessions</span></h3>
+<span style="display: flex; gap: 14px; font-size: 13px; color: {{c.muted}}"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; background: {{c.noise}}"></span>left after one page</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; background: {{c.accent}}"></span>kept going</span></span>
+</div>
+<sc-for list="{{landing}}" as="p" hint-placeholder-count="10">
+<div style="display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 1fr) 76px; gap: 12px; align-items: center; font-size: 14px; padding: 3px 0">
+<span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{p.name}}</span>
+<span style="display: flex; align-items: center; gap: 8px">
+<span role="img" aria-label="{{p.aria}}" style="display: flex; height: 14px; width: {{p.w}}%; min-width: 4px; gap: 1px">
+<span style="display: block; flex: {{p.single}} 0 0px; background: {{c.noise}}"></span>
+<span style="display: block; flex: {{p.more}} 0 0px; background: {{c.accent}}"></span>
+</span>
+<span style="font-size: 13px">{{p.sessions}}</span>
+</span>
+<span style="font-size: 13px; color: {{c.muted}}; text-align: right">{{p.bounce}} left</span>
+</div>
+</sc-for>
+</div>
+
+<div style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; color: {{c.strong}}">Last page of longer visits <span style="font-weight: normal; font-size: 13px; color: {{c.muted}}">· sessions with 2+ pages</span></h3>
+<sc-for list="{{exits}}" as="e" hint-placeholder-count="10">
+<div style="display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 12px; align-items: center; font-size: 14px; padding: 3px 0">
+<span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{e.name}}</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="display: block; height: 14px; width: {{e.w}}%; background: {{e.fill}}"></span><span style="font-size: 13px">{{e.n}}</span></span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="flow-h" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="flow-h" class="bb" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1; color: {{c.strong}}">How people move between sections</h2>
+<p style="margin: 0; max-width: 680px">Each square counts moves from one page to the next within a visit.</p>
+<div style="overflow-x: auto">
+<table style="border-collapse: separate; border-spacing: 4px; min-width: 560px; font-size: 14px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; font-weight: normal; font-size: 12px; color: {{c.muted}}; padding: 0 8px 4px 0">from ↓ · to →</th>
+<sc-for list="{{flowCols}}" as="h" hint-placeholder-count="5"><th scope="col" style="font-size: 13px; font-weight: bold; padding: 0 0 4px; min-width: 84px">{{h}}</th></sc-for>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{flow}}" as="row" hint-placeholder-count="5">
+<tr>
+<th scope="row" style="text-align: left; font-size: 13px; padding-right: 8px; white-space: nowrap">{{row.from}}</th>
+<sc-for list="{{row.cells}}" as="x" hint-placeholder-count="5">
+<td style="height: 52px; text-align: center; border-radius: 4px; background: {{x.bg}}; color: {{x.fg}}; font-weight: bold; outline: {{x.ring}}; outline-offset: -3px">{{x.n}}</td>
+</sc-for>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: {{c.muted}}"><span style="width: 16px; height: 16px; box-sizing: border-box; border: 2px dashed {{c.muted}}; border-radius: 3px"></span>Same-section moves include page reloads.</p>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1280,"height":2050}}'>
+const PAL = {
+  dark: { bg: '#2b2b2b', surface: '#353535', text: '#cccccc', strong: '#f0f0f0', muted: '#a3a3a3', rule: '#555555', accent: '#ff9900', accentRgb: '255,153,0', noise: '#7a7a7a', quiet: '#555555', empty: '#333333', onAccent: '#1f1f1f' },
+  light: { bg: '#f7f4ec', surface: '#efe9da', text: '#1e2a3a', strong: '#0f1824', muted: '#55606b', rule: 'rgba(28,79,140,0.28)', accent: '#1c4f8c', accentRgb: '28,79,140', noise: '#9aa1a9', quiet: '#c9c3b4', empty: '#ebe5d6', onAccent: '#ffffff' }
+};
+const LANDING = [
+  ['Home', 260, 173], ['Gig History app', 42, 31], ['Can I Touch Your Feet', 28, 27], ['Gig: Shihad, Wellington 2025', 28, 28],
+  ['Last Ever Last Ever', 26, 23], ['Tangalooma Wrecks', 23, 23], ['Gig: Teen Jesus 2026', 15, 13], ['Gigs index', 14, 7],
+  ['Gig: WASP, Los Angeles 2026', 13, 8], ['Apps index', 11, 5]
+];
+const EXITS = [
+  ['Gig History app', 43], ['Home', 27], ['Gig: Teen Jesus 2026', 13], ['Gig: WASP 2026', 8], ['Last Ever Last Ever', 4],
+  ['EXIF app', 4], ['Gigs index', 4], ['Can I Touch Your Feet', 3], ['Already Not Dating Her', 3], ['Gig: Shihad 2025', 2]
+];
+const FLOW_SECTIONS = ['Home', 'Post', 'Gig review', 'Gigs index', 'App'];
+const FLOW = [
+  [47, 33, 32, 17, 56],
+  [23, 50, 10, 12, 7],
+  [14, 11, 19, 12, 4],
+  [14, 6, 22, 0, 5],
+  [27, 7, 5, 3, 55]
+];
+class Component extends DCLogic {
+  renderVals() {
+    const c = PAL[this.props.theme === 'light' ? 'light' : 'dark'];
+    const landing = LANDING.map(([name, sessions, single]) => ({
+      name, sessions, single, more: sessions - single,
+      w: sessions / 260 * 88,
+      bounce: Math.round(single / sessions * 100) + '%',
+      aria: name + ': ' + sessions + ' sessions, ' + single + ' single-page'
+    }));
+    const exits = EXITS.map(([name, n]) => ({ name, n, w: n / 43 * 82, fill: name === 'Gig History app' ? c.accent : c.noise }));
+    const max = 56;
+    const flow = FLOW.map((row, i) => ({
+      from: FLOW_SECTIONS[i],
+      cells: row.map((n, j) => {
+        const a = n === 0 ? 0 : 0.12 + 0.88 * (n / max);
+        return {
+          n,
+          bg: n === 0 ? c.empty : 'rgba(' + c.accentRgb + ',' + a.toFixed(2) + ')',
+          fg: a > 0.55 ? c.onAccent : c.text,
+          ring: i === j ? '2px dashed ' + c.muted : 'none'
+        };
+      })
+    }));
+    const gigs = !!(this.state && this.state.gigs);
+    const toggleGigs = () => this.setState({ gigs: !gigs });
+    return { c, landing, exits, flow, flowCols: FLOW_SECTIONS, gigs, noGigs: !gigs, toggleGigs };
+  }
+}
+</script>
+</body>
+</html>

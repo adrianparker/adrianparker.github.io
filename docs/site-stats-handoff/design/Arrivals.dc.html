@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Stats: arrivals and signals</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.bb{font-family:'Bebas Neue', Impact, sans-serif;font-weight:400;letter-spacing:0.02em}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: {{c.bg}}; color: {{c.text}}; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5">
+<div style="max-width: 1080px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 48px) 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 64px">
+
+<section aria-labelledby="ref-h" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="ref-h" class="bb" style="margin: 0; font-size: clamp(34px, 5vw, 52px); line-height: 1; color: {{c.strong}}">How people arrive, and who comes back</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0"><span class="bb" style="font-size: 40px; line-height: 1; color: {{c.strong}}">92%</span> of visitors arrive with no referrer.</p>
+<div role="img" aria-label="Visitors by source: 351 direct, 22 internal, 6 search, 6 shared links, 2 other" style="display: flex; height: 30px; gap: 2px; border-radius: 3px; overflow: hidden">
+<sc-for list="{{sources}}" as="s" hint-placeholder-count="5"><span style="display: block; flex: {{s.n}} 0 0px; min-width: 4px; background: {{s.fill}}"></span></sc-for>
+</div>
+<sc-for list="{{sources}}" as="s" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 14px minmax(0, 1fr) 40px; gap: 10px; align-items: baseline; font-size: 14px; padding: 6px 0; border-top: 1px solid {{c.hair}}">
+<span style="width: 12px; height: 12px; border-radius: 2px; background: {{s.fill}}"></span>
+<span><strong style="color: {{c.strong}}">{{s.name}}</strong> <span style="color: {{c.muted}}">{{s.detail}}</span></span>
+<span style="text-align: right; font-weight: bold">{{s.n}}</span>
+</div>
+</sc-for>
+
+</div>
+
+<figure style="flex: 1 1 400px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0"><span class="bb" style="font-size: 40px; line-height: 1; color: {{c.strong}}">8</span> visitors came back on another day. Five of them on five days or more.</p>
+<div role="img" aria-label="382 visitors: 374 visited on one day, 1 on two days, 2 on three or four days, 5 on five or more days" style="display: flex; flex-wrap: wrap; gap: 4px">
+<sc-for list="{{returnDots}}" as="d" hint-placeholder-count="382"><span style="display: block; width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; background: {{d.bg}}; border: 2px solid {{d.bd}}"></span></sc-for>
+</div>
+<figcaption style="display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: {{c.muted}}">
+<sc-for list="{{returns}}" as="r" hint-placeholder-count="4"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; background: {{r.bg}}; border: 2px solid {{r.bd}}"></span>{{r.label}}: <strong style="color: {{c.text}}">{{r.n}}</strong></span></sc-for>
+</figcaption>
+</figure>
+</div>
+</section>
+
+<section aria-labelledby="sig-h" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="sig-h" class="bb" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1; color: {{c.strong}}">Smaller signals</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="bb" style="font-size: 44px; line-height: 1; color: {{c.strong}}">15</span><h3 style="margin: 0; font-size: 16px">outbound link clicks</h3></div>
+<sc-for list="{{outbound}}" as="o" hint-placeholder-count="9">
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 14px">
+<span>{{o.name}}</span>
+<span aria-label="{{o.n}} clicks" style="display: flex; gap: 3px"><sc-for list="{{o.units}}" as="u" hint-placeholder-count="1"><span style="width: 10px; height: 10px; border-radius: 2px; background: {{c.accent}}"></span></sc-for></span>
+</div>
+</sc-for>
+
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="bb" style="font-size: 44px; line-height: 1; color: {{c.strong}}">5</span><h3 style="margin: 0; font-size: 16px">“not found” hits</h3></div>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; align-items: center; font-size: 14px">
+<code style="font-size: 14px">/contact</code><span><strong>3</strong></span>
+
+<code style="font-size: 14px">/GigTracker/</code><span><strong>2</strong></span>
+
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<div style="display: flex; align-items: baseline; gap: 10px"><span class="bb" style="font-size: 44px; line-height: 1; color: {{c.strong}}">33</span><h3 style="margin: 0; font-size: 16px">theme toggles</h3></div>
+<div role="img" aria-label="33 toggles by 4 people" style="display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; flex-wrap: wrap; gap: 3px"><sc-for list="{{toggles}}" as="u" hint-placeholder-count="33"><span style="width: 8px; height: 14px; border-radius: 2px; background: {{c.accent}}"></span></sc-for></span>
+<span style="display: flex; gap: 6px"><sc-for list="{{people}}" as="p" hint-placeholder-count="4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{c.muted}}" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg></sc-for></span>
+</div>
+<p style="margin: 0; font-size: 13px; color: {{c.muted}}">4 people, average 8 toggles each<br>New Zealand, Australia</p>
+</div>
+</div>
+</section>
+
+
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1280,"height":1700}}'>
+const PAL = {
+  dark: { bg: '#2b2b2b', surface: '#353535', text: '#cccccc', strong: '#f0f0f0', muted: '#a3a3a3', rule: '#555555', hair: 'rgba(255,255,255,0.07)', accent: '#ff9900', accentMid: 'rgba(255,153,0,0.6)', accentLow: 'rgba(255,153,0,0.35)', noise: '#7a7a7a', noiseFaint: '#4a4a4a' },
+  light: { bg: '#f7f4ec', surface: '#efe9da', text: '#1e2a3a', strong: '#0f1824', muted: '#55606b', rule: 'rgba(28,79,140,0.28)', hair: 'rgba(28,79,140,0.12)', accent: '#1c4f8c', accentMid: 'rgba(28,79,140,0.6)', accentLow: 'rgba(28,79,140,0.32)', noise: '#9aa1a9', noiseFaint: '#ddd6c4' }
+};
+const OUTBOUND = [['Flickr', 3], ['setlist.fm', 2], ['GitHub', 2], ['LinkedIn', 2], ['Own media host', 2], ['Spotify', 1], ['YouTube', 1], ['Twitter', 1], ['Hawke’s Bay Tourism PDF', 1]];
+class Component extends DCLogic {
+  renderVals() {
+    const c = PAL[this.props.theme === 'light' ? 'light' : 'dark'];
+    const sources = [
+      { name: 'Direct', detail: 'no referrer', n: 351, fill: c.noise },
+      { name: 'Internal', detail: 'moving around the site', n: 22, fill: c.noiseFaint },
+      { name: 'Search', detail: 'Google 2, Bing, DuckDuckGo, Yandex, Yahoo Japan', n: 6, fill: c.accentMid },
+      { name: 'Shared links', detail: 'Microsoft Teams 3, Mailchimp, t.co, Gmail app', n: 6, fill: c.accent },
+      { name: 'Other', detail: 'AOCR, webdig.asia', n: 2, fill: c.accentLow }
+    ];
+    const returns = [
+      { label: '1 day', n: 374, bg: 'transparent', bd: c.noise },
+      { label: '2 days', n: 1, bg: c.accentLow, bd: c.accentLow },
+      { label: '3–4 days', n: 2, bg: c.accentMid, bd: c.accentMid },
+      { label: '5+ days', n: 5, bg: c.accent, bd: c.accent }
+    ];
+    const returnDots = [];
+    returns.slice().reverse().forEach((r) => { for (let i = 0; i < r.n; i++) returnDots.push({ bg: r.bg, bd: r.bd }); });
+    const outbound = OUTBOUND.map(([name, n]) => ({ name, n, units: Array.from({ length: n }, () => 1) }));
+    const toggles = Array.from({ length: 33 }, () => 1);
+    const people = [1, 2, 3, 4];
+    return { c, sources, returns, returnDots, outbound, toggles, people };
+  }
+}
+</script>
+</body>
+</html>

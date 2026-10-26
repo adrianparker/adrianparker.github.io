@@ -1,0 +1,89 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Arrivals.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "title": "5 · Arrivals, returns, small signals, method",
+      "w": 1280,
+      "x": 5440,
+      "y": 0
+    },
+    "Audiences.dc.html": {
+      "expand": "fill",
+      "h": 2800,
+      "title": "2 · Two audiences: who, where, on what",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1300,
+      "title": "1 · Opening: is any of this real?",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "Phone.dc.html": {
+      "h": 2500,
+      "title": "Opening at phone width, light theme",
+      "w": 390,
+      "x": 6800,
+      "y": 0
+    },
+    "Reading.dc.html": {
+      "expand": "fill",
+      "h": 2050,
+      "is_interactive": true,
+      "title": "4 · What's read, and how people move",
+      "w": 1280,
+      "x": 4080,
+      "y": 0
+    },
+    "Time.dc.html": {
+      "expand": "fill",
+      "h": 1450,
+      "title": "3 · Over time and through the week",
+      "w": 1280,
+      "x": 2720,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-26T09:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "h1": {
+      "fill": "orange",
+      "text": "Handoff · artboard 4, \"Include gig reviews\" checkbox\n\nDefault: unchecked (false).\n\nThe intro under \"What's being read now, against all time\" reads \"Posts ranked by views, gig reviews excluded.\" while the checkbox is unchecked (false).\n\nWhen it is ticked (true), the word \"excluded\" is replaced with \"included\": \"Posts ranked by views, gig reviews included.\"\n\nThe slope chart switches to the ranking that includes gig reviews at the same time.",
+      "w": 520,
+      "x": 4080,
+      "y": 2170
+    },
+    "t1": {
+      "kind": "title1",
+      "maxW": 7190,
+      "text": "Site Stats — one page, read top to bottom (artboards 1→5)",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Audiences.dc.html",
+    "Time.dc.html",
+    "Reading.dc.html",
+    "Arrivals.dc.html",
+    "Phone.dc.html"
+  ],
+  "pages": [],
+  "title": "Site Stats design"
+}

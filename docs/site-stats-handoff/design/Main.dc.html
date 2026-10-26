@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Stats: opening</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.bb{font-family:'Bebas Neue', Impact, sans-serif;font-weight:400;letter-spacing:0.02em}
+a{color:inherit}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: {{c.bg}}; color: {{c.text}}; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5">
+<div style="max-width: 1080px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 48px) 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px">
+
+<header style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 13px; color: {{c.muted}}">adrianparker.com › Apps › Site Stats</div>
+<h1 class="bb" style="margin: 0; font-size: clamp(56px, 9vw, 96px); line-height: 0.9; color: {{c.accent}}">Site Stats</h1>
+<p style="margin: 0; max-width: 640px; font-size: 18px; color: {{c.strong}}">What PostHog saw on this site over the last 180 days.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: {{c.muted}}">
+<span>Data as of <strong style="color: {{c.text}}">Mon 26 Oct 2026, 6:02 am NZDT</strong></span>
+<span>Covers 29 Apr – 26 Oct 2026 (180 days)</span>
+<span>Production site only · NZ time · weeks start Monday</span>
+</div>
+<nav aria-label="Sections" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px">
+<a href="#real" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">Is it real?</a>
+<a href="Audiences.dc.html" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">Two audiences</a>
+<a href="Time.dc.html" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">Over time</a>
+<a href="Reading.dc.html" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">What's read</a>
+<a href="Arrivals.dc.html" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">Arrivals &amp; returns</a>
+<a href="Arrivals.dc.html" style="padding: 8px 14px; border: 1px solid {{c.rule}}; border-radius: 999px; text-decoration: none; font-size: 14px">Small signals</a>
+</nav>
+</header>
+
+<section id="real" aria-labelledby="real-h" style="display: flex; flex-direction: column; gap: 24px">
+<h2 id="real-h" class="bb" style="margin: 0; font-size: clamp(34px, 5vw, 52px); line-height: 1; color: {{c.strong}}">448 visitors. About 36 were people.</h2>
+<p style="margin: 0; max-width: 680px">Every dot below is one visitor PostHog counted.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+
+<figure style="margin: 0; flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div role="img" aria-label="448 dots: 36 readers, 346 one-page visits inferred to be automated, 66 flagged by PostHog as bots" style="display: flex; flex-wrap: wrap; gap: 5px">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="448"><span style="display: block; width: 12px; height: 12px; border-radius: 50%; box-sizing: border-box; background: {{d.bg}}; border: 2px solid {{d.bd}}"></span></sc-for>
+</div>
+<figcaption style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: {{c.muted}}">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 50%; background: {{c.accent}}"></span><span><strong style="color: {{c.text}}">36</strong> looked like people</span></span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 50%; box-sizing: border-box; border: 2px solid {{c.noise}}"></span><span><strong style="color: {{c.text}}">346</strong> probably automated (our inference)</span></span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 12px; height: 12px; border-radius: 50%; background: {{c.noise}}"></span><span><strong style="color: {{c.text}}">66</strong> flagged as bots by PostHog</span></span>
+</figcaption>
+</figure>
+
+<ol style="flex: 1 1 360px; min-width: 0; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0"><li style="display: flex; flex-direction: column; gap: 6px; padding-bottom: 16px; margin-bottom: 4px; border-bottom: 1px solid {{c.rule}}"><div style="display: flex; align-items: baseline; gap: 12px"><span class="bb" style="font-size: 48px; line-height: 1; color: {{c.strong}}">448</span><span style="font-weight: bold">total visitors</span></div></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0 0"><div style="display: flex; align-items: baseline; gap: 12px"><span class="bb" style="font-size: 36px; line-height: 1; color: {{c.strong}}">66</span><span style="font-weight: bold">flagged as bots by PostHog</span></div><div style="height: 10px; width: 14.7%; min-width: 4px; background: {{c.noise}}; border-radius: 2px"></div></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 0 0"><div style="display: flex; align-items: baseline; gap: 12px"><span class="bb" style="font-size: 36px; line-height: 1; color: {{c.strong}}">346</span><span style="font-weight: bold">probably automated</span></div><div style="height: 10px; width: 77.2%; background: {{c.noise}}; border-radius: 2px; opacity: 0.6"></div><div style="font-size: 13px; color: {{c.muted}}">Not flagged, but viewed exactly one page, from outside NZ and Australia, median visit 0 seconds. Our inference.</div></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 0 14px"><div style="display: flex; align-items: baseline; gap: 12px"><span class="bb" style="font-size: 36px; line-height: 1; color: {{c.accent}}">36</span><span style="font-weight: bold; color: {{c.accent}}">looked like people</span></div><div style="height: 10px; width: 8%; min-width: 4px; background: {{c.accent}}; border-radius: 2px"></div><div style="font-size: 13px; color: {{c.muted}}">Viewed more than one page, or were in NZ or Australia.</div></li>
+
+
+
+
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 8px; background: {{c.surface}}">
+<div style="font-size: 13px; color: {{c.muted}}">Of those 36, two separate measures of engagement:</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px">
+<div style="display: flex; align-items: baseline; gap: 8px"><span class="bb" style="font-size: 32px; line-height: 1; color: {{c.accent}}">6</span><span style="font-size: 14px">viewed 10 or more pages</span></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span class="bb" style="font-size: 32px; line-height: 1; color: {{c.accent}}">5</span><span style="font-size: 14px">came back on 5 or more days</span></div>
+</div>
+
+</li>
+</ol>
+</div>
+</section>
+
+<section aria-labelledby="totals-h" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px">
+<h2 id="totals-h" class="bb" style="margin: 0; font-size: 30px; line-height: 1; color: {{c.strong}}">The raw totals, with that in mind</h2>
+<span style="font-size: 13px; color: {{c.muted}}">As PostHog counts them. Not bot-filtered.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 8px; background: {{c.surface}}; border-top: 3px solid {{t.top}}">
+<div style="font-size: 13px; color: {{c.muted}}">{{t.label}}</div>
+<div class="bb" style="font-size: 44px; line-height: 1; color: {{c.strong}}">{{t.value}}</div>
+<sc-if value="{{t.note}}" hint-placeholder-val="{{ true }}"><div style="font-size: 13px; color: {{c.text}}">{{t.note}}</div></sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1280,"height":1300}}'>
+const PAL = {
+  dark: { bg: '#2b2b2b', surface: '#353535', text: '#cccccc', strong: '#f0f0f0', muted: '#a3a3a3', rule: '#555555', accent: '#ff9900', noise: '#7a7a7a', noiseFaint: '#4a4a4a' },
+  light: { bg: '#f7f4ec', surface: '#efe9da', text: '#1e2a3a', strong: '#0f1824', muted: '#55606b', rule: 'rgba(28,79,140,0.28)', accent: '#1c4f8c', noise: '#9aa1a9', noiseFaint: '#e2dccb' }
+};
+class Component extends DCLogic {
+  renderVals() {
+    const c = PAL[this.props.theme === 'light' ? 'light' : 'dark'];
+    const dots = [];
+    for (let i = 0; i < 36; i++) dots.push({ bg: c.accent, bd: c.accent });
+    for (let i = 0; i < 346; i++) dots.push({ bg: 'transparent', bd: c.noise });
+    for (let i = 0; i < 66; i++) dots.push({ bg: c.noise, bd: c.noise });
+    const people = 36;
+    const notFound = [['/contact', 3], ['/GigTracker/', 2]];
+    const topNotFound = notFound.reduce((a, b) => (b[1] > a[1] ? b : a));
+    const tiles = [
+      { label: 'Visitors', value: '448', note: 'About ' + people + ' people.', top: c.noise },
+      { label: 'Page views', value: '1,097', note: 'Includes automated.', top: c.noise },
+      { label: 'Bot-flagged visits', value: '68', note: 'PostHog identified.', top: c.noise },
+      { label: 'Outbound link clicks', value: '15', note: '', top: c.accent },
+      { label: 'Theme toggles', value: '33', note: 'By 4 people.', top: c.accent },
+      { label: 'Not-found hits', value: '5', note: topNotFound[0] + ' ×' + topNotFound[1], top: c.accent }
+    ];
+    return { c, dots, tiles };
+  }
+}
+</script>
+</body>
+</html>

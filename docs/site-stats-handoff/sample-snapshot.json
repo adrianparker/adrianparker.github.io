@@ -1,0 +1,251 @@
+{
+  "$comment": "Sample snapshot in the shape the Site Stats page renders from. Numbers are the 2026-10-26 PostHog figures from the design brief. Use as the unit-test fixture and as the build fallback when no PostHog key is available.",
+  "generatedAt": "2026-10-25T17:02:00Z",
+  "timezone": "Pacific/Auckland",
+  "periodDays": 180,
+  "periodStart": "2026-04-29",
+  "periodEnd": "2026-10-26",
+
+  "totals": {
+    "pageViews": 1097,
+    "visitors": 448,
+    "outboundClicks": 15,
+    "themeToggles": 33,
+    "themeTogglePeople": 4,
+    "notFoundHits": 5,
+    "botFlaggedVisits": 68
+  },
+
+  "funnel": {
+    "reported": 448,
+    "flaggedByPostHog": 66,
+    "inferredAutomated": 346,
+    "people": 36,
+    "viewed10Plus": 6,
+    "returned5PlusDays": 5,
+    "flaggedReasons": [
+      { "label": "Headless Chrome with an impossible version number", "visits": 62 },
+      { "label": "Sogou crawler", "visits": 5 },
+      { "label": "Spoofed Edge", "visits": 1 }
+    ]
+  },
+
+  "audiences": {
+    "compare": [
+      { "measure": "Sessions", "nzau": 193, "rest": 351, "format": "int" },
+      { "measure": "Pages per session", "nzau": 3.53, "rest": 1.02, "format": "2dp" },
+      { "measure": "Single-page sessions", "nzau": 34.7, "rest": 99.1, "format": "percent" },
+      { "measure": "Median time on site", "nzau": 5, "rest": 0, "format": "seconds" },
+      { "measure": "Average time, multi-page sessions", "nzau": 416, "rest": 63, "format": "seconds" }
+    ],
+    "depth": {
+      "buckets": ["1 page", "2–3", "4–9", "10+"],
+      "nzau": [17, 6, 3, 6],
+      "rest": [346, 2, 2, 0]
+    },
+    "heavyReaderViews": 632
+  },
+
+  "countries": [
+    { "name": "China", "visitors": 76, "views": 76 },
+    { "name": "United States", "visitors": 74, "views": 79 },
+    { "name": "Singapore", "visitors": 55, "views": 55 },
+    { "name": "Germany", "visitors": 30, "views": 30 },
+    { "name": "Netherlands", "visitors": 25, "views": 25 },
+    { "name": "Hong Kong", "visitors": 20, "views": 20 },
+    { "name": "New Zealand", "visitors": 17, "views": 663 },
+    { "name": "Australia", "visitors": 15, "views": 18 },
+    { "name": "Canada", "visitors": 13, "views": 13 },
+    { "name": "Japan", "visitors": 11, "views": 11 },
+    { "name": "South Korea", "visitors": 9, "views": 9 },
+    { "name": "Sweden", "visitors": 6, "views": 6 },
+    { "name": "France", "visitors": 5, "views": 5 },
+    { "name": "Mexico", "visitors": 4, "views": 4 },
+    { "name": "Norway", "visitors": 3, "views": 3 }
+  ],
+
+  "cities": [
+    { "city": null, "country": "Singapore", "visitors": 37 },
+    { "city": null, "country": "China", "visitors": 35 },
+    { "city": "Ashburn", "country": "US", "visitors": 30 },
+    { "city": "Beijing", "country": null, "visitors": 19 },
+    { "city": "Santa Clara", "country": "US", "visitors": 18 },
+    { "city": "Singapore", "country": null, "visitors": 18 },
+    { "city": "Hong Kong", "country": null, "visitors": 18 },
+    { "city": null, "country": "Netherlands", "visitors": 16 },
+    { "city": "Brandenburg an der Havel", "country": "DE", "visitors": 12 },
+    { "city": "Auckland", "country": "NZ", "visitors": 11 },
+    { "city": "Tokyo", "country": null, "visitors": 10 }
+  ],
+
+  "devices": [
+    { "name": "Chrome, Windows", "visitors": 246, "views": 259 },
+    { "name": "Safari, iOS", "visitors": 46, "views": 56 },
+    { "name": "Chrome, Mac", "visitors": 44, "views": 154 },
+    { "name": "Chrome, Android", "visitors": 16, "views": 16 },
+    { "name": "Chrome, iOS", "visitors": 12, "views": 368 },
+    { "name": "Chrome, Linux", "visitors": 8, "views": 8 },
+    { "name": "Edge, Windows", "visitors": 4, "views": 18 },
+    { "name": "Safari, Mac", "visitors": 3, "views": 155 }
+  ],
+
+  "windowWidths": [
+    { "label": "<500", "visitors": 40 },
+    { "label": "500–767", "visitors": 1 },
+    { "label": "768–1099", "visitors": 4 },
+    { "label": "1100–1499", "visitors": 91 },
+    { "label": "1500+", "visitors": 246 }
+  ],
+
+  "languages": [
+    { "name": "English", "visitors": 291 },
+    { "name": "Chinese", "visitors": 83 },
+    { "name": "Korean", "visitors": 3 },
+    { "name": "Russian", "visitors": 2 },
+    { "name": "Turkish", "visitors": 2 },
+    { "name": "Japanese", "visitors": 1 }
+  ],
+
+  "weekly": {
+    "sections": ["Home", "Posts", "Gig reviews", "Gigs index", "Apps", "Other"],
+    "weeks": [
+      { "weekOf": "2026-04-27", "views": [24, 3, 3, 6, 0, 0] },
+      { "weekOf": "2026-05-04", "views": [32, 6, 9, 1, 7, 0] },
+      { "weekOf": "2026-05-11", "views": [5, 2, 0, 0, 1, 0] },
+      { "weekOf": "2026-05-18", "views": [3, 0, 0, 0, 0, 0] },
+      { "weekOf": "2026-05-25", "views": [25, 8, 10, 2, 2, 0] },
+      { "weekOf": "2026-06-01", "views": [7, 3, 12, 0, 1, 0] },
+      { "weekOf": "2026-06-08", "views": [6, 3, 0, 0, 1, 0] },
+      { "weekOf": "2026-06-15", "views": [7, 6, 2, 0, 1, 0] },
+      { "weekOf": "2026-06-22", "views": [7, 8, 3, 0, 2, 0] },
+      { "weekOf": "2026-06-29", "views": [0, 1, 0, 0, 0, 0] },
+      { "weekOf": "2026-07-06", "views": [1, 0, 0, 0, 0, 0] },
+      { "weekOf": "2026-07-13", "views": [9, 12, 4, 1, 0, 0] },
+      { "weekOf": "2026-07-20", "views": [2, 5, 2, 0, 0, 0] },
+      { "weekOf": "2026-07-27", "views": [11, 3, 0, 2, 1, 0] },
+      { "weekOf": "2026-08-03", "views": [40, 24, 8, 11, 15, 6] },
+      { "weekOf": "2026-08-10", "views": [17, 6, 5, 4, 8, 0] },
+      { "weekOf": "2026-08-17", "views": [18, 1, 0, 0, 40, 0] },
+      { "weekOf": "2026-08-24", "views": [16, 0, 0, 0, 26, 0] },
+      { "weekOf": "2026-08-31", "views": [19, 10, 6, 1, 7, 1] },
+      { "weekOf": "2026-09-07", "views": [21, 20, 7, 3, 11, 0] },
+      { "weekOf": "2026-09-14", "views": [38, 32, 24, 6, 20, 1] },
+      { "weekOf": "2026-09-21", "views": [22, 10, 22, 5, 18, 0] },
+      { "weekOf": "2026-09-28", "views": [24, 10, 17, 6, 7, 0] },
+      { "weekOf": "2026-10-05", "views": [19, 14, 21, 2, 4, 3] },
+      { "weekOf": "2026-10-12", "views": [9, 10, 18, 6, 13, 2] },
+      { "weekOf": "2026-10-19", "views": [18, 20, 31, 8, 2, 2] },
+      { "weekOf": "2026-10-26", "views": [0, 9, 0, 0, 1, 0] }
+    ]
+  },
+
+  "heatmap": {
+    "$comment": "Page views by weekday (Mon first) and hour 0–23, NZ time, human-classified traffic.",
+    "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "views": [
+      [25,1,0,1,0,1,3,2,1,3,15,3,10,8,14,10,6,7,14,13,8,8,7,33],
+      [31,2,10,3,1,1,1,4,15,0,3,6,4,1,0,0,1,2,3,0,4,12,13,35],
+      [32,6,4,2,0,2,3,9,6,12,3,10,2,3,1,3,3,5,5,2,4,1,4,19],
+      [18,0,1,1,1,0,1,1,3,3,8,16,12,6,3,10,0,1,17,5,8,10,14,19],
+      [12,2,0,0,2,3,2,6,3,3,1,0,2,7,0,5,5,1,4,7,1,4,1,0],
+      [1,0,0,3,0,2,4,1,2,4,1,1,1,3,3,0,3,9,10,32,5,3,8,16],
+      [20,1,1,7,3,1,1,5,5,5,2,7,6,10,15,19,11,14,29,9,6,2,20,14]
+    ]
+  },
+
+  "posts": {
+    "$comment": "Non-gig posts. allTime merges the legacy underscore URL for one post. Gig-inclusive rankings (for the 'Include gig reviews' toggle) are not in the sample: the generator must query them.",
+    "recent90": [
+      { "title": "Can I Touch Your Feet", "views": 38, "visitors": 28 },
+      { "title": "Last Ever Last Ever", "views": 31, "visitors": 25 },
+      { "title": "Tangalooma Wrecks", "views": 22, "visitors": 22 },
+      { "title": "Wine Cork Notice Board How To", "views": 7, "visitors": 4 },
+      { "title": "When Grandfather Met The Queen", "views": 6, "visitors": 2 },
+      { "title": "Favourite Part Of Last Vacation", "views": 5, "visitors": 5 },
+      { "title": "Generosity Customer Experience Superpower", "views": 4, "visitors": 4 },
+      { "title": "Already Not Dating Her", "views": 4, "visitors": 4 },
+      { "title": "Cognitive Reframing", "views": 3, "visitors": 3 }
+    ],
+    "allTime": [
+      { "title": "Last Ever Last Ever", "views": 81, "visitors": 41 },
+      { "title": "Wine Cork Notice Board How To", "views": 77, "visitors": 39 },
+      { "title": "Already Not Dating Her", "views": 54, "visitors": 32 },
+      { "title": "Can I Touch Your Feet", "views": 46, "visitors": 30 },
+      { "title": "Tangalooma Wrecks", "views": 44, "visitors": 34 },
+      { "title": "Cognitive Reframing", "views": 41, "visitors": 27 },
+      { "title": "Favourite Part Of Last Vacation", "views": 39, "visitors": 20 },
+      { "title": "Generosity Customer Experience Superpower", "views": 30, "visitors": 22 }
+    ],
+    "recent90WithGigs": null,
+    "allTimeWithGigs": null
+  },
+
+  "landing": [
+    { "page": "Home", "sessions": 260, "singlePage": 173, "visitors": 165 },
+    { "page": "Gig History app", "sessions": 42, "singlePage": 31, "visitors": 16 },
+    { "page": "Can I Touch Your Feet", "sessions": 28, "singlePage": 27, "visitors": 27 },
+    { "page": "Gig: Shihad, Wellington 2025", "sessions": 28, "singlePage": 28, "visitors": 28 },
+    { "page": "Last Ever Last Ever", "sessions": 26, "singlePage": 23, "visitors": 26 },
+    { "page": "Tangalooma Wrecks", "sessions": 23, "singlePage": 23, "visitors": 23 },
+    { "page": "Gig: Teen Jesus 2026", "sessions": 15, "singlePage": 13, "visitors": 14 },
+    { "page": "Gigs index", "sessions": 14, "singlePage": 7, "visitors": 10 },
+    { "page": "Gig: WASP, Los Angeles 2026", "sessions": 13, "singlePage": 8, "visitors": 9 },
+    { "page": "Apps index", "sessions": 11, "singlePage": 5, "visitors": 6 }
+  ],
+
+  "exits": [
+    { "page": "Gig History app", "sessions": 43 },
+    { "page": "Home", "sessions": 27 },
+    { "page": "Gig: Teen Jesus 2026", "sessions": 13 },
+    { "page": "Gig: WASP 2026", "sessions": 8 },
+    { "page": "Last Ever Last Ever", "sessions": 4 },
+    { "page": "EXIF app", "sessions": 4 },
+    { "page": "Gigs index", "sessions": 4 },
+    { "page": "Can I Touch Your Feet", "sessions": 3 },
+    { "page": "Already Not Dating Her", "sessions": 3 },
+    { "page": "Gig: Shihad 2025", "sessions": 2 }
+  ],
+
+  "transitions": {
+    "sections": ["Home", "Post", "Gig review", "Gigs index", "App"],
+    "counts": [
+      [47, 33, 32, 17, 56],
+      [23, 50, 10, 12, 7],
+      [14, 11, 19, 12, 4],
+      [14, 6, 22, 0, 5],
+      [27, 7, 5, 3, 55]
+    ]
+  },
+
+  "referrers": [
+    { "group": "Direct", "detail": "no referrer", "visitors": 351 },
+    { "group": "Internal", "detail": "moving around the site", "visitors": 22 },
+    { "group": "Search", "detail": "Google 2, Bing, DuckDuckGo, Yandex, Yahoo Japan", "visitors": 6 },
+    { "group": "Shared links", "detail": "Microsoft Teams 3, Mailchimp, t.co, Gmail app", "visitors": 6 },
+    { "group": "Other", "detail": "AOCR, webdig.asia", "visitors": 2 }
+  ],
+
+  "returns": [
+    { "label": "1 day", "visitors": 374 },
+    { "label": "2 days", "visitors": 1 },
+    { "label": "3–4 days", "visitors": 2 },
+    { "label": "5+ days", "visitors": 5 }
+  ],
+
+  "outbound": [
+    { "destination": "Flickr", "clicks": 3 },
+    { "destination": "setlist.fm", "clicks": 2 },
+    { "destination": "GitHub", "clicks": 2 },
+    { "destination": "LinkedIn", "clicks": 2 },
+    { "destination": "Own media host", "clicks": 2 },
+    { "destination": "Spotify", "clicks": 1 },
+    { "destination": "YouTube", "clicks": 1 },
+    { "destination": "Twitter", "clicks": 1 },
+    { "destination": "Hawke's Bay Tourism PDF", "clicks": 1 }
+  ],
+
+  "notFound": [
+    { "path": "/contact", "hits": 3 },
+    { "path": "/GigTracker/", "hits": 2 }
+  ]
+}
