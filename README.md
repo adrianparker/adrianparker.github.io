@@ -71,6 +71,20 @@ Only rendered content is checked — front matter, Nunjucks tags/shortcodes, HTM
 - **Project-wide**: add the word to the `words` list in `cspell.json`.
 - **Per-file**: add a `<!-- cspell:words WordOne WordTwo -->` comment anywhere in that file's markdown.
 
+### Site Stats
+
+`/Site-Stats/` shows the site's own PostHog analytics for the last 180 days. It is built from PostHog data at build time by `content/_data/siteStats.mjs`, with every number coming from a HogQL query (`lib/site-stats-fetch.mjs`) or arithmetic on one (`lib/site-stats.mjs`).
+
+Where the data comes from:
+- **`POSTHOG_PERSONAL_API_KEY` set**: live from PostHog. Put a personal API key scoped to *Query: read* on the AdrianParker.com project in a gitignored `.env` file as `POSTHOG_PERSONAL_API_KEY=…`. `npm run build` and `npm run serve` load it automatically. Results are cached in `.cache/` for an hour. A failed fetch fails the build.
+- **No key** (CI, a fresh clone): the committed snapshot in `content/SiteStats/snapshot.json`. Refresh it from live data, then commit it:
+  ```
+  npm run stats:snapshot
+  ```
+- **Tests**: `test:visual`, `test:theme` and `test:site-stats` build from the frozen fixture `tests/fixtures/site-stats-sample.json`, so live data never moves a baseline.
+
+Only `www.adrianparker.com` traffic is counted, and never events tagged `internal_user` (see `?internal=1` in `partials/analytics.njk`).
+
 ## Creating Posts
 
 Blog posts are written in markdown and placed in `content/posts/`. Each file:
