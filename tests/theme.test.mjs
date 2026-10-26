@@ -211,4 +211,50 @@ describe('Theme', function () {
       await context.close();
     });
   });
+
+  /*
+    Site Stats brings its own tokens (--color-strong, --color-subtle,
+    --color-surface). Small text has to stay at 4.5:1 against the surface it
+    actually sits on, in both themes.
+  */
+  describe('Site Stats', function () {
+    it('keeps small text readable in both themes', async function () {
+      for (const scheme of ['dark', 'light']) {
+        const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, colorScheme: scheme });
+        const page = await context.newPage();
+        await page.goto(`${BASE}/Site-Stats/index.html`, { waitUntil: 'networkidle' });
+        const ratios = await page.evaluate(() => {
+          const rgb = (c) => c.match(/[\d.]+/g).slice(0, 3).map(Number);
+          const lum = (c) => {
+            const [r, g, b] = rgb(c).map((v) => {
+              const s = v / 255;
+              return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+            });
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          };
+          const ratio = (a, b) => {
+            const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+            return (hi + 0.05) / (lo + 0.05);
+          };
+          const colour = (sel) => getComputedStyle(document.querySelector(sel)).color;
+          const surface = getComputedStyle(document.querySelector('.site-stats .ss-card')).backgroundColor;
+          const page = getComputedStyle(document.documentElement).getPropertyValue('--color-bg-bottom').trim();
+          const probe = document.createElement('div');
+          probe.style.color = page;
+          document.body.append(probe);
+          const pageBg = getComputedStyle(probe).color;
+          return {
+            'meta on page': ratio(colour('.ss-meta'), pageBg),
+            'text on page': ratio(colour('.ss-intro'), pageBg),
+            'note on card': ratio(colour('.ss-card .ss-note'), surface),
+            'tile note on card': ratio(colour('.ss-tile-note'), surface)
+          };
+        });
+        Object.entries(ratios).forEach(([name, value]) => {
+          expect(value, `${scheme}: ${name}`).to.be.at.least(4.5);
+        });
+        await context.close();
+      }
+    });
+  });
 });

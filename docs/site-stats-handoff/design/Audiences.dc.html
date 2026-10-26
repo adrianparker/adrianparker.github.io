@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Stats: two audiences</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.bb{font-family:'Bebas Neue', Impact, sans-serif;font-weight:400;letter-spacing:0.02em}
+a{color:inherit}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: {{c.bg}}; color: {{c.text}}; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5">
+<div style="max-width: 1080px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 48px) 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 64px">
+
+<section aria-labelledby="aud-h" style="display: flex; flex-direction: column; gap: 22px">
+<h2 id="aud-h" class="bb" style="margin: 0; font-size: clamp(34px, 5vw, 52px); line-height: 1; color: {{c.strong}}">Two audiences hiding in one total</h2>
+<p style="margin: 0; max-width: 680px">Visitors from New Zealand and Australia compared to the rest of the world.</p>
+
+<div role="table" aria-label="NZ and Australia compared with rest of world" style="display: flex; flex-direction: column; gap: 4px">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, 200px) minmax(0, 1fr); gap: 12px; padding-bottom: 8px; border-bottom: 1px solid {{c.rule}}">
+<div role="columnheader" style="text-align: right; font-weight: bold; color: {{c.accent}}">NZ &amp; Australia</div>
+<div role="columnheader" style="text-align: center; font-size: 13px; color: {{c.muted}}">measure</div>
+<div role="columnheader" style="font-weight: bold; color: {{c.text}}">Rest of world</div>
+</div>
+<sc-for list="{{compare}}" as="r" hint-placeholder-count="5">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, 200px) minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid {{c.hair}}">
+<div role="cell" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px">
+<span style="font-size: 15px; font-weight: bold; color: {{c.strong}}; white-space: nowrap">{{r.l}}</span>
+<span style="display: block; height: 16px; width: {{r.lw}}%; min-width: 3px; background: {{c.accent}}; border-radius: 2px 0 0 2px"></span>
+</div>
+<div role="rowheader" style="text-align: center; font-size: 14px">{{r.label}}</div>
+<div role="cell" style="display: flex; align-items: center; gap: 10px">
+<span style="display: block; height: 16px; width: {{r.rw}}%; min-width: 3px; background: {{c.noise}}; border-radius: 0 2px 2px 0"></span>
+<span style="font-size: 15px; font-weight: bold; color: {{c.strong}}; white-space: nowrap">{{r.r}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px">
+<h3 style="margin: 0; font-size: 16px; color: {{c.strong}}">How many pages each visitor viewed</h3>
+<span style="font-size: 13px; color: {{c.muted}}">Human-classified: not flagged by PostHog and not inferred to be automated. Each bar is 100% of its group.</span>
+</div>
+<sc-for list="{{depth}}" as="g" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 14px"><strong>{{g.name}}</strong> <span style="color: {{c.muted}}">· {{g.total}} visitors</span></div>
+<div role="img" aria-label="{{g.aria}}" style="display: flex; height: 26px; border-radius: 3px; overflow: hidden; gap: 2px">
+<sc-for list="{{g.segs}}" as="s" hint-placeholder-count="4"><span style="display: block; flex: {{s.n}} 0 0px; min-width: {{s.min}}; background: {{s.fill}}"></span></sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: {{c.muted}}">
+<sc-for list="{{g.segs}}" as="s" hint-placeholder-count="4"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: {{s.fill}}"></span>{{s.label}}: <strong style="color: {{c.text}}">{{s.n}}</strong></span></sc-for>
+</div>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 14px">The 6 visitors who viewed 10 or more pages produced <strong style="color: {{c.accent}}">632 views</strong>, most of all human-classified views.</p>
+</div>
+</section>
+
+<section aria-labelledby="geo-h" style="display: flex; flex-direction: column; gap: 22px">
+<h2 id="geo-h" class="bb" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1; color: {{c.strong}}">Where they are: visitors against views</h2>
+
+<div role="table" aria-label="Visitors and views by country" style="display: flex; flex-direction: column">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 170px) minmax(0, 1.6fr); gap: 12px; padding-bottom: 8px; border-bottom: 1px solid {{c.rule}}; font-size: 13px; color: {{c.muted}}">
+<div role="columnheader" style="text-align: right">← visitors</div>
+<div role="columnheader" style="text-align: center">country</div>
+<div role="columnheader">views →</div>
+</div>
+<sc-for list="{{countries}}" as="r" hint-placeholder-count="15">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 170px) minmax(0, 1.6fr); gap: 12px; align-items: center; padding: 5px 0">
+<div role="cell" style="display: flex; justify-content: flex-end; align-items: center; gap: 8px">
+<span style="font-size: 13px; white-space: nowrap">{{r.l}}</span>
+<span style="display: block; height: 12px; width: {{r.lw}}%; min-width: 2px; background: {{c.noise}}"></span>
+</div>
+<div role="rowheader" style="text-align: center; font-size: 14px; font-weight: {{r.weight}}">{{r.label}}</div>
+<div role="cell" style="display: flex; align-items: center; gap: 8px">
+<span style="display: block; height: 12px; width: {{r.rw}}%; min-width: 2px; background: {{r.rFill}}"></span>
+<span style="font-size: 13px; white-space: nowrap">{{r.r}} <span style="color: {{c.muted}}">{{r.ratio}}</span></span>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<h3 style="margin: 0; font-size: 16px; color: {{c.strong}}">Top cities by visitors</h3>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 6px 32px">
+<sc-for list="{{cities}}" as="ct" hint-placeholder-count="11">
+<li style="display: grid; grid-template-columns: minmax(0, 1fr) 90px; gap: 10px; align-items: center; font-size: 14px">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span>{{ct.name}}</span><sc-if value="{{ct.tag}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border-radius: 4px; font-size: 12px; border: 1px solid {{c.rule}}; color: {{c.muted}}">{{ct.tag}}</span></sc-if></span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="display: block; height: 8px; width: {{ct.w}}%; background: {{ct.fill}}"></span><span>{{ct.n}}</span></span>
+</li>
+</sc-for>
+</ol>
+
+</div>
+</section>
+
+<section aria-labelledby="dev-h" style="display: flex; flex-direction: column; gap: 22px">
+<h2 id="dev-h" class="bb" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1; color: {{c.strong}}">What they read it on</h2>
+
+<div role="table" aria-label="Visitors and views by browser and operating system" style="display: flex; flex-direction: column">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 170px) minmax(0, 1fr); gap: 12px; padding-bottom: 8px; border-bottom: 1px solid {{c.rule}}; font-size: 13px; color: {{c.muted}}">
+<div role="columnheader" style="text-align: right">← visitors</div>
+<div role="columnheader" style="text-align: center">browser, system</div>
+<div role="columnheader">views →</div>
+</div>
+<sc-for list="{{devices}}" as="r" hint-placeholder-count="8">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 170px) minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px 0">
+<div role="cell" style="display: flex; justify-content: flex-end; align-items: center; gap: 8px">
+<span style="font-size: 13px; white-space: nowrap">{{r.l}}</span>
+<span style="display: block; height: 14px; width: {{r.lw}}%; min-width: 2px; background: {{c.noise}}"></span>
+</div>
+<div role="rowheader" style="text-align: center; font-size: 14px">{{r.label}}</div>
+<div role="cell" style="display: flex; align-items: center; gap: 8px">
+<span style="display: block; height: 14px; width: {{r.rw}}%; min-width: 2px; background: {{r.rFill}}"></span>
+<span style="font-size: 13px; white-space: nowrap">{{r.r}} <span style="color: {{c.muted}}">{{r.ratio}}</span></span>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<figure style="margin: 0; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<figcaption style="font-size: 16px; font-weight: bold; color: {{c.strong}}">Window width <span style="font-weight: normal; font-size: 13px; color: {{c.muted}}">· visitors</span></figcaption>
+<div role="img" aria-label="Visitors by window width: under 500px 40, 500 to 767 1, 768 to 1099 4, 1100 to 1499 91, 1500 and up 246" style="display: flex; align-items: flex-end; gap: 10px; height: 170px; border-bottom: 1px solid {{c.rule}}">
+<sc-for list="{{widths}}" as="w" hint-placeholder-count="5">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 100%">
+<span style="font-size: 13px; font-weight: bold">{{w.n}}</span>
+<span style="display: block; width: 100%; height: {{w.h}}%; min-height: 2px; background: {{w.fill}}; border-radius: 2px 2px 0 0"></span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px; font-size: 12px; color: {{c.muted}}">
+<sc-for list="{{widths}}" as="w" hint-placeholder-count="5"><span style="flex: 1; text-align: center">{{w.label}}</span></sc-for>
+</div>
+<p style="margin: 0; font-size: 13px; color: {{c.muted}}">246 visitors report a window 1500px or wider, typical of headless browsers.</p>
+</figure>
+<figure style="margin: 0; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 8px; background: {{c.surface}}">
+<figcaption style="font-size: 16px; font-weight: bold; color: {{c.strong}}">Browser language <span style="font-weight: normal; font-size: 13px; color: {{c.muted}}">· visitors</span></figcaption>
+<sc-for list="{{langs}}" as="lg" hint-placeholder-count="6">
+<div style="display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; align-items: center; font-size: 14px">
+<span>{{lg.name}}</span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="display: block; height: 14px; width: {{lg.w}}%; min-width: 2px; background: {{c.noise}}"></span><span>{{lg.n}}</span></span>
+</div>
+</sc-for>
+</figure>
+</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1280,"height":2800}}'>
+const PAL = {
+  dark: { bg: '#2b2b2b', surface: '#353535', text: '#cccccc', strong: '#f0f0f0', muted: '#a3a3a3', rule: '#555555', hair: 'rgba(255,255,255,0.07)', accent: '#ff9900', accentMid: 'rgba(255,153,0,0.62)', accentLow: 'rgba(255,153,0,0.36)', noise: '#7a7a7a', noiseFaint: '#4a4a4a' },
+  light: { bg: '#f7f4ec', surface: '#efe9da', text: '#1e2a3a', strong: '#0f1824', muted: '#55606b', rule: 'rgba(28,79,140,0.28)', hair: 'rgba(28,79,140,0.12)', accent: '#1c4f8c', accentMid: 'rgba(28,79,140,0.62)', accentLow: 'rgba(28,79,140,0.34)', noise: '#9aa1a9', noiseFaint: '#ddd6c4' }
+};
+const pct = (v, max) => Math.round(v / max * 1000) / 10;
+function mirror(rows, c, max, allRatios) {
+  return rows.map(([label, l, r]) => {
+    const per = r / l;
+    return { label, l, r, lw: pct(l, max), rw: pct(r, max), rFill: per >= 2 ? c.accent : c.noise, ratio: allRatios || per >= 2 ? '×' + Math.round(per) : '', weight: per >= 2 ? 'bold' : 'normal' };
+  });
+}
+class Component extends DCLogic {
+  renderVals() {
+    const c = PAL[this.props.theme === 'light' ? 'light' : 'dark'];
+    const compare = [
+      ['Sessions', 193, 351, '193', '351'],
+      ['Pages per session', 3.53, 1.02, '3.53', '1.02'],
+      ['Single-page sessions', 34.7, 99.1, '34.7%', '99.1%'],
+      ['Median time on site', 5, 0, '5 s', '0 s'],
+      ['Average time, multi-page sessions', 416, 63, '6 min 56 s', '63 s']
+    ].map(([label, a, b, l, r]) => {
+      const m = Math.max(a, b);
+      return { label, l, r, lw: pct(a, m), rw: pct(b, m) };
+    });
+    const seg = (n, label, fill) => ({ n, label, fill, min: n > 0 ? '4px' : '0px' });
+    const depth = [
+      { name: 'NZ & Australia', total: 32, aria: '1 page 17, 2 to 3 pages 6, 4 to 9 pages 3, 10 or more 6', segs: [seg(17, '1 page', c.noiseFaint), seg(6, '2–3', c.accentLow), seg(3, '4–9', c.accentMid), seg(6, '10+', c.accent)] },
+      { name: 'Rest of world', total: 350, aria: '1 page 346, 2 to 3 pages 2, 4 to 9 pages 2, 10 or more 0', segs: [seg(346, '1 page', c.noiseFaint), seg(2, '2–3', c.accentLow), seg(2, '4–9', c.accentMid), seg(0, '10+', c.accent)] }
+    ];
+    const countries = mirror([
+      ['China', 76, 76], ['United States', 74, 79], ['Singapore', 55, 55], ['Germany', 30, 30], ['Netherlands', 25, 25],
+      ['Hong Kong', 20, 20], ['New Zealand', 17, 663], ['Australia', 15, 18], ['Canada', 13, 13], ['Japan', 11, 11],
+      ['South Korea', 9, 9], ['Sweden', 6, 6], ['France', 5, 5], ['Mexico', 4, 4], ['Norway', 3, 3]
+    ], c, 663, true);
+    const devices = mirror([
+      ['Chrome, Windows', 246, 259], ['Safari, iOS', 46, 56], ['Chrome, Mac', 44, 154], ['Chrome, Android', 16, 16],
+      ['Chrome, iOS', 12, 368], ['Chrome, Linux', 8, 8], ['Edge, Windows', 4, 18], ['Safari, Mac', 3, 155]
+    ], c, 368, true);
+    const cities = [
+      ['Singapore', 37, 'city unknown'], ['China', 35, 'city unknown'], ['Ashburn, US', 30, ''], ['Beijing', 19, ''],
+      ['Santa Clara, US', 18, ''], ['Singapore', 18, ''], ['Hong Kong', 18, ''], ['Netherlands', 16, 'city unknown'],
+      ['Brandenburg an der Havel, DE', 12, ''], ['Auckland, NZ', 11, ''], ['Tokyo', 10, '']
+    ].map(([name, n, tag]) => ({ name, n, tag, w: pct(n, 37) * 0.6, fill: name === 'Auckland, NZ' ? c.accent : c.noise }));
+    const widths = [['<500', 40], ['500–767', 1], ['768–1099', 4], ['1100–1499', 91], ['1500+', 246]]
+      .map(([label, n]) => ({ label, n, h: pct(n, 246) * 0.82, fill: c.noise }));
+    const langs = [['English', 291], ['Chinese', 83], ['Korean', 3], ['Russian', 2], ['Turkish', 2], ['Japanese', 1]]
+      .map(([name, n]) => ({ name, n, w: pct(n, 291) * 0.85 }));
+    return { c, compare, depth, countries, devices, cities, widths, langs };
+  }
+}
+</script>
+</body>
+</html>

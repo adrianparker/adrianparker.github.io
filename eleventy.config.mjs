@@ -8,6 +8,7 @@ import { photoShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 import { slideshowShortcode } from "./lib/slideshow.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
 import { parseSetlistIds, anyVisibleChip } from "./lib/setlist-ids.mjs";
+import { siteStatsView } from "./lib/site-stats.mjs";
 
 import site from "./content/_data/site.json" with { type: "json" };
 
@@ -111,6 +112,10 @@ export default function (eleventyConfig) {
   // true if any of the given performer names has a visible (non-:empty)
   // setlist chip — gates whether a gig post needs the modal markup at all
   eleventyConfig.addFilter("anySetlistChip", anyVisibleChip);
+
+  // turns the Site Stats snapshot (content/_data/siteStats.mjs) into what
+  // the /Site-Stats/ templates draw
+  eleventyConfig.addFilter("siteStatsView", siteStatsView);
 
   // enable RSS
   eleventyConfig.addPlugin(pluginRss);

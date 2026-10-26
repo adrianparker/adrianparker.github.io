@@ -1,0 +1,76 @@
+{% from "site-stats/macros.njk" import bar, key, slope %}
+{#
+  The gig-review toggle needs no JavaScript: both charts and both sentences
+  are rendered, and CSS shows one pair or the other from the checkbox state
+  with :has(). The hidden pair is display:none, so out of the accessibility
+  tree too.
+#}
+<section id="read" class="ss-section ss-read" aria-labelledby="read-h">
+  <h2 id="read-h" class="ss-h2">What's being read now, against all time</h2>
+  <div class="ss-read-intro">
+    <p class="ss-intro ss-without-gigs">Posts ranked by views, gig reviews excluded.</p>
+    <p class="ss-intro ss-with-gigs">Posts ranked by views, gig reviews included.</p>
+    <label class="ss-pill ss-toggle"><input type="checkbox" id="ss-include-gigs"> Include gig reviews</label>
+  </div>
+  <div class="ss-without-gigs">{{ slope(v.reading.withoutGigs) }}</div>
+  <div class="ss-with-gigs">{{ slope(v.reading.withGigs) }}</div>
+</section>
+
+<section class="ss-section" aria-labelledby="visits-h">
+  <h2 id="visits-h" class="ss-h2">Where visits start, and where they end</h2>
+  <div class="ss-pair ss-pair-wide">
+    <div class="ss-landing">
+      <div class="ss-headline ss-headline-spread">
+        <h3 class="ss-h3">Landing pages <span class="ss-note">· sessions</span></h3>
+        <span class="ss-legend"><span>{{ key("noise") }}left after one page</span><span>{{ key("real") }}kept going</span></span>
+      </div>
+      <ul class="ss-rows">
+        {%- for p in v.landing %}
+        <li class="ss-landing-row">
+          <span class="ss-ellipsis">{{ p.name }}</span>
+          <svg class="ss-bar ss-bar-14" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="{{ p.label }}"><rect width="{{ p.singleWidth }}" height="10" class="ss-f-noise"/><rect x="{{ p.moreX }}" width="{{ p.moreWidth }}" height="10" class="ss-f-real"/></svg>
+          <span class="ss-small">{{ p.sessions }}</span>
+          <span class="ss-small ss-muted ss-right">{{ p.left }} left</span>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="ss-exits">
+      <h3 class="ss-h3">Last page of longer visits <span class="ss-note">· sessions with 2+ pages</span></h3>
+      <ul class="ss-rows">
+        {%- for e in v.exits %}
+        <li class="ss-exit-row">
+          <span class="ss-ellipsis">{{ e.name }}</span>
+          <span class="ss-barlist-bar">{{ bar(e.width, "real" if e.top else "noise", "14") }}<span class="ss-small">{{ e.n }}</span></span>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ss-section" aria-labelledby="moves-h">
+  <h2 id="moves-h" class="ss-h2">How people move between sections</h2>
+  <p class="ss-intro">Each square counts moves from one page to the next within a visit.</p>
+  <div class="ss-scroll">
+    <table class="ss-moves">
+      <thead>
+        <tr>
+          <th scope="col" class="ss-moves-corner">from ↓ · to →</th>
+          {%- for name in v.transitions.sections %}<th scope="col">{{ name }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for row in v.transitions.rows %}
+        <tr>
+          <th scope="row">{{ row.from }}</th>
+          {%- for c in row.cells %}
+          <td class="{{ 'ss-on-accent' if c.onAccent }}{{ ' ss-same' if c.same }}"><svg class="ss-moves-cell" aria-hidden="true" focusable="false"><rect width="100%" height="100%" rx="4" class="{{ 'ss-f-real' if c.opacity else 'ss-f-empty' }}"{% if c.opacity %} fill-opacity="{{ c.opacity }}"{% endif %}/></svg><span>{{ c.n }}</span></td>
+          {%- endfor %}
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="ss-note ss-footnote"><span class="ss-key ss-key-same" aria-hidden="true"></span>Same-section moves include page reloads.</p>
+</section>

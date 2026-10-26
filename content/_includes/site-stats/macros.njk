@@ -1,0 +1,80 @@
+{#
+  Shared drawing pieces for /Site-Stats/. Bars are SVGs stretched to their
+  box (preserveAspectRatio="none") over a 0–100 viewBox, so a length from
+  lib/site-stats.mjs is a percentage and needs no style attribute.
+#}
+
+{# A bar growing right from the start of its box. #}
+{% macro bar(width, kind, size = "") -%}
+<svg class="ss-bar{% if size %} ss-bar-{{ size }}{% endif %}" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect width="{{ width }}" height="10" class="ss-f-{{ kind }}"/></svg>
+{%- endmacro %}
+
+{# A bar growing left from the end of its box. #}
+{% macro barLeft(width, kind, size = "") -%}
+<svg class="ss-bar{% if size %} ss-bar-{{ size }}{% endif %}" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="{{ 100 - width }}" width="{{ width }}" height="10" class="ss-f-{{ kind }}"/></svg>
+{%- endmacro %}
+
+{# A 100%-wide stacked bar from lib/site-stats.mjs stack() segments. #}
+{% macro stacked(segments, label, size = "") -%}
+<svg class="ss-stack{% if size %} ss-stack-{{ size }}{% endif %}" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="{{ label }}">
+  {%- for seg in segments %}{% if seg.width > 0 %}<rect x="{{ seg.x }}" width="{{ seg.width }}" height="10" class="ss-f-{{ seg.kind }}"/>{% endif %}{% endfor -%}
+</svg>
+{%- endmacro %}
+
+{# A legend key: a small square, or a dot (solid or ring). #}
+{% macro key(kind, shape = "square") -%}
+<span class="ss-key ss-key-{{ shape }} ss-k-{{ kind }}" aria-hidden="true"></span>
+{%- endmacro %}
+
+{#
+  Butterfly table: visitors bar to the left, views bar to the right, the name
+  in the middle. Rows come from lib/site-stats.mjs mirror().
+#}
+{% macro mirror(rows, middle, label) -%}
+<table class="ss-mirror">
+  <caption class="visually-hidden">{{ label }}</caption>
+  <colgroup><col class="ss-col-side"><col class="ss-col-mid"><col class="ss-col-side"></colgroup>
+  <thead>
+    <tr><th scope="col" class="ss-side-left">← visitors</th><th scope="col">{{ middle }}</th><th scope="col" class="ss-side-right">views →</th></tr>
+  </thead>
+  <tbody>
+    {%- for r in rows %}
+    <tr>
+      <td><span class="ss-side ss-side-left"><span class="ss-num">{{ r.visitors }}</span>{{ barLeft(r.visitorsWidth, "noise") }}</span></td>
+      <th scope="row"{% if r.read %} class="ss-strong"{% endif %}>{{ r.name }}</th>
+      <td><span class="ss-side">{{ bar(r.viewsWidth, "real" if r.read else "noise") }}<span class="ss-num">{{ r.views }} <span class="ss-muted">{{ r.multiplier }}</span></span></span></td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+{%- endmacro %}
+
+{# The slope chart, or its empty state when there is nothing to rank. #}
+{% macro slope(chart) -%}
+{%- if chart %}
+<div class="ss-scroll">
+  <figure class="ss-slope">
+    <svg viewBox="0 0 780 {{ chart.height }}" role="img" aria-label="Slope chart of post rank by views, all time against the last 90 days">
+      <text x="310" y="24" text-anchor="end" class="ss-t-muted ss-t-head">ALL TIME · views</text>
+      <text x="470" y="24" class="ss-t-muted ss-t-head">LAST 90 DAYS · views</text>
+      {%- for l in chart.lines %}
+      <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" class="ss-line-{{ l.move }}{% if l.stub %} ss-line-stub{% endif %}"/>
+      {%- endfor %}
+      {%- for p in chart.left %}
+      <text x="310" y="{{ p.y }}" text-anchor="end" class="ss-t-{{ 'real' if p.move == 'rising' else 'text' }}">{{ p.title }}<tspan dx="8" font-weight="bold">{{ p.views }}</tspan></text>
+      {%- endfor %}
+      {%- for p in chart.right %}
+      <text x="470" y="{{ p.y }}" class="ss-t-{{ 'real' if p.move == 'rising' else 'text' }}"><tspan font-weight="bold">{{ p.views }}</tspan><tspan dx="8">{{ p.title }}</tspan>{% if p.isNew %}<tspan dx="8" class="ss-t-muted ss-t-small">new</tspan>{% endif %}</text>
+      {%- endfor %}
+    </svg>
+    <figcaption class="ss-legend">
+      <span><svg class="ss-line-key" viewBox="0 0 22 6" aria-hidden="true"><line x1="0" y1="3" x2="22" y2="3" class="ss-line-rising"/></svg>Rising</span>
+      <span><svg class="ss-line-key" viewBox="0 0 22 6" aria-hidden="true"><line x1="0" y1="3" x2="22" y2="3" class="ss-line-falling"/></svg>Falling 2+ places</span>
+      <span><svg class="ss-line-key" viewBox="0 0 22 6" aria-hidden="true"><line x1="0" y1="3" x2="22" y2="3" class="ss-line-steady"/></svg>Roughly steady</span>
+    </figcaption>
+  </figure>
+</div>
+{%- else %}
+<div class="ss-empty">Not enough data yet</div>
+{%- endif %}
+{%- endmacro %}

@@ -1,0 +1,61 @@
+{% from "site-stats/macros.njk" import bar, key %}
+<section id="real" class="ss-section" aria-labelledby="real-h">
+  <h2 id="real-h" class="ss-h2">{{ v.real.heading }}</h2>
+  <p class="ss-intro">Every dot below is one visitor PostHog counted.</p>
+
+  <div class="ss-split">
+    <figure class="ss-dots">
+      <svg class="ss-dotfield" viewBox="0 0 {{ v.real.field.width }} {{ v.real.field.height }}" role="img" aria-label="{{ v.real.label }}">
+        {%- for d in v.real.field.dots %}<circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="{{ 5 if d.kind == 'inferred' else 6 }}" class="ss-dot-{{ d.kind }}"/>{% endfor -%}
+      </svg>
+      <figcaption class="ss-legend">
+        <span>{{ key("real", "dot") }}<span><strong>{{ v.real.people.n }}</strong> looked like people</span></span>
+        <span>{{ key("noise", "ring") }}<span><strong>{{ v.real.inferred.n }}</strong> probably automated (our inference)</span></span>
+        <span>{{ key("noise", "dot") }}<span><strong>{{ v.real.flagged.n }}</strong> flagged as bots by PostHog</span></span>
+      </figcaption>
+    </figure>
+
+    <ol class="ss-steps">
+      <li class="ss-step ss-step-total">
+        <p class="ss-step-head"><span class="ss-big">{{ v.real.reported }}</span> <strong>total visitors</strong></p>
+      </li>
+      <li class="ss-step">
+        <p class="ss-step-head"><span class="ss-big">{{ v.real.flagged.n }}</span> <strong>flagged as bots by PostHog</strong></p>
+        {{ bar(v.real.flagged.width, "noise", "step") }}
+      </li>
+      <li class="ss-step">
+        <p class="ss-step-head"><span class="ss-big">{{ v.real.inferred.n }}</span> <strong>probably automated</strong></p>
+        {{ bar(v.real.inferred.width, "noise-soft", "step") }}
+        <p class="ss-note">Not flagged, but viewed exactly one page, from outside NZ and Australia, median visit {{ v.real.inferred.medianVisit }}. Our inference.</p>
+      </li>
+      <li class="ss-step ss-step-people">
+        <p class="ss-step-head ss-accent"><span class="ss-big">{{ v.real.people.n }}</span> <strong>looked like people</strong></p>
+        {{ bar(v.real.people.width, "real", "step") }}
+        <p class="ss-note">Viewed more than one page, or were in NZ or Australia.</p>
+      </li>
+      <li class="ss-card ss-engagement">
+        <p class="ss-note">Of those {{ v.real.people.n }}, two separate measures of engagement:</p>
+        <p class="ss-engagement-pair">
+          <span><span class="ss-big ss-big-32 ss-accent">{{ v.real.viewed10Plus }}</span> viewed 10 or more pages</span>
+          <span><span class="ss-big ss-big-32 ss-accent">{{ v.real.returned5PlusDays }}</span> came back on 5 or more days</span>
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="ss-section ss-section-tight" aria-labelledby="totals-h">
+  <div class="ss-headline">
+    <h2 id="totals-h" class="ss-h2">The raw totals, with that in mind</h2>
+    <span class="ss-note">As PostHog counts them. Not bot-filtered.</span>
+  </div>
+  <div class="ss-tiles">
+    {%- for t in v.tiles %}
+    <div class="ss-tile ss-tile-{{ t.kind }}">
+      <span class="ss-note">{{ t.label }}</span>
+      <span class="ss-big">{{ t.value }}</span>
+      {%- if t.note %}<span class="ss-tile-note">{{ t.note }}</span>{% endif %}
+    </div>
+    {%- endfor %}
+  </div>
+</section>

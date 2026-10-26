@@ -1,0 +1,68 @@
+{% from "site-stats/macros.njk" import bar %}
+<section id="time" class="ss-section" aria-labelledby="time-h">
+  <h2 id="time-h" class="ss-h2">Page views, week by week</h2>
+  <p class="ss-intro">Page views per week. These are not bot-filtered.</p>
+
+  <figure class="ss-figure">
+    <div class="ss-scroll">
+      <svg class="ss-weekly" viewBox="0 0 720 236" role="img" aria-label="{{ v.weekly.label }}">
+        {%- for c in v.weekly.columns %}
+        {%- if c.total %}<text x="{{ c.mid }}" y="{{ c.y - 5 }}" text-anchor="middle" class="ss-t-muted ss-t-tiny">{{ c.total }}</text>{% endif %}
+        <rect x="{{ c.x }}" y="{{ c.y }}" width="{{ c.width }}" height="{{ c.height }}" class="{{ 'ss-col-partial' if c.partial else 'ss-f-real' }}"/>
+        {%- if c.tick %}<text x="{{ c.x }}" y="230" class="ss-t-muted ss-t-tiny">{{ c.tick }}</text>{% endif %}
+        {%- endfor %}
+        <line x1="0" y1="212.5" x2="720" y2="212.5" class="ss-axis"/>
+      </svg>
+    </div>
+    {%- if v.weekly.partialWeek %}
+    <figcaption class="ss-legend"><span><span class="ss-key ss-key-partial" aria-hidden="true"></span>The week of {{ v.weekly.partialWeek }} is still in progress.</span></figcaption>
+    {%- endif %}
+  </figure>
+
+  <div class="ss-headline">
+    <h3 class="ss-h3">By section</h3>
+    <span class="ss-note">Same weeks, one panel per section, all on the same scale ({{ v.weekly.scale }} views)</span>
+  </div>
+  <div class="ss-panels">
+    {%- for p in v.weekly.panels %}
+    <figure class="ss-card ss-panel">
+      <figcaption class="ss-panel-head"><strong>{{ p.name }}</strong><span class="ss-muted">{{ p.total }} views</span></figcaption>
+      <svg class="ss-panel-chart" viewBox="0 0 {{ v.weekly.weekCount }} 100" preserveAspectRatio="none" role="img" aria-label="{{ p.label }}">
+        {%- for b in p.bars %}{% if not b.hidden and b.height > 0 %}<rect x="{{ b.x + 0.1 }}" y="{{ b.y }}" width="0.8" height="{{ b.height }}" class="{{ 'ss-col-partial-' + p.kind if b.partial else 'ss-f-' + p.kind }}" vector-effect="non-scaling-stroke"/>{% endif %}{% endfor -%}
+      </svg>
+      <p class="ss-panel-months" aria-hidden="true">{% for m in v.weekly.months %}<span>{{ m }}</span>{% endfor %}</p>
+    </figure>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="ss-section" aria-labelledby="when-h">
+  <h2 id="when-h" class="ss-h2">When the site is read</h2>
+  <p class="ss-intro">Page views by day and hour, New Zealand time, human-classified traffic. Darker means more views.</p>
+
+  <div class="ss-scroll">
+    <table class="ss-heat">
+      <caption class="visually-hidden">Page views by weekday and hour, New Zealand time</caption>
+      <thead>
+        <tr>
+          <td></td>
+          {%- for h in v.heatmap.hours %}
+          <th scope="col"><span aria-hidden="true">{{ h.label }}</span><span class="visually-hidden">{{ h.hour }}:00</span></th>
+          {%- endfor %}
+          <th scope="col" class="ss-heat-total">day total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for d in v.heatmap.days %}
+        <tr>
+          <th scope="row">{{ d.day }}</th>
+          {%- for c in d.cells %}
+          <td><svg class="ss-heat-cell" aria-hidden="true" focusable="false"><rect width="100%" height="100%" rx="3" class="{{ 'ss-f-real' if c.v else 'ss-f-empty' }}"{% if c.v %} fill-opacity="{{ c.opacity }}"{% endif %}/></svg><span class="visually-hidden">{{ c.label }}</span></td>
+          {%- endfor %}
+          <td class="ss-heat-total">{{ bar(d.width, "noise", "10") }}<span>{{ d.total }}</span></td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>

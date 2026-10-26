@@ -60,6 +60,8 @@ npm run photos -- <set-id> <folder> --upload  # publish a set of photos, see REA
 npm run new-gig -- <artist> [<YYYY-MM-DD>] [--summary '...'] [--photos]  # scaffold a gig post from gig-history.md, see new-gig skill
 npm run certs           # (re)generate a trusted https cert for localhost, see README
 npm run spellcheck     # cspell over all posts/gigs, see README → Spell checking
+npm run stats:snapshot # refresh the committed Site Stats snapshot from PostHog, see README → Site Stats
+npm run test:site-stats # build from the fixture + Site Stats no-JS toggle test
 ```
 
 Run `npm run test:unit` constantly; it takes well under a second. Run the

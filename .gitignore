@@ -12,3 +12,5 @@ content/GigHistory/claude-cowork
 .photos/
 .certs/
 spellcheck-report.md
+.env
+.cache/
