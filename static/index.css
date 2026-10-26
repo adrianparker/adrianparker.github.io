@@ -1802,9 +1802,6 @@ html.js .slideshow-next {
 
 .site-stats .ss-big.ss-accent { color: var(--color-accent); }
 .site-stats .ss-big-32 { font-size: 32px; }
-.site-stats .ss-big-40 { font-size: 40px; }
-.site-stats .ss-big-44 { font-size: 44px; }
-.site-stats .ss-big-48 { font-size: 48px; }
 
 /* Header */
 
@@ -1812,13 +1809,6 @@ html.js .slideshow-next {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-
-.app-page .app-shell .site-stats .ss-title {
-  margin: 0;
-  font-size: clamp(56px, 9vw, 96px);
-  line-height: 0.9;
-  color: var(--color-accent);
 }
 
 .site-stats .ss-lede {
@@ -1881,33 +1871,26 @@ html.js .slideshow-next {
 
 .site-stats .ss-h2 {
   margin: 0;
-  font-size: clamp(34px, 5vw, 52px);
   line-height: 1;
-  color: var(--color-strong);
 }
 
-.site-stats .ss-h2-mid {
-  font-size: clamp(30px, 4vw, 44px);
-}
-
-.site-stats .ss-h2-small {
-  font-size: 30px;
-}
-
+/* Headings take the site's own h1/h2/h3 sizes and colour, as on every other
+   page; only the spacing around them is the page's own. */
 .site-stats .ss-h3 {
   margin: 0;
+}
+
+/* Inline qualifiers inside an h3 ("· sessions") stay in the body face. */
+.site-stats h3 .ss-note {
   font-family: Arial, Helvetica, Georgia, serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--color-strong);
-}
-
-.site-stats .ss-h3-large {
-  font-size: 18px;
-}
-
-.site-stats .ss-h3 .ss-note {
+  font-size: 13px;
   font-weight: normal;
+}
+
+/* A label set beside a big number: not a heading, so not in the heading face. */
+.site-stats .ss-label {
+  font-size: 16px;
+  color: var(--color-text);
 }
 
 .site-stats .ss-intro {
@@ -2758,11 +2741,6 @@ html.js .slideshow-next {
   align-items: baseline;
   gap: 10px;
   margin: 0;
-}
-
-.site-stats .ss-signal-head .ss-h3 {
-  font-weight: normal;
-  color: var(--color-text);
 }
 
 .site-stats .ss-units {

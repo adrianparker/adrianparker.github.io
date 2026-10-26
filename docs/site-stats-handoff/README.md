@@ -114,7 +114,7 @@ The copy below is final. `N` marks a value that comes from the data.
 ### Header (artboard 1)
 
 - Breadcrumb: `adrianparker.com › Apps › Site Stats`. Use whatever the app layout provides, and drop it if the app nav already covers this.
-- `<h1>` **Site Stats**: Bebas Neue, accent colour, clamp(56px, 9vw, 96px).
+- `<h1>` **Site Stats**: the site's global h1, as on every other app page: Bebas Neue, accent colour, 48px (3em). Every section `<h2>` is the global h2, 24px (1.5em); `<h3>`s are the global h3. Big numbers are at most 36px, so never as large as the h1.
 - Lede: "What PostHog saw on this site over the last N days."
 - Meta row, muted and 13px, wrapping:
   - "Data as of **Mon 26 Oct 2026, 6:02 am NZDT**", from `generatedAt` formatted in Pacific/Auckland
@@ -146,7 +146,7 @@ At 448 dots, a single SVG with `<circle>`s laid out on a computed grid is the si
 
 **Step list** (right, flexible about 360px):
 
-1. **N** total visitors (Bebas 48px), with a rule below
+1. **N** total visitors (Bebas 36px), with a rule below
 2. **N** flagged as bots by PostHog, plus a bar at N/reported width in noise
 3. **N** probably automated, plus a bar at N/reported width in noise at 60% opacity, and a muted note: "Not flagged, but viewed exactly one page, from outside NZ and Australia, median visit 0 seconds. Our inference."
 4. **N** looked like people (accent), plus an accent bar at N/reported width (min 4px), and a muted note: "Viewed more than one page, or were in NZ or Australia."
@@ -161,7 +161,7 @@ At 448 dots, a single SVG with `<circle>`s laid out on a computed grid is the si
 Six tiles in an auto-fit grid (min 150px). Each tile has:
 
 - a label
-- the value in Bebas 44px
+- the value in Bebas 36px
 - an optional note
 - a 3px top border: noise for the first three tiles, accent for the last three
 

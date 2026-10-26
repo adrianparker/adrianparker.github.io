@@ -17,7 +17,7 @@
 
     <ol class="ss-steps">
       <li class="ss-step ss-step-total">
-        <p class="ss-step-head"><span class="ss-big ss-big-48">{{ v.real.reported }}</span> <strong>total visitors</strong></p>
+        <p class="ss-step-head"><span class="ss-big">{{ v.real.reported }}</span> <strong>total visitors</strong></p>
       </li>
       <li class="ss-step">
         <p class="ss-step-head"><span class="ss-big">{{ v.real.flagged.n }}</span> <strong>flagged as bots by PostHog</strong></p>
@@ -46,14 +46,14 @@
 
 <section class="ss-section ss-section-tight" aria-labelledby="totals-h">
   <div class="ss-headline">
-    <h2 id="totals-h" class="ss-h2 ss-h2-small">The raw totals, with that in mind</h2>
+    <h2 id="totals-h" class="ss-h2">The raw totals, with that in mind</h2>
     <span class="ss-note">As PostHog counts them. Not bot-filtered.</span>
   </div>
   <div class="ss-tiles">
     {%- for t in v.tiles %}
     <div class="ss-tile ss-tile-{{ t.kind }}">
       <span class="ss-note">{{ t.label }}</span>
-      <span class="ss-big ss-big-44">{{ t.value }}</span>
+      <span class="ss-big">{{ t.value }}</span>
       {%- if t.note %}<span class="ss-tile-note">{{ t.note }}</span>{% endif %}
     </div>
     {%- endfor %}
