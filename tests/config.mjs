@@ -47,7 +47,10 @@ export default {
     // this is the only baseline that renders the bar chart itself. See
     // `testInteractions` below for what drives it into this state.
     'gighistory-app-stats-london': '/Gig-History/index.html',
-    'not-found': '/404.html'
+    'not-found': '/404.html',
+    // Built from the frozen fixture (SITE_STATS_FIXTURE=1 in test:visual),
+    // so live PostHog data never moves this baseline.
+    'site-stats': '/Site-Stats/index.html'
   },
 
   /**
@@ -87,7 +90,7 @@ export default {
    * the footer.
    */
   themes: ['dark', 'light'],
-  lightThemePages: ['home-page', 'gig-post'],
+  lightThemePages: ['home-page', 'gig-post', 'site-stats'],
 
   screenshots: {
     baseDir: `${process.cwd()}/tests/screenshots`,

@@ -5,7 +5,7 @@
 */
 import fs from "node:fs";
 
-import { liveSnapshot, SNAPSHOT_FILE } from "../content/_data/siteStats.mjs";
+import { liveSnapshot, SNAPSHOT_FILE } from "./site-stats-live.mjs";
 
 if (!process.env.POSTHOG_PERSONAL_API_KEY) {
   console.error("POSTHOG_PERSONAL_API_KEY is not set. Put it in .env, see README → Site Stats.");

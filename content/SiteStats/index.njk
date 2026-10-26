@@ -1,0 +1,31 @@
+---
+layout: app-layout.njk
+permalink: /Site-Stats/index.html
+title: Site Stats
+navtitle: Site Stats
+summary: 'What PostHog saw on this site over the last 180 days, and how much of that traffic behaved like real people.'
+metadesc: The site's own PostHog analytics for the last 180 days, with automated traffic shown rather than filtered out.
+date: 2026-10-26
+tags: ['app']
+---
+{#
+  Everything on this page is drawn at build time from one snapshot of PostHog
+  data (content/_data/siteStats.mjs), shaped by lib/site-stats.mjs. It needs
+  no JavaScript: charts are inline SVG or real tables, sized with SVG
+  attributes and coloured with classes, so no style="" attribute appears and
+  the page keeps a strict style-src CSP. The gig-review toggle is a checkbox
+  read by CSS :has().
+
+  The app supplies the page's only <h1>.
+#}
+{%- set v = siteStats | siteStatsView -%}
+<div class="app-shell">
+  <section class="app-panel site-stats">
+    {% include "site-stats/header.njk" %}
+    {% include "site-stats/real.njk" %}
+    {% include "site-stats/audiences.njk" %}
+    {% include "site-stats/time.njk" %}
+    {% include "site-stats/reading.njk" %}
+    {% include "site-stats/arrivals.njk" %}
+  </section>
+</div>

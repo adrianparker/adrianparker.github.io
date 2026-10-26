@@ -1,0 +1,54 @@
+{% from "site-stats/macros.njk" import stacked, key %}
+<section id="arrivals" class="ss-section" aria-labelledby="arrivals-h">
+  <h2 id="arrivals-h" class="ss-h2">How people arrive, and who comes back</h2>
+  <div class="ss-pair ss-pair-roomy">
+    <div class="ss-pair-item ss-referrers">
+      <p class="ss-lead-stat"><span class="ss-big ss-big-40">{{ v.referrers.directShare }}</span> of visitors arrive with no referrer.</p>
+      {{ stacked(v.referrers.rows, v.referrers.label, "30") }}
+      <ul class="ss-referrer-list">
+        {%- for r in v.referrers.rows %}
+        <li>{{ key(r.kind) }}<span><strong>{{ r.group }}</strong> <span class="ss-muted">{{ r.detail }}</span></span><strong class="ss-right">{{ r.n }}</strong></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <figure class="ss-pair-item ss-returns">
+      <p class="ss-lead-stat"><span class="ss-big ss-big-40">{{ v.returns.cameBack }}</span> visitors came back on another day. {{ v.returns.fivePlus }} of them on five days or more.</p>
+      <svg class="ss-dotfield" viewBox="0 0 {{ v.returns.field.width }} {{ v.returns.field.height }}" role="img" aria-label="{{ v.returns.label }}">
+        {%- for d in v.returns.field.dots %}<circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="{{ 4 if d.kind == 'once' else 5 }}" class="ss-dot-{{ d.kind }}"/>{% endfor -%}
+      </svg>
+      <figcaption class="ss-legend">
+        {%- for r in v.returns.legend %}<span>{{ key(r.kind, "dot") }}{{ r.label }}: <strong>{{ r.n }}</strong></span>{% endfor -%}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="signals" class="ss-section" aria-labelledby="signals-h">
+  <h2 id="signals-h" class="ss-h2 ss-h2-mid">Smaller signals</h2>
+  <div class="ss-signals">
+    <div class="ss-card">
+      <p class="ss-signal-head"><span class="ss-big ss-big-44">{{ v.signals.outbound.total }}</span> <span class="ss-h3">outbound link clicks</span></p>
+      <ul class="ss-units">
+        {%- for o in v.signals.outbound.rows %}
+        <li><span>{{ o.name }}</span><span class="ss-unit-row" role="img" aria-label="{{ o.n }} click{{ 's' if o.n != 1 }}">{% for u in o.units %}<span class="ss-unit"></span>{% endfor %}</span></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="ss-card">
+      <p class="ss-signal-head"><span class="ss-big ss-big-44">{{ v.signals.notFound.total }}</span> <span class="ss-h3">“not found” hits</span></p>
+      <ul class="ss-units">
+        {%- for r in v.signals.notFound.rows %}
+        <li><code>{{ r.path }}</code><strong>{{ r.n }}</strong></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="ss-card">
+      <p class="ss-signal-head"><span class="ss-big ss-big-44">{{ v.signals.theme.total }}</span> <span class="ss-h3">theme toggles</span></p>
+      <div class="ss-toggles" role="img" aria-label="{{ v.signals.theme.label }}">
+        <span class="ss-toggle-marks">{% for t in v.signals.theme.toggles %}<span class="ss-toggle-mark"></span>{% endfor %}</span>
+        <span class="ss-people">{% for p in v.signals.theme.people %}<svg class="ss-person" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>{% endfor %}</span>
+      </div>
+      <p class="ss-note">{{ v.signals.theme.summary }}{% if v.signals.theme.countries %}<br>{{ v.signals.theme.countries }}{% endif %}</p>
+    </div>
+  </div>
+</section>

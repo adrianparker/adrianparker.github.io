@@ -29,7 +29,8 @@
     "test:gighistory-stats-chart": "npm run build && mocha tests/gig-history-stats-chart.test.mjs --timeout 60000",
     "test:gighistory-stats-map": "npm run build && mocha tests/gig-history-stats-map.test.mjs --timeout 60000",
     "test:app-nav": "npm run build && mocha tests/app-nav.test.mjs --timeout 60000",
-    "test:gig-post-setlist": "npm run build && mocha tests/gig-post-setlist.test.mjs --timeout 60000"
+    "test:gig-post-setlist": "npm run build && mocha tests/gig-post-setlist.test.mjs --timeout 60000",
+    "test:site-stats": "SITE_STATS_FIXTURE=1 npm run build && mocha tests/site-stats-toggle.test.mjs --timeout 60000"
   },
   "repository": {
     "type": "git",

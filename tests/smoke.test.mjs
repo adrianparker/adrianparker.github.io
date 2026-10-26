@@ -285,7 +285,8 @@ describe('Smoke Tests - Structure and accessibility', function () {
     ['apps', 'index.html'],
     ['404.html'],
     ['posts', 'Last-Ever-Last-Ever', 'index.html'],
-    ['posts', 'gigs', '20090218-Datsuns-Underworld-London', 'index.html']
+    ['posts', 'gigs', '20090218-Datsuns-Underworld-London', 'index.html'],
+    ['Site-Stats', 'index.html']
   ];
 
   it('should provide landmarks on every page', function () {
@@ -784,4 +785,66 @@ describe('Smoke Tests - Internal links', function () {
     expect(offenders, offenders.join('\n')).to.be.empty;
   });
 
+});
+
+/*
+  Site Stats is drawn from whatever snapshot the build had (live, committed or
+  the test fixture), so these check structure, not numbers.
+*/
+describe('Smoke Tests - Site Stats', function () {
+  const SITE_STATS = ['Site-Stats', 'index.html'];
+  const ANCHORS = ['real', 'audiences', 'time', 'read', 'arrivals', 'signals'];
+
+  it('should build the page with its own h1', function () {
+    const $ = load(...SITE_STATS);
+    expect($('h1').text().trim()).to.equal('Site Stats');
+  });
+
+  it('should have every section anchor, each linked from the section nav', function () {
+    const $ = load(...SITE_STATS);
+    for (const id of ANCHORS) {
+      expect($(`#${id}`).length, `#${id}`).to.equal(1);
+      expect($(`.ss-nav a[href="#${id}"]`).length, `nav link to #${id}`).to.equal(1);
+    }
+  });
+
+  it('should say when the data was fetched and what it covers', function () {
+    const meta = load(...SITE_STATS)('.ss-meta').text().replace(/\s+/g, ' ');
+    expect(meta).to.match(/Data as of \w{3} \d{1,2} \w{3,4} \d{4}, \d{1,2}:\d{2} [ap]m NZ[DS]T/);
+    expect(meta).to.match(/Covers .+ \(\d+ days\)/);
+  });
+
+  it('should be listed as an app', function () {
+    const $ = load('apps', 'index.html');
+    expect($('a[href="/Site-Stats/"]').length).to.be.greaterThan(0);
+  });
+
+  it('should keep a strict style-src: no style attributes, no unsafe-inline', function () {
+    const html = read(...SITE_STATS);
+    const $ = cheerio.load(html);
+    expect($('[style]').length, 'elements with a style attribute').to.equal(0);
+    const csp = $('meta[http-equiv="Content-Security-Policy"]').attr('content');
+    expect(csp).to.match(/style-src 'self'(;| 'sha256)/);
+    expect(csp.split(';').find((d) => d.trim().startsWith('style-src'))).to.not.include('unsafe-inline');
+  });
+
+  it('should run no script beyond the site\'s own', function () {
+    const scripts = ($) => $('script').map((_, el) => $(el).attr('src') || $(el).html()).get();
+    const own = new Set(scripts(load('ExifCmdLine', 'index.html')));
+    for (const script of scripts(load(...SITE_STATS))) {
+      expect(own.has(script), `unexpected script: ${script.slice(0, 80)}`).to.be.true;
+    }
+  });
+
+  it('should render both slope charts behind the gig-review toggle', function () {
+    const $ = load(...SITE_STATS);
+    expect($('#ss-include-gigs[type="checkbox"]').length).to.equal(1);
+    expect($('.ss-read .ss-without-gigs').length).to.equal(2);
+    expect($('.ss-read .ss-with-gigs').length).to.equal(2);
+  });
+
+  it('should not publish the committed snapshot as a page', function () {
+    expect(fs.existsSync(sitePath('Site-Stats', 'snapshot.json'))).to.be.false;
+    expect(fs.existsSync(sitePath('SiteStats'))).to.be.false;
+  });
 });

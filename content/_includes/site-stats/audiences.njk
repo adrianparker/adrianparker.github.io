@@ -1,0 +1,89 @@
+{% from "site-stats/macros.njk" import bar, barLeft, stacked, key, mirror %}
+<section id="audiences" class="ss-section" aria-labelledby="audiences-h">
+  <h2 id="audiences-h" class="ss-h2">Two audiences hiding in one total</h2>
+  <p class="ss-intro">Visitors from New Zealand and Australia compared to the rest of the world.</p>
+
+    <table class="ss-compare">
+    <caption class="visually-hidden">NZ and Australia compared with rest of world</caption>
+    <colgroup><col class="ss-col-side"><col class="ss-col-mid"><col class="ss-col-side"></colgroup>
+    <thead>
+      <tr>
+        <th scope="col" class="ss-side-left ss-accent">NZ &amp; Australia</th>
+        <th scope="col" class="ss-muted">measure</th>
+        <th scope="col" class="ss-side-right">Rest of world</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for r in v.compare %}
+      <tr>
+        <td><span class="ss-side ss-side-left"><span class="ss-value">{{ r.left }}</span>{{ barLeft(r.leftWidth, "real", "16") }}</span></td>
+        <th scope="row">{{ r.measure }}</th>
+        <td><span class="ss-side">{{ bar(r.rightWidth, "noise", "16") }}<span class="ss-value">{{ r.right }}</span></span></td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+
+  <div class="ss-card">
+    <div class="ss-headline">
+      <h3 class="ss-h3">How many pages each visitor viewed</h3>
+      <span class="ss-note">Human-classified: not flagged by PostHog and not inferred to be automated. Each bar is 100% of its group.</span>
+    </div>
+    {%- for g in v.depth.groups %}
+    <div class="ss-depth">
+      <p class="ss-depth-head"><strong>{{ g.name }}</strong> <span class="ss-muted">· {{ g.total }} visitors</span></p>
+      {{ stacked(g.segments, g.label, "26") }}
+      <p class="ss-legend">
+        {%- for seg in g.segments %}<span>{{ key(seg.kind) }}{{ seg.bucket }}: <strong>{{ seg.n }}</strong></span>{% endfor -%}
+      </p>
+    </div>
+    {%- endfor %}
+    <p class="ss-depth-foot">The {{ v.depth.heavyReaders }} visitors who viewed 10 or more pages produced <strong class="ss-accent">{{ v.depth.heavyViews }} views</strong>{% if v.depth.mostOf %}, most of all human-classified views{% endif %}.</p>
+  </div>
+</section>
+
+<section class="ss-section" aria-labelledby="where-h">
+  <h2 id="where-h" class="ss-h2 ss-h2-mid">Where they are: visitors against views</h2>
+  {{ mirror(v.countries, "country", "Visitors and views by country") }}
+
+  <div class="ss-card">
+    <h3 class="ss-h3">Top cities by visitors</h3>
+    <ol class="ss-cities">
+      {%- for c in v.cities %}
+      <li>
+        <span class="ss-city-name">{{ c.name }}{% if c.unknown %} <span class="ss-tag">city unknown</span>{% endif %}</span>
+        <span class="ss-city-bar">{{ bar(c.width, "real" if c.home else "noise", "8") }}<span>{{ c.n }}</span></span>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="ss-section" aria-labelledby="devices-h">
+  <h2 id="devices-h" class="ss-h2 ss-h2-mid">What they read it on</h2>
+  {{ mirror(v.devices, "browser, system", "Visitors and views by browser and operating system") }}
+
+  <div class="ss-pair">
+    <figure class="ss-card ss-pair-item">
+      <figcaption class="ss-card-title">Window width <span class="ss-note">· visitors</span></figcaption>
+      <svg class="ss-columns" viewBox="0 0 380 176" role="img" aria-label="{{ v.widths.label }}">
+        {%- for c in v.widths.columns %}
+        <text x="{{ c.mid }}" y="{{ c.textY }}" text-anchor="middle" class="ss-t-text ss-t-count">{{ c.n }}</text>
+        <rect x="{{ c.x }}" y="{{ c.y }}" width="{{ c.width }}" height="{{ c.height }}" class="ss-f-noise"/>
+        <text x="{{ c.mid }}" y="172" text-anchor="middle" class="ss-t-muted ss-t-small">{{ c.label }}</text>
+        {%- endfor %}
+        <line x1="0" y1="154.5" x2="380" y2="154.5" class="ss-axis"/>
+      </svg>
+      <p class="ss-note">{{ v.widths.wide }} visitors report a window 1500px or wider, typical of headless browsers.</p>
+    </figure>
+
+    <figure class="ss-card ss-pair-item">
+      <figcaption class="ss-card-title">Browser language <span class="ss-note">· visitors</span></figcaption>
+      <ul class="ss-barlist ss-barlist-narrow">
+        {%- for l in v.languages %}
+        <li><span>{{ l.name }}</span><span class="ss-barlist-bar">{{ bar(l.width, "noise", "14") }}<span>{{ l.n }}</span></span></li>
+        {%- endfor %}
+      </ul>
+    </figure>
+  </div>
+</section>
