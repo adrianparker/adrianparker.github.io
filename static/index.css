@@ -1334,11 +1334,6 @@ html.js .app-nav-collapse {
   min-width: 0;
 }
 
-.app-page .app-panel .tagline {
-  color: var(--color-muted);
-  font-style: italic;
-}
-
 @media (width >= 850px) {
   .app-page .app-shell {
     padding: 2px 0%;
