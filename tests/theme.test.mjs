@@ -244,7 +244,7 @@ describe('Theme', function () {
           document.body.append(probe);
           const pageBg = getComputedStyle(probe).color;
           return {
-            'meta on page': ratio(colour('.ss-meta'), pageBg),
+            'meta on page': ratio(colour('.app-meta'), pageBg),
             'text on page': ratio(colour('.ss-intro'), pageBg),
             'note on card': ratio(colour('.ss-card .ss-note'), surface),
             'tile note on card': ratio(colour('.ss-tile-note'), surface)

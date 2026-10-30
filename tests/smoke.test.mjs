@@ -809,7 +809,7 @@ describe('Smoke Tests - Site Stats', function () {
   });
 
   it('should say when the data was fetched and what it covers', function () {
-    const meta = load(...SITE_STATS)('.ss-meta').text().replace(/\s+/g, ' ');
+    const meta = load(...SITE_STATS)('.app-meta').text().replace(/\s+/g, ' ');
     expect(meta).to.match(/Data as of \w{3} \d{1,2} \w{3,4} \d{4}, \d{1,2}:\d{2} [ap]m NZ[DS]T/);
     expect(meta).to.match(/Covers .+ \(\d+ days\)/);
   });

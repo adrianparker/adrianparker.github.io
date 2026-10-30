@@ -5,7 +5,7 @@ eleventyComputed:
 permalink: /Gig-History/index.html
 title: Gig History
 navtitle: Gig History
-summary: 'Every gig, play and comedy show I have been to — filter it by performer, venue, city or year.'
+summary: 'Every gig I have been to. Search, filter and view statistics.'
 metadesc: A filterable, sortable table of every concert, play and comedy show Adrian Parker has been to.
 date: 2026-08-16
 tags: ['app']
@@ -16,9 +16,15 @@ tags: ['app']
   app's markup here — it is regenerated and any change would be overwritten. See
   README.md in this directory.
 
-  The app supplies the page's only <h1>, so this shell deliberately has none.
+  The app's own <h1> is dropped by the embed (dropHeading), so every app page
+  takes its title from the site's common .app-header below. The app's
+  #subtitle (gig count and date range) is restyled as this header's meta line.
 #}
 <div class="app-shell">
+  <header class="app-header">
+    <h1>Gig History</h1>
+    <p class="app-lede">Every gig I have been to. Search, filter and view statistics.</p>
+  </header>
   <section class="app-panel gig-history-app">
     {{ gigHistoryApp.html | safe }}
   </section>

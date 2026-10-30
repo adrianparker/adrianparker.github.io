@@ -918,6 +918,12 @@ figure {
   white-space: nowrap;
 }
 
+/* Trimmed to its capitals, like the app's <h1> (see .app-header), so the two
+   line up by the tops of their capitals rather than by their line boxes. */
+.app-nav-home .site-name {
+  text-box: trim-both cap alphabetic;
+}
+
 .app-nav-home:hover .site-name,
 .app-nav-home:focus .site-name {
   color: var(--color-muted);
@@ -1150,15 +1156,13 @@ html.js .app-nav-collapse {
 
 :root {
   /*
-    Nudges the app's first line onto the same baseline as the site name in the
-    nav beside it. Derived, not guessed: the nav's 1.1em padding-top puts the
-    top of its 34px name row at 17.6px, and the name is centred in that row.
-    Zeroing the app <h1>'s own 0.3em top margin (below) overshoots by a few
-    pixels, and this puts them back.
-
-    If your render is a pixel or two out, this is the one number to nudge.
+    Puts the top of the app <h1>'s capitals level with the top of the site
+    name's capitals in the nav beside it. Both are trimmed to cap height
+    (text-box, see .app-header), so this is plain arithmetic, not a nudge: the
+    nav's 1.1em padding-top puts its 34px name row at 17.6px, the 16.8px-tall
+    capitals are centred in it (26.2px), less the .app-shell's 2px top padding.
   */
-  --app-content-top: 20px;
+  --app-content-top: 24.2px;
 
   /* Breathing room between the nav's rule and the app. The app's own left
      padding sits inside this. */
@@ -1177,14 +1181,77 @@ html.js .app-nav-collapse {
       padding-top: 0px;
     }
 /*
-  The app's <h1> is the page's title again — there is no title bar above it, so
-  its own top margin is measuring from nothing. Removing it is what lets
-  --app-content-top do the aligning.
+  The common app page header: every app opens with an .app-header holding its
+  <h1>, a one-sentence .app-lede and, optionally, an .app-meta line. It is
+  the one place an app page's title is styled, so all apps read as part of
+  the same site whatever their own stylesheet says.
+
+  text-box trims the title (and the nav's site name, above) to the height of
+  its capitals, so the top of the capitals sits exactly at --app-content-top
+  and lines up with the top of the site name's capitals beside it. Browsers
+  without text-box keep the untrimmed box and sit a few pixels lower.
 */
-.app-page .app-shell h1:first-child,
-.app-page .app-shell .gig-history-app h1:first-child,
-.app-page .shell > .panel > h1:first-child {
-  margin-top: 0;
+.app-page .app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.app-page .app-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 3em;
+  line-height: 1;
+  color: var(--color-accent);
+  text-box: trim-both cap alphabetic;
+}
+
+.app-page .app-lede {
+  margin: 0;
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--color-strong);
+}
+
+.app-page .app-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-subtle);
+}
+
+.app-page .app-meta strong {
+  color: var(--color-text);
+}
+
+/*
+  Gig History's own #subtitle (gig count and date range) is filled in by the
+  app's script, so it can't move into .app-header's markup. It follows the
+  header directly, so it is styled as the header's meta line and pulled up
+  into it: 14px below the lede (the header's gap) instead of 32px.
+*/
+.app-page .gig-history-app .subtitle {
+  margin: -18px 0 32px 0;
+  font-size: 13px;
+  color: var(--color-subtle);
+}
+
+/*
+  The EXIF Viewer's bundle centres its .shell grid and draws a rule above each
+  .panel. On the site the app starts at the same left edge as every other app
+  (the .app-shell around it supplies the padding), with no rules.
+*/
+.app-page .shell {
+  margin: 0;
+  padding: 0;
+}
+
+.app-page .panel {
+  border-top: 0;
+  padding-top: 0;
 }
 
 /*
@@ -1265,11 +1332,6 @@ html.js .app-nav-collapse {
 
 .app-page .app-panel {
   min-width: 0;
-}
-
-.app-page .app-panel .tagline {
-  color: var(--color-muted);
-  font-style: italic;
 }
 
 @media (width >= 850px) {
@@ -1805,30 +1867,10 @@ html.js .slideshow-next {
 
 /* Header */
 
-.site-stats .ss-header {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.site-stats .ss-lede {
-  margin: 0;
-  max-width: 640px;
-  font-size: 18px;
-  color: var(--color-strong);
-}
-
-.site-stats .ss-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 0;
-  font-size: 13px;
-  color: var(--color-subtle);
-}
-
-.site-stats .ss-meta strong {
-  color: var(--color-text);
+/* The header itself is the common .app-header (see App pages). The page's
+   own 64px gap already separates it from the first section. */
+.site-stats .app-header {
+  margin-bottom: 0;
 }
 
 .site-stats .ss-nav {

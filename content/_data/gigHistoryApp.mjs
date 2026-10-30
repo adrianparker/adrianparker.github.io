@@ -163,7 +163,9 @@ export default function () {
     scope: SCOPE,
     quarantineIds: QUARANTINED_CONTROLS,
     palette: PALETTE,
-    colourMap: LITERAL_COLOURS
+    colourMap: LITERAL_COLOURS,
+    // content/GigHistory/index.njk renders the page's .app-header and <h1>.
+    dropHeading: true
   });
 
   if (embed.rawColours.length > 0) {

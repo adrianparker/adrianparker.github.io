@@ -10,11 +10,15 @@ metadesc: Browser-only image metadata inspector. Your file never leaves your com
 date: 2026-05-06
 tags: ['app']
 ---
-{# app-layout provides the <main> landmark; this is just the app's grid wrapper #}
+{# app-layout provides the <main> landmark; .app-shell and .app-header are the
+   site's common app page frame, .shell is the app's own grid wrapper #}
+<div class="app-shell">
+<header class="app-header">
+  <h1>EXIF Viewer</h1>
+  <p class="app-lede">Inspect the metadata inside a photo: camera, lens, exposure, timestamps and location. Your file never leaves your computer.</p>
+</header>
 <div class="shell">
   <section class="panel">
-    <h1>EXIF Viewer</h1>
-    <p class="tagline">Browser only image metadata inspector.<br />Your file never leaves your computer.</p>
 
     <!-- [html-validate-disable-next wcag/h32 -- never submits; it groups controls the app JS reads directly. The bundle looks up #exif-form. This markup is still a hand-synced copy of exifcmdline's web/index.html — the built CSS/JS are pulled in automatically as an npm dependency (see #36), but the HTML shell itself is not templated from that package.] -->
     <form id="exif-form" class="controls">
@@ -62,6 +66,7 @@ tags: ['app']
       </table>
     </div>
   </section>
+</div>
 </div>
 
 {#

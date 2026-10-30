@@ -2,6 +2,7 @@ import { expect } from "chai";
 import {
   extractBodyHtml,
   quarantineElements,
+  removeFirstHeading,
   defaultButtonType,
   scopeCss,
   remapColours,
@@ -231,6 +232,21 @@ describe("embed-app — findRawColours", () => {
   });
 });
 
+describe("embed-app — removeFirstHeading", () => {
+  it("removes the first h1 and the whitespace after it", () => {
+    expect(removeFirstHeading('<h1 class="t">App</h1>\n<div id="subtitle"></div>'))
+      .to.equal('<div id="subtitle"></div>');
+  });
+
+  it("leaves any later h1 alone", () => {
+    expect(removeFirstHeading("<h1>One</h1><h1>Two</h1>")).to.equal("<h1>Two</h1>");
+  });
+
+  it("returns markup with no h1 unchanged", () => {
+    expect(removeFirstHeading("<h2>Results</h2>")).to.equal("<h2>Results</h2>");
+  });
+});
+
 describe("embed-app — buildAppEmbed", () => {
   const html = `<!DOCTYPE html><html><head><title>App</title>
     <link rel="stylesheet" href="app.css"></head>
@@ -246,6 +262,11 @@ describe("embed-app — buildAppEmbed", () => {
     quarantineIds: ["reload"],
     palette: { "--accent": "var(--color-accent)" },
     colourMap: { "#2a2e38": "var(--color-rule)" }
+  });
+
+  it("drops the app's own h1 when asked, so the page's header supplies it", () => {
+    const dropped = buildAppEmbed({ html, css, scope: ".gig-history-app", dropHeading: true });
+    expect(dropped.html).to.not.contain("<h1>");
   });
 
   it("returns the body only", () => {
