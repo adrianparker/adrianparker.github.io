@@ -136,7 +136,8 @@ describe('Smoke Tests - Gig Post Type', function () {
     expect(rows.length, 'metadata rows').to.be.greaterThan(2);
 
     const labels = rows.map((_, tr) => $(tr).find('th').text().trim()).get();
-    expect(labels).to.include.members(['Date', 'Venue']);
+    expect(labels).to.include.members(['Headline', 'Venue']);
+    expect(labels, 'date shown in entry-meta only').to.not.include('Date');
 
     expect(card.text()).to.contain('The Datsuns');
     expect(card.text()).to.contain('Underworld');
