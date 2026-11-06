@@ -7,6 +7,10 @@
   The label names the theme you will get by clicking, not the one you are in —
   the icon alone would be ambiguous, which is why there is visible text
   alongside it.
+
+  App pages render it twice, in the desktop sidebar and in the mobile sheet,
+  so the includer sets themeToggleId to keep the ids unique. Only one of the
+  two is ever displayed.
 #}
 {#
   The wrapper exists to align the button's left edge with the nav headings
@@ -14,7 +18,7 @@
   land in the same place.
 #}
 <div class="theme-toggle-wrap">
-    <button type="button" class="theme-toggle" id="theme-toggle">
+    <button type="button" class="theme-toggle" id="{{ themeToggleId or 'theme-toggle' }}">
         <span class="theme-toggle-icon" aria-hidden="true"></span>
         <span class="theme-toggle-label">Theme</span>
     </button>
@@ -23,9 +27,12 @@
 <script>
     (function () {
         var root = document.documentElement;
-        var btn = document.getElementById('theme-toggle');
+        // This script runs straight after its own button is parsed, so that
+        // button is the last toggle in the document so far. render() updates
+        // every toggle, so a second copy on the page never shows a stale label.
+        var all = document.querySelectorAll('.theme-toggle');
+        var btn = all[all.length - 1];
         if (!btn) { return; }
-        var label = btn.querySelector('.theme-toggle-label');
         var lightQuery = window.matchMedia('(prefers-color-scheme: light)');
 
         // The theme actually in effect: an explicit choice if there is one,
@@ -36,9 +43,11 @@
 
         function render() {
             var next = current() === 'dark' ? 'light' : 'dark';
-            label.textContent = next === 'dark' ? 'Dark' : 'Light';
-            btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
-            btn.dataset.next = next;
+            document.querySelectorAll('.theme-toggle').forEach(function (b) {
+                b.querySelector('.theme-toggle-label').textContent = next === 'dark' ? 'Dark' : 'Light';
+                b.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+                b.dataset.next = next;
+            });
         }
 
         btn.addEventListener('click', function () {

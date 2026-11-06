@@ -10,19 +10,9 @@
         <a class="skip-link" href="#main">Skip to content</a>
 
         <div id="layout" class="pure-g">
-            <div class="sidebar pure-u-1 pure-u-md-1-4">
-                <div class="header">
-                    <img src="/img/Adrian-170x158.jpeg" alt="Adrian Parker" width="170" height="158"/>
-                    <br/>
-                    <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
-                    <br/>
-                    {% include "partials/theme-toggle.njk" %}
-                    {% include "partials/mobile-nav.njk" %}
-                    {% include "partials/sidebar-nav.njk" %}
-                </div>
-            </div>
+            {% include "partials/sidebar.njk" %}
 
-            <div class="content pure-u-1 pure-u-md-3-4">
+            <div class="content pure-u-1">
                 <main id="main">
                     {{ content | safe }}
                 </main>

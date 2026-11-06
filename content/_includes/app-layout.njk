@@ -13,20 +13,20 @@
         <a class="skip-link" href="#main">Skip to content</a>
 
         {#
-          App pages get the same left-hand navigation as the rest of the site,
-          collapsed to a 60px rail on request — apps want the width, but the
-          horizontal .app-bar this replaced put the nav somewhere it appeared
-          nowhere else, so every app page navigated differently from every
-          other page.
+          App pages use the site sidebar at desktop width, the same as every
+          other page, so the site navigates the same way wherever you are. It
+          collapses to a rail for apps that want the width.
 
-          The nav is the four sections only. The sidebar's sub-lists (recent
-          posts, gigs, Elsewhere) stay off app pages; Elsewhere is in the
-          footer, which app pages already render.
+          Below the breakpoint the sidebar is hidden and app-nav.njk's bar and
+          push-down sheet take over. Only one of the two is ever displayed, so
+          a screen reader meets one nav.
 
           Nothing sits between the nav and the app: the app supplies its own
-          <h1>, and the way back out is the Apps link in the nav.
+          <h1>.
         #}
         {% include "partials/app-nav.njk" %}
+        {% set sidebarOnApp = true %}
+        {% include "partials/sidebar.njk" %}
 
         <div class="app-column">
             <main id="main">

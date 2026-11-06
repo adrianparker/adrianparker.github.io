@@ -213,6 +213,55 @@ describe('Theme', function () {
   });
 
   /*
+    The sidebar's controls and rail letters. The rail letters use
+    --color-subtle rather than --color-muted, whose dark #666 is 2.6:1; the
+    current one and every hover use the accent. Measured against the body's top colour, which is what sits behind
+    the sidebar at the top of the page.
+  */
+  describe('sidebar controls and rail', function () {
+    it('keeps the controls and rail readable in both themes', async function () {
+      for (const scheme of ['dark', 'light']) {
+        for (const nav of ['expanded', 'collapsed']) {
+          const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, colorScheme: scheme });
+          await context.addInitScript((value) => localStorage.setItem('appNav', value), nav);
+          const page = await context.newPage();
+          await page.goto(`${BASE}/posts/gigs/20261029-Mudhoney-Meow-Nui-Wellington/index.html`, { waitUntil: 'networkidle' });
+          const result = await page.evaluate(() => {
+            const rgb = (c) => c.match(/[\d.]+/g).slice(0, 3).map(Number);
+            const lum = (c) => {
+              const [r, g, b] = rgb(c).map((v) => {
+                const s = v / 255;
+                return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+              });
+              return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+            };
+            const ratio = (a, b) => {
+              const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+              return (hi + 0.05) / (lo + 0.05);
+            };
+            const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-bg-top').trim();
+            const probe = document.createElement('div');
+            probe.style.color = bg;
+            document.body.appendChild(probe);
+            const bgRgb = getComputedStyle(probe).color;
+            probe.remove();
+            const shown = (el) => el.getClientRects().length > 0;
+            return [...document.querySelectorAll('.sidebar .theme-toggle, #sidebar-collapse, .sidebar-rail-link')]
+              .filter(shown)
+              .map((el) => ({ el: el.id || el.className, ratio: ratio(getComputedStyle(el).color, bgRgb) }));
+          });
+          expect(result.length, `${scheme} ${nav}: controls shown`).to.be.greaterThan(1);
+          result.forEach(({ el, ratio }) => {
+            // 3:1, the WCAG minimum for UI components and large text.
+            expect(ratio, `${scheme} ${nav}: ${el}`).to.be.at.least(3);
+          });
+          await context.close();
+        }
+      }
+    });
+  });
+
+  /*
     Site Stats brings its own tokens (--color-strong, --color-subtle,
     --color-surface). Small text has to stay at 4.5:1 against the surface it
     actually sits on, in both themes.

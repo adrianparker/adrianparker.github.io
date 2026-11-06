@@ -193,6 +193,25 @@ describe('Analytics', function () {
       await context.close();
     });
 
+    it('records sidebar collapses with the layout they came from', async function () {
+      for (const [path, layout] of [
+        ['/posts/gigs/20261029-Mudhoney-Meow-Nui-Wellington/index.html', 'post'],
+        ['/Gig-History/index.html', 'app']
+      ]) {
+        const context = await newContext();
+        const page = await context.newPage();
+        await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle' });
+
+        await page.click('#sidebar-collapse');
+
+        const events = await captured(page);
+        const toggled = events.find((e) => e.name === 'app_nav_toggled');
+        expect(toggled, `${layout}: app_nav_toggled event`).to.exist;
+        expect(toggled.props).to.deep.equal({ to: 'collapsed', layout });
+        await context.close();
+      }
+    });
+
     it('records 404 hits with the path that was missed', async function () {
       const context = await newContext();
       const page = await context.newPage();
