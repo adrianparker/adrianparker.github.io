@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-10-31T21:23:53.600Z",
+  "generatedAt": "2026-11-06T11:36:13.597Z",
   "timezone": "Pacific/Auckland",
   "periodDays": 180,
-  "periodStart": "2026-05-06",
-  "periodEnd": "2026-11-01",
+  "periodStart": "2026-05-12",
+  "periodEnd": "2026-11-07",
   "totals": {
-    "pageViews": 1103,
-    "visitors": 481,
-    "outboundClicks": 15,
+    "pageViews": 1130,
+    "visitors": 539,
+    "outboundClicks": 19,
     "themeToggles": 33,
     "themeTogglePeople": 4,
     "notFoundHits": 5,
-    "botFlaggedVisits": 69,
+    "botFlaggedVisits": 71,
     "themeCountries": [
       "New Zealand"
     ]
   },
   "funnel": {
-    "reported": 481,
-    "flaggedByPostHog": 69,
-    "inferredAutomated": 378,
-    "people": 34,
-    "viewed10Plus": 6,
+    "reported": 539,
+    "flaggedByPostHog": 71,
+    "inferredAutomated": 430,
+    "people": 38,
+    "viewed10Plus": 7,
     "returned5PlusDays": 5,
     "inferredMedianSeconds": 0,
     "flaggedReasons": [
@@ -31,7 +31,7 @@
       },
       {
         "label": "Sogou",
-        "visits": 6
+        "visits": 8
       },
       {
         "label": "Spoofed Edge UA",
@@ -44,19 +44,19 @@
       {
         "measure": "Sessions",
         "nzau": 183,
-        "rest": 452,
+        "rest": 506,
         "format": "int"
       },
       {
         "measure": "Pages per session",
-        "nzau": 3.51,
+        "nzau": 3.36,
         "rest": 1.02,
         "format": "2dp"
       },
       {
         "measure": "Single-page sessions",
-        "nzau": 35,
-        "rest": 99.1,
+        "nzau": 36.1,
+        "rest": 99.2,
         "format": "percent"
       },
       {
@@ -67,7 +67,7 @@
       },
       {
         "measure": "Average time, multi-page sessions",
-        "nzau": 823,
+        "nzau": 805,
         "rest": 54,
         "format": "seconds"
       }
@@ -80,10 +80,10 @@
         "10+"
       ],
       "nzau": [
-        17,
-        4,
+        19,
+        5,
         3,
-        6
+        7
       ],
       "rest": [
         0,
@@ -92,34 +92,34 @@
         0
       ]
     },
-    "humanViews": 655,
-    "heavyReaderViews": 598
+    "humanViews": 628,
+    "heavyReaderViews": 567
   },
   "countries": [
     {
       "name": "China",
-      "visitors": 143,
-      "views": 143
+      "visitors": 152,
+      "views": 152
     },
     {
       "name": "United States",
-      "visitors": 89,
-      "views": 95
+      "visitors": 112,
+      "views": 118
     },
     {
       "name": "Singapore",
-      "visitors": 60,
-      "views": 60
-    },
-    {
-      "name": "Germany",
-      "visitors": 32,
-      "views": 32
+      "visitors": 65,
+      "views": 65
     },
     {
       "name": "Hong Kong",
-      "visitors": 31,
-      "views": 31
+      "visitors": 41,
+      "views": 41
+    },
+    {
+      "name": "Germany",
+      "visitors": 34,
+      "views": 34
     },
     {
       "name": "The Netherlands",
@@ -128,8 +128,8 @@
     },
     {
       "name": "New Zealand",
-      "visitors": 16,
-      "views": 627
+      "visitors": 20,
+      "views": 600
     },
     {
       "name": "Australia",
@@ -137,19 +137,19 @@
       "views": 15
     },
     {
+      "name": "Japan",
+      "visitors": 12,
+      "views": 12
+    },
+    {
       "name": "Canada",
       "visitors": 11,
       "views": 11
     },
     {
-      "name": "Japan",
+      "name": "South Korea",
       "visitors": 11,
       "views": 11
-    },
-    {
-      "name": "South Korea",
-      "visitors": 10,
-      "views": 10
     },
     {
       "name": "Sweden",
@@ -177,43 +177,49 @@
       "city": "Beijing",
       "countryCode": "CN",
       "country": "China",
-      "visitors": 76
+      "visitors": 83
     },
     {
       "city": null,
       "countryCode": "SG",
       "country": "Singapore",
-      "visitors": 42
-    },
-    {
-      "city": null,
-      "countryCode": "CN",
-      "country": "China",
-      "visitors": 39
-    },
-    {
-      "city": "Ashburn",
-      "countryCode": "US",
-      "country": "United States",
-      "visitors": 32
-    },
-    {
-      "city": "Hong Kong",
-      "countryCode": "HK",
-      "country": "Hong Kong",
-      "visitors": 29
+      "visitors": 46
     },
     {
       "city": "Santa Clara",
       "countryCode": "US",
       "country": "United States",
-      "visitors": 28
+      "visitors": 43
+    },
+    {
+      "city": null,
+      "countryCode": "CN",
+      "country": "China",
+      "visitors": 40
+    },
+    {
+      "city": "Hong Kong",
+      "countryCode": "HK",
+      "country": "Hong Kong",
+      "visitors": 38
+    },
+    {
+      "city": "Ashburn",
+      "countryCode": "US",
+      "country": "United States",
+      "visitors": 36
     },
     {
       "city": "Singapore",
       "countryCode": "SG",
       "country": "Singapore",
-      "visitors": 18
+      "visitors": 19
+    },
+    {
+      "city": null,
+      "countryCode": "US",
+      "country": "United States",
+      "visitors": 17
     },
     {
       "city": null,
@@ -222,29 +228,28 @@
       "visitors": 16
     },
     {
-      "city": null,
-      "countryCode": "US",
-      "country": "United States",
-      "visitors": 15
-    },
-    {
       "city": "Brandenburg an der Havel",
       "countryCode": "DE",
       "country": "Germany",
-      "visitors": 13
+      "visitors": 14
     },
     {
-      "city": "Shanghai",
-      "countryCode": "CN",
-      "country": "China",
-      "visitors": 11
+      "city": "Auckland",
+      "countryCode": "NZ",
+      "country": "New Zealand",
+      "visitors": 12
     }
   ],
   "devices": [
     {
       "name": "Chrome, Windows",
-      "visitors": 264,
-      "views": 277
+      "visitors": 298,
+      "views": 311
+    },
+    {
+      "name": "Chrome, Mac",
+      "visitors": 75,
+      "views": 118
     },
     {
       "name": "Chrome, Android",
@@ -252,19 +257,14 @@
       "views": 62
     },
     {
-      "name": "Chrome, Mac",
-      "visitors": 58,
-      "views": 141
-    },
-    {
       "name": "Mobile Safari, iOS",
-      "visitors": 44,
-      "views": 51
+      "visitors": 46,
+      "views": 54
     },
     {
       "name": "Chrome, iOS",
-      "visitors": 26,
-      "views": 375
+      "visitors": 27,
+      "views": 384
     },
     {
       "name": "Chrome, Linux",
@@ -273,8 +273,8 @@
     },
     {
       "name": "Unknown, Unknown",
-      "visitors": 7,
-      "views": 7
+      "visitors": 9,
+      "views": 9
     },
     {
       "name": "Microsoft Edge, Windows",
@@ -285,11 +285,11 @@
   "windowWidths": [
     {
       "label": "<500",
-      "visitors": 95
+      "visitors": 98
     },
     {
       "label": "500–767",
-      "visitors": 1
+      "visitors": 2
     },
     {
       "label": "768–1099",
@@ -297,21 +297,21 @@
     },
     {
       "label": "1100–1499",
-      "visitors": 116
+      "visitors": 149
     },
     {
       "label": "1500+",
-      "visitors": 261
+      "visitors": 282
     }
   ],
   "languages": [
     {
       "name": "English",
-      "visitors": 364
+      "visitors": 391
     },
     {
       "name": "Chinese",
-      "visitors": 109
+      "visitors": 140
     },
     {
       "name": "Korean",
@@ -340,17 +340,6 @@
       "Other"
     ],
     "weeks": [
-      {
-        "weekOf": "2026-05-04",
-        "views": [
-          32,
-          6,
-          9,
-          1,
-          7,
-          0
-        ]
-      },
       {
         "weekOf": "2026-05-11",
         "views": [
@@ -618,12 +607,23 @@
       {
         "weekOf": "2026-10-26",
         "views": [
-          6,
+          8,
           24,
-          19,
-          5,
-          2,
-          4
+          23,
+          6,
+          3,
+          6
+        ]
+      },
+      {
+        "weekOf": "2026-11-02",
+        "views": [
+          11,
+          16,
+          16,
+          12,
+          6,
+          3
         ]
       }
     ]
@@ -692,14 +692,14 @@
         31
       ],
       [
-        30,
+        5,
         0,
         0,
         0,
         0,
         0,
         0,
-        6,
+        5,
         5,
         8,
         0,
@@ -709,10 +709,10 @@
         0,
         2,
         0,
-        4,
-        4,
+        5,
+        5,
         1,
-        2,
+        3,
         1,
         1,
         18
@@ -740,8 +740,8 @@
         2,
         1,
         6,
-        13,
-        19
+        14,
+        1
       ],
       [
         12,
@@ -765,8 +765,8 @@
         0,
         2,
         0,
-        1,
         0,
+        14,
         0
       ],
       [
@@ -827,18 +827,18 @@
     "recent90": [
       {
         "title": "Can I Touch Your Feet?",
-        "views": 39,
-        "visitors": 29
+        "views": 35,
+        "visitors": 32
       },
       {
         "title": "Last Ever Last Ever",
-        "views": 33,
-        "visitors": 27
+        "views": 35,
+        "visitors": 30
       },
       {
         "title": "Tangalooma Wrecks",
-        "views": 24,
-        "visitors": 24
+        "views": 27,
+        "visitors": 27
       },
       {
         "title": "When Grandfather Met the Queen",
@@ -847,8 +847,8 @@
       },
       {
         "title": "How to make a Wine Cork Notice Board",
-        "views": 7,
-        "visitors": 4
+        "views": 8,
+        "visitors": 5
       },
       {
         "title": "Cognitive Reframing",
@@ -874,13 +874,13 @@
     "allTime": [
       {
         "title": "Last Ever Last Ever",
-        "views": 83,
-        "visitors": 43
+        "views": 86,
+        "visitors": 46
       },
       {
         "title": "How to make a Wine Cork Notice Board",
-        "views": 77,
-        "visitors": 39
+        "views": 78,
+        "visitors": 40
       },
       {
         "title": "You're Already Not Dating Her",
@@ -889,13 +889,13 @@
       },
       {
         "title": "Can I Touch Your Feet?",
-        "views": 48,
-        "visitors": 32
+        "views": 51,
+        "visitors": 35
       },
       {
         "title": "Tangalooma Wrecks",
-        "views": 46,
-        "visitors": 36
+        "views": 49,
+        "visitors": 39
       },
       {
         "title": "Cognitive Reframing",
@@ -920,34 +920,34 @@
     ],
     "recent90WithGigs": [
       {
-        "title": "Can I Touch Your Feet?",
-        "views": 39,
-        "visitors": 29
-      },
-      {
         "title": "Teen Jesus & the Jean Teasers @ San Fran, Wellington",
-        "views": 39,
-        "visitors": 26
+        "views": 38,
+        "visitors": 30
       },
       {
-        "title": "Shihad @ Meow Nui, Wellington",
+        "title": "Can I Touch Your Feet?",
         "views": 35,
-        "visitors": 31
+        "visitors": 32
       },
       {
         "title": "Last Ever Last Ever",
-        "views": 33,
-        "visitors": 27
+        "views": 35,
+        "visitors": 30
+      },
+      {
+        "title": "Shihad @ Meow Nui, Wellington",
+        "views": 34,
+        "visitors": 33
       },
       {
         "title": "W.A.S.P. @ The Wiltern, Los Angeles",
-        "views": 29,
-        "visitors": 9
+        "views": 30,
+        "visitors": 10
       },
       {
         "title": "Tangalooma Wrecks",
-        "views": 24,
-        "visitors": 24
+        "views": 27,
+        "visitors": 27
       },
       {
         "title": "When Grandfather Met the Queen",
@@ -956,25 +956,30 @@
       },
       {
         "title": "The Night Before (Great Sounds Great) 2026",
-        "views": 13,
-        "visitors": 10
+        "views": 14,
+        "visitors": 11
       },
       {
         "title": "How to make a Wine Cork Notice Board",
-        "views": 7,
-        "visitors": 4
+        "views": 8,
+        "visitors": 5
       }
     ],
     "allTimeWithGigs": [
       {
         "title": "Last Ever Last Ever",
-        "views": 83,
-        "visitors": 43
+        "views": 86,
+        "visitors": 46
       },
       {
         "title": "How to make a Wine Cork Notice Board",
-        "views": 77,
-        "visitors": 39
+        "views": 78,
+        "visitors": 40
+      },
+      {
+        "title": "Teen Jesus & the Jean Teasers @ San Fran, Wellington",
+        "views": 56,
+        "visitors": 37
       },
       {
         "title": "You're Already Not Dating Her",
@@ -982,29 +987,24 @@
         "visitors": 32
       },
       {
-        "title": "Teen Jesus & the Jean Teasers @ San Fran, Wellington",
-        "views": 52,
-        "visitors": 33
-      },
-      {
         "title": "Can I Touch Your Feet?",
-        "views": 48,
-        "visitors": 32
+        "views": 51,
+        "visitors": 35
       },
       {
         "title": "Tangalooma Wrecks",
-        "views": 46,
-        "visitors": 36
+        "views": 49,
+        "visitors": 39
+      },
+      {
+        "title": "Shihad @ Meow Nui, Wellington",
+        "views": 44,
+        "visitors": 37
       },
       {
         "title": "Cognitive Reframing",
         "views": 42,
         "visitors": 28
-      },
-      {
-        "title": "Shihad @ Meow Nui, Wellington",
-        "views": 42,
-        "visitors": 35
       },
       {
         "title": "My Favourite Part of My Last Vacation",
@@ -1016,53 +1016,53 @@
   "landing": [
     {
       "page": "Home",
-      "sessions": 267,
-      "singlePage": 184
+      "sessions": 268,
+      "singlePage": 188
     },
     {
       "page": "Gig History app",
-      "sessions": 42,
-      "singlePage": 31
-    },
-    {
-      "page": "Gig: Shihad @ Meow Nui, Wellington",
-      "sessions": 31,
-      "singlePage": 31
-    },
-    {
-      "page": "Gig: Teen Jesus & the Jean Teasers @ San Fran, Wellington",
-      "sessions": 31,
-      "singlePage": 29
-    },
-    {
-      "page": "Last Ever Last Ever",
-      "sessions": 30,
-      "singlePage": 28
-    },
-    {
-      "page": "Can I Touch Your Feet?",
-      "sessions": 29,
-      "singlePage": 28
-    },
-    {
-      "page": "Tangalooma Wrecks",
-      "sessions": 27,
-      "singlePage": 27
+      "sessions": 43,
+      "singlePage": 32
     },
     {
       "page": "Gigs index",
-      "sessions": 23,
-      "singlePage": 17
+      "sessions": 35,
+      "singlePage": 29
+    },
+    {
+      "page": "Gig: Teen Jesus & the Jean Teasers @ San Fran, Wellington",
+      "sessions": 35,
+      "singlePage": 33
+    },
+    {
+      "page": "Gig: Shihad @ Meow Nui, Wellington",
+      "sessions": 33,
+      "singlePage": 33
+    },
+    {
+      "page": "Last Ever Last Ever",
+      "sessions": 33,
+      "singlePage": 31
+    },
+    {
+      "page": "Can I Touch Your Feet?",
+      "sessions": 32,
+      "singlePage": 31
+    },
+    {
+      "page": "Tangalooma Wrecks",
+      "sessions": 30,
+      "singlePage": 30
     },
     {
       "page": "Gig: W.A.S.P. @ The Wiltern, Los Angeles",
-      "sessions": 13,
-      "singlePage": 8
+      "sessions": 14,
+      "singlePage": 9
     },
     {
       "page": "Posts index",
-      "sessions": 12,
-      "singlePage": 10
+      "sessions": 13,
+      "singlePage": 11
     }
   ],
   "exits": [
@@ -1072,7 +1072,7 @@
     },
     {
       "page": "Home",
-      "sessions": 23
+      "sessions": 21
     },
     {
       "page": "Gig: Teen Jesus & the Jean Teasers @ San Fran, Wellington",
@@ -1084,7 +1084,7 @@
     },
     {
       "page": "EXIF Viewer app",
-      "sessions": 5
+      "sessions": 4
     },
     {
       "page": "Gigs index",
@@ -1117,38 +1117,38 @@
     ],
     "counts": [
       [
-        37,
+        25,
         31,
-        30,
+        28,
         13,
-        57
+        55
       ],
       [
         21,
-        49,
-        10,
+        48,
+        9,
         11,
         7
       ],
       [
-        13,
-        11,
-        19,
         12,
+        9,
+        15,
+        11,
         4
       ],
       [
-        10,
+        11,
         5,
-        21,
+        20,
         1,
         5
       ],
       [
-        27,
-        7,
+        24,
+        8,
         5,
-        3,
+        4,
         55
       ]
     ]
@@ -1157,17 +1157,17 @@
     {
       "group": "Direct",
       "detail": "no referrer",
-      "visitors": 446
+      "visitors": 494
     },
     {
       "group": "Internal",
       "detail": "moving around the site",
-      "visitors": 22
+      "visitors": 28
     },
     {
       "group": "Search",
-      "detail": "google.com 2, bing.com, duckduckgo.com, search.yahoo.co.jp, yandex.ru",
-      "visitors": 6
+      "detail": "google.com 6, bing.com, duckduckgo.com, search.yahoo.co.jp, yandex.ru",
+      "visitors": 10
     },
     {
       "group": "Shared links",
@@ -1183,7 +1183,7 @@
   "returns": [
     {
       "label": "1 day",
-      "visitors": 473
+      "visitors": 531
     },
     {
       "label": "2 days",
@@ -1200,12 +1200,12 @@
   ],
   "outbound": [
     {
-      "destination": "flickr.com",
-      "clicks": 3
+      "destination": "d200vq1iaq5hh.cloudfront.net",
+      "clicks": 6
     },
     {
-      "destination": "d200vq1iaq5hh.cloudfront.net",
-      "clicks": 2
+      "destination": "flickr.com",
+      "clicks": 3
     },
     {
       "destination": "github.com",
