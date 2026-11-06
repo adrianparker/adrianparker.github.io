@@ -1,0 +1,94 @@
+{#
+  The site sidebar. At desktop width every page, content and app alike, uses
+  it. Below the breakpoint, content pages keep it as the centred mobile
+  header and app pages hide it in favour of partials/app-nav.njk's bar.
+
+  It collapses to a rail of section letters. The state is written to
+  <html data-app-nav="collapsed|expanded"> by the inline script in head.njk
+  before paint, so the choice follows the reader from page to page without
+  the sidebar opening and then snapping shut on every load. The name dates
+  from when only app pages could collapse; it is kept so preferences readers
+  have already set carry over.
+
+  The rail is plain markup shown and hidden by CSS on that attribute. It
+  repeats the mugshot (as a small home link) rather than restyling the large
+  one, because the large one is not a link and the site name beside it is.
+
+  The rail letters are placeholders. Swap each letter for a masked SVG in the
+  style of theme-toggle's sun/moon once the section icons exist.
+
+  A section is current on its own index page and on any entry in it, the same
+  logic as partials/mobile-nav.njk. The home page, and pages in none of the
+  three, mark none.
+#}
+{% set isApps = page.url == '/apps/' or (tags and 'app' in tags) %}
+{% set isPosts = page.url == '/posts/' or (tags and 'post' in tags) %}
+{% set isGigs = page.url == '/gigs/' or (tags and 'gig' in tags) %}
+
+<div class="sidebar pure-u-1" id="sidebar">
+    <div class="header">
+        <a href="/" class="sidebar-rail-home" aria-label="{{ site.name }} - home">
+            <img src="/img/Adrian-170x158.jpeg" alt="" width="170" height="158"/>
+        </a>
+        <img src="/img/Adrian-170x158.jpeg" alt="Adrian Parker" width="170" height="158"/>
+        <br/>
+        <a href="/" class="site-name" aria-label="{{ site.name }} - home">{{ site.name }}</a>
+        <br/>
+
+        <nav class="sidebar-rail" aria-label="Section shortcuts">
+            <ul class="sidebar-rail-list">
+                <li><a href="/apps/" class="sidebar-rail-link{% if isApps %} is-current{% endif %}" aria-label="Apps"{% if isApps %} aria-current="true"{% endif %}>A</a></li>
+                <li><a href="/posts/" class="sidebar-rail-link{% if isPosts %} is-current{% endif %}" aria-label="Posts"{% if isPosts %} aria-current="true"{% endif %}>P</a></li>
+                <li><a href="/gigs/" class="sidebar-rail-link{% if isGigs %} is-current{% endif %}" aria-label="Gigs"{% if isGigs %} aria-current="true"{% endif %}>G</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-controls">
+            {% set themeToggleId = 'theme-toggle' %}
+            {% include "partials/theme-toggle.njk" %}
+
+            {#
+              Hidden without JavaScript, like the theme toggle: the collapse
+              cannot be persisted or applied, so it is not offered.
+            #}
+            <button type="button" class="sidebar-collapse" id="sidebar-collapse" aria-expanded="true" aria-controls="sidebar">
+                <span class="sidebar-collapse-chevron" aria-hidden="true"></span>
+                <span class="sidebar-collapse-label">Collapse</span>
+            </button>
+        </div>
+
+        {% if not sidebarOnApp %}
+        {% include "partials/mobile-nav.njk" %}
+        {% endif %}
+        {% include "partials/sidebar-nav.njk" %}
+    </div>
+</div>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var collapse = document.getElementById('sidebar-collapse');
+        if (!collapse) { return; }
+
+        var render = function () {
+            var isCollapsed = root.dataset.appNav === 'collapsed';
+            collapse.setAttribute('aria-expanded', String(!isCollapsed));
+            collapse.setAttribute('aria-label', (isCollapsed ? 'Expand' : 'Collapse') + ' navigation');
+        };
+
+        collapse.addEventListener('click', function () {
+            var next = root.dataset.appNav === 'collapsed' ? 'expanded' : 'collapsed';
+            root.dataset.appNav = next;
+            try { localStorage.setItem('appNav', next); } catch (e) { /* private mode */ }
+            render();
+            if (window.siteAnalytics) {
+                window.siteAnalytics.capture('app_nav_toggled', {
+                    to: next,
+                    layout: document.body.classList.contains('app-page') ? 'app' : 'post'
+                });
+            }
+        });
+
+        render();
+    })();
+</script>

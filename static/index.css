@@ -176,6 +176,16 @@
      keep them in step by keeping them one variable. */
   --sidebar-nav-width: 170px;
 
+  /* The desktop sidebar is a fixed-width column: an inset from the window
+     edge, the nav column, then the gap to the content. Collapsed, the same
+     three parts around a 44px rail. Keep each total in step with its parts. */
+  --sidebar-inset: 32px;
+  --sidebar-gutter: 48px;
+  --sidebar-width: 250px;      /* inset + nav width + gutter */
+  --sidebar-rail-inset: 8px;
+  --sidebar-rail-gutter: 40px;
+  --sidebar-rail-width: 92px;  /* rail inset + 44px rail + rail gutter */
+
   /* Vertical offset of the sidebar, chosen so the top of the mugshot lines up
      with the first rule in the content column.
 
@@ -364,7 +374,8 @@ input:focus-visible,
   `js` to <html>. Without JavaScript the control cannot do anything, so it
   should not be offered.
 */
-.theme-toggle {
+.theme-toggle,
+.sidebar-collapse {
   display: none;
 }
 
@@ -393,7 +404,8 @@ html.js .sidebar .theme-toggle-wrap {
   text-align: left;
 }
 
-html.js .theme-toggle {
+html.js .theme-toggle,
+html.js .sidebar-collapse {
   display: inline-flex;
   align-items: center;
   gap: 0.45em;
@@ -408,7 +420,8 @@ html.js .theme-toggle {
   cursor: pointer;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.sidebar-collapse:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
 }
@@ -515,6 +528,166 @@ html.js .theme-toggle {
 
 .pure-menu-selected>.pure-menu-link, .pure-menu-selected>.pure-menu-link:visited {
   color: var(--color-nav-current);
+}
+
+/* Sidebar collapse button and rail.
+
+   Shown only at desktop width (see the min-width query below). The rail is
+   hidden everywhere until the sidebar is collapsed. */
+
+.sidebar-collapse-chevron::before {
+  content: "\2039";
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+:root[data-app-nav="collapsed"] .sidebar-collapse-chevron::before {
+  content: "\203A";
+}
+
+.sidebar-rail-home,
+.sidebar-rail {
+  display: none;
+}
+
+.sidebar-rail-home img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.sidebar-rail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-rail-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.3em;
+  /* Not --color-muted: the dark #666 is 2.6:1 on the background, under the
+     3:1 a control needs. --color-subtle is the same in light theme. */
+  color: var(--color-subtle);
+  text-decoration: none;
+}
+
+.sidebar-rail-link:hover,
+.sidebar-rail-link:focus {
+  color: var(--color-accent);
+}
+
+/* The current section: a rule on the leading edge rather than a filled
+   block, which is far too loud in the dark theme. */
+.sidebar-rail-link.is-current {
+  color: var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+}
+
+/*
+  Desktop: the sidebar is a fixed-width column on every page, and the content
+  takes the rest. The gap between them lives in the sidebar's own right
+  padding, so the content needs no left padding.
+
+  48em is Pure.css's -md- tier, the exact complement of the 47.999em mobile
+  query below.
+*/
+@media only screen and (min-width: 48em) {
+  .sidebar {
+    flex: 0 0 auto;
+    width: var(--sidebar-width);
+    padding: 0 var(--sidebar-gutter) 0 var(--sidebar-inset);
+    transition: width 180ms ease, padding 180ms ease;
+  }
+
+  .content,
+  .app-column {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .content {
+    padding-left: 0;
+  }
+
+  /* Theme toggle and Collapse side by side under the site name. */
+  html.js .sidebar-controls {
+    display: flex;
+    gap: 8px;
+    width: var(--sidebar-nav-width);
+    margin: 2.1em auto 0.4em auto;
+  }
+
+  html.js .sidebar .sidebar-controls .theme-toggle-wrap {
+    width: auto;
+    margin: 0;
+  }
+
+  /* Both buttons at their usual padding are ~180px together, wider than the
+     170px column. Trimmed padding, and Collapse takes whatever is left, so
+     the pair fills the column exactly. */
+  html.js .sidebar-controls .theme-toggle,
+  html.js .sidebar-controls .sidebar-collapse {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  html.js .sidebar-controls .sidebar-collapse {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* Collapsed: the rail. */
+
+  :root[data-app-nav="collapsed"] .sidebar {
+    width: var(--sidebar-rail-width);
+    padding: 0 var(--sidebar-rail-gutter) 0 var(--sidebar-rail-inset);
+  }
+
+  :root[data-app-nav="collapsed"] .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  :root[data-app-nav="collapsed"] .header > img,
+  :root[data-app-nav="collapsed"] .header > br,
+  :root[data-app-nav="collapsed"] .header > .site-name,
+  :root[data-app-nav="collapsed"] .custom-restricted-width,
+  :root[data-app-nav="collapsed"] .theme-toggle-label,
+  :root[data-app-nav="collapsed"] .sidebar-collapse-label {
+    display: none;
+  }
+
+  :root[data-app-nav="collapsed"] .sidebar-rail-home {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  :root[data-app-nav="collapsed"] .sidebar-rail {
+    display: block;
+  }
+
+  /* Expand above the theme toggle, as icon-only 44px squares. */
+  html.js:root[data-app-nav="collapsed"] .sidebar-controls {
+    flex-direction: column-reverse;
+    gap: 12px;
+    width: 44px;
+    margin: 24px 0 0 0;
+  }
+
+  :root[data-app-nav="collapsed"] .theme-toggle,
+  :root[data-app-nav="collapsed"] .sidebar-collapse {
+    justify-content: center;
+    width: 44px;
+    padding: 0;
+  }
 }
 
 /* AdrianParker.com styling */
@@ -849,20 +1022,12 @@ figure {
 }
 
 /* ============================================================================
-   App pages — the site sidebar, collapsible to a rail.
+   App pages — navigation below the breakpoint.
 
-   REPLACES the ".app-bar" / ".app-bar-nav" rules in the "App pages" section
-   of index.css (and the "html.js .app-bar .theme-toggle-wrap" rule further
-   up). Everything below ".app-page .shell" in that section — the min-width
-   and app-shell rules — stays exactly as it is.
+   At desktop width app pages use the site sidebar like every other page (see
+   the sidebar rules above). Below it, the sidebar is hidden and the nav is a
+   48px bar with a sheet that pushes down from it.
    ============================================================================ */
-
-:root {
-  /* Narrower than the content sidebar's 170px + mugshot, because an app page
-     carries four links rather than twenty. */
-  --app-nav-width: 208px;
-  --app-rail-width: 60px;
-}
 
 .app-page {
   display: flex;
@@ -870,71 +1035,8 @@ figure {
   min-height: 100vh;
 }
 
-/* The nav paints no background of its own — same as .sidebar, so the body
-   gradient (and the light theme's grid) runs unbroken underneath it, and
-   only the rule separates nav from app. */
 .app-nav {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1em;
-  width: var(--app-nav-width);
-  height: 100vh;
-  padding: 1.1em 0.75em;
-  overflow: hidden auto;
-  transition: width 180ms ease;
-
-  /* Same reasoning as .sidebar: Windows renders a permanent grey gutter. */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.app-nav::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-:root[data-app-nav="collapsed"] .app-nav {
-  width: var(--app-rail-width);
-}
-
-/* The label text is what goes; the icon column and its 26px width stay put,
-   so nothing shifts horizontally as the rail closes. */
-:root[data-app-nav="collapsed"] .app-nav-text,
-:root[data-app-nav="collapsed"] .app-nav-home .site-name,
-:root[data-app-nav="collapsed"] .app-nav .theme-toggle-label {
   display: none;
-}
-
-.app-nav-home {
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-  padding: 0 0.3em;
-  text-decoration: underline;
-  white-space: nowrap;
-}
-
-/* Trimmed to its capitals, like the app's <h1> (see .app-header), so the two
-   line up by the tops of their capitals rather than by their line boxes. */
-.app-nav-home .site-name {
-  text-box: trim-both cap alphabetic;
-}
-
-.app-nav-home:hover .site-name,
-.app-nav-home:focus .site-name {
-  color: var(--color-muted);
-}
-
-.app-nav-mugshot {
-  flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
-  border-radius: 3px;
-  object-fit: cover;
 }
 
 .app-nav-list {
@@ -989,7 +1091,7 @@ figure {
 }
 
 /* The sidebar's fixed-width, auto-margined toggle wrapper would inflate the
-   rail; in here it is just a block. */
+   sheet; in here it is just a block. */
 html.js .app-nav .theme-toggle-wrap {
   width: auto;
   margin: 0;
@@ -1003,43 +1105,7 @@ html.js .app-nav .theme-toggle-icon {
   width: 26px;
 }
 
-.app-nav-collapse {
-  display: none;
-  align-items: center;
-  gap: 0.75em;
-  min-height: 44px;
-  padding: 0 0.3em;
-  background: transparent;
-  border: none;
-  color: var(--color-muted);
-  font-family: inherit;
-  font-size: 0.9em;
-  cursor: pointer;
-}
-
-html.js .app-nav-collapse {
-  display: flex;
-}
-
-.app-nav-collapse:hover {
-  color: var(--color-accent);
-}
-
-.app-nav-collapse:hover .app-nav-chevron {
-  color: var(--color-accent);
-}
-
-.app-nav-chevron::before {
-  content: "\2039";
-  font-size: 2.8em;
-  line-height: 1;
-}
-
-:root[data-app-nav="collapsed"] .app-nav-chevron::before {
-  content: "\203A";
-}
-
-/* The mobile bar. Hidden on desktop, where .app-nav is the navigation. */
+/* The mobile bar. Hidden on desktop, where the sidebar is the navigation. */
 .app-nav-bar {
   display: none;
 }
@@ -1051,6 +1117,10 @@ html.js .app-nav-collapse {
 @media only screen and (max-width: 47.999em) {
   .app-page {
     display: block;
+  }
+
+  .app-page .sidebar {
+    display: none;
   }
 
   .app-nav-bar {
@@ -1104,40 +1174,29 @@ html.js .app-nav-collapse {
     left: 0;
     right: 0;
     z-index: 2;
-    width: auto;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
     max-height: calc(100vh - 48px);
     padding: 0.4em 0.9em 1em;
-    border-right: none;
+    overflow: hidden auto;
     border-bottom: 1px solid var(--color-rule);
     background-color: var(--color-bg-top);
     transform: translateY(-110%);
     transition: transform 200ms ease;
+
+    /* Windows renders a permanent grey scrollbar gutter otherwise. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .app-nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 
   :root[data-app-nav-sheet="open"] .app-nav {
     transform: translateY(0);
-  }
-
-  /* A desktop collapse must not follow the reader onto a phone. */
-  :root[data-app-nav="collapsed"] .app-nav {
-    width: auto;
-  }
-
-  :root[data-app-nav="collapsed"] .app-nav-text,
-  :root[data-app-nav="collapsed"] .app-nav .theme-toggle-label {
-    display: inline;
-  }
-
-  /* The bar already carries the site name and the mugshot; repeating both at
-     the top of the sheet just pushes the links out of thumb reach. */
-  .app-nav-home,
-  .app-nav-collapse {
-    display: none;
-  }
-
-  html.js .app-nav-collapse {
-    display: none;
   }
 
   .app-nav-link {
@@ -1156,16 +1215,13 @@ html.js .app-nav-collapse {
 
 :root {
   /*
-    Puts the top of the app <h1>'s capitals level with the top of the site
-    name's capitals in the nav beside it. Both are trimmed to cap height
-    (text-box, see .app-header), so this is plain arithmetic, not a nudge: the
-    nav's 1.1em padding-top puts its 34px name row at 17.6px, the 16.8px-tall
-    capitals are centred in it (26.2px), less the .app-shell's 2px top padding.
+    The app column's top and left padding below the breakpoint. On desktop
+    the sidebar sets both instead (see the min-width rule after .app-column).
+
+    24.2px was derived to line the app <h1> up with the site name in the old
+    desktop app nav; it is kept as-is so the mobile layout does not move.
   */
   --app-content-top: 24.2px;
-
-  /* Breathing room between the nav's rule and the app. The app's own left
-     padding sits inside this. */
   --app-gutter: 14px;
 }
 
@@ -1174,6 +1230,21 @@ html.js .app-nav-collapse {
   min-width: 0;
   padding-top: var(--app-content-top);
   padding-left: var(--app-gutter);
+}
+
+/* Desktop: the sidebar's own right padding is the gap to the app.
+
+   The top padding puts the app <h1>'s capitals level with a post <h1>'s,
+   which start 53.6px down (48px Bebas Neue in a 55.2px line box, below the
+   .post offset). The app <h1> is trimmed to its capitals (text-box, see
+   .app-header) and sits under the .app-shell's 2px top padding, so 52px
+   lands it at 54px. */
+@media only screen and (min-width: 48em) {
+  .app-column {
+    padding-top: 52px;
+    padding-left: 0;
+    padding-right: 24px;
+  }
 }
 .app-page .app-shell,
     .app-page .shell,
@@ -1186,10 +1257,9 @@ html.js .app-nav-collapse {
   the one place an app page's title is styled, so all apps read as part of
   the same site whatever their own stylesheet says.
 
-  text-box trims the title (and the nav's site name, above) to the height of
-  its capitals, so the top of the capitals sits exactly at --app-content-top
-  and lines up with the top of the site name's capitals beside it. Browsers
-  without text-box keep the untrimmed box and sit a few pixels lower.
+  text-box trims the title to the height of its capitals, so the top of the
+  capitals sits exactly at the app column's top padding. Browsers without
+  text-box keep the untrimmed box and sit a few pixels lower.
 */
 .app-page .app-header {
   display: flex;
@@ -1334,7 +1404,10 @@ html.js .app-nav-collapse {
   min-width: 0;
 }
 
-@media (width >= 850px) {
+/* From the desktop breakpoint, the same 48em as the sidebar. This was 850px,
+   which left 768-849px with the mobile padding beside the desktop sidebar,
+   so the app's h1 and content sat 21px right of and 22px below a post's. */
+@media only screen and (min-width: 48em) {
   .app-page .app-shell {
     padding: 2px 0%;
     /* Gig History (#116) wants the full column width on desktop — the
@@ -1734,6 +1807,13 @@ html.js .slideshow-next {
 
   .mobile-menu {
     display: block;
+  }
+
+  /* The collapse and the rail are desktop-only, so a desktop choice never
+     follows the reader onto a phone: without the min-width query's rules the
+     collapsed attribute changes nothing here. */
+  html.js .sidebar-collapse {
+    display: none;
   }
 
   /* Desktop sidebar nav is hidden here; mobile-nav and the footer externals

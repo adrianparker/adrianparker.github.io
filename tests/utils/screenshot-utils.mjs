@@ -100,7 +100,12 @@ export async function takeScreenshot(
     // Settle any remaining late layout.
     await page.waitForTimeout(1000);
 
-    await page.screenshot({ path: screenshotPath, fullPage: true });
+    // animations: 'disabled' fast-forwards CSS transitions to their end state.
+    // A fullPage capture briefly re-emulates the viewport, which re-evaluates
+    // the desktop media query; the sidebar's 180ms width transition then
+    // animated from Pure's 100% back to 250px and was captured mid-flight,
+    // leaving a ~950px sidebar and a squeezed content column.
+    await page.screenshot({ path: screenshotPath, fullPage: true, animations: 'disabled' });
     await context.close();
   } finally {
     if (browser) {

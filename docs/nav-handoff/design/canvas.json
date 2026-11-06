@@ -1,0 +1,16 @@
+{
+  "v": 3,
+  "boards": {
+    "NavC-Post.dc.html": {"expand": "fill", "h": 960, "is_interactive": true, "title": "Nav option C — post (opens collapsed, dark)", "w": 1280, "x": 0, "y": 0},
+    "NavC-App.dc.html": {"expand": "fill", "h": 960, "is_interactive": true, "title": "Nav option C — app (opens expanded, light)", "w": 1280, "x": 1360, "y": 0}
+  },
+  "createdOnFiles": {"at": "2026-11-06T10:00:00Z", "v": 1},
+  "launch": {"view": "canvas"},
+  "notes": {
+    "t1": {"kind": "title1", "maxW": 2640, "text": "Site nav — Option C: sidebar everywhere on desktop, collapsible to a lettered rail", "x": 0, "y": -300},
+    "h1": {"fill": "orange", "w": 520, "x": 0, "y": 1080, "text": "Handoff · desktop only, mobile unchanged\n\nExpanded: 250px column = 32px inset + 170px nav + 48px gap. Collapsed: 92px = 8px inset + 44px rail + 40px gap.\n\nRail: 34px mugshot (home), then A / P / G section links, current section in accent with a 2px leading rule, then Expand and theme buttons.\n\nThe artboards omit the site name and \"All apps...\"; keep both. README.md in this folder wins over the artboards."}
+  },
+  "order": ["NavC-Post.dc.html", "NavC-App.dc.html"],
+  "pages": [],
+  "title": "Site nav design"
+}

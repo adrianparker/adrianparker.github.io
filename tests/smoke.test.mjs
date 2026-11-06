@@ -370,12 +370,52 @@ describe('Smoke Tests - Structure and accessibility', function () {
 
   it('should give app pages a way back into the site', function () {
     const $ = load('ExifCmdLine', 'index.html');
-    const navLinks = $('.app-nav-bar a, .app-nav a').map((_, a) => $(a).attr('href')).get();
 
-    expect(navLinks, 'link home').to.include('/');
-    expect(navLinks, 'link to apps index').to.include('/apps/');
+    // Desktop: the site sidebar. Mobile: the app bar and its sheet.
+    [['sidebar', '.sidebar a'], ['mobile app nav', '.app-nav-bar a, .app-nav a']].forEach(([label, sel]) => {
+      const navLinks = $(sel).map((_, a) => $(a).attr('href')).get();
+      expect(navLinks, `${label}: link home`).to.include('/');
+      expect(navLinks, `${label}: link to apps index`).to.include('/apps/');
+    });
     expect($('main').length, 'exactly one main').to.equal(1);
     expect($('footer').length, 'footer present').to.equal(1);
+  });
+
+  it('should give app pages the full site sidebar', function () {
+    const $ = load('Gig-History', 'index.html');
+    const sidebar = $('.sidebar');
+
+    expect(sidebar, 'sidebar').to.have.lengthOf(1);
+    expect(sidebar.find('.pure-menu-heading').map((_, h) => $(h).text()).get())
+      .to.deep.equal(['Apps', 'Posts', 'Gigs', 'Elsewhere']);
+
+    const current = sidebar.find('.pure-menu-selected [aria-current="page"]');
+    expect(current, 'own entry marked current').to.have.lengthOf(1);
+    expect(current.text()).to.equal('Gig History');
+
+    expect(sidebar.find('#sidebar-collapse[aria-controls="sidebar"]'), 'collapse button').to.have.lengthOf(1);
+    expect(sidebar.find('.sidebar-rail-link').map((_, a) => $(a).attr('aria-label')).get())
+      .to.deep.equal(['Apps', 'Posts', 'Gigs']);
+    expect(sidebar.find('.sidebar-rail-link[aria-current="true"]').attr('aria-label')).to.equal('Apps');
+
+    // The mobile bar stays, and the mobile menu (content pages only) does not.
+    expect($('.app-nav-bar'), 'mobile app bar').to.have.lengthOf(1);
+    expect($('.mobile-menu'), 'no content-page mobile menu').to.have.lengthOf(0);
+  });
+
+  it('should render one theme toggle per page with unique ids', function () {
+    [['index.html'], ['Gig-History', 'index.html']].forEach((p) => {
+      const $ = load(...p);
+      expect($('#theme-toggle'), `${p.join('/')}: #theme-toggle`).to.have.lengthOf(1);
+      const ids = $('[id]').map((_, el) => $(el).attr('id')).get();
+      expect(new Set(ids).size, `${p.join('/')}: unique ids`).to.equal(ids.length);
+    });
+  });
+
+  it('should mark no rail section on the home page', function () {
+    const $ = load('index.html');
+    expect($('.sidebar-rail-link')).to.have.lengthOf(3);
+    expect($('.sidebar-rail-link[aria-current]')).to.have.lengthOf(0);
   });
 
   it('should load analytics exactly once per page', function () {

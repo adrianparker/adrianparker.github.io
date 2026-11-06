@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Option C, post page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.t-dark{--bg-top:#262626;--bg-bottom:#333333;--well:#2a2a2a;--text:#cccccc;--strong:#f0f0f0;--accent:#ff9900;--muted:#666666;--subtle:#a3a3a3;--current:#666666;--rule:#666666;--hair:rgba(255,255,255,0.06)}
+.t-light{--bg-top:#f7f4ec;--bg-bottom:#eee8d8;--well:#f3efe4;--text:#1e2a3a;--strong:#0f1824;--accent:#1c4f8c;--muted:#55606b;--subtle:#55606b;--current:#2f6b4f;--rule:rgba(28,79,140,0.28);--hair:rgba(28,79,140,0.14)}
+.ground{background:linear-gradient(var(--bg-top),var(--bg-bottom))}
+.t-light.ground{background-color:#eee8d8;background-image:linear-gradient(rgba(28,79,140,0.20) 1px,transparent 1px),linear-gradient(90deg,rgba(28,79,140,0.20) 1px,transparent 1px),linear-gradient(rgba(28,79,140,0.10) 1px,transparent 1px),linear-gradient(90deg,rgba(28,79,140,0.10) 1px,transparent 1px),linear-gradient(#f7f4ec,#eee8d8);background-size:96px 96px,96px 96px,19.2px 19.2px,19.2px 19.2px,100% 100%}
+a{color:var(--accent)}a:hover{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bebas{font-family:'Bebas Neue',serif;font-weight:400}
+.side{flex:0 0 auto;box-sizing:border-box;overflow:hidden;transition:width 180ms ease,padding 180ms ease}
+.side-c{width:250px;padding:50px 48px 48px 32px}
+.side-c.is-rail{width:92px;padding:50px 40px 48px 8px}
+.navlist{list-style:none;margin:0;padding:0;width:170px}
+.navhead{color:var(--accent);font-family:'Bebas Neue',serif;font-size:19.2px;line-height:1.2;padding:16px 0 8px}
+.navlink{display:block;color:var(--text);font-size:16px;line-height:1.5;padding:1.6px 0 6.4px;text-decoration:none}
+.navlink:hover{color:var(--muted)}
+.navcur{display:block;color:var(--current);font-size:16px;line-height:1.5;padding:1.6px 0 6.4px}
+.glyph{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px;height:44px;font-family:'Bebas Neue',serif;font-size:21px;color:var(--muted);text-decoration:none}
+.glyph:hover{color:var(--accent)}
+.glyph-cur{color:var(--accent);border-left:2px solid var(--accent)}
+.ctl{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;min-height:44px;min-width:44px;padding:0 12px;background:transparent;border:1px solid var(--rule);border-radius:4px;color:var(--text);font-family:Arial,Helvetica,Georgia,serif;font-size:14px;cursor:pointer;text-decoration:none}
+.ctl:hover{color:var(--accent);border-color:var(--accent)}
+.ctl-icon{padding:0;width:44px}
+</style>
+</helmet>
+<div class="{{themeClass}} ground" style="min-height: 960px; color: var(--text); font-family: Arial, Helvetica, Georgia, serif; font-size: 16px; display: flex; flex-wrap: wrap; align-items: flex-start;">
+
+  <nav aria-label="Site" class="{{sideClass}}">
+    <sc-if value="{{expanded}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; flex-direction: column; width: 170px;">
+        <a href="#" aria-label="Adrian Parker, home" style="display: block; width: 170px;"><img src="/_blob/31862ac01ea4df9de325b84afab136f6" alt="" style="display: block; width: 170px; height: 158px; object-fit: cover;"></a>
+        <ul class="navlist">
+          <li class="navhead">Apps</li>
+          <li><a class="navlink" href="#">EXIF Viewer</a></li>
+          <li><a class="navlink" href="NavC-App.dc.html">Gig History</a></li>
+          <li><a class="navlink" href="#">Site Stats</a></li>
+          <li class="navhead">Posts</li>
+          <li><a class="navlink" href="#">[Recent post]</a></li>
+          <li><a class="navlink" href="#">[Recent post]</a></li>
+          <li><a class="navlink" href="#">[Popular post]</a></li>
+          <li><a class="navlink" href="#">All posts...</a></li>
+          <li class="navhead">Gigs</li>
+          <li><div class="navcur" aria-current="page">2026 Mudhoney</div></li>
+          <li><a class="navlink" href="#">2026 W.A.S.P.</a></li>
+          <li><a class="navlink" href="#">2026 Elly Mae</a></li>
+          <li><a class="navlink" href="#">All gigs...</a></li>
+          <li class="navhead">Elsewhere</li>
+          <li><a class="navlink" href="#">RSS</a></li>
+          <li><a class="navlink" href="#">X</a></li>
+        </ul>
+        <div style="display: flex; gap: 8px; margin-top: 24px;">
+          <button class="ctl" type="button" onClick="{{toggleTheme}}">
+            <sc-if value="{{isDark}}" hint-placeholder-val="{{true}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span>Light</span></sc-if>
+            <sc-if value="{{isLight}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><span>Dark</span></sc-if>
+          </button>
+          <button class="ctl" type="button" onClick="{{toggleRail}}" aria-expanded="true"><span aria-hidden="true" style="font-size: 18px;">‹</span><span>Collapse</span></button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{rail}}" hint-placeholder-val="{{false}}">
+      <div style="display: flex; flex-direction: column; align-items: center; width: 44px;">
+        <a href="#" aria-label="Adrian Parker, home" style="display: block; width: 34px; height: 34px; margin-bottom: 20px;"><img src="/_blob/31862ac01ea4df9de325b84afab136f6" alt="" style="display: block; width: 34px; height: 34px; border-radius: 3px; object-fit: cover;"></a>
+        <a class="glyph" href="NavC-App.dc.html" aria-label="Apps">A</a>
+        <a class="glyph" href="#" aria-label="Posts">P</a>
+        <a class="glyph glyph-cur" href="#" aria-label="Gigs (current section)">G</a>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+          <button class="ctl ctl-icon" type="button" onClick="{{toggleRail}}" aria-expanded="false" aria-label="Expand menu"><span aria-hidden="true" style="font-size: 18px;">›</span></button>
+          <button class="ctl ctl-icon" type="button" onClick="{{toggleTheme}}" aria-label="{{themeAria}}">
+            <sc-if value="{{isDark}}" hint-placeholder-val="{{true}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></sc-if>
+            <sc-if value="{{isLight}}" hint-placeholder-val="{{false}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></sc-if>
+          </button>
+        </div>
+      </div>
+    </sc-if>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 60px 4% 64px 0;">
+    <article style="max-width: 800px; display: flex; flex-direction: column;">
+      <p class="bebas" style="margin: 0 0 6px 0; font-size: 18.72px; line-height: 28px; color: var(--text);">29 October 2026 · 6 minutes</p>
+      <h1 class="bebas" style="margin: 0 0 12px 0; font-size: 48px; line-height: 1.15; color: var(--accent);">Mudhoney @ Meow Nui, Wellington</h1>
+      <p style="margin: 0 0 28px 0; font-size: 19.2px; line-height: 28.8px; font-style: italic;">Seattle grunge dads Mudhoney rock out like it's their mate's garage, with Delaney Davidson's looping postmodern blues in support</p>
+      <div role="img" aria-label="Placeholder for a gig photo" style="display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; background: #111111; border-radius: 8px; color: #ffffff; font-size: 14px; letter-spacing: 0.05em;">[Gig photo]</div>
+      <p style="margin: 28px 0 0 0; font-size: 19.2px; line-height: 28.8px;">I went by myself. Meow Nui didn't feel as full as other nights I've been there.</p>
+      <h2 class="bebas" style="margin: 28px 0 8px 0; font-size: 24px; line-height: 1.15; color: var(--accent);">Delaney Davidson</h2>
+      <p style="margin: 0; font-size: 19.2px; line-height: 28.8px; color: var(--subtle);">[The rest of the review]</p>
+    </article>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"collapsed":{"editor":"boolean","default":true},"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+renderVals() {
+const s = this.state || {};
+const dark = s.dark !== undefined ? s.dark : (this.props.theme ?? 'dark') !== 'light';
+const rail = s.rail !== undefined ? s.rail : !!(this.props.collapsed ?? true);
+return {
+themeClass: dark ? 't-dark' : 't-light',
+isDark: dark,
+isLight: !dark,
+themeAria: dark ? 'Switch to light theme' : 'Switch to dark theme',
+expanded: !rail,
+rail: rail,
+sideClass: rail ? 'side side-c is-rail' : 'side side-c',
+toggleTheme: () => this.setState({ dark: !dark }),
+toggleRail: () => this.setState({ rail: !rail })
+};
+}
+}
+</script>
+</body>
+</html>

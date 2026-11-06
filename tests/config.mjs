@@ -50,7 +50,11 @@ export default {
     'not-found': '/404.html',
     // Built from the frozen fixture (SITE_STATS_FIXTURE=1 in test:visual),
     // so live PostHog data never moves this baseline.
-    'site-stats': '/Site-Stats/index.html'
+    'site-stats': '/Site-Stats/index.html',
+    // A post with the sidebar collapsed to its rail; see `testInteractions`.
+    // Its mobile capture should match an uncollapsed page's: the collapse
+    // is desktop-only.
+    'gig-post-collapsed': '/posts/gigs/20261029-Mudhoney-Meow-Nui-Wellington/index.html'
   },
 
   /**
@@ -60,6 +64,13 @@ export default {
    * wants to capture that state needs an entry here instead.
    */
   testInteractions: {
+    async 'gig-post-collapsed'(page) {
+      // Set directly rather than clicking Collapse, which is not displayed
+      // at the mobile viewport.
+      await page.evaluate(() => { document.documentElement.dataset.appNav = 'collapsed'; });
+      // Let the 180ms width transition finish.
+      await page.waitForTimeout(400);
+    },
     async 'gighistory-app-stats-london'(page) {
       // Option values are the bare city name; the visible label carries a
       // "(N)" gig count (#153) that would break an exact label match here.
