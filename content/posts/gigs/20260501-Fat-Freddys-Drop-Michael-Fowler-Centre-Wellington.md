@@ -34,4 +34,4 @@ A couple of songs went from indulgent to meandering, which happens sometimes wit
 
 Overall Wellington had a good old walk down memory lane, the band were top drawer, and we paid our respects. Comfy slippers indeed.
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=2b4e341a" alt="Fat Freddy's Drop Setlist Michael Fowler Centre, Wellington, New Zealand 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=2b4e341a" loading="lazy" decoding="async" alt="Fat Freddy's Drop Setlist Michael Fowler Centre, Wellington, New Zealand 2026" />

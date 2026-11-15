@@ -1136,3 +1136,50 @@ describe('Smoke Tests - Template semantics (#254)', function () {
     }
   });
 });
+
+describe('Smoke Tests - Image alt text (#258)', function () {
+  this.timeout(30000);
+
+  const gigsDir = path.join('content', 'posts', 'gigs');
+  const gigFiles = fs.readdirSync(gigsDir).filter((f) => f.endsWith('.md'));
+  const postFiles = fs.readdirSync(path.join('content', 'posts')).filter((f) => f.endsWith('.md'));
+  const builtPages = [
+    ...postFiles.map((f) => ['posts', f.replace(/\.md$/, ''), 'index.html']),
+    ...gigFiles.map((f) => ['posts', 'gigs', f.replace(/\.md$/, ''), 'index.html'])
+  ];
+  // The setlist modal's hidden placeholder gets its alt when it opens.
+  const contentImages = ($) => $('main img').not('#setlist-modal-img');
+
+  it('should give every content image non-empty alt text, unique on its page', function () {
+    for (const parts of builtPages) {
+      const $ = load(...parts);
+      const alts = contentImages($).map((_, el) => $(el).attr('alt') ?? '').get();
+      alts.forEach((alt) => expect(alt.trim(), `${parts[parts.length - 2]}: empty alt`).to.not.equal(''));
+      const dupes = alts.filter((alt, i) => alts.indexOf(alt) !== i);
+      expect(dupes, `${parts[parts.length - 2]}: duplicate alt text`).to.be.empty;
+    }
+  });
+
+  it('should never name another gig\'s venue in a gig\'s alt text', function () {
+    const venues = gigFiles.map((f) => matter(fs.readFileSync(path.join(gigsDir, f), 'utf8')).data.venue).filter(Boolean);
+    for (const file of gigFiles) {
+      const { venue } = matter(fs.readFileSync(path.join(gigsDir, file), 'utf8')).data;
+      if (!venue) continue;
+      const others = [...new Set(venues)].filter((v) => v !== venue && !venue.includes(v) && !v.includes(venue));
+      const $ = load('posts', 'gigs', file.replace(/\.md$/, ''), 'index.html');
+      contentImages($).each((_, el) => {
+        const alt = $(el).attr('alt');
+        others.forEach((other) => expect(alt, `${file}: alt names ${other}`).to.not.contain(other));
+      });
+    }
+  });
+
+  it('should label recording downloads with what they are', function () {
+    for (const file of gigFiles) {
+      const $ = load('posts', 'gigs', file.replace(/\.md$/, ''), 'index.html');
+      $('main a[href$=".mp3"]').each((_, el) => {
+        expect($(el).text(), file).to.match(/recording of .+\(MP3\)/);
+      });
+    }
+  });
+});

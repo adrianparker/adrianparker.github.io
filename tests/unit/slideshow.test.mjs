@@ -34,6 +34,16 @@ describe("slideshow — slideshowShortcode", () => {
       })
     );
     fs.writeFileSync(path.join(setsDir, "Empty.json"), JSON.stringify({ photos: [] }));
+    fs.writeFileSync(
+      path.join(setsDir, "Shared.json"),
+      JSON.stringify({
+        photos: [
+          { name: "IMG_1", width: 800, height: 600, caption: "Band at Venue" },
+          { name: "IMG_2", width: 800, height: 600, caption: "Band at Venue" },
+          { name: "IMG_3", width: 800, height: 600, caption: "Crowd" }
+        ]
+      })
+    );
     html = slideshowShortcode(MEDIA, "A-Gig", "Band & Co @ Venue", setsDir);
   });
 
@@ -70,6 +80,14 @@ describe("slideshow — slideshowShortcode", () => {
   it("falls back to a positional alt when a photo has no caption", () => {
     expect(html).to.contain('alt="Band &amp; Co @ Venue, photo 1 of 3"');
     expect(html).to.contain('alt="Band &amp; Co @ Venue, photo 3 of 3"');
+  });
+
+  it("numbers the alt text of a caption shared within the set, leaving unique captions and figcaptions as written", () => {
+    const shared = slideshowShortcode(MEDIA, "Shared", "Band", setsDir);
+    expect(shared).to.contain('alt="Band at Venue, photo 1 of 3"');
+    expect(shared).to.contain('alt="Band at Venue, photo 2 of 3"');
+    expect(shared).to.contain('alt="Crowd"');
+    expect(shared.match(/<figcaption class="slideshow-caption">Band at Venue<\/figcaption>/g)).to.have.lengthOf(2);
   });
 
   it("uses a caption as both alt text and a visible figcaption, escaped", () => {

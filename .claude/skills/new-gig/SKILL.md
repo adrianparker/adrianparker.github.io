@@ -98,10 +98,10 @@ What to carry over (check these against the posts again each time rather than tr
 - **Always embed the headline act's setlist.fm image**, in addition to the layout's setlist chip, whenever the headliner has a setlist id in `setlistfm` that isn't marked `:empty`. Put it at the very end of the post, after the recording line if there is one, using the id from the front matter (support acts don't get one):
 
   ```html
-  <img src="https://www.setlist.fm/widgets/setlist-image-v1?id=<id>" alt="<Headline Artist> Setlist <Venue>, <City>, <Country> <YYYY>" />
+  <img src="https://www.setlist.fm/widgets/setlist-image-v1?id=<id>" loading="lazy" decoding="async" alt="<Headline Artist> Setlist <Venue>, <City>, <Country> <YYYY>" />
   ```
 
-  e.g. `alt="The Datsuns Setlist San Fran, Wellington, New Zealand 2026"`. If the headliner has no id, or it's `:empty`, omit the image. Where he recorded the show, include the `<a href="...">download the recording</a>` line. Use `{% image %}` / `{% slideshow %}` only if photos were published for placement in the body (the `photos:` front matter already adds the slideshow).
+  e.g. `alt="The Datsuns Setlist San Fran, Wellington, New Zealand 2026"`. If the headliner has no id, or it's `:empty`, omit the image. Where he recorded the show, include the recording line, with link text that says what it is: `<a href="...">download the recording of the show (MP3)</a>` (or "of <Act>'s set" for one act). Use `{% image %}` / `{% slideshow %}` only if photos were published for placement in the body (the `photos:` front matter already adds the slideshow).
 
 ### Write it
 
@@ -131,7 +131,7 @@ Optional — ask each one individually, but don't block on them:
 
 - **Support artists** — a list
 - **Setlist.fm id(s)** — the hex id from the end of each performer's setlist.fm URL (e.g. `.../wiltern-theatre-los-angeles-ca-34b29cb.html` → `34b29cb`)
-- **Photos** — a folder of photos from the gig. If there is one, publish it as a set named after the gig file stem (`npm run photos -- <stem> <folder> --upload`, see README → Photos) and set `photos: '<stem>'`.
+- **Photos** — a folder of photos from the gig. If there is one, publish it as a set named after the gig file stem (`npm run photos -- <stem> <folder> --upload`, see README → Photos) and set `photos: '<stem>'`. Rename the files descriptively first (`<artist>-<venue>-<city>-<yyyy-mm-dd>-01.jpeg`, not `IMG_1234.jpeg`), and caption each photo with the performer, the venue from the front matter, and the date.
 
 Filename: `content/posts/gigs/YYYYMMDD-Artist-Venue-City.md`, using the gig date. The convention is loose after the date — artist alone is fine when it's unambiguous.
 

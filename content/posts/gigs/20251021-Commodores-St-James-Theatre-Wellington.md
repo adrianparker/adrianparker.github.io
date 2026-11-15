@@ -27,4 +27,4 @@ It was groovy as, and we had a great night out. Bravo.
 
 <!-- cspell:words Komodo Balong bogan croony Nightshift -->
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=7b5816f0" alt="Commodores Setlist St James Theatre, Wellington, New Zealand 2025" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=7b5816f0" loading="lazy" decoding="async" alt="Commodores Setlist St James Theatre, Wellington, New Zealand 2025" />

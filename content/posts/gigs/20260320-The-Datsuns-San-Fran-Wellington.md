@@ -32,4 +32,4 @@ Dolf belts out a good tune. The mix was good, the amps were loud, and there were
 
 Overall a proper rock and roll night out, and I went home with my ears ringing and a grin on my face.
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=134db981" alt="The Datsuns Setlist San Fran, Wellington, New Zealand 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=134db981" loading="lazy" decoding="async" alt="The Datsuns Setlist San Fran, Wellington, New Zealand 2026" />

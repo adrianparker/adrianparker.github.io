@@ -38,4 +38,4 @@ Of the two songs I cared about, **I Want Your Love** fell foul of the bad mix an
 
 Other than that - competent, professional. They won't be back, and that's OK. Once was enough. Glad to add them to the scrapbook, and it was a lovely date night out down memory lane.
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=73438e1d" alt="Transvision Vamp Setlist Meow Nui, Wellington, New Zealand 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=73438e1d" loading="lazy" decoding="async" alt="Transvision Vamp Setlist Meow Nui, Wellington, New Zealand 2026" />

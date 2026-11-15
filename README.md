@@ -160,6 +160,13 @@ small manifest committed alongside the content.
   `name` is the source filename without its extension; `width`/`height` are
   the largest variant's, so the page can reserve the right space before the
   image arrives. Array order is display order.
+
+  Name source files descriptively before publishing, e.g.
+  `shihad-meow-nui-wellington-2025-03-16-01.jpeg` rather than `IMG_9410.jpeg`:
+  the name becomes part of every image URL. Existing sets keep their names
+  (#258). Give each photo a `caption` naming who, where and when; a caption
+  shared by several photos in a set is numbered in their alt text
+  automatically, so the alt text stays unique on the page.
 - The `image` shortcode looks the photo up in its manifest and emits the
   responsive `<picture>` (one `<source>` per format, jpeg `<img>` fallback,
   lazy-loaded, captioned). An unknown set or photo name fails the build.
