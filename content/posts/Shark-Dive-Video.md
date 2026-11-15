@@ -17,6 +17,6 @@ We were on Viti Levu in Fiji a day ahead of everyone else in order to take in th
 
 We did two dives that day, this is a highlights reel from the first:
 
-{% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+1.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive highlights" %}
+{% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+1+-1080p.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive highlights" %}
 
 <!-- cspell:words Beqa Viti Levu -->
