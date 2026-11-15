@@ -1000,3 +1000,69 @@ describe('Smoke Tests - Site Stats', function () {
     expect(fs.existsSync(sitePath('SiteStats'))).to.be.false;
   });
 });
+
+describe('Smoke Tests - Social and search head metadata (#252)', function () {
+  this.timeout(30000);
+
+  const PAGES = {
+    home: ['index.html'],
+    post: ['posts', 'Wine-Cork-Notice-Board-How-To', 'index.html'],
+    gig: ['posts', 'gigs', '20250316-Shihad-Meow-Nui-Wellington', 'index.html'],
+    app: ['Gig-History', 'index.html']
+  };
+  const prop = ($, name) => $(`meta[property="${name}"]`).attr('content');
+  const named = ($, name) => $(`meta[name="${name}"]`).attr('content');
+
+  for (const [kind, parts] of Object.entries(PAGES)) {
+    it(`should carry the full Open Graph and Twitter set with absolute URLs on the ${kind} page`, function () {
+      const $ = load(...parts);
+      for (const p of ['og:title', 'og:description', 'og:url', 'og:site_name', 'og:image', 'og:image:alt']) {
+        expect(prop($, p), p).to.be.a('string').and.not.empty;
+      }
+      expect(prop($, 'og:locale')).to.equal('en_NZ');
+      expect(prop($, 'og:url')).to.match(/^https:\/\//);
+      expect(prop($, 'og:image')).to.match(/^https:\/\//);
+      for (const n of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
+        expect(named($, n), n).to.be.a('string').and.not.empty;
+      }
+      expect(named($, 'description')).to.equal(prop($, 'og:description'));
+    });
+  }
+
+  it('should mark posts and gigs as articles, and other pages as websites', function () {
+    for (const kind of ['post', 'gig']) {
+      const $ = load(...PAGES[kind]);
+      expect(prop($, 'og:type'), kind).to.equal('article');
+      expect(prop($, 'article:published_time'), kind).to.match(/^\d{4}-\d{2}-\d{2}$/);
+      expect(prop($, 'article:author'), kind).to.equal('https://www.adrianparker.com/about/');
+    }
+    for (const kind of ['home', 'app']) {
+      const $ = load(...PAGES[kind]);
+      expect(prop($, 'og:type'), kind).to.equal('website');
+      expect(prop($, 'article:published_time'), kind).to.be.undefined;
+    }
+  });
+
+  it('should use a content image for a large card, and the portrait for a small one', function () {
+    const post = load(...PAGES.post);
+    expect(prop(post, 'og:image')).to.contain(MEDIA_URL);
+    expect(named(post, 'twitter:card')).to.equal('summary_large_image');
+    const app = load(...PAGES.app);
+    expect(prop(app, 'og:image')).to.equal('https://www.adrianparker.com/img/Adrian-170x158.jpeg');
+    expect(named(app, 'twitter:card')).to.equal('summary');
+  });
+
+  it('should lead every gig description with its summary, not the templated sentence', function () {
+    const dir = path.join('content', 'posts', 'gigs');
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.md'))) {
+      const { data } = matter(fs.readFileSync(path.join(dir, file), 'utf8'));
+      if (!data.summary) continue;
+      const description = named(load('posts', 'gigs', file.replace(/\.md$/, ''), 'index.html'), 'description');
+      expect(description, file).to.not.match(/^Concert review of/);
+    }
+  });
+
+  it('should spell Wellington correctly on the Shihad gig', function () {
+    expect(named(load(...PAGES.gig), 'description')).to.contain('Meow Nui, Wellington,');
+  });
+});
