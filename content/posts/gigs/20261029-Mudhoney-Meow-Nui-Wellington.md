@@ -26,7 +26,7 @@ Delaney Davidson is a solo blues guy, and he was looking pretty dapper in a shir
 
 He's no spring chicken, but there are still plenty of years to go. The good thing about blues musicians is they tend to get better the older they get, and Delaney is no exception. I'd heard of him a fair bit before now, but this was my first time hearing him live, and on this evidence I'd be keen to catch him do a headline show at some small, intimate little venue if I ever get the chance.
 
-I recorded his set on my phone, feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/20261029+Delaney+Davidson.mp3">download the recording</a> if you like - the Mudhoney cover is at 13 minutes in.
+I recorded his set on my phone, feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/20261029+Delaney+Davidson.mp3">download the recording of Delaney Davidson's set (MP3)</a> if you like - the Mudhoney cover is at 13 minutes in.
 
 ## Mudhoney
 
@@ -46,8 +46,8 @@ When you include a song about not liking the chardonnay on the rider backstage, 
 
 All in all a great show. I'd highly recommend seeing Mudhoney if you get the chance, but you probably do want to be a bit of a fan, or at least a fan of the Seattle sound, for it to really resonate.
 
-I recorded their set too, feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/20261029+Mudhoney.mp3">download the recording</a> if you want.
+I recorded their set too, feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/20261029+Mudhoney.mp3">download the recording of Mudhoney's set (MP3)</a> if you want.
 
 <!-- cspell:words Mudhoney Melvins Jazzmaster growly Maddison Legolas grungers -->
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=137ee1cd" alt="Mudhoney Setlist Meow Nui, Wellington, New Zealand 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=137ee1cd" loading="lazy" decoding="async" alt="Mudhoney Setlist Meow Nui, Wellington, New Zealand 2026" />

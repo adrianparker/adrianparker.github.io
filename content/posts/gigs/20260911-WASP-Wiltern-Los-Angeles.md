@@ -29,7 +29,7 @@ KK's Priest opened with a trio of classic Judas Priest tunes, and ex-Judas Pries
 
 They played my favourite song - Turbo Lover - and the rest of the set was great too. 
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=234b28ef" alt="KK's Priest Setlist The Wiltern, Los Angeles, United States of America 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=234b28ef" loading="lazy" decoding="async" alt="KK's Priest Setlist The Wiltern, Los Angeles, United States of America 2026" />
 
 ## W.A.S.P.
 
@@ -49,6 +49,6 @@ One song, Headless Children I think, had a backdrop montage of Adolf Hitler clip
 
 I didn't give a damn about the set though. I was there for the memories. Air drumming, loud singing, goat horns thrust into the air, it was majestic. Worth every penny. Fourteen year old me had the time of his life.
 
-I recorded the show on my phone, it a bit sketchy but feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/W.A.S.P.+-+Live+at+The+Wiltern%2C+Los+Angeles+2026-09-11.mp3">download the recording</a> if you want.
+I recorded the show on my phone, it a bit sketchy but feel free to <a href="https://d200vq1iaq5hh.cloudfront.net/W.A.S.P.+-+Live+at+The+Wiltern%2C+Los+Angeles+2026-09-11.mp3">download the recording of the show (MP3)</a> if you want.
 
-<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=34b29cb" alt="W.A.S.P. Setlist The Wiltern, Los Angeles, United States of America 2026" />
+<img src="https://www.setlist.fm/widgets/setlist-image-v1?id=34b29cb" loading="lazy" decoding="async" alt="W.A.S.P. Setlist The Wiltern, Los Angeles, United States of America 2026" />
