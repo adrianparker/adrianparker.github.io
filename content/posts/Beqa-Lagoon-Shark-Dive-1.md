@@ -1,7 +1,7 @@
 ---
 layout: post-layout.njk
-title: 'Shark Dive Video'
-navtitle: 'Shark Dive Video'
+title: 'Beqa Lagoon Shark Dive'
+navtitle: 'Beqa Lagoon Shark Dive'
 summary: 'Leo and I went on the world famous shark dive at Beqa Lagoon, in Fiji.'
 metadesc: 'Video of our first shark dive at Beqa Lagoon, Fiji: bull sharks, nurse sharks and more up close.'
 date: 2025-09-20
