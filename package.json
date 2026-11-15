@@ -77,6 +77,7 @@
     "pngjs": "^7.0.0"
   },
   "allowScripts": {
-    "fsevents@2.3.3": true
+    "fsevents@2.3.3": true,
+    "github:adrianparker/ExifCmdLine#d1f66b83553fcd099eda6b4e5c5ad05fcab6872d": true
   }
 }
