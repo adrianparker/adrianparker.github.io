@@ -4,7 +4,7 @@ navtitle: '2025 Shihad'
 summary: 'Shihad''s last ever show'
 metadesc: 'Concert review of Shihad at Meow Nui, Wellington, 16 March 2025.'
 date: 2025-03-16
-readingtime: '1 minute'
+readingtime: '2 minutes'
 headlineArtist: 'Shihad'
 supportArtists: ['Shepherd''s Reign, The Boondocks']
 venue: 'Meow Nui'

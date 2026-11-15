@@ -4,8 +4,11 @@ navtitle: 'Wine Cork Notice Board'
 summary: 'Tidy up those bits of paper and feel good about wine consumption with this easy DIY craft project'
 metadesc: 'A step by step guide to making a wine cork notice board made from recycled wine corks.'
 date: 2023-10-28
-readingtime: '3 minutes'
+readingtime: '4 minutes'
+dateModified: 2026-11-15
 ---
+<p class="quick-answer"><strong>Quick answer:</strong> you need about one wine cork for every 9 cm<sup>2</sup> of the frame's internal area, or one per 18 cm<sup>2</sup> if your corks are interesting enough to use both halves. Add a large blank photo frame, a lot of glue, a Stanley knife, a handful of spare corks for bad cuts, and a small person you trust with the knife.</p>
+
 I'm not generally regarded as an arts and crafts type of person. Arts, perhaps, especially the musical kind; and crafty, sure, I can identify with that; but put the two words together and generally that's enough to make me run for the hills.
 
 However I've been collecting wine corks for seemingly forever, and the last couple of years I've been assiduously putting off this project, until last weekend when I said to myself, you know what, get it done. And so I did. 
@@ -58,3 +61,21 @@ Use a stud finder to find a suitably strong part of the wall, then measure caref
 Hang it, and enjoy the tranquility of being able to pin random bits of paper on the wall!
 
 {% image "Wine-Cork-Notice-Board-How-To/IMG_7121", "Installed wine cork notice board above a bench, where random bits of paper tend to collect" %}
+
+## Common questions
+
+### How many corks do I need?
+
+About one cork per 9 cm<sup>2</sup> of frame internal area, or one per 18 cm<sup>2</sup> if you cut each cork in half and use both halves. My frame's internal area was 3500 cm<sup>2</sup>, which works out at roughly 390 corks, or about 195 using both halves. Keep a handful of extras for bad cuts and breakages.
+
+### Which glue should I use?
+
+I used spray-on glue, and paste will work fine I guess. Whichever you choose, be generous with it.
+
+### How do I cut wine corks?
+
+Lengthways with a Stanley knife, preserving the most interesting details. Cut the whole length each time but only a third of the depth: three shallow cuts are much easier than one full-depth cut. Keep the offcuts, they fill the small gaps at the end.
+
+### How do I hang it?
+
+Use a stud finder to find a suitably strong part of the wall, then measure carefully to get the notice board square and level.

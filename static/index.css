@@ -781,6 +781,15 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+/* The how-to posts' Quick answer (#259): the quote panel, as a callout. */
+.blog-post .quick-answer {
+  margin: 1.25em 0;
+  padding: 0.75em 1.1em;
+  background: var(--color-hairline);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 6px 6px 0;
+}
+
 .blog-post blockquote > :first-child {
   margin-top: 0;
 }

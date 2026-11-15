@@ -1246,3 +1246,31 @@ describe('Smoke Tests - Internal linking (#256)', function () {
     featuredUrls.forEach((url) => expect(sidebarLinks, `sidebar links ${url}`).to.include(url));
   });
 });
+
+describe('Smoke Tests - Wine Cork content and gig dates (#259)', function () {
+  this.timeout(30000);
+
+  // No Date row in the facts table: it was dropped as a duplicate on
+  // 2026-11-01, and the byline now carries the date in a <time> (#254).
+  it('should carry the Shihad gig date machine-readably in the byline', function () {
+    const $ = load('posts', 'gigs', '20250316-Shihad-Meow-Nui-Wellington', 'index.html');
+    expect($('.byline time').first().attr('datetime')).to.equal('2025-03-16');
+  });
+
+  it('should give the Wine Cork post a quick answer and common questions', function () {
+    const $ = load(...PHOTO_POST);
+    expect($('.quick-answer').text()).to.contain('9 cm');
+    expect($('h2').map((_, el) => $(el).text()).get()).to.include('Common questions');
+    expect($('h3').length).to.be.at.least(4);
+  });
+
+  it('should show and advertise the Wine Cork post\'s modified date', function () {
+    const $ = load(...PHOTO_POST);
+    expect($('.byline').text()).to.contain('Updated');
+    expect($('.byline time').last().attr('datetime')).to.equal('2026-11-15');
+    expect($('meta[property="article:modified_time"]').attr('content')).to.equal('2026-11-15');
+    const $sitemap = cheerio.load(read('sitemap.xml'), { xmlMode: true });
+    const entry = $sitemap('url').filter((_, el) => $sitemap(el).find('loc').text().endsWith('/Wine-Cork-Notice-Board-How-To/'));
+    expect(entry.find('lastmod').text()).to.equal('2026-11-15');
+  });
+});
