@@ -12,6 +12,8 @@ import { expect } from 'chai';
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
+import matter from 'gray-matter';
+import { parseSetlistIds } from '../lib/setlist-ids.mjs';
 
 const SITE = path.join(process.cwd(), '_site');
 
@@ -176,6 +178,33 @@ describe('Smoke Tests - Gig Post Type', function () {
   it('should not render a setlist chip for a performer whose id is marked :empty', function () {
     const $ = load(...GIG_POST);
     expect($('.gig-metadata .setlist-chip'), 'suppressed chip').to.have.lengthOf(0);
+  });
+
+  // #208: a support act with no setlist of its own used to inherit the
+  // headliner's chip, so clicking "Ivy" opened Teen Jesus's setlist.
+  it('should not give a support act without a setlist the headliner\'s chip', function () {
+    const $ = load('posts', 'gigs', '20260523-Teen-Jesus-and-the-Jean-Teasers-San-Fran-Wellington', 'index.html');
+    const chips = $('.gig-metadata .setlist-chip');
+    expect(chips.map((_, el) => $(el).attr('data-artist')).get()).to.deep.equal(['Teen Jesus & the Jean Teasers']);
+  });
+
+  it('should only ever link a setlist chip to its own performer\'s setlist, on every gig post', function () {
+    const gigsDir = path.join('content', 'posts', 'gigs');
+    const gigs = fs.readdirSync(gigsDir).filter((f) => f.endsWith('.md'));
+    let checked = 0;
+    for (const file of gigs) {
+      const { data } = matter(fs.readFileSync(path.join(gigsDir, file), 'utf8'));
+      const ids = parseSetlistIds(data.setlistfm);
+      const $ = load('posts', 'gigs', file.replace(/\.md$/, ''), 'index.html');
+      $('.gig-metadata .setlist-chip').each((_, el) => {
+        const artist = $(el).attr('data-artist');
+        const entry = ids.get(artist);
+        expect(entry, `${file}: chip for ${artist} has no setlistfm entry`).to.exist;
+        expect($(el).attr('data-setlist-id'), `${file}: chip for ${artist}`).to.equal(entry.id);
+        checked++;
+      });
+    }
+    expect(checked, 'chips checked across all gig posts').to.be.greaterThan(0);
   });
 
   it('should only render the setlist modal markup on a gig post that has a visible chip', function () {
