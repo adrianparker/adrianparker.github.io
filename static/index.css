@@ -883,6 +883,17 @@ figure {
   padding-left: 1.2em;
 }
 
+/* Keep visited review links accent-coloured like links elsewhere, rather
+   than the text colour the generic li>a:visited rule gives them. */
+.hub-reviews li>a:visited {
+  color: var(--color-accent);
+}
+
+.hub-reviews li>a:hover,
+.hub-reviews li>a:active {
+  color: var(--color-muted);
+}
+
 .hub-review-date {
   color: var(--color-text);
   opacity: 0.75;
