@@ -6,6 +6,7 @@ No major AI provider has confirmed it reads llms.txt; this file is a cheap court
 
 ## Sections
 
+- [About](https://www.adrianparker.com/about/): who writes this site
 - [Posts](https://www.adrianparker.com/posts/): every blog post, newest first
 - [Gigs](https://www.adrianparker.com/gigs/): concert reviews, with setlists and photos
 - [Apps](https://www.adrianparker.com/apps/): browser-based tools, including Gig History (every gig attended) and an EXIF Viewer

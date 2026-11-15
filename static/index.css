@@ -461,7 +461,9 @@ html.js .sidebar-collapse {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
+  /* Tight enough for all five sections, About included (#251), on one line
+     at phone width. The links' own min-width keeps each tap target 44px. */
+  gap: 0.25rem;
 }
 
 .mobile-menu-list li {
@@ -476,7 +478,7 @@ html.js .sidebar-collapse {
   justify-content: center;
   min-height: 44px;
   min-width: 44px;
-  padding: 0 0.9em;
+  padding: 0 0.6em;
   color: var(--color-text);
   text-decoration: none;
   border-radius: 4px;

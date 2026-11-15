@@ -1,0 +1,51 @@
+---json
+{
+  "layout": "base-layout.njk",
+  "title": "About Adrian Parker",
+  "metadesc": "Adrian Parker, Wellington, New Zealand: product person, scuba diver, Fulham and Wellington Phoenix fan, and the writer behind AdrianParker.com.",
+  "permalink": "/about/index.html",
+  "date": "2026-11-15",
+  "person": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.adrianparker.com/#person",
+    "name": "Adrian Parker",
+    "url": "https://www.adrianparker.com/about/",
+    "image": "https://www.adrianparker.com/img/Adrian-170x158.jpeg",
+    "homeLocation": { "@type": "Place", "name": "Wellington, New Zealand" },
+    "sameAs": [
+      "https://www.linkedin.com/in/adrianparker",
+      "https://github.com/adrianparker",
+      "https://www.flickr.com/photos/adrianparker",
+      "https://www.youtube.com/@AdrianParkerNZ",
+      "https://open.spotify.com/user/phuego",
+      "https://x.com/adriangparker"
+    ],
+    "knowsAbout": ["Product management", "Software", "Finance", "Investment", "Travel", "Scuba diving", "Live music", "Football", "Wine"]
+  }
+}
+---
+{#
+  The Person node's @id, https://www.adrianparker.com/#person, is the one
+  every other page's structured data points at for author and publisher
+  (#251, #253). Keep it exactly as it is.
+#}
+<script type="application/ld+json">{{ person | dump | safe }}</script>
+<div class="post">
+    <article class="blog-post">
+        <h1>About Adrian Parker</h1>
+
+        <p>I'm Adrian Parker, and I live in Wellington, New Zealand.</p>
+
+        <p>When I first started this site, I thought I might write <a href="/posts/">posts</a> about product management, finance, software, investment and travel, adorned with whimsical anecdotes about life. Instead, I review the <a href="/gigs/">gigs</a> I go to, and keep a <a href="/Gig-History/">history of every one</a>. And I build small <a href="/apps/">browser-based apps</a> that run entirely on your own computer.</p>
+
+        <p>Away from the keyboard I'm a keen scuba diver (see <a href="/posts/Tangalooma-Wrecks/">Tangalooma Wrecks</a> and <a href="/posts/Beqa-Lagoon-Shark-Dive-1/">sharks at Beqa Lagoon</a>), and passionate about football: I've been both a Fulham FC and Wellington Phoenix season ticket holder, and follow them both closely. I'm also an <a href="/posts/Last-Ever-Last-Ever/">ex bootleg kingpin</a> and a reformed wine enthusiast with a <a href="/posts/Wine-Cork-Notice-Board-How-To/">notice board made of the evidence</a>.</p>
+
+        <h2 id="contact">Contact</h2>
+        <p>The best way to reach me is a message on <a href="https://www.linkedin.com/in/adrianparker">LinkedIn</a>.</p>
+        <p>Spotted something wrong or broken on this site? <a href="https://github.com/adrianparker/adrianparker.github.io/issues">Open an issue on GitHub</a>.</p>
+
+        <br/>
+        <br/>
+    </article>
+</div>

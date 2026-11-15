@@ -4,8 +4,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="refresh" content="0; url={{ redirectTo }}">
-        <link rel="canonical" href="{{ redirectTo }}">
-        <meta name="robots" content="noindex">
+        {#- No noindex: an instant meta refresh is already treated as a
+            redirect, and noindex alongside it sends search engines mixed
+            signals (#251). Stubs stay out of the sitemap instead. The
+            canonical drops any #fragment, which canonicals cannot carry. #}
+        <link rel="canonical" href="{{ redirectTo.split('#')[0] }}">
         <title>{{ title }}</title>
     </head>
 
