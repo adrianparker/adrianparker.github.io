@@ -1,4 +1,16 @@
+# Everyone, search engines and AI crawlers alike, is welcome to everything.
+# The AI crawlers are listed by name only to make that explicit (#250).
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.adrianparker.com/sitemap.xml

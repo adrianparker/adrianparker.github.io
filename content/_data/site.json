@@ -5,6 +5,9 @@
     "_mediaUrl": "CloudFront in front of the S3 bucket holding published photos, video and audio. Used by the image shortcode and the CSP in partials/head.njk.",
     "mediaUrl": "https://d200vq1iaq5hh.cloudfront.net",
 
+    "_indexNowKey": "Proves to IndexNow that this site owns its submissions (#250). Served as static/<key>.txt; the two must match. Not a secret: IndexNow keys are public by design.",
+    "indexNowKey": "d1339af60c95ffa5ec34691e95af21fe",
+
     "_externals": "Rendered by partials/externals.njk in two places: the desktop sidebar and the mobile footer. 'kind' selects the presentation — plain external links, or the RSS and X buttons which carry their own icon styling.",
     "externals": [
         { "title": "Flickr", "url": "https://www.flickr.com/photos/adrianparker/albums", "kind": "link" },

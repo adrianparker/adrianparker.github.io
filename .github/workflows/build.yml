@@ -19,6 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    outputs:
+      indexnow-payload: ${{ steps.indexnow.outputs.payload }}
+
     steps:
       - uses: actions/checkout@v7
 
@@ -42,6 +45,13 @@ jobs:
 
       - name: Validate HTML
         run: npm run lint:html
+
+      # Compares the new build with what is still live, so it must run
+      # before deploy. Never fails the build: no payload just means no ping.
+      - name: Find pages changed for IndexNow
+        id: indexnow
+        continue-on-error: true
+        run: echo "payload=$(node scripts/indexnow.mjs)" >> "$GITHUB_OUTPUT"
 
       # Visual regression deliberately does not run here — baselines are
       # macOS-generated and Ubuntu rasterises text differently. See #44.
@@ -69,3 +79,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # Tells IndexNow (Bing, Yandex, Seznam...) which pages this deploy changed
+  # (#250). Soft by design: a failed ping never fails the deploy.
+  indexnow:
+    needs: [build, deploy]
+    if: needs.build.outputs.indexnow-payload != ''
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions: {}
+
+    steps:
+      - name: Ping IndexNow
+        env:
+          PAYLOAD: ${{ needs.build.outputs.indexnow-payload }}
+        run: >-
+          curl --fail-with-body -sS --max-time 30
+          -X POST https://api.indexnow.org/indexnow
+          -H 'Content-Type: application/json; charset=utf-8'
+          --data "$PAYLOAD"

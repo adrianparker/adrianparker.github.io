@@ -655,6 +655,31 @@ describe('Smoke Tests - Discoverability', function () {
     expect(robots).to.contain('Sitemap: https://www.adrianparker.com/sitemap.xml');
   });
 
+  it('should welcome AI crawlers by name in robots.txt and disallow nothing', function () {
+    const robots = read('robots.txt');
+    for (const bot of ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended']) {
+      expect(robots, bot).to.contain(`User-agent: ${bot}`);
+    }
+    expect(robots).to.not.match(/^Disallow:/m);
+  });
+
+  it('should serve the IndexNow key file matching site.json', function () {
+    const { indexNowKey } = JSON.parse(fs.readFileSync('content/_data/site.json', 'utf8'));
+    expect(indexNowKey).to.match(/^[0-9a-f]{32}$/);
+    expect(read(`${indexNowKey}.txt`)).to.equal(indexNowKey);
+  });
+
+  it('should serve llms.txt linking to the main sections', function () {
+    const llms = read('llms.txt');
+    for (const section of ['/posts/', '/gigs/', '/apps/']) {
+      expect(llms).to.contain(`https://www.adrianparker.com${section}`);
+    }
+  });
+
+  it('should keep redirect stubs out of the sitemap', function () {
+    expect(read('sitemap.xml')).to.not.contain('/GigTracker/');
+  });
+
   it('should generate a sitemap listing every page', function () {
     const $ = cheerio.load(read('sitemap.xml'), { xmlMode: true });
     const locs = $('url > loc').map((_, l) => $(l).text()).get();
