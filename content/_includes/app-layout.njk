@@ -24,10 +24,9 @@
           Nothing sits between the nav and the app: the app supplies its own
           <h1>.
         #}
+        {#- The app column precedes the sidebar in the source; .sidebar's
+            `order: -1` keeps it on the left visually (#254). -#}
         {% include "partials/app-nav.njk" %}
-        {% set sidebarOnApp = true %}
-        {% include "partials/sidebar.njk" %}
-
         <div class="app-column">
             <main id="main">
                 {{ content | safe }}
@@ -35,6 +34,9 @@
 
             {% include "partials/site-footer.njk" %}
         </div>
+
+        {% set sidebarOnApp = true %}
+        {% include "partials/sidebar.njk" %}
     </body>
 
 </html>

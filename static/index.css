@@ -275,6 +275,9 @@ html, label, button, input, select, textarea, .pure-g [class *="pure-u"] {
 }
 
 .sidebar {
+  /* Last in the source, after the content (#254), but first on screen:
+     left of it on desktop, above it on a phone. */
+  order: -1;
   position: sticky;
 
   /* The initial offset is a margin, NOT the sticky `top`.

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { renderMarkdown, readableDate, isoDate, limit, markdownLibrary } from "../../lib/filters.mjs";
+import { renderMarkdown, stripHeadings, readableDate, isoDate, limit, markdownLibrary } from "../../lib/filters.mjs";
 
 describe("filters — limit", () => {
   it("returns the first n items", () => {
@@ -144,5 +144,20 @@ describe("filters — renderMarkdown", () => {
     const out = renderMarkdown("| A |\n|---|\n| a |\n");
     expect(out).to.not.contain("class=");
     expect(out).to.not.contain("style=");
+  });
+});
+
+describe("filters — stripHeadings", () => {
+  it("removes headings of every level, with their content and trailing space", () => {
+    const html = '<h2 id="a">A busy day</h2>\n<p>One</p><h3>Sub <em>head</em></h3><p>Two</p><h6>x</h6>';
+    expect(stripHeadings(html)).to.equal("<p>One</p><p>Two</p>");
+  });
+
+  it("leaves other markup, including header elements, alone", () => {
+    expect(stripHeadings("<header><p>Hi</p></header><hr>")).to.equal("<header><p>Hi</p></header><hr>");
+  });
+
+  it("returns an empty string for no input", () => {
+    expect(stripHeadings()).to.equal("");
   });
 });

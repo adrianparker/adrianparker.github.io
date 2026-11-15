@@ -9,9 +9,11 @@
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
 
+        {#- The content column comes before the sidebar in the source, so
+            crawlers, screen readers and keyboard users reach the article
+            before ~40 navigation links. .sidebar's `order: -1` puts it back
+            on the left (above, on a phone) visually (#254). -#}
         <div id="layout" class="pure-g">
-            {% include "partials/sidebar.njk" %}
-
             <div class="content pure-u-1">
                 <main id="main">
                     {{ content | safe }}
@@ -20,6 +22,8 @@
                 {% include "partials/subscribe-form.njk" %}
                 {% include "partials/site-footer.njk" %}
             </div>
+
+            {% include "partials/sidebar.njk" %}
         </div>
     </body>
 

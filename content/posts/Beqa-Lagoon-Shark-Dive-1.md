@@ -9,8 +9,6 @@ readingtime: '1 minute'
 tags: ['post', 'diving']
 ---
 
-## Beqa Lagoon shark dive
-
 We were on Viti Levu in Fiji, on our way out to Plantation Island in the Mamanuca island chain of the west coast. We'd come up to Fiji for an extended family birthday celebration holiday. But we came a day ahead of the wider group in order for Leo and I to take in the shark dive at Beqa Lagoon. 
 
 We were so glad we did.
