@@ -9,6 +9,7 @@ import { slideshowShortcode } from "./lib/slideshow.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
 import { parseSetlistIds, anyVisibleChip } from "./lib/setlist-ids.mjs";
 import { siteStatsView } from "./lib/site-stats.mjs";
+import { isArticle, metaDescription, ogImage, duplicateHeadValues } from "./lib/head-meta.mjs";
 
 import site from "./content/_data/site.json" with { type: "json" };
 
@@ -116,6 +117,25 @@ export default function (eleventyConfig) {
   // turns the Site Stats snapshot (content/_data/siteStats.mjs) into what
   // the /Site-Stats/ templates draw
   eleventyConfig.addFilter("siteStatsView", siteStatsView);
+  eleventyConfig.addFilter("isArticle", isArticle);
+  eleventyConfig.addFilter("metaDescription", metaDescription);
+  eleventyConfig.addFilter("ogImage", (page) => ogImage({
+    ...page,
+    siteUrl: site.url,
+    mediaUrl: site.mediaUrl,
+    defaultImage: "/img/Adrian-170x158.jpeg",
+    defaultAlt: "Adrian Parker"
+  }));
+
+  /*
+    A warning, not a failure (#252): two pages sharing a <title> or meta
+    description compete with each other in search results.
+  */
+  eleventyConfig.on("eleventy.after", ({ results }) => {
+    const { titles, descriptions } = duplicateHeadValues(results);
+    for (const { value, urls } of titles) console.warn(`[head] duplicate <title> "${value}": ${urls.join(", ")}`);
+    for (const { value, urls } of descriptions) console.warn(`[head] duplicate meta description "${value}": ${urls.join(", ")}`);
+  });
 
   // enable RSS
   eleventyConfig.addPlugin(pluginRss);
