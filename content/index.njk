@@ -19,7 +19,7 @@ metadesc: Writing by Adrian Parker, on topics like product management, finance, 
         <p class="blog-post-summary">
         {{ post.data.summary | safe }}
         </p>
-            {{ post.page.excerpt | md | safe }}
+            {{ post.page.excerpt | md | stripHeadings | safe }}
 
             <a href="{{ post.page.url | url }}">Read more...</a>
     </section>

@@ -1066,3 +1066,73 @@ describe('Smoke Tests - Social and search head metadata (#252)', function () {
     expect(named(load(...PAGES.gig), 'description')).to.contain('Meow Nui, Wellington,');
   });
 });
+
+describe('Smoke Tests - Template semantics (#254)', function () {
+  this.timeout(30000);
+
+  /** Every authored, non-redirect HTML page in _site, as [relative path, html]. */
+  const pages = () => {
+    const out = [];
+    const walk = (dir) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) { if (entry.name !== 'dist') walk(full); continue; }
+        if (!entry.name.endsWith('.html')) continue;
+        const html = fs.readFileSync(full, 'utf8');
+        if (!html.includes('http-equiv="refresh"')) out.push([path.relative(SITE, full), html]);
+      }
+    };
+    walk(SITE);
+    return out;
+  };
+
+  it('should put <main> before the sidebar nav in source order', function () {
+    for (const parts of [['posts', 'Last-Ever-Last-Ever', 'index.html'], ['index.html'], ['Gig-History', 'index.html']]) {
+      const html = read(...parts);
+      expect(html.indexOf('<main id="main">'), parts.join('/')).to.be.lessThan(html.indexOf('id="sidebar"'));
+    }
+  });
+
+  it('should keep the skip link pointing at <main>', function () {
+    const $ = load('posts', 'Last-Ever-Last-Ever', 'index.html');
+    expect($('a.skip-link').attr('href')).to.equal('#main');
+    expect($('main#main')).to.have.lengthOf(1);
+  });
+
+  it('should give content pages a banner, and app pages exactly one', function () {
+    expect(load('posts', 'Last-Ever-Last-Ever', 'index.html')('body > #layout header, body > header')).to.have.lengthOf(1);
+    const app = load('Gig-History', 'index.html');
+    expect(app('#sidebar header'), 'no second banner in the app sidebar').to.have.lengthOf(0);
+  });
+
+  it('should have exactly one H1 and no skipped heading levels on every page', function () {
+    for (const [file, html] of pages()) {
+      const $ = cheerio.load(html);
+      const levels = $('h1, h2, h3, h4, h5, h6').map((_, el) => Number(el.tagName[1])).get();
+      expect(levels.filter((l) => l === 1), `${file}: H1 count`).to.have.lengthOf(1);
+      levels.forEach((level, i) => {
+        if (i > 0) expect(level, `${file}: heading ${i} jumps from h${levels[i - 1]}`).to.be.at.most(levels[i - 1] + 1);
+      });
+      const h1 = $('h1').text().trim().toLowerCase();
+      expect($('h2').first().text().trim().toLowerCase(), `${file}: first H2 repeats the H1`).to.not.equal(h1);
+    }
+  });
+
+  it('should show no excerpt headings on the index pages', function () {
+    for (const parts of [['index.html'], ['posts', 'index.html'], ['gigs', 'index.html']]) {
+      const $ = load(...parts);
+      expect($('.posts section :header:not(.entry-title)'), parts.join('/')).to.have.lengthOf(0);
+    }
+  });
+
+  it('should show a byline with the published date on posts and gigs', function () {
+    for (const parts of [['posts', 'Last-Ever-Last-Ever', 'index.html'], ['posts', 'gigs', '20250316-Shihad-Meow-Nui-Wellington', 'index.html']]) {
+      const $ = load(...parts);
+      const byline = $('.blog-post .byline');
+      expect(byline.find('a[rel="author"]').attr('href'), parts.join('/')).to.equal('/about/');
+      expect(byline.text()).to.contain('By Adrian Parker');
+      expect(byline.find('time').first().attr('datetime')).to.match(/^\d{4}-\d{2}-\d{2}$/);
+      expect(byline.text()).to.contain('Reading time');
+    }
+  });
+});

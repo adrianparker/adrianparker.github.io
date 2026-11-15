@@ -25,8 +25,12 @@
 {% set isPosts = page.url == '/posts/' or (tags and 'post' in tags) %}
 {% set isGigs = page.url == '/gigs/' or (tags and 'gig' in tags) %}
 
+{#- The sidebar's top block is the page banner on content pages. App pages
+    already have app-nav.njk's <header>, so there it stays a <div> rather
+    than become a second banner landmark. -#}
+{% set headerTag = 'div' if sidebarOnApp else 'header' %}
 <div class="sidebar pure-u-1" id="sidebar">
-    <div class="header">
+    <{{ headerTag }} class="header">
         <a href="/" class="sidebar-rail-home" aria-label="{{ site.name }} - home">
             <img src="/img/Adrian-170x158.jpeg" alt="" width="170" height="158"/>
         </a>
@@ -61,7 +65,7 @@
         {% include "partials/mobile-nav.njk" %}
         {% endif %}
         {% include "partials/sidebar-nav.njk" %}
-    </div>
+    </{{ headerTag }}>
 </div>
 
 <script>

@@ -6,8 +6,6 @@ metadesc: 'A step by step guide to making a wine cork notice board made from rec
 date: 2023-10-28
 readingtime: '3 minutes'
 ---
-## How to make a Wine Cork Notice Board
-
 I'm not generally regarded as an arts and crafts type of person. Arts, perhaps, especially the musical kind; and crafty, sure, I can identify with that; but put the two words together and generally that's enough to make me run for the hills.
 
 However I've been collecting wine corks for seemingly forever, and the last couple of years I've been assiduously putting off this project, until last weekend when I said to myself, you know what, get it done. And so I did. 
