@@ -4,7 +4,9 @@ import {
   recentPosts,
   recentGigs,
   homePagePosts,
-  SIDEBAR_ITEM_LIMIT
+  featuredEntries,
+  SIDEBAR_ITEM_LIMIT,
+  FEATURED_LIMIT
 } from "../../lib/collections.mjs";
 
 /** Minimal stand-in for Eleventy's collection API. */
@@ -104,5 +106,20 @@ describe("collections — homePagePosts", () => {
 
   it("returns an empty array when there is nothing at all", () => {
     expect(homePagePosts(fakeCollectionApi({}))).to.deep.equal([]);
+  });
+});
+
+const post = (url, date, data = {}) => ({ url, date: new Date(date), data: { tags: ["post"], ...data } });
+
+describe("collections — featuredEntries", () => {
+  it("returns featured entries newest first, capped", () => {
+    const entries = [1, 2, 3, 4, 5, 6].map((n) => post(`/p/${n}/`, `2020-0${n}-01`, { featured: n !== 3 }));
+    const featured = featuredEntries(entries);
+    expect(featured).to.have.lengthOf(FEATURED_LIMIT);
+    expect(featured.map((e) => e.url)).to.deep.equal(["/p/6/", "/p/5/", "/p/4/", "/p/2/"]);
+  });
+
+  it("only counts featured: true", () => {
+    expect(featuredEntries([post("/p/x/", "2020-01-01", { featured: "yes" })])).to.deep.equal([]);
   });
 });

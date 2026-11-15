@@ -1,0 +1,15 @@
+---
+pagination:
+  data: collections.venueHubs
+  size: 1
+  alias: hub
+  addAllPagesToCollections: true
+permalink: "/gigs/venues/{{ hub.slug }}/"
+layout: hub-layout.njk
+eleventyComputed:
+  title: "Gigs at {{ hub.name }}"
+  hubHeading: "Gigs I have seen at {{ hub.name }}"
+  hubLede: "{{ hub.reviews.length }} reviews of shows at {{ hub.name }}, plus every gig there in my Gig History."
+  metadesc: "Adrian Parker's {{ hub.reviews.length }} concert reviews from {{ hub.name }}, with every gig he has been to there."
+  date: "{{ hub.reviews[hub.reviews.length - 1].date | isoDate }}"
+---

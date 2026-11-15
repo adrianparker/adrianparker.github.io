@@ -12,5 +12,8 @@ layout: base-layout.njk
 
         {{ content | safe }}
 
+        {% set entryCollection = collections.post %}
+        {% set entryKind = 'post' %}
+        {% include "partials/entry-nav.njk" %}
 	</article>
 </div>

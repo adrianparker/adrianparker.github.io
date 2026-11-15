@@ -114,7 +114,7 @@ tags: ['post']
 
 Keep the key order above. Body starts with an `##` heading. Place a `<!-- excerpt -->` marker after the first paragraph or two — everything before it becomes the index-page excerpt.
 
-Optional extra tags alongside `post`: `popular` (surfaces it in the sidebar), plus free-form topic tags such as `diving`.
+Optional extra tags alongside `post`: free-form topic tags such as `diving`. Add `featured: true` (its own key, not a tag) to list a post in the sidebar; up to four, newest first.
 
 ### Gig
 

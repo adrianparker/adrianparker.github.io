@@ -1,0 +1,15 @@
+---
+pagination:
+  data: collections.artistHubs
+  size: 1
+  alias: hub
+  addAllPagesToCollections: true
+permalink: "/gigs/artists/{{ hub.slug }}/"
+layout: hub-layout.njk
+eleventyComputed:
+  title: "{{ hub.name }} gig reviews"
+  hubHeading: "Gigs I have seen by {{ hub.name }}"
+  hubLede: "{{ hub.reviews.length }} reviews of {{ hub.name }} live, plus every {{ hub.name }} show in my Gig History."
+  metadesc: "Adrian Parker's {{ hub.reviews.length }} concert reviews of {{ hub.name }}, with every {{ hub.name }} gig he has been to."
+  date: "{{ hub.reviews[hub.reviews.length - 1].date | isoDate }}"
+---

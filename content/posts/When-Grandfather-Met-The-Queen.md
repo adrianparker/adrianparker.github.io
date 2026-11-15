@@ -5,7 +5,6 @@ summary: 'It was going to be a busy day at the office. He was about to meet the 
 metadesc: 'My grandfather Walter Parker, Sheriff of the Supreme Court in Wellington, led the judges into Parliament when Queen Elizabeth II opened it in 1954.'
 date: 2026-10-25
 readingtime: '13 minutes'
-tags: ['popular']
 ---
 ## A busy day at the office
 

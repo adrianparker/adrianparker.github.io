@@ -3,7 +3,7 @@
   Desktop sidebar navigation. Hidden below the breakpoint, where
   partials/mobile-nav.njk and partials/site-footer.njk take over.
 
-  Posts are deduplicated across the "recent" and "popular" lists via `seen`,
+  Posts are deduplicated across the "recent" and "featured" lists via `seen`,
   so a post that is both does not appear twice.
 #}
 <nav class="pure-menu custom-restricted-width" aria-label="Sections and recent entries">
@@ -44,7 +44,8 @@
         {% endif %}
         {% endfor %}
 
-        {% for post in collections.popular | reverse %}
+        {#- Featured (#256): up to four posts with `featured: true`. -#}
+        {% for post in collections.featured %}
         {% if post.page.fileSlug not in seen %}
             {% if page.fileSlug == post.page.fileSlug %}
             <li class="pure-menu-item pure-menu-selected">

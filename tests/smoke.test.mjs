@@ -1183,3 +1183,66 @@ describe('Smoke Tests - Image alt text (#258)', function () {
     }
   });
 });
+
+describe('Smoke Tests - Internal linking (#256)', function () {
+  this.timeout(30000);
+
+  const gigsDir = path.join('content', 'posts', 'gigs');
+  // Renamed gigs leave redirect stubs behind in the same directory.
+  const isStub = (file) => 'redirectTo' in matter(fs.readFileSync(file, 'utf8')).data;
+  const gigFiles = fs.readdirSync(gigsDir).filter((f) => f.endsWith('.md') && !isStub(path.join(gigsDir, f)));
+  const postFiles = fs.readdirSync(path.join('content', 'posts')).filter((f) => f.endsWith('.md'));
+  const entries = [
+    ...postFiles.map((f) => ({ url: `/posts/${f.replace(/\.md$/, '')}/`, parts: ['posts', f.replace(/\.md$/, ''), 'index.html'] })),
+    ...gigFiles.map((f) => ({ url: `/posts/gigs/${f.replace(/\.md$/, '')}/`, parts: ['posts', 'gigs', f.replace(/\.md$/, ''), 'index.html'] }))
+  ];
+
+  it('should not show a Related block on posts or gigs', function () {
+    for (const { url, parts } of entries) {
+      expect(load(...parts)('.related-entries'), url).to.have.lengthOf(0);
+    }
+  });
+
+  it('should link older and newer entries within the same collection', function () {
+    const $ = load('posts', 'gigs', '20260320-The-Datsuns-San-Fran-Wellington', 'index.html');
+    expect($('.entry-nav a[rel="prev"]').attr('href')).to.match(/^\/posts\/gigs\//);
+    expect($('.entry-nav a[rel="next"]').attr('href')).to.match(/^\/posts\/gigs\//);
+    const post = load('posts', 'Tangalooma-Wrecks', 'index.html');
+    expect(post('.entry-nav a').map((_, el) => post(el).attr('href')).get().every((h) => !h.includes('/gigs/'))).to.be.true;
+  });
+
+  it('should build hubs for The Datsuns and Meow Nui listing every matching review', function () {
+    const datsuns = load('gigs', 'artists', 'the-datsuns', 'index.html');
+    expect(datsuns('h1').text()).to.equal('Gigs I have seen by The Datsuns');
+    expect(datsuns('.hub-reviews a').map((_, el) => datsuns(el).attr('href')).get()).to.have.members([
+      '/posts/gigs/20090218-Datsuns-Underworld-London/',
+      '/posts/gigs/20260320-The-Datsuns-San-Fran-Wellington/'
+    ]);
+    expect(datsuns('.hub-history tbody tr').length, 'Gig History rows').to.be.greaterThan(0);
+
+    const meowNui = load('gigs', 'venues', 'meow-nui', 'index.html');
+    const meowReviews = gigFiles.filter((f) => matter(fs.readFileSync(path.join(gigsDir, f), 'utf8')).data.venue === 'Meow Nui');
+    expect(meowNui('.hub-reviews li')).to.have.lengthOf(meowReviews.length);
+  });
+
+  it('should list hubs in the sitemap and link them from the review page', function () {
+    const sitemap = read('sitemap.xml');
+    expect(sitemap).to.contain('https://www.adrianparker.com/gigs/artists/the-datsuns/');
+    expect(sitemap).to.contain('https://www.adrianparker.com/gigs/venues/meow-nui/');
+    const $ = load('posts', 'gigs', '20260320-The-Datsuns-San-Fran-Wellington', 'index.html');
+    expect($('.gig-metadata a[href="/gigs/artists/the-datsuns/"]').text()).to.equal('The Datsuns');
+    expect($('.gig-metadata a[href="/gigs/venues/san-fran/"]').text()).to.equal('San Fran');
+    // Warm Leather has one review, so no hub, and must not borrow the headliner's.
+    expect($('.gig-metadata a[href="/gigs/artists/the-datsuns/"]')).to.have.lengthOf(1);
+  });
+
+  it('should show the featured posts in the sidebar', function () {
+    const featured = postFiles.filter((f) => matter(fs.readFileSync(path.join('content', 'posts', f), 'utf8')).data.featured === true);
+    expect(featured.length, 'featured posts').to.be.within(1, 4);
+    const featuredUrls = featured.map((f) => `/posts/${f.replace(/\.md$/, '')}/`);
+    const $ = load('index.html');
+    expect($('.start-here'), 'no Start here list on the home page').to.have.lengthOf(0);
+    const sidebarLinks = $('#sidebar .pure-menu a').map((_, el) => $(el).attr('href')).get();
+    featuredUrls.forEach((url) => expect(sidebarLinks, `sidebar links ${url}`).to.include(url));
+  });
+});
