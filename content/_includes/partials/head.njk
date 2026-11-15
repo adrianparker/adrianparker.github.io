@@ -19,9 +19,14 @@
     })();
 </script>
 
+{#- htmlTitle, when a page sets it, is used verbatim, with no site-name
+    suffix: the home page's descriptive title already names the site. -#}
 {% set pageTitle = title + ' - ' + site.name %}
 {% if site.name === title %}
     {% set pageTitle = title %}
+{% endif %}
+{% if htmlTitle %}
+    {% set pageTitle = htmlTitle %}
 {% endif %}
 {% set currentUrl = site.url + page.url %}
 
@@ -103,3 +108,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="{{ eleventy.generator }}">
 <meta name="description" content="{{ metadesc }}">
+<meta name="author" content="Adrian Parker">

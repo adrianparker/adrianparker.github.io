@@ -79,6 +79,17 @@
             <a href="/gigs/" class="pure-menu-link">All gigs...</a>
         </li>
 
+        {#- On this site, so above Elsewhere rather than in it. Spaced off the
+            gigs list so it does not read as one of them. -#}
+        {% if page.url == '/about/' %}
+        <li class="pure-menu-item menu-item-spaced pure-menu-selected">
+            <div class="pure-menu-link" aria-current="page">About me</div>
+        {% else %}
+        <li class="pure-menu-item menu-item-spaced">
+            <a href="/about/" class="pure-menu-link">About me</a>
+        {% endif %}
+        </li>
+
         <li class="pure-menu-heading">Elsewhere</li>
         {{ sidebarExternals(site.externals) }}
     </ul>

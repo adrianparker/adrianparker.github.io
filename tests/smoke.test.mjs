@@ -655,6 +655,31 @@ describe('Smoke Tests - Discoverability', function () {
     expect(robots).to.contain('Sitemap: https://www.adrianparker.com/sitemap.xml');
   });
 
+  it('should welcome AI crawlers by name in robots.txt and disallow nothing', function () {
+    const robots = read('robots.txt');
+    for (const bot of ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended']) {
+      expect(robots, bot).to.contain(`User-agent: ${bot}`);
+    }
+    expect(robots).to.not.match(/^Disallow:/m);
+  });
+
+  it('should serve the IndexNow key file matching site.json', function () {
+    const { indexNowKey } = JSON.parse(fs.readFileSync('content/_data/site.json', 'utf8'));
+    expect(indexNowKey).to.match(/^[0-9a-f]{32}$/);
+    expect(read(`${indexNowKey}.txt`)).to.equal(indexNowKey);
+  });
+
+  it('should serve llms.txt linking to the main sections', function () {
+    const llms = read('llms.txt');
+    for (const section of ['/posts/', '/gigs/', '/apps/']) {
+      expect(llms).to.contain(`https://www.adrianparker.com${section}`);
+    }
+  });
+
+  it('should keep redirect stubs out of the sitemap', function () {
+    expect(read('sitemap.xml')).to.not.contain('/GigTracker/');
+  });
+
   it('should generate a sitemap listing every page', function () {
     const $ = cheerio.load(read('sitemap.xml'), { xmlMode: true });
     const locs = $('url > loc').map((_, l) => $(l).text()).get();
@@ -734,9 +759,11 @@ describe('Smoke Tests - Renamed gig redirect stubs', function () {
     expect($('link[rel="canonical"]').attr('href')).to.equal(NEW_URL);
   });
 
-  it('should keep the old URL out of search results', function () {
+  // #251: no noindex. The instant refresh already reads as a redirect;
+  // noindex beside it is a mixed signal. The sitemap test keeps it unlisted.
+  it('should not mark the redirect stub noindex', function () {
     const $ = load(...OLD_URL);
-    expect($('meta[name="robots"]').attr('content')).to.equal('noindex');
+    expect($('meta[name="robots"]')).to.have.lengthOf(0);
   });
 
   it('should give a no-JS reader a working link to follow', function () {
@@ -754,8 +781,63 @@ describe('Smoke Tests - Renamed app redirect stubs', function () {
     const $ = load('GigTracker', 'index.html');
     expect($('meta[http-equiv="refresh"]').attr('content')).to.equal('0; url=/Gig-History/');
     expect($('link[rel="canonical"]').attr('href')).to.equal('/Gig-History/');
-    expect($('meta[name="robots"]').attr('content')).to.equal('noindex');
+    expect($('meta[name="robots"]')).to.have.lengthOf(0);
     expect($('a[href="/Gig-History/"]')).to.have.lengthOf(1);
+  });
+
+  it('should send /contact/ to the About page contact section', function () {
+    const $ = load('contact', 'index.html');
+    expect($('meta[http-equiv="refresh"]').attr('content')).to.equal('0; url=/about/#contact');
+    expect($('link[rel="canonical"]').attr('href'), 'canonical drops the fragment').to.equal('/about/');
+    expect(read('sitemap.xml')).to.not.contain('/contact/');
+  });
+});
+
+describe('Smoke Tests - About page and author identity (#251)', function () {
+  this.timeout(30000);
+
+  it('should build /about/ with a #contact section and one H1', function () {
+    const $ = load('about', 'index.html');
+    expect($('h1')).to.have.lengthOf(1);
+    expect($('#contact')).to.have.lengthOf(1);
+    expect(read('sitemap.xml')).to.contain('https://www.adrianparker.com/about/');
+  });
+
+  it('should emit Person JSON-LD with the stable @id other pages reference', function () {
+    const $ = load('about', 'index.html');
+    const blocks = $('script[type="application/ld+json"]').map((_, el) => JSON.parse($(el).text())).get();
+    const person = blocks.find((b) => b['@type'] === 'Person');
+    expect(person, 'Person node').to.exist;
+    expect(person['@id']).to.equal('https://www.adrianparker.com/#person');
+    expect(person.name).to.equal('Adrian Parker');
+    expect(person.sameAs).to.include.members([
+      'https://www.linkedin.com/in/adrianparker',
+      'https://github.com/adrianparker',
+      'https://x.com/adriangparker'
+    ]);
+  });
+
+  it('should link the About page from the sidebar and mobile nav, above Elsewhere, not the footer', function () {
+    const $ = load('posts', 'Last-Ever-Last-Ever', 'index.html');
+    expect($('.pure-menu a[href="/about/"]'), 'sidebar').to.have.lengthOf(1);
+    expect($('.mobile-menu a[href="/about/"]'), 'mobile nav').to.have.lengthOf(1);
+    expect($('.site-footer a[href="/about/"]'), 'no footer link').to.have.lengthOf(0);
+    const items = $('.pure-menu-list > li').map((_, el) => $(el).text().trim()).get();
+    expect(items.indexOf('About me'), 'About sits above the Elsewhere heading').to.be.lessThan(items.indexOf('Elsewhere'));
+    const app = load('Gig-History', 'index.html');
+    expect(app('.app-nav a[href="/about/"]'), 'app nav').to.have.lengthOf(1);
+  });
+
+  it('should give the home page a descriptive title and one H1', function () {
+    const $ = load('index.html');
+    expect($('title').text()).to.equal('Adrian Parker: posts, gig reviews and apps, Wellington NZ');
+    expect($('h1')).to.have.lengthOf(1);
+  });
+
+  it('should name the author on every page', function () {
+    for (const parts of [['index.html'], ['about', 'index.html'], ['Gig-History', 'index.html']]) {
+      expect(load(...parts)('meta[name="author"]').attr('content'), parts.join('/')).to.equal('Adrian Parker');
+    }
   });
 });
 

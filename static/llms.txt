@@ -1,0 +1,14 @@
+# AdrianParker.com
+
+> Personal site of Adrian Parker, Wellington, New Zealand: blog posts on product management, finance, software, investment and travel, concert reviews, and a few small browser-based apps.
+
+No major AI provider has confirmed it reads llms.txt; this file is a cheap courtesy, not a promise.
+
+## Sections
+
+- [About](https://www.adrianparker.com/about/): who writes this site
+- [Posts](https://www.adrianparker.com/posts/): every blog post, newest first
+- [Gigs](https://www.adrianparker.com/gigs/): concert reviews, with setlists and photos
+- [Apps](https://www.adrianparker.com/apps/): browser-based tools, including Gig History (every gig attended) and an EXIF Viewer
+- [Sitemap](https://www.adrianparker.com/sitemap.xml)
+- [Feed](https://www.adrianparker.com/feed.xml)
