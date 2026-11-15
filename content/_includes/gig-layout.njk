@@ -20,7 +20,12 @@ layout: base-layout.njk
                     <tr>
                         <th>Headline</th>
                         <td>
-                            {{ headlineArtist }}
+                            {#- `or false`, as with the setlist entry: setting a name
+                                to undefined inside the support loop below would fall
+                                back to this outer value, linking every support act
+                                to the headliner's hub. -#}
+                            {% set hub = collections.artistHubs | hubFor(headlineArtist) or false %}
+                            {% if hub %}<a href="/gigs/artists/{{ hub.slug }}/">{{ headlineArtist }}</a>{% else %}{{ headlineArtist }}{% endif %}
                             {% set entry = setlistIds.get(headlineArtist) %}
                             {% if entry and not entry.empty %}
                             <button type="button" class="setlist-chip" data-artist="{{ headlineArtist }}" data-setlist-id="{{ entry.id }}" data-venue="{{ venue }}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>
@@ -32,7 +37,8 @@ layout: base-layout.njk
                         <th>Support</th>
                         <td>
                             {% for artist in supportArtists %}
-                            {{ artist }}
+                            {% set hub = collections.artistHubs | hubFor(artist) or false %}
+                            {% if hub %}<a href="/gigs/artists/{{ hub.slug }}/">{{ artist }}</a>{% else %}{{ artist }}{% endif %}
                             {% set entry = setlistIds.get(artist) or false %}
                             {% if entry and not entry.empty %}
                             <button type="button" class="setlist-chip" data-artist="{{ artist }}" data-setlist-id="{{ entry.id }}" data-venue="{{ venue }}" title="View setlist">Setlist <span class="setlist-chip-arrow">&#8250;</span></button>
@@ -44,7 +50,8 @@ layout: base-layout.njk
                     {% endif %}
                     <tr>
                         <th>Venue</th>
-                        <td>{{ venue }}</td>
+                        {% set venueHub = collections.venueHubs | hubFor(venue) %}
+                        <td>{% if venueHub %}<a href="/gigs/venues/{{ venueHub.slug }}/">{{ venue }}</a>{% else %}{{ venue }}{% endif %}</td>
                     </tr>
                     <tr>
                         <th>Location</th>
@@ -60,6 +67,10 @@ layout: base-layout.njk
         <h2>Photos from the gig</h2>
         {% slideshow photos, title %}
         {% endif %}
+
+        {% set entryCollection = collections.gig %}
+        {% set entryKind = 'gig' %}
+        {% include "partials/entry-nav.njk" %}
 
     </article>
 </div>

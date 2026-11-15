@@ -1,0 +1,42 @@
+---
+layout: base-layout.njk
+---
+{#
+  An artist or venue hub (#256): every review of that act or at that venue,
+  then every matching row from the Gig History. Generated from
+  content/gigs/artists.njk and venues.njk; see lib/hubs.mjs.
+#}
+<div class="post">
+    <article class="blog-post hub">
+        <h1>{{ hubHeading }}</h1>
+        <p class="blog-post-summary">{{ hubLede }}</p>
+
+        <h2>Reviews</h2>
+        <ul class="hub-reviews">
+            {% for review in hub.reviews %}
+            <li><a href="{{ review.url }}">{{ review.data.title }}</a> <span class="hub-review-date">{{ review.date | readableDate }}</span></li>
+            {% endfor %}
+        </ul>
+
+        {% if hub.rows.length %}
+        <h2>In the Gig History</h2>
+        <p>{{ hub.rows.length }} {{ 'gig' if hub.rows.length == 1 else 'gigs' }} in my <a href="/Gig-History/">Gig History</a>, newest first.</p>
+        <table class="hub-history">
+            <thead>
+                <tr><th scope="col">Date</th><th scope="col">{{ 'Venue' if hub.kind == 'performer' else 'Show' }}</th><th scope="col">City</th></tr>
+            </thead>
+            <tbody>
+                {% for row in hub.rows %}
+                <tr>
+                    <td><time datetime="{{ row.date }}">{{ row.date }}</time></td>
+                    <td>{{ row.venue if hub.kind == 'performer' else (row.performer | replace('\\,', ',')) }}</td>
+                    <td>{{ row.city }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <p><a href="/gigs/">All gig reviews</a></p>
+    </article>
+</div>

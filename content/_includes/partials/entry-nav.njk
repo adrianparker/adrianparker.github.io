@@ -1,0 +1,13 @@
+{#
+  Bottom of every post and gig (#256): older and newer entries within the
+  same collection. Plain links, no JavaScript. `entryCollection` is
+  collections.post or collections.gig, oldest first.
+#}
+{% set older = entryCollection | getPreviousCollectionItem(page) %}
+{% set newer = entryCollection | getNextCollectionItem(page) %}
+{% if older or newer %}
+<nav class="entry-nav" aria-label="Older and newer {{ entryKind }}s">
+    {% if older %}<a class="entry-nav-older" href="{{ older.url }}" rel="prev"><span class="entry-nav-label">Older {{ entryKind }}</span> {{ older.data.title }}</a>{% endif %}
+    {% if newer %}<a class="entry-nav-newer" href="{{ newer.url }}" rel="next"><span class="entry-nav-label">Newer {{ entryKind }}</span> {{ newer.data.title }}</a>{% endif %}
+</nav>
+{% endif %}

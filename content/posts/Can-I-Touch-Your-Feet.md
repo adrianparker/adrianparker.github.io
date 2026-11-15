@@ -5,7 +5,6 @@ summary: 'The strangest pre-dive gear-up encounter'
 metadesc: 'Strange things can happen when you are gearing up for a dive'
 date: 2026-07-19
 readingtime: '2 minutes'
-tags: ['popular']
 ---
 
 ## That was when it got weird

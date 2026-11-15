@@ -15,7 +15,7 @@ Ask only for what you don't already have:
 - **Navtitle** — short form for the sidebar. Offer a shortened title as the default; many posts just reuse the title.
 - **Summary** — one line, shown on the index page and under the title.
 - **Metadesc** — a search-engine description. Distinct from the summary: written for someone deciding whether to click from a results page.
-- **Tags** — always `post`. Ask whether to add `popular` (surfaces it in the desktop sidebar) or a topic tag such as `diving`.
+- **Tags** — always `post`. Ask whether to add a topic tag such as `diving`, and whether to set `featured: true` (lists it in the sidebar; up to four show, newest first).
 
 ## 2. Filename
 

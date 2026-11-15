@@ -1,15 +1,17 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 import pluginRss from "@11ty/eleventy-plugin-rss";
 
 import { markdownLibrary, renderMarkdown, stripHeadings, readableDate, isoDate, limit } from "./lib/filters.mjs";
-import { recentPosts, recentGigs, homePagePosts } from "./lib/collections.mjs";
+import { recentPosts, recentGigs, homePagePosts, featuredEntries } from "./lib/collections.mjs";
 import { photoShortcode, videoShortcode } from "./lib/shortcodes.mjs";
 import { slideshowShortcode } from "./lib/slideshow.mjs";
 import { injectCspHashes } from "./lib/csp-hash.mjs";
 import { parseSetlistIds, anyVisibleChip } from "./lib/setlist-ids.mjs";
 import { siteStatsView } from "./lib/site-stats.mjs";
 import { isArticle, metaDescription, ogImage, duplicateHeadValues } from "./lib/head-meta.mjs";
+import { buildHubs, hubFor } from "./lib/hubs.mjs";
+import { parseGigHistory } from "./lib/gig-history.mjs";
 
 import site from "./content/_data/site.json" with { type: "json" };
 
@@ -153,6 +155,17 @@ export default function (eleventyConfig) {
 
   // posts and gigs merged, newest first, for the home page and RSS feed
   eleventyConfig.addCollection("homePagePosts", homePagePosts);
+
+  /*
+    Internal linking (#256). Hubs list an act's or venue's reviews plus its
+    Gig History rows, read from the same gig-history.md the app embeds; only
+    acts and venues with two or more reviews get one, so no hub is thin.
+  */
+  const gigHistoryRows = () => parseGigHistory(readFileSync("content/GigHistory/gig-history.md", "utf8"));
+  eleventyConfig.addCollection("artistHubs", (api) => buildHubs(api.getFilteredByTag("gig"), gigHistoryRows(), "performer"));
+  eleventyConfig.addCollection("venueHubs", (api) => buildHubs(api.getFilteredByTag("gig"), gigHistoryRows(), "venue"));
+  eleventyConfig.addCollection("featured", (api) => featuredEntries(api.getFilteredByTag("post")));
+  eleventyConfig.addFilter("hubFor", hubFor);
 
   // A photo from a set already published to the media bucket, referenced
   // as `<set-id>/<name>` — see README → Photos.
