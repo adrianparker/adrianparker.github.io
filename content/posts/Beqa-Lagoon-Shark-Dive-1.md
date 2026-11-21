@@ -3,7 +3,7 @@ layout: post-layout.njk
 title: 'Beqa Lagoon Shark Dive'
 navtitle: 'Beqa Lagoon Shark Dive'
 summary: 'Leo and I went on the world famous shark dive at Beqa Lagoon, in Fiji.'
-metadesc: 'Video of our first shark dive at Beqa Lagoon, Fiji: bull sharks, nurse sharks and more up close.'
+metadesc: 'Video of our shark dives at Beqa Lagoon, Fiji: bull sharks, nurse sharks and more up close.'
 date: 2025-09-20
 readingtime: '1 minute'
 tags: ['post', 'diving']
@@ -21,6 +21,10 @@ All in all it was a great diving experience. And just as advertised, absolutely 
 
 We did two dives that day, this is a highlights video from the first - enjoy!
 
-{% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+1+-1080p.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive highlights" %}
+{% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+1+-1080p.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive 1 highlights" %}
+
+And this is the second - after the surface interval - some gorgesous nurse sharks in amongst the bulls on this one - enjoy!
+
+{% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+2+-+web.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive 2 highlights" %}
 
 <!-- cspell:words Beqa Viti Levu Mamanuca -->
