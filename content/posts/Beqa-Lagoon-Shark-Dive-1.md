@@ -23,7 +23,7 @@ We did two dives that day, this is a highlights video from the first - enjoy!
 
 {% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+1+-1080p.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive 1 highlights" %}
 
-And this is the second - after the surface interval - some gorgesous nurse sharks in amongst the bulls on this one - enjoy!
+And this is the second - after the surface interval - some gorgeous nurse sharks in amongst the bulls on this one - enjoy!
 
 {% video "https://d200vq1iaq5hh.cloudfront.net/20250920+Beqa+Lagoon+Fiji+Shark+Dive+2+-+web.mp4", "video/mp4", "", "Watch: Beqa Lagoon shark dive 2 highlights" %}
 
