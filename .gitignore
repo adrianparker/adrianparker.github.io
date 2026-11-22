@@ -14,3 +14,4 @@ content/GigHistory/claude-cowork
 spellcheck-report.md
 .env
 .cache/
+tests/screenshots/
