@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-21T07:17:30.236Z",
+  "generatedAt": "2026-11-22T04:05:37.265Z",
   "timezone": "Pacific/Auckland",
   "periodDays": 180,
-  "periodStart": "2026-05-26",
-  "periodEnd": "2026-11-21",
+  "periodStart": "2026-05-27",
+  "periodEnd": "2026-11-22",
   "totals": {
-    "pageViews": 1222,
-    "visitors": 596,
+    "pageViews": 1229,
+    "visitors": 598,
     "outboundClicks": 19,
     "themeToggles": 40,
     "themeTogglePeople": 7,
@@ -18,10 +18,10 @@
     ]
   },
   "funnel": {
-    "reported": 596,
+    "reported": 598,
     "flaggedByPostHog": 63,
-    "inferredAutomated": 491,
-    "people": 42,
+    "inferredAutomated": 492,
+    "people": 43,
     "viewed10Plus": 7,
     "returned5PlusDays": 5,
     "inferredMedianSeconds": 0,
@@ -44,31 +44,31 @@
     "compare": [
       {
         "measure": "Sessions",
-        "nzau": 195,
-        "rest": 559,
+        "nzau": 198,
+        "rest": 560,
         "format": "int"
       },
       {
         "measure": "Pages per session",
-        "nzau": 3.35,
+        "nzau": 3.33,
         "rest": 1.02,
         "format": "2dp"
       },
       {
         "measure": "Single-page sessions",
-        "nzau": 35.9,
+        "nzau": 36.4,
         "rest": 99.3,
         "format": "percent"
       },
       {
         "measure": "Median time on site",
-        "nzau": 70,
+        "nzau": 67,
         "rest": 0,
         "format": "seconds"
       },
       {
         "measure": "Average time, multi-page sessions",
-        "nzau": 772,
+        "nzau": 767,
         "rest": 54,
         "format": "seconds"
       }
@@ -82,7 +82,7 @@
       ],
       "nzau": [
         22,
-        5,
+        6,
         4,
         7
       ],
@@ -93,14 +93,14 @@
         0
       ]
     },
-    "humanViews": 667,
-    "heavyReaderViews": 597
+    "humanViews": 673,
+    "heavyReaderViews": 601
   },
   "countries": [
     {
       "name": "China",
-      "visitors": 154,
-      "views": 154
+      "visitors": 156,
+      "views": 156
     },
     {
       "name": "United States",
@@ -129,8 +129,8 @@
     },
     {
       "name": "New Zealand",
-      "visitors": 23,
-      "views": 633
+      "visitors": 24,
+      "views": 639
     },
     {
       "name": "Australia",
@@ -193,16 +193,16 @@
       "visitors": 57
     },
     {
+      "city": null,
+      "countryCode": "CN",
+      "country": "China",
+      "visitors": 46
+    },
+    {
       "city": "Hong Kong",
       "countryCode": "HK",
       "country": "Hong Kong",
       "visitors": 46
-    },
-    {
-      "city": null,
-      "countryCode": "CN",
-      "country": "China",
-      "visitors": 44
     },
     {
       "city": "Ashburn",
@@ -238,24 +238,24 @@
       "city": "Auckland",
       "countryCode": "NZ",
       "country": "New Zealand",
-      "visitors": 14
+      "visitors": 15
     }
   ],
   "devices": [
     {
       "name": "Chrome, Windows",
-      "visitors": 345,
-      "views": 358
+      "visitors": 346,
+      "views": 359
     },
     {
       "name": "Chrome, Mac",
-      "visitors": 94,
-      "views": 137
+      "visitors": 95,
+      "views": 138
     },
     {
       "name": "Mobile Safari, iOS",
-      "visitors": 50,
-      "views": 63
+      "visitors": 51,
+      "views": 65
     },
     {
       "name": "Chrome, Android",
@@ -265,12 +265,12 @@
     {
       "name": "Chrome, iOS",
       "visitors": 21,
-      "views": 408
+      "views": 412
     },
     {
       "name": "Chrome, Linux",
-      "visitors": 14,
-      "views": 14
+      "visitors": 13,
+      "views": 13
     },
     {
       "name": "Unknown, Unknown",
@@ -286,7 +286,7 @@
   "windowWidths": [
     {
       "label": "<500",
-      "visitors": 85
+      "visitors": 86
     },
     {
       "label": "500–767",
@@ -298,36 +298,32 @@
     },
     {
       "label": "1100–1499",
-      "visitors": 190
+      "visitors": 192
     },
     {
       "label": "1500+",
-      "visitors": 311
+      "visitors": 310
     }
   ],
   "languages": [
     {
       "name": "English",
-      "visitors": 417
+      "visitors": 419
     },
     {
       "name": "Chinese",
-      "visitors": 172
+      "visitors": 174
     },
     {
       "name": "Korean",
       "visitors": 3
     },
     {
-      "name": "Turkish",
-      "visitors": 2
-    },
-    {
       "name": "Japanese",
       "visitors": 1
     },
     {
-      "name": "Russian",
+      "name": "Turkish",
       "visitors": 1
     }
   ],
@@ -619,10 +615,10 @@
       {
         "weekOf": "2026-11-16",
         "views": [
-          7,
           9,
-          7,
           14,
+          7,
+          16,
           1,
           3
         ]
@@ -791,7 +787,7 @@
         8,
         8,
         7,
-        3,
+        8,
         2,
         8,
         15
@@ -804,7 +800,7 @@
         0,
         0,
         2,
-        3,
+        4,
         3,
         4,
         2,
@@ -848,8 +844,8 @@
       },
       {
         "title": "Beqa Lagoon Shark Dive",
-        "views": 6,
-        "visitors": 4
+        "views": 10,
+        "visitors": 6
       },
       {
         "title": "How to make a Wine Cork Notice Board",
@@ -1017,13 +1013,13 @@
   "landing": [
     {
       "page": "Home",
-      "sessions": 272,
-      "singlePage": 187
+      "sessions": 271,
+      "singlePage": 185
     },
     {
       "page": "Gigs index",
-      "sessions": 66,
-      "singlePage": 60
+      "sessions": 68,
+      "singlePage": 62
     },
     {
       "page": "Gig History app",
@@ -1073,7 +1069,7 @@
     },
     {
       "page": "Home",
-      "sessions": 21
+      "sessions": 22
     },
     {
       "page": "Gig: Teen Jesus & the Jean Teasers @ San Fran, Wellington",
@@ -1119,14 +1115,14 @@
     "counts": [
       [
         25,
-        34,
+        35,
         30,
         13,
         57
       ],
       [
-        21,
-        51,
+        22,
+        52,
         9,
         11,
         9
@@ -1158,7 +1154,7 @@
     {
       "group": "Direct",
       "detail": "no referrer",
-      "visitors": 544
+      "visitors": 546
     },
     {
       "group": "Internal",
@@ -1184,11 +1180,11 @@
   "returns": [
     {
       "label": "1 day",
-      "visitors": 587
+      "visitors": 588
     },
     {
       "label": "2 days",
-      "visitors": 1
+      "visitors": 2
     },
     {
       "label": "3–4 days",
